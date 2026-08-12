@@ -837,7 +837,90 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   text-transform:uppercase; color:var(--muted); line-height:1.6; }
 .dock__meta b{ display:block; color:var(--gold-lite); font-weight:400; }
 .dock .btn{ --pad-y:13px; --pad-x:22px; font-size:14.5px; border-radius:10px; flex:none; }
-@media (max-width:760px){ .dock{ display:flex; } body{ padding-bottom:0; } }
+/* the dock is fixed, so the page needs matching clearance or it sits on the footer */
+@media (max-width:760px){
+  .dock{ display:flex; }
+  body{ padding-bottom:calc(74px + env(safe-area-inset-bottom)); }
+}
+
+/* ======================================================================
+   MOBILE REFINEMENTS
+   Phone screens are held closer but read in worse conditions, so the
+   decorative 9-11px label sizes that work on a desktop monitor get a
+   floor here, tap targets get real hit area, and vertical rhythm tightens
+   so the page is less of a marathon.
+   ====================================================================== */
+@media (max-width:600px){
+
+  /* --- vertical rhythm: the page is long, buy back some scroll --- */
+  .sec{ padding-block:62px; }
+  .head{ margin-bottom:34px; }
+  .hero{ padding-block:34px 56px; }
+
+  /* --- small-label floor --- */
+  .bar{ font-size:11.5px; letter-spacing:.22em; }
+  .deck__label{ font-size:11.5px; }
+  .deck__unit em{ font-size:11px; letter-spacing:.12em; }
+  .deck__facts div{ font-size:14.5px; }
+  .cta-note{ font-size:12px; }
+  .stats__l{ font-size:11.5px; letter-spacing:.12em; }
+  .guest__tag{ font-size:11px; }
+  .guest__role{ font-size:12px; letter-spacing:.1em; }
+  .guest__creds b, .host__creds b{ font-size:11.5px; }
+  .guest__creds li, .host__creds li{ font-size:15px; }
+  .agenda__note{ font-size:11.5px; letter-spacing:.1em; }
+  .card__tier{ font-size:12px; }
+  .card__save{ font-size:11px; }
+  .card__inherit{ font-size:11px; }
+  .card__flag{ font-size:11px; padding:8px 14px; }
+  .host__stamp span{ font-size:11px; }
+  .deck__sound{ font-size:13px; padding:9px 13px; }
+  .card__seats{ font-size:14.5px; }
+  .eyebrow{ font-size:11.5px; letter-spacing:.26em; }
+  .dock__meta{ font-size:11px; }
+  .foot__bottom > p{ font-size:11.5px; }
+  .foot__disc{ font-size:12.5px; }
+  .foot__legal{ font-size:14px; }
+  .recog__method{ font-size:13px; }
+  .hero__host span{ font-size:13px; }
+  .draft__in{ font-size:12px; }
+
+  /* --- tap targets: 44px minimum --- */
+  .nav__in > a{ display:inline-flex; align-items:center; min-height:44px; }
+  .foot__links a{ padding:12px 15px; }
+  .recog__method a{ display:inline-block; padding:12px 0; }
+  .foot__legalwrap > a{ display:inline-block; padding:6px 0; }
+  .draft__x{ width:44px; height:44px; font-size:22px; }
+
+  /* --- breathing room in dense blocks --- */
+  /* five badges wrap to a lopsided 4+1; a 2+2+1 grid stays symmetric.
+     Explicit px height on the img — a % max-height does not clamp
+     against a grid area here. */
+  .recog__badges{ display:grid; grid-template-columns:1fr 1fr; gap:24px 18px;
+    justify-items:center; align-items:center; }
+  .medal{ display:flex; align-items:center; justify-content:center; }
+  .medal img{ height:62px; width:auto; max-width:100%; object-fit:contain; }
+  .medal:last-child{ grid-column:1 / -1; }
+
+  .qual__item{ padding:18px 16px; }
+  .qual__item p{ font-size:15px; }
+  .topic{ padding:24px 20px 26px; }
+  .topic p{ font-size:15px; }
+  .faq__q{ font-size:15.5px; padding:18px 2px; }
+  .faq__a{ font-size:15px; padding-bottom:22px; }
+  .built__list li, .incl__list li{ font-size:15px; }
+
+  /* --- the skyline is 16:9; in a tall narrow hero, aim the crop at the towers --- */
+  .hero__photo img{ object-position:56% 42%; }
+}
+
+/* very small phones — keep the countdown on one line */
+@media (max-width:380px){
+  .deck__unit{ min-width:46px; }
+  .deck__unit b{ font-size:1.72rem; }
+  .deck__clock{ gap:4px; }
+  .lock__c{ letter-spacing:.34em; }
+}
 
 /* ============================ REVEAL ============================ */
 [data-reveal]{ opacity:0; transform:translateY(22px); }
