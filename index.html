@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 Tampa Bay Retirement Summit — Presented by Walser Wealth Management</title>
+<meta name="description" content="Tampa Bay pre-retirees and retirees: spend one morning gaining real direction on taxes, income, and the decisions that shape your retirement. Saturday, October 17, 2026." />
+<meta property="og:title" content="2026 Tampa Bay Retirement Summit" />
+<meta property="og:description" content="One morning. Real direction on the financial decisions that shape your retirement. Hosted by Rebecca Walser, JD, LLM." />
+<meta property="og:type" content="website" />
+<!-- PREVIEW ONLY — strip these two lines when the page goes live for real -->
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow" />
+
+<!-- ================================================================
+     2026 TAMPA BAY RETIREMENT SUMMIT
+     Presented by Walser Wealth Management
+     Display: Fraunces · Body: Inter · Data: Space Mono
+     Brand navy + gold, orange reserved for CTAs only
+     Signature: gold line-art Tampa skyline + engraved ticket stubs
+
+     ----------------------------------------------------------------
+     SWAP LIST — everything still to be confirmed. Search these tags.
+     ----------------------------------------------------------------
+     [[DATE]]     Saturday, October 17, 2026 (placeholder Saturday).
+                  ALSO update EVENT_DATE at the bottom of this file —
+                  the countdown reads from that one constant.
+     [[VENUE]]    "The Tampa Club" used throughout as placeholder.
+                  Appears in: hero subhead, event chips, agenda band,
+                  who-it's-for, includes list, FAQ #1.
+     [[TIMES]]    Registration 8:30 AM / Start 9:00 AM / End 12:00 PM.
+     [[GUEST]]    Charles Payne is booked. Bio facts are sourced from Fox
+                  Business's own bio page and are accurate as written.
+                  STILL NEEDED: his headshot at Brand Assets/charles-payne.jpg
+                  (use the one his booking agent supplies — it comes with
+                  usage rights; a scraped press photo does not).
+                  Until that file exists the card shows a labeled placeholder.
+                  He is also named in: hero pill, VIP ticket tier, VIP
+                  includes list, and two FAQ answers.
+     [[PRICES]]   Single $47 / Couple $77 / VIP $147, with regular-price
+                  anchors. Section id="tickets".
+     [[SEATS]]    "250 seats" stat + "Only 40 VIP seats" scarcity line.
+     [[CHECKOUT]] Every CTA points to #tickets, and every ticket button
+                  has href="#" — drop in real checkout URLs.
+     [[PHONE]]    (866) 929-3258 used for the events line. Swap if the
+                  summit gets its own number.
+     [[PHOTOS]]   All placehold.co images. Real event/venue photography.
+     [[CHARITY]]  Reference page donates proceeds to a charity. Decide
+                  whether to keep that mechanic — see id="perks".
+
+     COMPLIANCE NOTES — review before publishing:
+     - No client testimonials or performance claims appear anywhere on
+       this page. The SEC Marketing Rule applies to RIA testimonials;
+       the "past events" photo strips carry no attributed claims.
+       If you add real testimonials, add the required disclosures.
+     - Rebecca's credentials mirror the language already used on the
+       main funnel. Confirm final wording with compliance.
+     ================================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --ink:        #0A1E38;
+  --ink-abyss:  #050F1F;
+  --raised:     #0F2A4A;
+  --raised-2:   #123057;
+  --hair:       rgba(200,162,75,.28);
+  --hair-cool:  rgba(159,177,199,.16);
+
+  --gold:       #C8A24B;
+  --gold-lite:  #E4C77E;
+  --gold-deep:  #9E7C2E;
+
+  --orange:     #E8791E;
+  --orange-lo:  #C9631A;
+
+  --ivory:      #F6F2E8;
+  --ivory-2:    #EFE9DA;
+
+  --text:       #EAF0F8;
+  --muted:      #9FB1C7;
+  --muted-2:    #74879F;
+  --ink-text:   #17324F;
+  --ink-muted:  #5C7189;
+
+  --maxw: 1200px;
+  --gutter: clamp(20px, 5vw, 64px);
+
+  --r-lg: 22px;
+  --r-md: 14px;
+  --r-sm: 10px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+}
+
+/* ============================ RESET ============================ */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scroll-padding-top:92px; }
+body{
+  font-family:"Inter",system-ui,sans-serif;
+  background:var(--ink-abyss);
+  color:var(--text);
+  line-height:1.6;
+  font-size:17px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+::selection{ background:var(--gold); color:var(--ink); }
+:focus-visible{ outline:2px solid var(--gold-lite); outline-offset:3px; border-radius:4px; }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.sec{ padding-block:clamp(72px,9vw,124px); }
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* film grain — global material texture */
+.grain{ position:fixed; inset:0; z-index:200; pointer-events:none; opacity:.04; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* ---- shared type helpers ---- */
+.eyebrow{
+  font-family:"Space Mono",monospace;
+  font-size:12px; letter-spacing:.34em; text-transform:uppercase;
+  color:var(--gold); display:inline-flex; align-items:center; gap:.7em;
+}
+.eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); opacity:.7; }
+.eyebrow--center{ justify-content:center; }
+.display{
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:400; line-height:1.06; letter-spacing:-.018em;
+  font-optical-sizing:auto;
+}
+.h2{ font-size:clamp(1.95rem,4.2vw,3.15rem); }
+.h3{ font-size:clamp(1.35rem,2.2vw,1.75rem); }
+.lede{ color:var(--muted); font-size:clamp(1rem,1.5vw,1.15rem); line-height:1.62; }
+
+/* engraved gold foil — used on the event wordmark only */
+.foil{
+  background:linear-gradient(178deg,#F3E3B4 4%,var(--gold-lite) 26%,var(--gold) 48%,var(--gold-deep) 66%,var(--gold-lite) 92%);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.4)) drop-shadow(0 0 26px rgba(200,162,75,.22));
+}
+
+/* ============================ BUTTONS ============================ */
+.btn{
+  --pad-y:16px; --pad-x:30px;
+  position:relative; display:inline-flex; align-items:center; justify-content:center; gap:12px;
+  padding:var(--pad-y) var(--pad-x);
+  font-weight:600; font-size:16px; letter-spacing:.005em;
+  color:#fff; border-radius:12px; overflow:hidden; isolation:isolate; text-align:center;
+  background:linear-gradient(180deg, var(--orange), var(--orange-lo));
+  box-shadow:0 1px 0 rgba(255,255,255,.25) inset,
+             0 12px 30px -10px rgba(232,121,30,.6),
+             0 2px 8px rgba(0,0,0,.3);
+  transition:transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+.btn::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(110deg,transparent 20%, rgba(255,255,255,.45) 50%, transparent 80%);
+  transform:translateX(-140%); transition:transform .8s var(--ease);
+}
+.btn:hover{ transform:translateY(-3px);
+  box-shadow:0 1px 0 rgba(255,255,255,.3) inset,
+             0 20px 42px -12px rgba(232,121,30,.72),
+             0 4px 12px rgba(0,0,0,.35); }
+.btn:hover::before{ transform:translateX(140%); }
+.btn:active{ transform:translateY(-1px); }
+.btn--lg{ --pad-y:20px; --pad-x:42px; font-size:18px; border-radius:14px; }
+.btn--block{ display:flex; width:100%; }
+.btn--gold{
+  background:linear-gradient(180deg, var(--gold-lite), var(--gold-deep));
+  color:#2A1F05;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,
+             0 12px 30px -10px rgba(200,162,75,.5),
+             0 2px 8px rgba(0,0,0,.3);
+}
+.btn--gold:hover{ box-shadow:0 1px 0 rgba(255,255,255,.45) inset,
+             0 20px 42px -12px rgba(200,162,75,.62),
+             0 4px 12px rgba(0,0,0,.35); }
+.btn--quiet{
+  background:rgba(255,255,255,.03); color:var(--text);
+  border:1px solid var(--hair); box-shadow:none;
+}
+.btn--quiet:hover{ background:rgba(200,162,75,.09); box-shadow:none; transform:translateY(-2px); }
+
+.cta-note{
+  display:block; margin-top:14px;
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted-2);
+}
+
+/* ====================== DRAFT NOTICE (remove before launch) ====================== */
+.draft{
+  position:relative; z-index:230;
+  background:#151006; border-bottom:1px solid rgba(228,199,126,.35);
+  color:#F0DFAE;
+}
+.draft__in{
+  max-width:1180px; margin:0 auto; padding:11px clamp(16px,4vw,28px);
+  display:flex; align-items:flex-start; gap:16px;
+  font-family:"Space Mono",monospace; font-size:11.5px; line-height:1.65;
+}
+.draft__in b{ color:#FFD97A; letter-spacing:.08em; text-transform:uppercase; }
+.draft__in p{ flex:1; }
+.draft__x{
+  flex:none; width:24px; height:24px; border-radius:6px; line-height:1;
+  font-size:17px; color:#F0DFAE; border:1px solid rgba(228,199,126,.3);
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.draft__x:hover{ background:rgba(228,199,126,.18); color:#fff; }
+.draft[hidden]{ display:none; }
+
+/* ============================ ANNOUNCE BAR ============================ */
+.bar{
+  position:relative; z-index:220;
+  background:linear-gradient(90deg,var(--orange-lo),var(--orange) 50%,var(--orange-lo));
+  color:#fff; text-align:center;
+  font-family:"Space Mono",monospace; font-size:11px;
+  letter-spacing:.3em; text-transform:uppercase;
+  padding:9px 16px;
+}
+
+/* ============================ NAV ============================ */
+.nav{
+  position:sticky; top:0; z-index:210;
+  backdrop-filter:blur(14px);
+  background:linear-gradient(180deg, rgba(6,18,36,.94), rgba(6,18,36,.6));
+  border-bottom:1px solid var(--hair-cool);
+  transition:background .4s var(--ease), border-color .4s var(--ease);
+}
+.nav.is-stuck{ background:rgba(5,15,31,.97); border-bottom-color:var(--hair); }
+.nav__in{ display:flex; align-items:center; justify-content:space-between; gap:20px; height:74px; }
+.nav__logo{ height:40px; width:auto; }
+.nav__right{ display:flex; align-items:center; gap:22px; }
+.nav__meta{
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); text-align:right; line-height:1.5;
+}
+.nav__meta b{ color:var(--gold-lite); font-weight:400; }
+.nav .btn{ --pad-y:12px; --pad-x:22px; font-size:14px; border-radius:10px; }
+@media (max-width:860px){ .nav__meta{ display:none; } }
+@media (max-width:560px){ .nav__logo{ height:32px; } .nav__in{ height:64px; } }
+
+/* ============================ HERO ============================ */
+.hero{ position:relative; overflow:hidden;
+  padding-block:clamp(44px,5.5vw,72px) clamp(52px,6.5vw,86px); }
+
+/* [[PHOTOS]] faint Tampa skyline plate behind everything.
+   Three layers: the photo knocked back, a navy hue wash that kills the
+   magenta bridge lights, then the legibility scrim. */
+.hero__photo{ position:absolute; inset:0; z-index:0; isolation:isolate; }
+.hero__photo img{
+  width:100%; height:100%; object-fit:cover; object-position:center 44%;
+  filter:saturate(.4) contrast(1.05) brightness(.62);
+}
+.hero__photo::before{
+  content:""; position:absolute; inset:0;
+  background:var(--ink); mix-blend-mode:color; opacity:.8;
+}
+.hero__photo::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(112% 86% at 50% 6%, rgba(10,30,56,.46), rgba(6,18,36,.78) 58%, rgba(5,15,31,.92)),
+    linear-gradient(180deg, rgba(5,15,31,.5), rgba(5,15,31,.6) 60%, rgba(5,15,31,.9));
+}
+/* fallback wash so the hero still reads if the photo is missing */
+.hero__wash{ position:absolute; inset:0; z-index:0;
+  background:radial-gradient(120% 90% at 50% -10%, #12365E 0%, var(--ink) 48%, var(--ink-abyss) 100%); }
+
+.hero__in{ position:relative; z-index:2; }
+.hero__grid2{ display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(30px,4vw,58px); align-items:center; }
+@media (max-width:980px){ .hero__grid2{ grid-template-columns:1fr; gap:44px; } }
+
+/* ---- left column ---- */
+.hero__left{ text-align:center; }
+.hero__pill{
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:clamp(20px,3vw,34px);
+  font-size:13px; font-weight:500; letter-spacing:.045em; text-transform:uppercase;
+  color:var(--text);
+  border:1px solid var(--hair); border-radius:100px; padding:9px 20px;
+  background:rgba(10,30,56,.42); backdrop-filter:blur(6px);
+}
+.hero__pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange);
+  box-shadow:0 0 0 0 rgba(232,121,30,.6); animation:pulse 2.2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 9px rgba(232,121,30,0);} 100%{ box-shadow:0 0 0 0 rgba(232,121,30,0);} }
+
+/* stacked event wordmark — the page h1 */
+.lock{ font-size:1rem; font-weight:400; margin:0 0 clamp(22px,3vw,32px); }
+.lock span{ display:block; }
+.lock__year{
+  font-family:"Fraunces",Georgia,serif; font-weight:400;
+  font-size:clamp(1.35rem,3vw,2.2rem); letter-spacing:.3em; line-height:1;
+  color:var(--text); margin-bottom:.34em; padding-left:.3em;
+}
+.lock__a, .lock__b{
+  font-family:"Fraunces",Georgia,serif; font-weight:500;
+  font-size:clamp(2.15rem,5.6vw,4.7rem); line-height:.98; letter-spacing:-.022em;
+  text-transform:uppercase; color:#fff;
+  text-shadow:0 2px 24px rgba(5,15,31,.6);
+}
+.lock__c{
+  font-family:"Inter",sans-serif; font-weight:500;
+  font-size:clamp(.82rem,1.9vw,1.5rem); letter-spacing:.46em; text-transform:uppercase;
+  color:#fff; margin-top:.7em; padding-left:.46em;
+}
+
+.hero__sub{
+  font-size:clamp(1rem,1.55vw,1.2rem); line-height:1.52; color:var(--text);
+  max-width:46ch; margin:0 auto clamp(20px,2.6vw,28px);
+}
+.hero__sub b{ color:var(--gold-lite); font-weight:600; }
+
+/* date + venue line */
+.hero__when{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:10px clamp(18px,2.6vw,32px); margin-bottom:clamp(26px,3.4vw,40px);
+  font-size:15px; color:var(--text);
+}
+.hero__when span{ display:inline-flex; align-items:center; gap:9px; }
+.hero__when svg{ width:16px; height:16px; flex:none; stroke:var(--gold); fill:none; stroke-width:1.7; }
+
+/* CTA + host credit share one line, split by a hairline like the reference */
+.hero__act{ display:flex; flex-wrap:nowrap; justify-content:center; align-items:center;
+  gap:clamp(14px,1.8vw,22px); }
+.hero__act .btn{ flex:none; --pad-x:clamp(20px,2.4vw,30px); font-size:clamp(15px,1.3vw,17px); }
+.hero__host{ text-align:left; max-width:268px;
+  padding-left:clamp(14px,1.8vw,22px); border-left:1px solid var(--hair); }
+.hero__host b{
+  display:block; font-family:"Fraunces",Georgia,serif; font-weight:600;
+  font-size:clamp(.98rem,1.5vw,1.3rem); letter-spacing:.05em; text-transform:uppercase;
+  color:var(--gold-lite); line-height:1.15;
+}
+.hero__host span{ display:block; margin-top:5px; font-size:11.5px; line-height:1.45; color:var(--muted); }
+@media (max-width:560px){
+  .hero__act{ flex-wrap:wrap; flex-direction:column; gap:18px; }
+  .hero__host{ max-width:34ch; padding-left:0; border-left:none; padding-top:18px;
+    border-top:1px solid var(--hair); text-align:center; }
+}
+
+/* ---- right column: the deck ---- */
+.deck{
+  border:1px solid var(--hair-cool); border-radius:var(--r-lg);
+  background:linear-gradient(180deg, rgba(9,22,40,.95), rgba(5,13,26,.97));
+  backdrop-filter:blur(10px);
+  padding:clamp(13px,1.6vw,17px);
+  box-shadow:0 46px 100px -38px rgba(0,0,0,.92), 0 0 0 1px rgba(255,255,255,.03) inset;
+}
+
+/* video */
+.deck__video{
+  position:relative; width:100%; aspect-ratio:16/9;
+  border-radius:13px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.07); background:var(--raised);
+  isolation:isolate;
+}
+.deck__video video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  background:var(--ink);
+}
+/* scrim only while the poster is showing — never dim the playing footage */
+.deck__video::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(70% 70% at 50% 50%, rgba(5,15,31,.14), rgba(5,15,31,.52));
+  transition:opacity .4s var(--ease);
+}
+.deck__video.is-playing::after{ opacity:0; }
+.deck__video.is-playing video{ cursor:pointer; }
+
+.deck__play{
+  position:absolute; left:50%; top:50%; z-index:2; transform:translate(-50%,-50%);
+  width:66px; height:66px; border-radius:50%; display:grid; place-items:center;
+  background:linear-gradient(180deg, var(--orange), var(--orange-lo));
+  box-shadow:0 12px 30px -8px rgba(232,121,30,.66), 0 1px 0 rgba(255,255,255,.28) inset;
+  transition:transform .35s var(--ease-out), opacity .3s var(--ease);
+}
+.deck__video:hover .deck__play{ transform:translate(-50%,-50%) scale(1.08); }
+.deck__play svg{ width:22px; height:22px; margin-left:3px; fill:#fff; }
+.deck__video.is-playing .deck__play{ opacity:0; pointer-events:none; }
+
+.deck__sound{
+  position:absolute; left:14px; top:14px; z-index:3;
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:500; color:var(--text);
+  background:rgba(6,15,30,.78); backdrop-filter:blur(6px);
+  border:1px solid var(--hair-cool); border-radius:8px; padding:7px 12px;
+  transition:background .25s var(--ease), border-color .25s var(--ease);
+}
+.deck__sound:hover{ background:rgba(200,162,75,.22); border-color:var(--hair); }
+.deck__sound[hidden]{ display:none; }
+.deck__sound svg{ width:14px; height:14px; stroke:var(--text); fill:none; stroke-width:1.8; }
+
+/* countdown */
+.deck__label{
+  text-align:center; margin:clamp(18px,2.2vw,24px) 0 clamp(12px,1.6vw,16px);
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--gold);
+}
+.deck__clock{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(6px,1.2vw,14px); }
+.deck__unit{ text-align:center; min-width:clamp(52px,6vw,74px); }
+.deck__unit b{
+  display:block; font-family:"Inter",sans-serif; font-weight:600;
+  font-size:clamp(1.9rem,4vw,2.7rem); line-height:1; color:#fff;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em;
+}
+.deck__unit em{
+  display:block; margin-top:9px; font-style:normal;
+  font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted-2);
+}
+.deck__sep{ font-size:clamp(1.5rem,3vw,2rem); line-height:1.1; color:var(--muted-2); }
+
+.deck__rule{ height:1px; width:60px; margin:clamp(18px,2.2vw,24px) auto;
+  background:linear-gradient(90deg,transparent,var(--hair),transparent); }
+
+/* schedule facts */
+.deck__facts{ display:grid; grid-template-columns:1fr 1fr; gap:13px clamp(14px,2vw,24px);
+  padding:0 clamp(4px,1vw,10px) clamp(6px,1vw,10px); }
+.deck__facts div{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text); }
+.deck__facts svg{ width:16px; height:16px; flex:none; stroke:var(--gold); fill:none; stroke-width:1.7; }
+@media (max-width:420px){ .deck__facts{ grid-template-columns:1fr; } }
+
+/* ============================ STAT STRIP ============================ */
+.stats{ background:var(--ink); border-block:1px solid var(--hair-cool); position:relative; z-index:2; }
+.stats__in{ display:grid; grid-template-columns:repeat(4,1fr); padding-block:38px; }
+.stats__cell{ text-align:center; padding-inline:12px; border-right:1px solid var(--hair-cool); }
+.stats__cell:last-child{ border-right:none; }
+.stats__n{
+  font-family:"Fraunces",Georgia,serif; font-weight:500;
+  font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1; color:var(--gold-lite);
+  letter-spacing:-.02em;
+}
+.stats__l{
+  margin-top:9px; font-family:"Space Mono",monospace; font-size:10px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted-2); line-height:1.6;
+}
+@media (max-width:720px){
+  .stats__in{ grid-template-columns:repeat(2,1fr); gap:30px 0; padding-block:32px; }
+  .stats__cell:nth-child(2n){ border-right:none; }
+}
+
+/* ============================ SECTION HEADS ============================ */
+.head{ text-align:center; max-width:64ch; margin:0 auto clamp(38px,5vw,60px); }
+.head .eyebrow{ margin-bottom:20px; }
+.head p{ margin-top:18px; }
+
+/* ============================ GUEST SPEAKER ============================ */
+.guest{ background:linear-gradient(180deg,var(--ink-abyss),#071528); }
+.guest__card{
+  max-width:880px; margin:0 auto;
+  display:grid; grid-template-columns:300px 1fr; gap:clamp(24px,3.5vw,44px); align-items:stretch;
+  border:1px solid var(--hair); border-radius:var(--r-lg);
+  background:linear-gradient(150deg, var(--raised), var(--ink) 62%);
+  padding:clamp(22px,3vw,34px);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.9);
+}
+@media (max-width:760px){ .guest__card{ grid-template-columns:1fr; text-align:center; justify-items:center; } }
+.guest__photo{
+  position:relative; border-radius:var(--r-md); overflow:hidden;
+  border:1px solid var(--hair); aspect-ratio:4/5; width:100%; max-width:300px;
+  background:var(--raised-2);
+}
+.guest__photo img{ width:100%; height:100%; object-fit:cover; object-position:center top; }
+/* let the portrait run the full height of the card on desktop */
+@media (min-width:761px){ .guest__photo{ aspect-ratio:auto; height:100%; } }
+.guest__photo::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(5,15,31,.6), transparent 45%); }
+.guest__tag{
+  display:inline-block; margin-bottom:14px;
+  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--ink);
+  background:var(--gold-lite); border-radius:100px; padding:5px 13px;
+}
+.guest__name{ font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:8px; }
+.guest__role{
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+}
+.guest__bio{ color:var(--muted); font-size:16px; line-height:1.7; }
+.guest__bio + .guest__bio{ margin-top:14px; }
+.guest__creds{ list-style:none; display:grid; gap:9px; margin-top:22px;
+  padding-top:20px; border-top:1px solid var(--hair-cool); }
+.guest__creds li{ display:flex; gap:12px; align-items:baseline; font-size:14.5px; }
+.guest__creds b{ font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+  color:var(--gold); text-transform:uppercase; min-width:66px; flex:none; }
+.guest__creds span{ color:var(--muted); }
+@media (max-width:760px){ .guest__creds li{ display:block; } .guest__creds b{ display:block; margin-bottom:3px; } }
+
+/* ============================ QUALIFY CHECKLIST ============================ */
+.qual{ background:var(--ink-abyss); }
+.qual__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+@media (max-width:1020px){ .qual__grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .qual__grid{ grid-template-columns:1fr; } }
+.qual__item{
+  display:flex; gap:13px; align-items:flex-start;
+  border:1px solid var(--hair-cool); border-radius:var(--r-md);
+  background:linear-gradient(165deg, rgba(18,48,87,.55), rgba(10,30,56,.3));
+  padding:20px 18px;
+  transition:transform .35s var(--ease-out), border-color .35s var(--ease);
+}
+.qual__item:hover{ transform:translateY(-4px); border-color:var(--hair); }
+.qual__tick{
+  flex:none; width:22px; height:22px; border-radius:6px; margin-top:1px;
+  display:grid; place-items:center;
+  background:linear-gradient(180deg, rgba(200,162,75,.28), rgba(200,162,75,.1));
+  border:1px solid var(--hair);
+}
+.qual__tick svg{ width:12px; height:12px; stroke:var(--gold-lite); fill:none; stroke-width:2.4; }
+.qual__item p{ font-size:14.5px; line-height:1.6; color:var(--text); }
+.qual__foot{ text-align:center; margin-top:clamp(34px,4vw,50px); }
+.qual__foot > p{
+  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-size:clamp(1.15rem,2.2vw,1.5rem); color:var(--gold-lite); margin-bottom:26px;
+}
+
+/* ============================ AGENDA ============================ */
+.agenda{ position:relative; overflow:hidden; }
+.agenda__bg{ position:absolute; inset:0; z-index:0; }
+.agenda__bg img{ width:100%; height:100%; object-fit:cover; }
+.agenda__bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(5,15,31,.93), rgba(10,30,56,.78) 45%, rgba(5,15,31,.94)); }
+.agenda__in{ position:relative; z-index:1; }
+.agenda__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media (max-width:940px){ .agenda__grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:620px){ .agenda__grid{ grid-template-columns:1fr; } }
+.topic{
+  border:1px solid var(--hair-cool); border-radius:var(--r-md);
+  background:rgba(6,18,36,.66); backdrop-filter:blur(6px);
+  padding:26px 24px 28px;
+  transition:transform .4s var(--ease-out), border-color .4s var(--ease), background .4s var(--ease);
+}
+.topic:hover{ transform:translateY(-5px); border-color:var(--hair); background:rgba(15,42,74,.72); }
+.topic__ico{
+  width:42px; height:42px; border-radius:11px; margin-bottom:18px;
+  display:grid; place-items:center;
+  border:1px solid var(--hair);
+  background:linear-gradient(150deg, rgba(200,162,75,.2), rgba(200,162,75,.04));
+}
+.topic__ico svg{ width:20px; height:20px; stroke:var(--gold-lite); fill:none; stroke-width:1.6; }
+.topic h3{ font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:1.24rem;
+  letter-spacing:-.01em; margin-bottom:10px; }
+.topic p{ font-size:14.5px; line-height:1.7; color:var(--muted); }
+.agenda__note{
+  text-align:center; margin-top:34px;
+  font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted-2);
+}
+
+/* ============================ PHOTO STRIPS ============================ */
+.strip{ background:var(--ivory); color:var(--ink-text); }
+.strip .h2{ color:var(--ink-text); }
+.strip__pair{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:900px; margin:0 auto; }
+@media (max-width:700px){ .strip__pair{ grid-template-columns:1fr; } }
+.strip__shot{
+  position:relative; border-radius:var(--r-md); overflow:hidden; aspect-ratio:16/10;
+  border:1px solid rgba(10,30,56,.14);
+  box-shadow:0 24px 50px -28px rgba(10,30,56,.5);
+}
+.strip__shot img{ width:100%; height:100%; object-fit:cover; }
+.strip__line{
+  text-align:center; max-width:52ch; margin:32px auto 0;
+  font-family:"Fraunces",Georgia,serif; font-size:clamp(1.05rem,2vw,1.3rem);
+  line-height:1.45; color:var(--ink-text);
+}
+.strip__cta{ text-align:center; margin-top:30px; }
+.strip .cta-note{ color:var(--ink-muted); }
+
+/* ============================ TICKETS ============================ */
+.tix{ background:var(--ivory-2); color:var(--ink-text); }
+.tix .h2{ color:var(--ink-text); }
+.tix .head p{ color:var(--ink-muted); }
+.tix__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; }
+@media (max-width:940px){ .tix__grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; } }
+
+.card{
+  position:relative; display:flex; flex-direction:column;
+  border-radius:var(--r-lg); overflow:hidden;
+  background:#fff; border:1px solid rgba(10,30,56,.12);
+  box-shadow:0 22px 46px -26px rgba(10,30,56,.34);
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
+}
+.card:hover{ transform:translateY(-6px); box-shadow:0 34px 64px -28px rgba(10,30,56,.42); }
+.card__top{ padding:26px 26px 22px; border-bottom:1px dashed rgba(10,30,56,.18); }
+.card__body{ display:flex; flex-direction:column; flex:1; }
+.card__body .btn{ margin-top:auto; }
+/* engraved ticket-stub perforation */
+.card__perf{ position:relative; height:0; }
+.card__perf::before, .card__perf::after{
+  content:""; position:absolute; top:-13px; width:26px; height:26px; border-radius:50%;
+  background:var(--ivory-2);
+}
+.card__perf::before{ left:-13px; }
+.card__perf::after{ right:-13px; }
+.card__body{ padding:24px 26px 28px; }
+
+.card__tier{
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--ink-muted); margin-bottom:4px;
+}
+.card__seats{ font-size:13.5px; color:var(--ink-muted); margin-bottom:16px; }
+.card__price{ display:flex; align-items:baseline; gap:11px; }
+.card__now{
+  font-family:"Fraunces",Georgia,serif; font-weight:500; letter-spacing:-.03em;
+  font-size:clamp(2.4rem,5vw,3.1rem); line-height:1; color:var(--ink-text);
+}
+.card__was{
+  font-family:"Space Mono",monospace; font-size:15px; color:var(--ink-muted);
+  text-decoration:line-through; text-decoration-thickness:1.5px;
+}
+.card__save{
+  display:inline-block; margin-top:12px;
+  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold-deep);
+  border:1px solid rgba(158,124,46,.4); border-radius:100px; padding:4px 11px;
+}
+.card__list{ list-style:none; margin:20px 0 26px; display:grid; gap:11px; align-content:start; }
+.card__list li{ display:flex; gap:10px; align-items:flex-start; font-size:14.5px; line-height:1.55; }
+.card__list svg{ width:15px; height:15px; flex:none; margin-top:4px;
+  stroke:var(--gold-deep); fill:none; stroke-width:2.4; }
+.card__inherit{
+  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-muted);
+  padding-bottom:12px; margin-bottom:4px; border-bottom:1px solid rgba(10,30,56,.1);
+}
+
+/* VIP — the one elevated card */
+.card--vip{
+  background:linear-gradient(168deg, var(--ink) 0%, #0C2645 55%, var(--raised) 100%);
+  border-color:var(--gold);
+  box-shadow:0 26px 60px -26px rgba(10,30,56,.6), 0 0 0 1px rgba(200,162,75,.25);
+}
+.card--vip .card__top{ border-bottom-color:rgba(200,162,75,.34); }
+.card--vip .card__tier{ color:var(--gold-lite); }
+.card--vip .card__seats{ color:var(--muted); }
+.card--vip .card__now{ color:#fff; }
+.card--vip .card__was{ color:var(--muted-2); }
+.card--vip .card__save{ color:var(--gold-lite); border-color:var(--hair); }
+.card--vip .card__list li{ color:var(--text); }
+.card--vip .card__list svg{ stroke:var(--gold-lite); }
+.card--vip .card__inherit{ color:var(--muted-2); border-bottom-color:var(--hair-cool); }
+.card--vip .card__perf::before, .card--vip .card__perf::after{ background:var(--ivory-2); }
+.card__flag{
+  position:absolute; top:0; right:0; z-index:2;
+  font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:#2A1F05;
+  background:linear-gradient(180deg,var(--gold-lite),var(--gold));
+  padding:7px 15px; border-bottom-left-radius:10px;
+}
+.tix__foot{
+  text-align:center; margin-top:34px; font-size:14px; color:var(--ink-muted);
+  max-width:60ch; margin-inline:auto;
+}
+
+/* ============================ BUILT FOR ============================ */
+.built{ position:relative; overflow:hidden; }
+.built__bg{ position:absolute; inset:0; z-index:0; }
+.built__bg img{ width:100%; height:100%; object-fit:cover; }
+.built__bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(100deg, rgba(5,15,31,.97) 30%, rgba(10,30,56,.86)); }
+.built__in{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1.1fr;
+  gap:clamp(28px,4vw,60px); align-items:center; }
+@media (max-width:880px){ .built__in{ grid-template-columns:1fr; } }
+.built__shot{ border-radius:var(--r-md); overflow:hidden; border:1px solid var(--hair-cool);
+  aspect-ratio:4/3; box-shadow:0 34px 70px -34px rgba(0,0,0,.9); }
+.built__shot img{ width:100%; height:100%; object-fit:cover; }
+.built__list{ list-style:none; display:grid; gap:14px; margin-top:26px; }
+.built__list li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.6; }
+.built__list svg{ width:16px; height:16px; flex:none; margin-top:5px;
+  stroke:var(--gold-lite); fill:none; stroke-width:2.4; }
+.built__pull{
+  margin-top:28px; padding:18px 22px;
+  border-left:2px solid var(--gold); border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:linear-gradient(90deg, rgba(200,162,75,.12), transparent);
+  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-size:1.1rem; line-height:1.5; color:var(--gold-lite);
+}
+.built__cta{ margin-top:30px; }
+
+/* ============================ HOST ============================ */
+.host{ background:linear-gradient(180deg,#071528,var(--ink-abyss)); }
+.host__in{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(28px,4vw,58px); align-items:start; }
+@media (max-width:880px){ .host__in{ grid-template-columns:1fr; } }
+.host__photo{
+  position:relative; border-radius:var(--r-lg); overflow:hidden;
+  border:1px solid var(--hair); aspect-ratio:3/4;
+  box-shadow:0 44px 90px -40px rgba(0,0,0,.9);
+}
+.host__photo img{ width:100%; height:100%; object-fit:cover; object-position:center 12%; }
+.host__photo::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(5,15,31,.72), transparent 42%); }
+.host__stamp{
+  position:absolute; left:20px; bottom:20px; z-index:2;
+}
+.host__stamp b{ display:block; font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:1.3rem; }
+.host__stamp span{ display:block; margin-top:4px;
+  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--gold-lite); }
+.host__body p{ color:var(--muted); font-size:16.5px; line-height:1.78; margin-top:18px; }
+.host__body p b{ color:var(--text); font-weight:500; }
+.host__creds{ list-style:none; display:grid; gap:10px; margin-top:26px;
+  padding-top:26px; border-top:1px solid var(--hair-cool); }
+.host__creds li{ display:flex; gap:12px; align-items:baseline; font-size:15px; }
+.host__creds b{ font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+  color:var(--gold); text-transform:uppercase; min-width:106px; flex:none; }
+.host__creds span{ color:var(--muted); }
+@media (max-width:560px){
+  .host__creds li{ display:block; }
+  .host__creds b{ display:block; margin-bottom:4px; }
+}
+
+/* ============================ CLOSING BANNER ============================ */
+.banner{ position:relative; overflow:hidden; text-align:center; }
+.banner__bg{ position:absolute; inset:0; z-index:0; }
+.banner__bg img{ width:100%; height:100%; object-fit:cover; }
+.banner__bg::after{ content:""; position:absolute; inset:0;
+  background:radial-gradient(80% 100% at 50% 50%, rgba(10,30,56,.86), rgba(5,15,31,.97)); }
+.banner__in{ position:relative; z-index:1; }
+.banner__year{
+  font-family:"Inter",sans-serif; font-weight:600;
+  font-size:clamp(1rem,2.6vw,1.7rem); letter-spacing:.34em; text-transform:uppercase;
+  color:var(--text); margin-bottom:6px;
+}
+.banner__word{
+  font-family:"Fraunces",Georgia,serif; font-weight:600; letter-spacing:-.035em;
+  font-size:clamp(3rem,11vw,8rem); line-height:.92;
+}
+.banner__meta{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px 26px; margin:26px 0 8px;
+  font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted);
+}
+.banner__price{
+  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-size:clamp(1.3rem,3vw,1.9rem); color:var(--gold-lite); margin-bottom:30px;
+}
+
+/* ============================ PERKS ============================ */
+.perks{ background:var(--ink); border-block:1px solid var(--hair-cool); }
+.perks__tag{ text-align:center; margin-bottom:34px; }
+.perks__grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:760px){ .perks__grid{ grid-template-columns:1fr; } }
+.perk{ display:flex; gap:14px; align-items:center;
+  border:1px solid var(--hair-cool); border-radius:var(--r-md);
+  background:rgba(255,255,255,.02); padding:18px 20px; font-size:15px; }
+.perk svg{ width:18px; height:18px; flex:none; stroke:var(--gold-lite); fill:none; stroke-width:2; }
+
+/* ============================ INCLUDES ============================ */
+.incl{ background:var(--ivory); color:var(--ink-text); }
+.incl__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); align-items:start; }
+@media (max-width:820px){ .incl__grid{ grid-template-columns:1fr; } }
+.incl h3{ font-family:"Fraunces",Georgia,serif; font-weight:500;
+  font-size:clamp(1.4rem,2.6vw,1.85rem); letter-spacing:-.02em; color:var(--ink-text); margin-bottom:22px; }
+.incl__list{ list-style:none; display:grid; gap:13px; }
+.incl__list li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.6; }
+.incl__list svg{ width:15px; height:15px; flex:none; margin-top:5px;
+  stroke:var(--gold-deep); fill:none; stroke-width:2.4; }
+.incl__vip{
+  margin-top:26px; border-radius:var(--r-md);
+  background:linear-gradient(160deg, var(--ink), var(--raised));
+  border:1px solid var(--gold); padding:24px 24px 26px;
+}
+.incl__vip h4{
+  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--gold-lite); margin-bottom:16px;
+}
+.incl__vip .incl__list li{ color:var(--text); }
+.incl__vip .incl__list svg{ stroke:var(--gold-lite); }
+
+/* ============================ FAQ ============================ */
+.faq{ background:var(--ivory); color:var(--ink-text); padding-top:0; }
+.faq .h2{ color:var(--ink-text); text-align:center; margin-bottom:clamp(34px,4vw,48px); }
+.faq__list{ max-width:860px; margin:0 auto; border-top:1px solid rgba(10,30,56,.14); }
+.faq__item{ border-bottom:1px solid rgba(10,30,56,.14); }
+.faq__q{
+  display:flex; width:100%; gap:18px; align-items:center; justify-content:space-between;
+  padding:20px 4px; text-align:left; font-size:16px; font-weight:500; color:var(--ink-text);
+  list-style:none; transition:color .25s var(--ease);
+}
+.faq__q::-webkit-details-marker{ display:none; }
+.faq__item:hover .faq__q{ color:var(--gold-deep); }
+.faq__ico{ flex:none; width:16px; height:16px; stroke:var(--gold-deep); fill:none; stroke-width:2;
+  transition:transform .35s var(--ease-out); }
+.faq__item[open] .faq__ico{ transform:rotate(45deg); }
+.faq__a{ padding:0 4px 24px; max-width:72ch; color:var(--ink-muted); font-size:15.5px; line-height:1.75; }
+.faq__cta{ text-align:center; margin-top:clamp(40px,5vw,60px); }
+.faq .cta-note{ color:var(--ink-muted); }
+
+/* ============================ FOOTER ============================ */
+.foot{ position:relative; background:linear-gradient(180deg,#061229,var(--ink-abyss)); }
+.foot::before{ content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,var(--hair),transparent); }
+.recog{ padding-block:clamp(56px,7vw,86px) 10px; text-align:center; }
+.recog__title{ margin:18px 0 34px; font-size:clamp(1.5rem,3vw,2.1rem); }
+.recog__badges{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:clamp(18px,3vw,40px); }
+.medal img{ height:clamp(58px,7vw,84px); width:auto; opacity:.92;
+  transition:transform .35s var(--ease-out), opacity .35s var(--ease); }
+.medal img:hover{ transform:translateY(-4px); opacity:1; }
+.recog__method{ margin-top:28px; font-size:12.5px; color:var(--muted-2); }
+.recog__method a{ color:var(--gold-lite); text-decoration:underline; text-underline-offset:3px; }
+.foot__legalwrap{ text-align:center; padding-block:52px 46px; }
+.foot__logo{ height:56px; width:auto; margin:0 auto 30px; }
+.foot__rule{ height:1px; margin:0 auto 30px; max-width:520px;
+  background:linear-gradient(90deg,transparent,var(--hair),transparent); }
+.foot__legal{ max-width:66ch; margin:0 auto; color:var(--muted-2); font-size:13.5px; line-height:1.75; }
+.foot__legal .strong{ color:var(--muted); font-weight:500; }
+.foot__bottom{ margin-top:26px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.foot__bottom > p{ font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted-2); }
+.foot__links{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; }
+.foot__links a{ color:var(--gold-lite); padding:0 16px; font-size:13.5px;
+  border-right:1px solid var(--hair-cool); transition:color .25s var(--ease); }
+.foot__links a:last-child{ border-right:none; }
+.foot__links a:hover{ color:var(--gold); }
+.foot__disc{ font-size:11.5px; color:var(--muted-2); margin-top:34px; max-width:74ch;
+  margin-inline:auto; line-height:1.7; }
+
+/* ============================ STICKY MOBILE CTA ============================ */
+.dock{
+  position:fixed; left:0; right:0; bottom:0; z-index:190;
+  display:none; align-items:center; justify-content:space-between; gap:14px;
+  padding:11px var(--gutter) calc(11px + env(safe-area-inset-bottom));
+  background:rgba(6,18,36,.94); backdrop-filter:blur(12px);
+  border-top:1px solid var(--hair);
+  transform:translateY(110%); transition:transform .45s var(--ease-out);
+}
+.dock.is-on{ transform:translateY(0); }
+.dock__meta{ font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted); line-height:1.6; }
+.dock__meta b{ display:block; color:var(--gold-lite); font-weight:400; }
+.dock .btn{ --pad-y:13px; --pad-x:22px; font-size:14.5px; border-radius:10px; flex:none; }
+@media (max-width:760px){ .dock{ display:flex; } body{ padding-bottom:0; } }
+
+/* ============================ REVEAL ============================ */
+[data-reveal]{ opacity:0; transform:translateY(22px); }
+[data-reveal].in{ opacity:1; transform:none;
+  transition:opacity .75s var(--ease-out), transform .75s var(--ease-out); }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important; }
+  [data-reveal]{ opacity:1; transform:none; }
+}
+</style>
+</head>
+
+<body id="top">
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ====================== DRAFT NOTICE — delete this block before launch ====================== -->
+<div class="draft" id="draftBar">
+  <div class="draft__in">
+    <p><b>Working draft — nothing here is final.</b>
+      Placeholder for review: ticket prices ($47 / $77 / $147), the date (Sat, Oct 17),
+      the venue (The Tampa Club), all session times, and every event, venue and audience photo.
+      Charles Payne's bio is verified against Fox Business — his session topic is not set.
+      Checkout buttons are not wired to a payment processor yet.</p>
+    <button class="draft__x" id="draftX" type="button" aria-label="Dismiss this notice">&times;</button>
+  </div>
+</div>
+
+<!-- ============================ ANNOUNCE BAR ============================ -->
+<div class="bar">Seats Limited</div>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="#top" aria-label="Walser Wealth Management — home">
+      <img class="nav__logo" src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" />
+    </a>
+    <div class="nav__right">
+      <p class="nav__meta"><b>Sat, October 17, 2026</b><br>The Tampa Club · Tampa, FL</p>
+      <a class="btn" href="#tickets">Reserve your seat</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="hero__wash" aria-hidden="true"></div>
+  <!-- If this file is ever missing, the navy wash above carries the hero alone. -->
+  <div class="hero__photo" aria-hidden="true">
+    <img src="Brand%20Assets/Downtown%20Tampa.webp" alt=""
+         onerror="this.closest('.hero__photo').style.display='none'" />
+  </div>
+
+  <div class="wrap hero__in">
+    <div class="hero__grid2">
+
+      <!-- ---------- left: wordmark + promise ---------- -->
+      <div class="hero__left">
+        <span class="hero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
+
+        <h1 class="lock">
+          <span class="lock__year">2026</span>
+          <span class="lock__a">Tampa Bay</span>
+          <span class="lock__b">Retirement</span>
+          <span class="lock__c">Summit</span>
+        </h1>
+
+        <p class="hero__sub">
+          <b>Tampa Bay Pre-Retirees And Retirees:</b> Spend One Morning At The Tampa Club
+          And Gain Real Direction On The Financial Decisions That Shape Your Retirement
+        </p>
+
+        <p class="hero__when">
+          <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
+          <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> The Tampa Club, Tampa</span>
+        </p>
+
+        <div class="hero__act">
+          <a class="btn btn--lg" href="#tickets">Reserve Your Seat</a>
+          <p class="hero__host">
+            <b>Rebecca Walser</b>
+            <span>Tax Attorney &amp; Founder, Walser Wealth</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- ---------- right: video, countdown, schedule ---------- -->
+      <div class="deck" data-reveal>
+
+        <!-- News reel. Poster frame was pulled from the 32s mark of the reel itself.
+             Desktop autoplays it muted; mobile holds on the poster until tapped, so
+             a 46 MB file never lands on someone's cellular plan uninvited. -->
+        <div class="deck__video" id="heroVideo">
+          <video id="heroVideoEl" poster="Brand%20Assets/news-reel-poster.jpg"
+                 muted playsinline preload="none" width="1920" height="1080">
+            <source src="Brand%20Assets/UPDATED_News-Reel_V3.mp4" type="video/mp4" />
+          </video>
+          <button class="deck__sound" id="heroSound" type="button" hidden>
+            <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg> Enable sound
+          </button>
+          <button class="deck__play" id="heroPlay" type="button"
+                  aria-label="Play the Walser Wealth news reel">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+
+        <p class="deck__label">Registration closing in</p>
+        <div class="deck__clock" role="timer" aria-live="off">
+          <span class="deck__unit"><b id="cd-d">--</b><em>Days</em></span>
+          <span class="deck__sep" aria-hidden="true">:</span>
+          <span class="deck__unit"><b id="cd-h">--</b><em>Hours</em></span>
+          <span class="deck__sep" aria-hidden="true">:</span>
+          <span class="deck__unit"><b id="cd-m">--</b><em>Minutes</em></span>
+          <span class="deck__sep" aria-hidden="true">:</span>
+          <span class="deck__unit"><b id="cd-s">--</b><em>Seconds</em></span>
+        </div>
+
+        <div class="deck__rule" aria-hidden="true"></div>
+
+        <div class="deck__facts">
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Registration: 8:30 AM</div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 9h4"/></svg> VIP Lunch: 12:15–1:30 PM</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> End Time: 12:00 PM</div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Program Starts: 9:00 AM</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STAT STRIP ============================ -->
+<section class="stats">
+  <div class="wrap stats__in">
+    <div class="stats__cell"><p class="stats__n"><span data-count="20">0</span>+</p><p class="stats__l">Years in tax<br>&amp; financial law</p></div>
+    <div class="stats__cell"><p class="stats__n"><span data-count="4">0</span>×</p><p class="stats__l">Investopedia<br>Top 100 advisor</p></div>
+    <div class="stats__cell"><p class="stats__n">1<sup style="font-size:.5em;top:-.6em;position:relative">st</sup></p><p class="stats__l">Annual Tampa Bay<br>Retirement Summit</p></div>
+    <div class="stats__cell"><p class="stats__n"><span data-count="250">0</span></p><p class="stats__l">Seats<br>available</p></div>
+  </div>
+</section>
+
+<!-- ============================ GUEST SPEAKER ============================
+     [[GUEST]] Delete this whole <section> if no guest speaker is booked.
+     ============================================================ -->
+<section class="sec guest" id="guest">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">On stage</span>
+      <h2 class="display h2">This year's featured guest</h2>
+    </div>
+
+    <div class="guest__card" data-reveal>
+      <figure class="guest__photo">
+        <!-- Filename case matters once this is on a Linux host — keep it Charles-Payne.jpg -->
+        <img src="Brand%20Assets/Charles-Payne.jpg"
+             alt="Charles Payne, host of Making Money with Charles Payne on Fox Business Network"
+             width="600" height="750"
+             onerror="this.onerror=null;this.src='https://placehold.co/600x750/0F2A4A/E4C77E?text=Charles+Payne';" />
+      </figure>
+      <div>
+        <span class="guest__tag">Featured guest</span>
+        <h3 class="display guest__name">Charles Payne</h3>
+        <p class="guest__role">Host, Making Money with Charles Payne · Fox Business</p>
+        <p class="guest__bio">
+          Charles Payne has read markets from the inside for four decades. He enlisted in the
+          Air Force at 17, took his first Wall Street job as an analyst at E.F. Hutton in 1985,
+          and built his own research firm — <b>Wall Street Strategies</b> — in 1991, where he is
+          still CEO and principal analyst.
+        </p>
+        <p class="guest__bio">
+          He has been on Fox since 2007 and has hosted <b>Making Money</b> weekday afternoons
+          since 2014, translating what moves the market into plain English for millions of
+          viewers. In Tampa he brings that same read to the room.
+        </p>
+
+        <ul class="guest__creds">
+          <li><b>On air</b><span>Making Money with Charles Payne, weekdays 2&ndash;3 PM ET on Fox Business</span></li>
+          <li><b>Firm</b><span>Founder and CEO, Wall Street Strategies — independent equity research since 1991</span></li>
+          <li><b>Author</b><span><i>Be Smart, Act Fast, Get Rich</i> and <i>Unstoppable Prosperity</i></span></li>
+          <li><b>Service</b><span>United States Air Force</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ QUALIFY CHECKLIST ============================ -->
+<section class="sec qual">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">Start here</span>
+      <h2 class="display h2">Which of these applies to your retirement right now?</h2>
+    </div>
+
+    <div class="qual__grid" data-reveal>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>My CPA, my attorney, and my advisor have never spoken to each other.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>I'm not sure what age to claim Social Security, or what it costs me to guess wrong.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>Most of my savings sits in a 401(k) or IRA that has never been taxed.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>One bad market year early in retirement would change my whole plan.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>I have savings, but no written plan for how it actually turns into a paycheck.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>My will, trust, and beneficiary forms are more than five years old.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>Healthcare and long-term care costs are the part I've thought about least.</p></div>
+      <div class="qual__item"><span class="qual__tick"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span><p>I'm retiring in the next one to five years and I want a second opinion first.</p></div>
+    </div>
+
+    <div class="qual__foot" data-reveal>
+      <p>If you checked even one, this morning was built for you.</p>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AGENDA ============================ -->
+<section class="sec agenda">
+  <div class="agenda__bg" aria-hidden="true">
+    <img src="https://placehold.co/1600x900/0A1E38/123057?text=Venue" alt="" width="1600" height="900" loading="lazy" />
+  </div>
+  <div class="wrap agenda__in">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">The agenda</span>
+      <h2 class="display h2">Six topics, one morning</h2>
+      <p class="lede">Every session is education, not a sales pitch. You leave with questions worth asking and a clearer sense of where your plan has gaps.</p>
+    </div>
+
+    <div class="agenda__grid" data-reveal>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg></span>
+        <h3>Retirement income</h3>
+        <p>How savings becomes a paycheck that lasts. What your number actually is, which accounts to draw from first, and how to make work optional instead of obligatory.</p>
+      </article>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/><path d="M9 9h6M9 13h4"/></svg></span>
+        <h3>Tax mitigation</h3>
+        <p>The quiet drag most plans never account for. How distributions, conversions, and timing change what you keep — and what a tax attorney looks at that a statement won't show you.</p>
+      </article>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M21 3h-5m5 0v5"/></svg></span>
+        <h3>Investment strategy</h3>
+        <p>Positioning for growth without betting the retirement you already earned. Where risk belongs at 60 that didn't belong at 40.</p>
+      </article>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/><path d="M9 12.5 11 15l4-4.5"/></svg></span>
+        <h3>Asset protection</h3>
+        <p>One lawsuit or health event can undo decades of building. What proper titling, entity structure, and coverage actually shield — and what they don't.</p>
+      </article>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        <h3>Social Security timing</h3>
+        <p>Claiming early, at full retirement age, or at 70 is not a personality question. How the math, your spouse, and your tax bracket decide it for you.</p>
+      </article>
+      <article class="topic">
+        <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+        <h3>Estate &amp; legacy</h3>
+        <p>Wills, trusts, and beneficiary designations that transfer what you built without probate, delay, or a tax bill your heirs didn't see coming.</p>
+      </article>
+    </div>
+
+    <p class="agenda__note">Presented by Walser Wealth Management · Tampa, FL</p>
+  </div>
+</section>
+
+<!-- ============================ PAST EVENTS STRIP ============================ -->
+<section class="sec strip">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <h2 class="display h2">From past Walser Wealth events</h2>
+    </div>
+    <div class="strip__pair" data-reveal>
+      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=Past+Event+1" alt="Attendees at a past Walser Wealth education event" width="900" height="560" loading="lazy" /></figure>
+      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=Past+Event+2" alt="Rebecca Walser presenting at a past education event" width="900" height="560" loading="lazy" /></figure>
+    </div>
+    <p class="strip__line">Spend one focused morning gaining direction on the financial decisions that shape your retirement.</p>
+    <div class="strip__cta">
+      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <span class="cta-note">Seating is limited to 250</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TICKETS ============================ -->
+<section class="sec tix" id="tickets">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center" style="color:var(--gold-deep)">Registration</span>
+      <h2 class="display h2">Choose your seat</h2>
+      <p>Three ways in. Every ticket includes the full morning program, breakfast, and the workbook.</p>
+    </div>
+
+    <div class="tix__grid" data-reveal>
+
+      <!-- SINGLE -->
+      <article class="card">
+        <div class="card__top">
+          <p class="card__tier">Single</p>
+          <p class="card__seats">One seat</p>
+          <p class="card__price"><span class="card__now">$47</span><span class="card__was">$97</span></p>
+          <span class="card__save">Save $50</span>
+        </div>
+        <div class="card__perf" aria-hidden="true"></div>
+        <div class="card__body">
+          <p class="card__inherit">What's included</p>
+          <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full half-day morning program</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with the presenters</li>
+          </ul>
+          <a class="btn btn--block" href="#">Select single</a>
+        </div>
+      </article>
+
+      <!-- COUPLE -->
+      <article class="card">
+        <div class="card__top">
+          <p class="card__tier">Couple</p>
+          <p class="card__seats">Two seats together</p>
+          <p class="card__price"><span class="card__now">$77</span><span class="card__was">$194</span></p>
+          <span class="card__save">Save $117</span>
+        </div>
+        <div class="card__perf" aria-hidden="true"></div>
+        <div class="card__body">
+          <p class="card__inherit">Everything in Single, for two</p>
+          <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two seats reserved side by side</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Breakfast for both attendees</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two printed workbooks</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Best value for spouses and partners</li>
+          </ul>
+          <a class="btn btn--block" href="#">Select couple</a>
+        </div>
+      </article>
+
+      <!-- VIP -->
+      <article class="card card--vip">
+        <span class="card__flag">VIP experience</span>
+        <div class="card__top">
+          <p class="card__tier">VIP</p>
+          <p class="card__seats">Two seats · front row</p>
+          <p class="card__price"><span class="card__now">$147</span><span class="card__was">$294</span></p>
+          <span class="card__save">Only 40 VIP seats</span>
+        </div>
+        <div class="card__perf" aria-hidden="true"></div>
+        <div class="card__body">
+          <p class="card__inherit">Everything in Couple, plus</p>
+          <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Reserved front-row seating</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch with Rebecca Walser and Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+          </ul>
+          <a class="btn btn--gold btn--block" href="#">Select VIP</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="tix__foot">All ticket sales are final. Tickets are transferable — call the events team at (866) 929-3258 and we'll move your name.</p>
+  </div>
+</section>
+
+<!-- ============================ BUILT FOR ============================ -->
+<section class="sec built">
+  <div class="built__bg" aria-hidden="true">
+    <img src="https://placehold.co/1600x1000/0A1E38/123057?text=Tampa" alt="" width="1600" height="1000" loading="lazy" />
+  </div>
+  <div class="wrap built__in">
+    <figure class="built__shot" data-reveal>
+      <img src="https://placehold.co/900x680/0F2A4A/E4C77E?text=Audience" alt="Audience at a Walser Wealth retirement education event" width="900" height="680" loading="lazy" />
+    </figure>
+    <div data-reveal>
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="display h2" style="margin-top:18px">Who this morning is built for</h2>
+      <ul class="built__list">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and up</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees one to ten years from their last day of work</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees who want a second opinion on a plan already in motion</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone with most of their savings in a tax-deferred account</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Couples who want to hear the same information at the same time</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Business owners planning an exit in the next few years</li>
+      </ul>
+      <p class="built__pull">This is not a get-rich-quick morning. It is three hours on the decisions that quietly determine what you keep.</p>
+      <div class="built__cta">
+        <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HOST ============================
+     Credentials mirror the main Walser funnel. Confirm with compliance.
+     ============================================================ -->
+<section class="sec host">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">Your host</span>
+      <h2 class="display h2">Meet Rebecca Walser</h2>
+    </div>
+
+    <div class="host__in">
+      <figure class="host__photo" data-reveal>
+        <img src="Brand%20Assets/Rebecca%20Image.jpg" alt="Rebecca Walser, Founder and Principal of Walser Wealth Management" width="1057" height="1450" />
+        <figcaption class="host__stamp">
+          <b>Rebecca Walser</b>
+          <span>JD · LLM · MBA</span>
+        </figcaption>
+      </figure>
+
+      <div class="host__body" data-reveal>
+        <p>Most advisors manage money. <b>Rebecca Walser is a licensed tax attorney</b> who built her firm around a single idea: the biggest threat to your retirement isn't the market — it's <b>the taxes you haven't planned for yet.</b></p>
+        <p>She founded Walser Wealth Management in Tampa to bring one discipline to a problem that usually gets split across three professionals who never talk. Tax law, investment strategy, and estate planning under one roof, coordinated on purpose.</p>
+        <p>At the Tampa Bay Retirement Summit she'll walk through the same framework she uses with clients — what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
+
+        <ul class="host__creds">
+          <li><b>Credentials</b><span>Juris Doctor, Master of Laws in Taxation, MBA</span></li>
+          <li><b>Recognition</b><span>Named to the Investopedia Top 100 Financial Advisors four times, including Top 10 in 2023</span></li>
+          <li><b>Firm</b><span>Walser Wealth Management — Registered Investment Advisor, Tampa, FL</span></li>
+          <li><b>Media</b><span>Co-host of The Digital Street Podcast with Paul Barron</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ROOM STRIP ============================ -->
+<section class="sec strip">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <h2 class="display h2">A morning in the room</h2>
+    </div>
+    <div class="strip__pair" data-reveal>
+      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=In+The+Room+1" alt="Attendees during a session at a Walser Wealth event" width="900" height="560" loading="lazy" /></figure>
+      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=In+The+Room+2" alt="Attendees speaking with the Walser Wealth team" width="900" height="560" loading="lazy" /></figure>
+    </div>
+    <div class="strip__cta">
+      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CLOSING BANNER ============================ -->
+<section class="sec banner">
+  <div class="banner__bg" aria-hidden="true">
+    <img src="https://placehold.co/1600x800/0A1E38/123057?text=Room" alt="" width="1600" height="800" loading="lazy" />
+  </div>
+  <div class="wrap banner__in" data-reveal>
+    <p class="banner__year">2026 Tampa Bay Retirement</p>
+    <p class="banner__word display foil">Summit</p>
+    <p class="banner__meta">
+      <span>Saturday, October 17, 2026</span>
+      <span>The Tampa Club, Tampa</span>
+      <span>Half-day morning event</span>
+    </p>
+    <p class="banner__price">Tickets from $47</p>
+    <a class="btn btn--lg" href="#tickets">Reserve your seat</a>
+    <span class="cta-note">Presented by Walser Wealth Management</span>
+  </div>
+</section>
+
+<!-- ============================ PERKS ============================ -->
+<section class="sec perks" id="perks">
+  <div class="wrap">
+    <p class="perks__tag"><span class="eyebrow eyebrow--center">Why it's worth the morning</span></p>
+    <div class="perks__grid" data-reveal>
+      <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Half-day format — you're out by noon</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Breakfast, workbook, and parking included</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Downtown Tampa — easy in, easy out</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INCLUDES ============================ -->
+<section class="sec incl">
+  <div class="wrap incl__grid">
+    <div data-reveal>
+      <h3>You'll learn</h3>
+      <ul class="incl__list">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to turn savings and investments into income that lasts as long as you do</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS — and what to do about it</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How Social Security claiming age changes your lifetime total, and your spouse's</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What healthcare and long-term care actually cost, and how people pay for them</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to protect assets from lawsuits, creditors, and unplanned events</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What being a Florida resident is worth in retirement, and how to keep it</li>
+      </ul>
+    </div>
+
+    <div data-reveal>
+      <h3>Every ticket includes</h3>
+      <ul class="incl__list">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Half-day morning program at The Tampa Club</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast on arrival</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook to take home</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with Rebecca and the Walser Wealth team</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Complimentary parking</li>
+      </ul>
+
+      <div class="incl__vip">
+        <h4>VIP tickets also include</h4>
+        <ul class="incl__list">
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Reserved front-row seating</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch with Rebecca Walser and Charles Payne</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec faq">
+  <div class="wrap">
+    <h2 class="display h2">Frequently asked questions</h2>
+
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary class="faq__q">When and where is the 2026 Tampa Bay Retirement Summit?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Saturday, October 17, 2026 at The Tampa Club in downtown Tampa. Registration opens at 8:30 AM, the program runs 9:00 AM to 12:00 PM, and VIP lunch follows immediately after.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Who should attend?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Individuals and couples above age 50 who are serious about getting to a point where work becomes an option rather than an obligation — while minimizing taxes and protecting what they leave behind. This event is not for anyone looking to get rich quick.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">I already have a financial advisor. Why would I come?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">The summit is built to help you ask better questions. Most attendees leave with two or three specific things to raise with the advisor they already have. A second opinion costs you a Saturday morning.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">I'm already retired. Is this still relevant?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes. Planning doesn't stop the day you retire — distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the morning is aimed squarely at people already drawing income.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Will I be sold something?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">No. The morning is education. If you want to talk further, the team will be available afterward — but nothing is pitched from the stage and no one will chase you.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Can I bring my spouse or a guest?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes, and we'd encourage it. The Couple ticket covers two seats together at a lower price than two singles. Every attendee needs their own registration.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">What's the difference between Single, Couple, and VIP?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Single is one seat. Couple is two seats together at a discount. VIP is two seats in the reserved front row, plus a private lunch with Rebecca Walser and Charles Payne, a photo with Charles, and a signed copy of Rebecca's book. Only 40 VIP seats are released.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">VIP ticket holders do. VIP includes a private lunch with Charles and Rebecca after the program, plus a photo. General admission attendees will see him speak from the main stage and take part in the live Q&amp;A, but the lunch and photo are VIP only — which is the main reason those 40 seats go first.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Can I upgrade to VIP after I've bought a ticket?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes, while VIP seats remain. Call the events team at (866) 929-3258 and they'll handle the difference.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Is lunch included?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Coffee and a light breakfast are included with every ticket. Lunch is a VIP benefit — a private seated lunch with Rebecca Walser and Charles Payne after the program ends.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Where do I park?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Parking is complimentary. Full directions and parking instructions are emailed to every registered attendee the week of the event.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">What's the dress code?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Business casual or smart casual. Come comfortable.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Is the venue accessible?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes, the venue is wheelchair accessible. Call ahead at (866) 929-3258 for any other accommodation and the team will arrange it.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Can I transfer my ticket if something comes up?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes. All sales are final and refunds aren't offered, but tickets are fully transferable. Call (866) 929-3258 and we'll change the name on your registration.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Is there a virtual option?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">No. The summit is fully in person by design — the value is in the room, the questions, and the conversations afterward.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Are group rates available?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes, for groups of ten or more. Call (866) 929-3258 and ask for the events team.</p>
+      </details>
+    </div>
+
+    <div class="faq__cta">
+      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <span class="cta-note">Questions? Call (866) 929-3258</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <section class="recog">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow eyebrow--center">Recognition</span>
+      <h2 class="display recog__title">A track record the industry noticed.</h2>
+      <div class="recog__badges">
+        <figure class="medal"><img src="Brand%20Assets/Investopedia%202023.jpg" alt="Investopedia Top 100 Financial Advisor, 2023" loading="lazy" /></figure>
+        <figure class="medal"><img src="Brand%20Assets/Investopedia%202022.png" alt="Investopedia Top 100 Financial Advisor, 2022" loading="lazy" /></figure>
+        <figure class="medal"><img src="Brand%20Assets/Investopedia%202019.jpg" alt="Investopedia Top 100 Financial Advisor, 2019" loading="lazy" /></figure>
+        <figure class="medal"><img src="Brand%20Assets/Invetopedia%202018.png" alt="Investopedia 100 Most Influential Advisors, 2018" loading="lazy" /></figure>
+        <figure class="medal"><img src="Brand%20Assets/Thrive%20Winner%202019.png" alt="Thrive Award Winner, Fastest-Growing Advisors 2019" loading="lazy" /></figure>
+      </div>
+      <p class="recog__method">For a description of the methodology used by Investopedia to rank advisors, <a href="#">please click here.</a></p>
+    </div>
+  </section>
+
+  <div class="wrap foot__legalwrap">
+    <a href="#top" aria-label="Walser Wealth Management">
+      <img class="foot__logo" src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" />
+    </a>
+    <div class="foot__rule"></div>
+
+    <p class="foot__legal">
+      <span class="strong">Walser Wealth Management Company is a Registered Investment Advisor, FL License CRD# 206518</span><br>
+      111 West Oak Ave. Suite 450, Tampa FL 33602
+    </p>
+
+    <div class="foot__bottom">
+      <p>Copyright © 2026 · Walser Wealth · All Rights Reserved</p>
+      <nav class="foot__links" aria-label="Legal">
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="https://www.walserwealth.com">walserwealth.com</a>
+      </nav>
+    </div>
+
+    <p class="foot__disc">
+      The 2026 Tampa Bay Retirement Summit is an educational event. Nothing presented constitutes personalized
+      investment, tax, or legal advice, and attendance does not create an advisory relationship.
+      Charles Payne appears in his individual capacity as a guest speaker. FOX Business Network, FOX News Media,
+      and Wall Street Strategies are not sponsors of this event and do not endorse Walser Wealth Management or
+      any strategy discussed. Network names and marks are the property of their respective owners.
+      This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by
+      Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
+    </p>
+  </div>
+</footer>
+
+<!-- ============================ STICKY MOBILE CTA ============================ -->
+<div class="dock" id="dock">
+  <p class="dock__meta"><b>Oct 17, 2026</b>From $47 · 250 seats</p>
+  <a class="btn" href="#tickets">Reserve seat</a>
+</div>
+
+<script>
+(function(){
+  /* [[DATE]] single source of truth for the countdown — local Tampa time */
+  var EVENT_DATE = new Date('2026-10-17T08:30:00-04:00');
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- nav shadow on scroll + sticky dock ---- */
+  var nav  = document.getElementById('nav');
+  var dock = document.getElementById('dock');
+  function onScroll(){
+    nav.classList.toggle('is-stuck', window.scrollY > 20);
+    dock.classList.toggle('is-on', window.scrollY > 620);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- countdown ---- */
+  var cd = {d:document.getElementById('cd-d'), h:document.getElementById('cd-h'),
+            m:document.getElementById('cd-m'), s:document.getElementById('cd-s')};
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tickClock(){
+    var left = EVENT_DATE - new Date();
+    if(left <= 0){ cd.d.textContent = cd.h.textContent = cd.m.textContent = cd.s.textContent = '00'; return; }
+    var s = Math.floor(left/1000);
+    cd.d.textContent = pad(Math.floor(s/86400));
+    cd.h.textContent = pad(Math.floor(s%86400/3600));
+    cd.m.textContent = pad(Math.floor(s%3600/60));
+    cd.s.textContent = pad(s%60);
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ---- scroll reveal ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    if(reduce){ el.classList.add('in'); } else { io.observe(el); }
+  });
+
+  /* safety net: nothing stays hidden if the observer is outrun by fast scrolling */
+  window.addEventListener('load', function(){
+    document.querySelectorAll('[data-reveal]:not(.in)').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  });
+
+  /* ---- animated counters ---- */
+  var counted = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, target = parseFloat(el.dataset.count);
+      counted.unobserve(el);
+      if(reduce){ el.textContent = target; return; }
+      var start = null, dur = 1300;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start)/dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1-p, 3)));
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ counted.observe(el); });
+
+  /* ---- draft notice (remove with the banner before launch) ---- */
+  var draftX = document.getElementById('draftX');
+  if(draftX){
+    draftX.addEventListener('click', function(){
+      document.getElementById('draftBar').hidden = true;
+    });
+  }
+
+  /* ---- hero news reel ---- */
+  var vWrap    = document.getElementById('heroVideo');
+  var vid      = document.getElementById('heroVideoEl');
+  var playBtn  = document.getElementById('heroPlay');
+  var soundBtn = document.getElementById('heroSound');
+
+  if(vWrap && vid){
+    var playing = function(on){ vWrap.classList.toggle('is-playing', on); };
+
+    /* Autoplay muted on desktop only. The reel is 46 MB / 6.5 min, so phones and
+       anyone on Data Saver keep the poster until they ask for it. */
+    var wide = window.matchMedia('(min-width: 940px)').matches;
+    var thrifty = navigator.connection && navigator.connection.saveData;
+    if(wide && !thrifty && !reduce){
+      vid.preload = 'auto';
+      var attempt = vid.play();
+      if(attempt && attempt.then){
+        attempt.then(function(){ soundBtn.hidden = false; })
+               .catch(function(){ /* browser blocked it — poster stays put */ });
+      }
+    }
+
+    playBtn.addEventListener('click', function(){
+      vid.muted = false;            // an explicit tap earns sound
+      soundBtn.hidden = true;
+      vid.play();
+    });
+
+    soundBtn.addEventListener('click', function(){
+      vid.muted = false;
+      soundBtn.hidden = true;
+      vid.focus({preventScroll:true});
+    });
+
+    /* click the footage itself to pause */
+    vid.addEventListener('click', function(){ if(!vid.paused) vid.pause(); });
+
+    vid.addEventListener('play',  function(){ playing(true); });
+    vid.addEventListener('pause', function(){ playing(false); });
+    vid.addEventListener('ended', function(){ playing(false); vid.currentTime = 0; soundBtn.hidden = true; });
+  }
+
+  /* ---- FAQ: one open at a time ---- */
+  var faqs = Array.prototype.slice.call(document.querySelectorAll('.faq__item'));
+  faqs.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(!item.open) return;
+      faqs.forEach(function(other){ if(other !== item) other.open = false; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
