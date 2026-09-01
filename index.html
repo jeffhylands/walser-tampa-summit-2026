@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>2026 Tampa Bay Retirement Summit — Presented by Walser Wealth Management</title>
+<title>Tampa Retirement Live 2026 — Presented by Walser Wealth Management</title>
 <meta name="description" content="Tampa Bay pre-retirees and retirees: spend one morning gaining real direction on taxes, income, and the decisions that shape your retirement. Saturday, October 17, 2026." />
-<meta property="og:title" content="2026 Tampa Bay Retirement Summit" />
+<meta property="og:title" content="Tampa Retirement Live 2026" />
 <meta property="og:description" content="One morning. Real direction on the financial decisions that shape your retirement. Hosted by Rebecca Walser, JD, LLM." />
 <meta property="og:type" content="website" />
 <!-- PREVIEW ONLY — strip these two lines when the page goes live for real -->
@@ -13,40 +13,46 @@
 <meta name="googlebot" content="noindex, nofollow" />
 
 <!-- ================================================================
-     2026 TAMPA BAY RETIREMENT SUMMIT
-     Presented by Walser Wealth Management
-     Display: Fraunces · Body: Inter · Data: Space Mono
-     Brand navy + gold, orange reserved for CTAs only
-     Signature: gold line-art Tampa skyline + engraved ticket stubs
+     TAMPA RETIREMENT LIVE 2026
+     Launched by Walser Wealth Management
+     Display + body: Transat (licensed) with Archivo / Figtree fallbacks
+     Brand navy + teal + mint; red (#F05238) reserved for CTAs
+     Signature: brand gradient plate, triple chevron, ticket-stub perforation
 
      ----------------------------------------------------------------
-     SWAP LIST — everything still to be confirmed. Search these tags.
+     BRAND: built to "Walser Wealth Management_brand standards_
+     Tampa Retirement Live.pdf" (Brand Assets/). Palette, logo, event
+     name, taglines and the Oct 17 2026 date all come from that guide.
+
+     FONTS: the guide specifies Transat (headline + body) and Dunbar /
+     Broadacre (logo). Both are licensed and not on Google Fonts, so
+     Archivo + Figtree stand in. Transat leads both font stacks in the
+     token block, so dropping in the real webfont files upgrades the
+     page with no other change.
+
+     LOGO: trl-logo-white.png / trl-logo-navy.png were pulled out of the
+     brand PDF (page 4, the reversed lockup) via luminance-to-alpha, so
+     they carry clean transparency. If the agency sends true vector SVG,
+     swap it in - it will scale better than these 418px rasters.
      ----------------------------------------------------------------
-     [[DATE]]     Saturday, October 17, 2026 (placeholder Saturday).
-                  ALSO update EVENT_DATE at the bottom of this file —
-                  the countdown reads from that one constant.
-     [[VENUE]]    "The Tampa Club" used throughout as placeholder.
-                  Appears in: hero subhead, event chips, agenda band,
-                  who-it's-for, includes list, FAQ #1.
-     [[TIMES]]    Registration 8:30 AM / Start 9:00 AM / End 12:00 PM.
-     [[GUEST]]    Charles Payne is booked. Bio facts are sourced from Fox
-                  Business's own bio page and are accurate as written.
-                  STILL NEEDED: his headshot at Brand Assets/charles-payne.jpg
-                  (use the one his booking agent supplies — it comes with
-                  usage rights; a scraped press photo does not).
-                  Until that file exists the card shows a labeled placeholder.
-                  He is also named in: hero pill, VIP ticket tier, VIP
-                  includes list, and two FAQ answers.
+     SWAP LIST - everything still to be confirmed. Search these tags.
+     ----------------------------------------------------------------
+     [[VENUE]]    "The Tampa Club" is still a placeholder.
+                  Appears in: hero, agenda band, who-it's-for,
+                  includes list, closing banner, FAQ #1.
+     [[TIMES]]    Registration 8:30 AM / Start 9:00 AM / End 12:00 PM
+                  / VIP lunch 12:15-1:30 PM.
      [[PRICES]]   Single $47 / Couple $77 / VIP $147, with regular-price
                   anchors. Section id="tickets".
      [[SEATS]]    "250 seats" stat + "Only 40 VIP seats" scarcity line.
-     [[CHECKOUT]] Every CTA points to #tickets, and every ticket button
-                  has href="#" — drop in real checkout URLs.
-     [[PHONE]]    (866) 929-3258 used for the events line. Swap if the
-                  summit gets its own number.
-     [[PHOTOS]]   All placehold.co images. Real event/venue photography.
-     [[CHARITY]]  Reference page donates proceeds to a charity. Decide
-                  whether to keep that mechanic — see id="perks".
+     [[CHECKOUT]] Every ticket button has href="#" - drop in real
+                  checkout URLs.
+     [[PHONE]]    (866) 929-3258 used for the events line.
+     [[PHOTOS]]   Event, venue and audience shots are still placehold.co.
+                  The brand guide uses flat illustrated skylines rather
+                  than photography - worth matching when art arrives.
+     [[GUEST]]    Charles Payne is booked; bio verified against Fox
+                  Business. His session topic is NOT set.
 
      COMPLIANCE NOTES — review before publishing:
      - No client testimonials or performance claims appear anywhere on
@@ -59,33 +65,47 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 /* ============================ TOKENS ============================ */
 :root{
-  --ink:        #0A1E38;
-  --ink-abyss:  #050F1F;
-  --raised:     #0F2A4A;
-  --raised-2:   #123057;
-  --hair:       rgba(200,162,75,.28);
-  --hair-cool:  rgba(159,177,199,.16);
+  --ink:        #1A4364;   /* brand navy */
+  --ink-abyss:  #0C2945;   /* darkest navy */
+  --raised:     #155073;
+  --raised-2:   #037182;   /* teal */
+  --hair:       rgba(154,209,201,.32);
+  --hair-cool:  rgba(154,209,201,.17);
 
-  --gold:       #C8A24B;
-  --gold-lite:  #E4C77E;
-  --gold-deep:  #9E7C2E;
+  --gold:       #9AD1C9;   /* mint - eyebrows, icon strokes */
+  --gold-lite:  #C9E7E2;   /* light mint - highlight text */
+  --gold-deep:  #BE412A;   /* brick - accents on light bg */
 
-  --orange:     #E8791E;
-  --orange-lo:  #C9631A;
+  --orange:     #F05238;   /* CTA red */
+  --orange-lo:  #BE412A;   /* CTA gradient bottom */
 
-  --ivory:      #F6F2E8;
-  --ivory-2:    #EFE9DA;
+  --ivory:      #E3DAC6;   /* bone */
+  --ivory-2:    #D8CDB4;   /* deeper bone */
 
-  --text:       #EAF0F8;
-  --muted:      #9FB1C7;
-  --muted-2:    #74879F;
-  --ink-text:   #17324F;
-  --ink-muted:  #5C7189;
+  --text:       #F4F1E9;
+  --muted:      #AEC9CF;
+  --muted-2:    #8CA8B1;
+  --ink-text:   #14364F;
+  --ink-muted:  #4E6B7B;
+
+  /* Brand fonts are Transat (headline+body) and Dunbar (logo) - both licensed.
+     They lead each stack so the page upgrades automatically once the
+     webfont files are installed; Archivo/Figtree carry it until then. */
+  --font-display: "Transat", "Archivo", system-ui, sans-serif;
+  --font-body:    "Transat", "Figtree", system-ui, sans-serif;
+
+  --red:   #F05238;
+  --brick: #BE412A;
+  --burst: #F4792A;
+  --mint:  #9AD1C9;
+  --teal:  #037182;
+  --navy:  #1A4364;
+  --bone:  #E3DAC6;
 
   --maxw: 1200px;
   --gutter: clamp(20px, 5vw, 64px);
@@ -102,7 +122,7 @@
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scroll-padding-top:92px; }
 body{
-  font-family:"Inter",system-ui,sans-serif;
+  font-family:var(--font-body);
   background:var(--ink-abyss);
   color:var(--text);
   line-height:1.6;
@@ -127,16 +147,25 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ---- shared type helpers ---- */
 .eyebrow{
-  font-family:"Space Mono",monospace;
+  font-family:var(--font-display);
   font-size:12px; letter-spacing:.34em; text-transform:uppercase;
   color:var(--gold); display:inline-flex; align-items:center; gap:.7em;
 }
-.eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); opacity:.7; }
+/* signature: the navy / teal / red triple chevron from the brand sheet */
+.eyebrow::before{
+  content:""; width:30px; height:8px; flex:none; opacity:1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%231A4364'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%23037182'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+/* navy vanishes on dark grounds, so those sections get a lighter first chevron */
+.hero .eyebrow::before, .qual .eyebrow::before, .guest .eyebrow::before,
+.agenda .eyebrow::before, .built .eyebrow::before, .host .eyebrow::before,
+.perks .eyebrow::before, .foot .eyebrow::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%239AD1C9'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%23F4792A'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E");
+}
 .eyebrow--center{ justify-content:center; }
 .display{
-  font-family:"Fraunces",Georgia,serif;
-  font-weight:400; line-height:1.06; letter-spacing:-.018em;
-  font-optical-sizing:auto;
+  font-family:var(--font-display);
+  font-weight:700; line-height:1.04; letter-spacing:-.022em;
 }
 .h2{ font-size:clamp(1.95rem,4.2vw,3.15rem); }
 .h3{ font-size:clamp(1.35rem,2.2vw,1.75rem); }
@@ -144,10 +173,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* engraved gold foil — used on the event wordmark only */
 .foil{
-  background:linear-gradient(178deg,#F3E3B4 4%,var(--gold-lite) 26%,var(--gold) 48%,var(--gold-deep) 66%,var(--gold-lite) 92%);
+  /* brand gradient: mint into red, the same ramp the logo uses */
+  background:linear-gradient(170deg,var(--mint) 6%,#7FC4C2 26%,var(--burst) 62%,var(--red) 88%);
   -webkit-background-clip:text; background-clip:text;
   color:transparent;
-  filter:drop-shadow(0 2px 0 rgba(0,0,0,.4)) drop-shadow(0 0 26px rgba(200,162,75,.22));
+  filter:drop-shadow(0 2px 12px rgba(12,41,69,.5));
 }
 
 /* ============================ BUTTONS ============================ */
@@ -177,15 +207,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .btn--lg{ --pad-y:20px; --pad-x:42px; font-size:18px; border-radius:14px; }
 .btn--block{ display:flex; width:100%; }
 .btn--gold{
-  background:linear-gradient(180deg, var(--gold-lite), var(--gold-deep));
-  color:#2A1F05;
-  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,
-             0 12px 30px -10px rgba(200,162,75,.5),
-             0 2px 8px rgba(0,0,0,.3);
+  /* mint against the navy VIP card - the brand pairing, not a gradient */
+  background:var(--mint);
+  color:#0C2945;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset,
+             0 12px 30px -12px rgba(154,209,201,.55),
+             0 2px 8px rgba(0,0,0,.28);
 }
-.btn--gold:hover{ box-shadow:0 1px 0 rgba(255,255,255,.45) inset,
-             0 20px 42px -12px rgba(200,162,75,.62),
-             0 4px 12px rgba(0,0,0,.35); }
+.btn--gold:hover{ background:#AEDCD5;
+  box-shadow:0 1px 0 rgba(255,255,255,.55) inset,
+             0 20px 42px -14px rgba(154,209,201,.6),
+             0 4px 12px rgba(0,0,0,.32); }
 .btn--quiet{
   background:rgba(255,255,255,.03); color:var(--text);
   border:1px solid var(--hair); box-shadow:none;
@@ -194,7 +226,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 .cta-note{
   display:block; margin-top:14px;
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--muted-2);
 }
 
@@ -207,7 +239,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .draft__in{
   max-width:1180px; margin:0 auto; padding:11px clamp(16px,4vw,28px);
   display:flex; align-items:flex-start; gap:16px;
-  font-family:"Space Mono",monospace; font-size:11.5px; line-height:1.65;
+  font-family:var(--font-display); font-size:11.5px; line-height:1.65;
 }
 .draft__in b{ color:#FFD97A; letter-spacing:.08em; text-transform:uppercase; }
 .draft__in p{ flex:1; }
@@ -224,7 +256,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   position:relative; z-index:220;
   background:linear-gradient(90deg,var(--orange-lo),var(--orange) 50%,var(--orange-lo));
   color:#fff; text-align:center;
-  font-family:"Space Mono",monospace; font-size:11px;
+  font-family:var(--font-display); font-size:11px;
   letter-spacing:.3em; text-transform:uppercase;
   padding:9px 16px;
 }
@@ -239,42 +271,56 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .nav.is-stuck{ background:rgba(5,15,31,.97); border-bottom-color:var(--hair); }
 .nav__in{ display:flex; align-items:center; justify-content:space-between; gap:20px; height:74px; }
-.nav__logo{ height:40px; width:auto; }
+.nav__logo{ height:46px; width:auto; }
 .nav__right{ display:flex; align-items:center; gap:22px; }
 .nav__meta{
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--muted); text-align:right; line-height:1.5;
 }
 .nav__meta b{ color:var(--gold-lite); font-weight:400; }
 .nav .btn{ --pad-y:12px; --pad-x:22px; font-size:14px; border-radius:10px; }
 @media (max-width:860px){ .nav__meta{ display:none; } }
-@media (max-width:560px){ .nav__logo{ height:32px; } .nav__in{ height:64px; } }
+@media (max-width:560px){ .nav__logo{ height:36px; } .nav__in{ height:64px; } }
 
 /* ============================ HERO ============================ */
 .hero{ position:relative; overflow:hidden;
   padding-block:clamp(44px,5.5vw,72px) clamp(52px,6.5vw,86px); }
 
-/* [[PHOTOS]] faint Tampa skyline plate behind everything.
-   Three layers: the photo knocked back, a navy hue wash that kills the
-   magenta bridge lights, then the legibility scrim. */
-.hero__photo{ position:absolute; inset:0; z-index:0; isolation:isolate; }
+/* Brand gradient plate. Red bloom top-right, mint glow bottom-left, teal
+   into navy underneath — the ramp off the standards sheet, arranged so the
+   deck and the CTA both keep their contrast. */
+.hero__wash{ position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(96% 74% at 92% -4%, var(--red) 0%, rgba(240,82,56,.8) 20%, rgba(190,65,42,.42) 40%, rgba(240,82,56,0) 68%),
+    radial-gradient(62% 56% at 2% 100%, rgba(154,209,201,.62), rgba(154,209,201,0) 64%),
+    radial-gradient(64% 46% at 88% 96%, rgba(244,121,42,.42), transparent 62%),
+    linear-gradient(198deg, var(--teal) 0%, #04697E 26%, #0A4A66 56%, #0B3350 78%, var(--ink-abyss) 100%); }
+
+/* The Tampa photo is duotoned into the brand ramp. Grayscale strips the
+   original colour, then a gradient blended with `color` re-tints the whole
+   thing teal-to-red — so the photo reinforces the palette instead of
+   desaturating it the way a plain grey multiply would. */
+.hero__photo{ position:absolute; inset:0; z-index:0; isolation:isolate;
+  opacity:.34; mix-blend-mode:multiply; }
 .hero__photo img{
   width:100%; height:100%; object-fit:cover; object-position:center 44%;
-  filter:saturate(.4) contrast(1.05) brightness(.62);
+  filter:grayscale(1) contrast(1.45) brightness(1.22);
 }
 .hero__photo::before{
-  content:""; position:absolute; inset:0;
-  background:var(--ink); mix-blend-mode:color; opacity:.8;
+  content:""; position:absolute; inset:0; z-index:1; mix-blend-mode:color;
+  background:linear-gradient(198deg, var(--teal) 0%, #0C5C74 34%, var(--brick) 76%, var(--red) 100%);
 }
+/* just enough floor under the copy column */
 .hero__photo::after{
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(112% 86% at 50% 6%, rgba(10,30,56,.46), rgba(6,18,36,.78) 58%, rgba(5,15,31,.92)),
-    linear-gradient(180deg, rgba(5,15,31,.5), rgba(5,15,31,.6) 60%, rgba(5,15,31,.9));
+  content:""; position:absolute; inset:0; z-index:2;
+  background:linear-gradient(180deg, rgba(12,41,69,0) 42%, rgba(12,41,69,.3) 78%, rgba(12,41,69,.55));
 }
-/* fallback wash so the hero still reads if the photo is missing */
-.hero__wash{ position:absolute; inset:0; z-index:0;
-  background:radial-gradient(120% 90% at 50% -10%, #12365E 0%, var(--ink) 48%, var(--ink-abyss) 100%); }
+/* fine grain, matching the printed pieces */
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.22;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
 
 .hero__in{ position:relative; z-index:2; }
 .hero__grid2{ display:grid; grid-template-columns:1fr 1fr;
@@ -285,34 +331,47 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .hero__left{ text-align:center; }
 .hero__pill{
   display:inline-flex; align-items:center; gap:9px; margin-bottom:clamp(20px,3vw,34px);
-  font-size:13px; font-weight:500; letter-spacing:.045em; text-transform:uppercase;
+  font-family:var(--font-display); font-weight:600;
+  font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--text);
   border:1px solid var(--hair); border-radius:100px; padding:9px 20px;
-  background:rgba(10,30,56,.42); backdrop-filter:blur(6px);
+  background:rgba(12,41,69,.42); backdrop-filter:blur(6px);
 }
-.hero__pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange);
-  box-shadow:0 0 0 0 rgba(232,121,30,.6); animation:pulse 2.2s infinite; }
-@keyframes pulse{ 70%{ box-shadow:0 0 0 9px rgba(232,121,30,0);} 100%{ box-shadow:0 0 0 0 rgba(232,121,30,0);} }
+.hero__pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--red);
+  box-shadow:0 0 0 0 rgba(240,82,56,.6); animation:pulse 2.2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 9px rgba(240,82,56,0);} 100%{ box-shadow:0 0 0 0 rgba(240,82,56,0);} }
 
-/* stacked event wordmark — the page h1 */
-.lock{ font-size:1rem; font-weight:400; margin:0 0 clamp(22px,3vw,32px); }
-.lock span{ display:block; }
-.lock__year{
-  font-family:"Fraunces",Georgia,serif; font-weight:400;
-  font-size:clamp(1.35rem,3vw,2.2rem); letter-spacing:.3em; line-height:1;
-  color:var(--text); margin-bottom:.34em; padding-left:.3em;
+/* Event wordmark. Supplied artwork, not type — the LIVE glyphs are custom
+   Dunbar with the sunburst built into the V, so it is placed as an image. */
+.lock{ margin:0 0 clamp(18px,2.2vw,26px); font-size:1rem; font-weight:400; }
+.lock__img{
+  width:min(100%, 430px); height:auto; margin:0 auto;
+  filter:drop-shadow(0 8px 30px rgba(12,41,69,.5));
 }
-.lock__a, .lock__b{
-  font-family:"Fraunces",Georgia,serif; font-weight:500;
-  font-size:clamp(2.15rem,5.6vw,4.7rem); line-height:.98; letter-spacing:-.022em;
-  text-transform:uppercase; color:#fff;
-  text-shadow:0 2px 24px rgba(5,15,31,.6);
+.lock__launched{
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  margin:clamp(16px,2vw,22px) 0 clamp(20px,2.6vw,28px);
 }
-.lock__c{
-  font-family:"Inter",sans-serif; font-weight:500;
-  font-size:clamp(.82rem,1.9vw,1.5rem); letter-spacing:.46em; text-transform:uppercase;
-  color:#fff; margin-top:.7em; padding-left:.46em;
+.lock__launched span{
+  font-family:var(--font-display); font-weight:700;
+  font-size:11px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--text); opacity:.82; white-space:nowrap;
 }
+.lock__launched img{ height:34px; width:auto; }
+@media (max-width:520px){
+  .lock__launched{ flex-direction:column; gap:9px; }
+  .lock__launched img{ height:30px; }
+}
+
+
+/* brand line, set the way the standards sheet sets it: caps, two colours */
+.hero__tag{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(1.05rem,2.3vw,1.7rem); letter-spacing:.01em;
+  text-transform:uppercase; line-height:1.15; color:#fff;
+  margin:0 0 clamp(16px,2vw,22px);
+}
+.hero__tag em{ font-style:normal; color:var(--mint); }
 
 .hero__sub{
   font-size:clamp(1rem,1.55vw,1.2rem); line-height:1.52; color:var(--text);
@@ -336,7 +395,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .hero__host{ text-align:left; max-width:268px;
   padding-left:clamp(14px,1.8vw,22px); border-left:1px solid var(--hair); }
 .hero__host b{
-  display:block; font-family:"Fraunces",Georgia,serif; font-weight:600;
+  display:block; font-family:var(--font-display); font-weight:600;
   font-size:clamp(.98rem,1.5vw,1.3rem); letter-spacing:.05em; text-transform:uppercase;
   color:var(--gold-lite); line-height:1.15;
 }
@@ -402,19 +461,19 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 /* countdown */
 .deck__label{
   text-align:center; margin:clamp(18px,2.2vw,24px) 0 clamp(12px,1.6vw,16px);
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.26em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.26em;
   text-transform:uppercase; color:var(--gold);
 }
 .deck__clock{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(6px,1.2vw,14px); }
 .deck__unit{ text-align:center; min-width:clamp(52px,6vw,74px); }
 .deck__unit b{
-  display:block; font-family:"Inter",sans-serif; font-weight:600;
+  display:block; font-family:var(--font-body); font-weight:600;
   font-size:clamp(1.9rem,4vw,2.7rem); line-height:1; color:#fff;
   font-variant-numeric:tabular-nums; letter-spacing:-.01em;
 }
 .deck__unit em{
   display:block; margin-top:9px; font-style:normal;
-  font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:9.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--muted-2);
 }
 .deck__sep{ font-size:clamp(1.5rem,3vw,2rem); line-height:1.1; color:var(--muted-2); }
@@ -435,12 +494,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .stats__cell{ text-align:center; padding-inline:12px; border-right:1px solid var(--hair-cool); }
 .stats__cell:last-child{ border-right:none; }
 .stats__n{
-  font-family:"Fraunces",Georgia,serif; font-weight:500;
+  font-family:var(--font-display); font-weight:500;
   font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1; color:var(--gold-lite);
   letter-spacing:-.02em;
 }
 .stats__l{
-  margin-top:9px; font-family:"Space Mono",monospace; font-size:10px;
+  margin-top:9px; font-family:var(--font-display); font-size:10px;
   letter-spacing:.18em; text-transform:uppercase; color:var(--muted-2); line-height:1.6;
 }
 @media (max-width:720px){
@@ -476,13 +535,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:linear-gradient(to top, rgba(5,15,31,.6), transparent 45%); }
 .guest__tag{
   display:inline-block; margin-bottom:14px;
-  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.24em;
+  font-family:var(--font-display); font-size:10px; letter-spacing:.24em;
   text-transform:uppercase; color:var(--ink);
   background:var(--gold-lite); border-radius:100px; padding:5px 13px;
 }
 .guest__name{ font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:8px; }
 .guest__role{
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--gold); margin-bottom:18px;
 }
 .guest__bio{ color:var(--muted); font-size:16px; line-height:1.7; }
@@ -490,7 +549,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .guest__creds{ list-style:none; display:grid; gap:9px; margin-top:22px;
   padding-top:20px; border-top:1px solid var(--hair-cool); }
 .guest__creds li{ display:flex; gap:12px; align-items:baseline; font-size:14.5px; }
-.guest__creds b{ font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+.guest__creds b{ font-family:var(--font-display); font-size:10.5px; letter-spacing:.14em;
   color:var(--gold); text-transform:uppercase; min-width:66px; flex:none; }
 .guest__creds span{ color:var(--muted); }
 @media (max-width:760px){ .guest__creds li{ display:block; } .guest__creds b{ display:block; margin-bottom:3px; } }
@@ -518,7 +577,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .qual__item p{ font-size:14.5px; line-height:1.6; color:var(--text); }
 .qual__foot{ text-align:center; margin-top:clamp(34px,4vw,50px); }
 .qual__foot > p{
-  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-family:var(--font-display); font-weight:600;
   font-size:clamp(1.15rem,2.2vw,1.5rem); color:var(--gold-lite); margin-bottom:26px;
 }
 
@@ -546,12 +605,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:linear-gradient(150deg, rgba(200,162,75,.2), rgba(200,162,75,.04));
 }
 .topic__ico svg{ width:20px; height:20px; stroke:var(--gold-lite); fill:none; stroke-width:1.6; }
-.topic h3{ font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:1.24rem;
+.topic h3{ font-family:var(--font-display); font-weight:500; font-size:1.24rem;
   letter-spacing:-.01em; margin-bottom:10px; }
 .topic p{ font-size:14.5px; line-height:1.7; color:var(--muted); }
 .agenda__note{
   text-align:center; margin-top:34px;
-  font-family:"Space Mono",monospace; font-size:10.5px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:10.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--muted-2);
 }
 
@@ -568,7 +627,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .strip__shot img{ width:100%; height:100%; object-fit:cover; }
 .strip__line{
   text-align:center; max-width:52ch; margin:32px auto 0;
-  font-family:"Fraunces",Georgia,serif; font-size:clamp(1.05rem,2vw,1.3rem);
+  font-family:var(--font-display); font-size:clamp(1.05rem,2vw,1.3rem);
   line-height:1.45; color:var(--ink-text);
 }
 .strip__cta{ text-align:center; margin-top:30px; }
@@ -603,22 +662,22 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card__body{ padding:24px 26px 28px; }
 
 .card__tier{
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.24em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.24em;
   text-transform:uppercase; color:var(--ink-muted); margin-bottom:4px;
 }
 .card__seats{ font-size:13.5px; color:var(--ink-muted); margin-bottom:16px; }
 .card__price{ display:flex; align-items:baseline; gap:11px; }
 .card__now{
-  font-family:"Fraunces",Georgia,serif; font-weight:500; letter-spacing:-.03em;
+  font-family:var(--font-display); font-weight:500; letter-spacing:-.03em;
   font-size:clamp(2.4rem,5vw,3.1rem); line-height:1; color:var(--ink-text);
 }
 .card__was{
-  font-family:"Space Mono",monospace; font-size:15px; color:var(--ink-muted);
+  font-family:var(--font-display); font-size:15px; color:var(--ink-muted);
   text-decoration:line-through; text-decoration-thickness:1.5px;
 }
 .card__save{
   display:inline-block; margin-top:12px;
-  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.18em;
+  font-family:var(--font-display); font-size:10px; letter-spacing:.18em;
   text-transform:uppercase; color:var(--gold-deep);
   border:1px solid rgba(158,124,46,.4); border-radius:100px; padding:4px 11px;
 }
@@ -627,7 +686,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card__list svg{ width:15px; height:15px; flex:none; margin-top:4px;
   stroke:var(--gold-deep); fill:none; stroke-width:2.4; }
 .card__inherit{
-  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:10px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--ink-muted);
   padding-bottom:12px; margin-bottom:4px; border-bottom:1px solid rgba(10,30,56,.1);
 }
@@ -650,7 +709,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card--vip .card__perf::before, .card--vip .card__perf::after{ background:var(--ivory-2); }
 .card__flag{
   position:absolute; top:0; right:0; z-index:2;
-  font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.2em;
+  font-family:var(--font-display); font-size:9.5px; letter-spacing:.2em;
   text-transform:uppercase; color:#2A1F05;
   background:linear-gradient(180deg,var(--gold-lite),var(--gold));
   padding:7px 15px; border-bottom-left-radius:10px;
@@ -680,7 +739,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   margin-top:28px; padding:18px 22px;
   border-left:2px solid var(--gold); border-radius:0 var(--r-sm) var(--r-sm) 0;
   background:linear-gradient(90deg, rgba(200,162,75,.12), transparent);
-  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-family:var(--font-display); font-weight:600;
   font-size:1.1rem; line-height:1.5; color:var(--gold-lite);
 }
 .built__cta{ margin-top:30px; }
@@ -700,16 +759,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .host__stamp{
   position:absolute; left:20px; bottom:20px; z-index:2;
 }
-.host__stamp b{ display:block; font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:1.3rem; }
+.host__stamp b{ display:block; font-family:var(--font-display); font-weight:500; font-size:1.3rem; }
 .host__stamp span{ display:block; margin-top:4px;
-  font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.2em;
+  font-family:var(--font-display); font-size:10px; letter-spacing:.2em;
   text-transform:uppercase; color:var(--gold-lite); }
 .host__body p{ color:var(--muted); font-size:16.5px; line-height:1.78; margin-top:18px; }
 .host__body p b{ color:var(--text); font-weight:500; }
 .host__creds{ list-style:none; display:grid; gap:10px; margin-top:26px;
   padding-top:26px; border-top:1px solid var(--hair-cool); }
 .host__creds li{ display:flex; gap:12px; align-items:baseline; font-size:15px; }
-.host__creds b{ font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+.host__creds b{ font-family:var(--font-display); font-size:11px; letter-spacing:.14em;
   color:var(--gold); text-transform:uppercase; min-width:106px; flex:none; }
 .host__creds span{ color:var(--muted); }
 @media (max-width:560px){
@@ -725,21 +784,22 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:radial-gradient(80% 100% at 50% 50%, rgba(10,30,56,.86), rgba(5,15,31,.97)); }
 .banner__in{ position:relative; z-index:1; }
 .banner__year{
-  font-family:"Inter",sans-serif; font-weight:600;
+  font-family:var(--font-body); font-weight:600;
   font-size:clamp(1rem,2.6vw,1.7rem); letter-spacing:.34em; text-transform:uppercase;
   color:var(--text); margin-bottom:6px;
 }
 .banner__word{
-  font-family:"Fraunces",Georgia,serif; font-weight:600; letter-spacing:-.035em;
+  font-family:var(--font-display); font-weight:800; letter-spacing:-.028em;
+  text-transform:uppercase;
   font-size:clamp(3rem,11vw,8rem); line-height:.92;
 }
 .banner__meta{
   display:flex; flex-wrap:wrap; justify-content:center; gap:10px 26px; margin:26px 0 8px;
-  font-family:"Space Mono",monospace; font-size:11.5px; letter-spacing:.16em;
+  font-family:var(--font-display); font-size:11.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--muted);
 }
 .banner__price{
-  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:300;
+  font-family:var(--font-display); font-weight:600;
   font-size:clamp(1.3rem,3vw,1.9rem); color:var(--gold-lite); margin-bottom:30px;
 }
 
@@ -757,7 +817,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .incl{ background:var(--ivory); color:var(--ink-text); }
 .incl__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); align-items:start; }
 @media (max-width:820px){ .incl__grid{ grid-template-columns:1fr; } }
-.incl h3{ font-family:"Fraunces",Georgia,serif; font-weight:500;
+.incl h3{ font-family:var(--font-display); font-weight:500;
   font-size:clamp(1.4rem,2.6vw,1.85rem); letter-spacing:-.02em; color:var(--ink-text); margin-bottom:22px; }
 .incl__list{ list-style:none; display:grid; gap:13px; }
 .incl__list li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.6; }
@@ -769,7 +829,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   border:1px solid var(--gold); padding:24px 24px 26px;
 }
 .incl__vip h4{
-  font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.24em;
+  font-family:var(--font-display); font-size:11px; letter-spacing:.24em;
   text-transform:uppercase; color:var(--gold-lite); margin-bottom:16px;
 }
 .incl__vip .incl__list li{ color:var(--text); }
@@ -813,7 +873,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .foot__legal{ max-width:66ch; margin:0 auto; color:var(--muted-2); font-size:13.5px; line-height:1.75; }
 .foot__legal .strong{ color:var(--muted); font-weight:500; }
 .foot__bottom{ margin-top:26px; display:flex; flex-direction:column; align-items:center; gap:14px; }
-.foot__bottom > p{ font-family:"Space Mono",monospace; font-size:11px; letter-spacing:.14em;
+.foot__bottom > p{ font-family:var(--font-display); font-size:11px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--muted-2); }
 .foot__links{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; }
 .foot__links a{ color:var(--gold-lite); padding:0 16px; font-size:13.5px;
@@ -833,7 +893,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   transform:translateY(110%); transition:transform .45s var(--ease-out);
 }
 .dock.is-on{ transform:translateY(0); }
-.dock__meta{ font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.16em;
+.dock__meta{ font-family:var(--font-display); font-size:10px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--muted); line-height:1.6; }
 .dock__meta b{ display:block; color:var(--gold-lite); font-weight:400; }
 .dock .btn{ --pad-y:13px; --pad-x:22px; font-size:14.5px; border-radius:10px; flex:none; }
@@ -942,22 +1002,24 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <div class="draft" id="draftBar">
   <div class="draft__in">
     <p><b>Working draft — nothing here is final.</b>
-      Placeholder for review: ticket prices ($47 / $77 / $147), the date (Sat, Oct 17),
-      the venue (The Tampa Club), all session times, and every event, venue and audience photo.
+      Confirmed from the brand standards: event name, logo, palette, Oct 17 2026 date.
+      Still placeholder: ticket prices ($47 / $77 / $147), the venue (The Tampa Club),
+      all session times, and every event, venue and audience photo.
       Charles Payne's bio is verified against Fox Business — his session topic is not set.
+      Headline font is Archivo standing in for Transat, which is a licensed font.
       Checkout buttons are not wired to a payment processor yet.</p>
     <button class="draft__x" id="draftX" type="button" aria-label="Dismiss this notice">&times;</button>
   </div>
 </div>
 
 <!-- ============================ ANNOUNCE BAR ============================ -->
-<div class="bar">Seats Limited</div>
+<div class="bar">Space is limited</div>
 
 <!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a href="#top" aria-label="Walser Wealth Management — home">
-      <img class="nav__logo" src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" />
+      <img class="nav__logo" src="Brand%20Assets/trl-logo-white.png" alt="Tampa Retirement Live" width="418" height="400" />
     </a>
     <div class="nav__right">
       <p class="nav__meta"><b>Sat, October 17, 2026</b><br>The Tampa Club · Tampa, FL</p>
@@ -983,17 +1045,21 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <span class="hero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
 
         <h1 class="lock">
-          <span class="lock__year">2026</span>
-          <span class="lock__a">Tampa Bay</span>
-          <span class="lock__b">Retirement</span>
-          <span class="lock__c">Summit</span>
+          <img class="lock__img" src="Brand%20Assets/trl-logo-white.png"
+               alt="Tampa Retirement Live 2026" width="418" height="400" />
         </h1>
 
-        <p class="hero__sub">
-          <b>Tampa Bay Pre-Retirees And Retirees:</b> Spend One Morning At The Tampa Club
-          And Gain Real Direction On The Financial Decisions That Shape Your Retirement
+        <p class="hero__tag"><em>Own</em> what&rsquo;s next.</p>
+
+        <p class="lock__launched">
+          <span>Launched by</span>
+          <img src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" />
         </p>
 
+        <p class="hero__sub">
+          <b>Tampa Bay Pre-Retirees And Retirees:</b> One morning to stop settling for
+          the retirement you were handed &mdash; and design the one you actually want.
+        </p>
         <p class="hero__when">
           <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
           <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> The Tampa Club, Tampa</span>
@@ -1059,7 +1125,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="wrap stats__in">
     <div class="stats__cell"><p class="stats__n"><span data-count="20">0</span>+</p><p class="stats__l">Years in tax<br>&amp; financial law</p></div>
     <div class="stats__cell"><p class="stats__n"><span data-count="4">0</span>×</p><p class="stats__l">Investopedia<br>Top 100 advisor</p></div>
-    <div class="stats__cell"><p class="stats__n">1<sup style="font-size:.5em;top:-.6em;position:relative">st</sup></p><p class="stats__l">Annual Tampa Bay<br>Retirement Summit</p></div>
+    <div class="stats__cell"><p class="stats__n">1<sup style="font-size:.5em;top:-.6em;position:relative">st</sup></p><p class="stats__l">Annual Tampa<br>Retirement Live</p></div>
     <div class="stats__cell"><p class="stats__n"><span data-count="250">0</span></p><p class="stats__l">Seats<br>available</p></div>
   </div>
 </section>
@@ -1113,7 +1179,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <section class="sec qual">
   <div class="wrap">
     <div class="head" data-reveal>
-      <span class="eyebrow eyebrow--center">Start here</span>
+      <span class="eyebrow eyebrow--center">Why settle?</span>
       <h2 class="display h2">Which of these applies to your retirement right now?</h2>
     </div>
 
@@ -1142,7 +1208,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   </div>
   <div class="wrap agenda__in">
     <div class="head" data-reveal>
-      <span class="eyebrow eyebrow--center">The agenda</span>
+      <span class="eyebrow eyebrow--center">What's your move?</span>
       <h2 class="display h2">Six topics, one morning</h2>
       <p class="lede">Every session is education, not a sales pitch. You leave with questions worth asking and a clearer sense of where your plan has gaps.</p>
     </div>
@@ -1180,7 +1246,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </article>
     </div>
 
-    <p class="agenda__note">Presented by Walser Wealth Management · Tampa, FL</p>
+    <p class="agenda__note">Launched by Walser Wealth Management · Tampa, FL</p>
   </div>
 </section>
 
@@ -1293,7 +1359,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <img src="https://placehold.co/900x680/0F2A4A/E4C77E?text=Audience" alt="Audience at a Walser Wealth retirement education event" width="900" height="680" loading="lazy" />
     </figure>
     <div data-reveal>
-      <span class="eyebrow">Who it's for</span>
+      <span class="eyebrow">Who's in charge?</span>
       <h2 class="display h2" style="margin-top:18px">Who this morning is built for</h2>
       <ul class="built__list">
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and up</li>
@@ -1317,8 +1383,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <section class="sec host">
   <div class="wrap">
     <div class="head" data-reveal>
-      <span class="eyebrow eyebrow--center">Your host</span>
-      <h2 class="display h2">Meet Rebecca Walser</h2>
+      <span class="eyebrow eyebrow--center">Your keynote</span>
+      <h2 class="display h2">Meet your keynote, Rebecca Walser</h2>
     </div>
 
     <div class="host__in">
@@ -1326,14 +1392,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <img src="Brand%20Assets/Rebecca%20Image.jpg" alt="Rebecca Walser, Founder and Principal of Walser Wealth Management" width="1057" height="1450" />
         <figcaption class="host__stamp">
           <b>Rebecca Walser</b>
-          <span>JD · LLM · MBA</span>
+          <span>MBA, JD, LLM</span>
         </figcaption>
       </figure>
 
       <div class="host__body" data-reveal>
         <p>Most advisors manage money. <b>Rebecca Walser is a licensed tax attorney</b> who built her firm around a single idea: the biggest threat to your retirement isn't the market — it's <b>the taxes you haven't planned for yet.</b></p>
         <p>She founded Walser Wealth Management in Tampa to bring one discipline to a problem that usually gets split across three professionals who never talk. Tax law, investment strategy, and estate planning under one roof, coordinated on purpose.</p>
-        <p>At the Tampa Bay Retirement Summit she'll walk through the same framework she uses with clients — what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
+        <p>At the Tampa Retirement Live she'll walk through the same framework she uses with clients — what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
 
         <ul class="host__creds">
           <li><b>Credentials</b><span>Juris Doctor, Master of Laws in Taxation, MBA</span></li>
@@ -1368,8 +1434,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <img src="https://placehold.co/1600x800/0A1E38/123057?text=Room" alt="" width="1600" height="800" loading="lazy" />
   </div>
   <div class="wrap banner__in" data-reveal>
-    <p class="banner__year">2026 Tampa Bay Retirement</p>
-    <p class="banner__word display foil">Summit</p>
+    <p class="banner__year">Oct 17 &middot; 2026 &middot; Tampa</p>
+    <p class="banner__word display foil">Bold Moves</p>
     <p class="banner__meta">
       <span>Saturday, October 17, 2026</span>
       <span>The Tampa Club, Tampa</span>
@@ -1377,14 +1443,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </p>
     <p class="banner__price">Tickets from $47</p>
     <a class="btn btn--lg" href="#tickets">Reserve your seat</a>
-    <span class="cta-note">Presented by Walser Wealth Management</span>
+    <span class="cta-note">Launched by Walser Wealth Management</span>
   </div>
 </section>
 
 <!-- ============================ PERKS ============================ -->
 <section class="sec perks" id="perks">
   <div class="wrap">
-    <p class="perks__tag"><span class="eyebrow eyebrow--center">Why it's worth the morning</span></p>
+    <p class="perks__tag"><span class="eyebrow eyebrow--center">Bold looks good on you</span></p>
     <div class="perks__grid" data-reveal>
       <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Half-day format — you're out by noon</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
@@ -1439,7 +1505,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     <div class="faq__list">
       <details class="faq__item">
-        <summary class="faq__q">When and where is the 2026 Tampa Bay Retirement Summit?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <summary class="faq__q">When and where is the Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">Saturday, October 17, 2026 at The Tampa Club in downtown Tampa. Registration opens at 8:30 AM, the program runs 9:00 AM to 12:00 PM, and VIP lunch follows immediately after.</p>
       </details>
 
@@ -1450,7 +1516,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">I already have a financial advisor. Why would I come?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">The summit is built to help you ask better questions. Most attendees leave with two or three specific things to raise with the advisor they already have. A second opinion costs you a Saturday morning.</p>
+        <p class="faq__a">The event is built to help you ask better questions. Most attendees leave with two or three specific things to raise with the advisor they already have. A second opinion costs you a Saturday morning.</p>
       </details>
 
       <details class="faq__item">
@@ -1510,7 +1576,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Is there a virtual option?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">No. The summit is fully in person by design — the value is in the room, the questions, and the conversations afterward.</p>
+        <p class="faq__a">No. The event is fully in person by design — the value is in the room, the questions, and the conversations afterward.</p>
       </details>
 
       <details class="faq__item">
@@ -1565,7 +1631,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </div>
 
     <p class="foot__disc">
-      The 2026 Tampa Bay Retirement Summit is an educational event. Nothing presented constitutes personalized
+      The Tampa Retirement Live 2026 is an educational event. Nothing presented constitutes personalized
       investment, tax, or legal advice, and attendance does not create an advisory relationship.
       Charles Payne appears in his individual capacity as a guest speaker. FOX Business Network, FOX News Media,
       and Wall Street Strategies are not sponsors of this event and do not endorse Walser Wealth Management or
