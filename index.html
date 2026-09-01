@@ -42,8 +42,10 @@
                   includes list, closing banner, FAQ #1.
      [[TIMES]]    Registration 8:30 AM / Start 9:00 AM / End 12:00 PM
                   / VIP lunch 12:15-1:30 PM.
-     [[PRICES]]   Single $47 / Couple $77 / VIP $147, with regular-price
-                  anchors. Section id="tickets".
+     [[PRICES]]   CONFIRMED from the ticketing system: Single $47,
+                  Couple $67, Single VIP $97, Couple VIP $147. The two
+                  "save vs" lines are computed from these, so they stay
+                  true only while these prices hold.
      [[SEATS]]    "250 seats" stat + "Only 40 VIP seats" scarcity line.
      [[CHECKOUT]] Every ticket button has href="#" - drop in real
                   checkout URLs.
@@ -637,8 +639,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .tix{ background:var(--ivory-2); color:var(--ink-text); }
 .tix .h2{ color:var(--ink-text); }
 .tix .head p{ color:var(--ink-muted); }
-.tix__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; }
-@media (max-width:940px){ .tix__grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; } }
+.tix__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:stretch; }
+@media (max-width:1080px){ .tix__grid{ grid-template-columns:repeat(2,1fr); gap:20px; max-width:760px; margin-inline:auto; } }
+@media (max-width:640px){ .tix__grid{ grid-template-columns:1fr; max-width:430px; } }
 
 .card{
   position:relative; display:flex; flex-direction:column;
@@ -648,7 +651,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
 }
 .card:hover{ transform:translateY(-6px); box-shadow:0 34px 64px -28px rgba(10,30,56,.42); }
-.card__top{ padding:26px 26px 22px; border-bottom:1px dashed rgba(10,30,56,.18); }
+.card__top{ padding:24px 21px 20px; border-bottom:1px dashed rgba(20,54,79,.2); }
 .card__body{ display:flex; flex-direction:column; flex:1; }
 .card__body .btn{ margin-top:auto; }
 /* engraved ticket-stub perforation */
@@ -659,17 +662,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .card__perf::before{ left:-13px; }
 .card__perf::after{ right:-13px; }
-.card__body{ padding:24px 26px 28px; }
+.card__body{ padding:21px 21px 25px; }
 
 .card__tier{
   font-family:var(--font-display); font-size:11px; letter-spacing:.24em;
   text-transform:uppercase; color:var(--ink-muted); margin-bottom:4px;
 }
-.card__seats{ font-size:13.5px; color:var(--ink-muted); margin-bottom:16px; }
+.card__seats{ font-size:13px; color:var(--ink-muted); margin-bottom:14px; }
 .card__price{ display:flex; align-items:baseline; gap:11px; }
 .card__now{
   font-family:var(--font-display); font-weight:500; letter-spacing:-.03em;
-  font-size:clamp(2.4rem,5vw,3.1rem); line-height:1; color:var(--ink-text);
+  font-size:clamp(2.3rem,3.4vw,2.8rem); line-height:1; color:var(--ink-text);
 }
 .card__was{
   font-family:var(--font-display); font-size:15px; color:var(--ink-muted);
@@ -682,7 +685,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   border:1px solid rgba(158,124,46,.4); border-radius:100px; padding:4px 11px;
 }
 .card__list{ list-style:none; margin:20px 0 26px; display:grid; gap:11px; align-content:start; }
-.card__list li{ display:flex; gap:10px; align-items:flex-start; font-size:14.5px; line-height:1.55; }
+.card__list li{ display:flex; gap:9px; align-items:flex-start; font-size:14px; line-height:1.5; }
 .card__list svg{ width:15px; height:15px; flex:none; margin-top:4px;
   stroke:var(--gold-deep); fill:none; stroke-width:2.4; }
 .card__inherit{
@@ -1003,7 +1006,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="draft__in">
     <p><b>Working draft — nothing here is final.</b>
       Confirmed from the brand standards: event name, logo, palette, Oct 17 2026 date.
-      Still placeholder: ticket prices ($47 / $77 / $147), the venue (The Tampa Club),
+      Ticket prices are confirmed. Still placeholder: the venue (The Tampa Club),
       all session times, and every event, venue and audience photo.
       Charles Payne's bio is verified against Fox Business — his session topic is not set.
       Headline font is Archivo standing in for Transat, which is a licensed font.
@@ -1274,18 +1277,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center" style="color:var(--gold-deep)">Registration</span>
       <h2 class="display h2">Choose your seat</h2>
-      <p>Three ways in. Every ticket includes the full morning program, breakfast, and the workbook.</p>
+      <p>Four ways in. Every ticket includes the full morning program, breakfast, and the workbook.</p>
     </div>
 
     <div class="tix__grid" data-reveal>
 
-      <!-- SINGLE -->
+      <!-- SINGLE ADMISSION -->
       <article class="card">
         <div class="card__top">
           <p class="card__tier">Single</p>
-          <p class="card__seats">One seat</p>
-          <p class="card__price"><span class="card__now">$47</span><span class="card__was">$97</span></p>
-          <span class="card__save">Save $50</span>
+          <p class="card__seats">General admission &middot; one seat</p>
+          <p class="card__price"><span class="card__now">$47</span></p>
         </div>
         <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
@@ -1300,13 +1302,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         </div>
       </article>
 
-      <!-- COUPLE -->
+      <!-- COUPLE ADMISSION -->
       <article class="card">
         <div class="card__top">
           <p class="card__tier">Couple</p>
-          <p class="card__seats">Two seats together</p>
-          <p class="card__price"><span class="card__now">$77</span><span class="card__was">$194</span></p>
-          <span class="card__save">Save $117</span>
+          <p class="card__seats">General admission &middot; two seats</p>
+          <p class="card__price"><span class="card__now">$67</span></p>
+          <span class="card__save">Save $27 vs 2 singles</span>
         </div>
         <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
@@ -1321,31 +1323,52 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         </div>
       </article>
 
-      <!-- VIP -->
+      <!-- SINGLE VIP -->
       <article class="card card--vip">
-        <span class="card__flag">VIP experience</span>
         <div class="card__top">
-          <p class="card__tier">VIP</p>
-          <p class="card__seats">Two seats · front row</p>
-          <p class="card__price"><span class="card__now">$147</span><span class="card__was">$294</span></p>
+          <p class="card__tier">Single VIP</p>
+          <p class="card__seats">One seat &middot; front row</p>
+          <p class="card__price"><span class="card__now">$97</span></p>
           <span class="card__save">Only 40 VIP seats</span>
         </div>
         <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
-          <p class="card__inherit">Everything in Couple, plus</p>
+          <p class="card__inherit">Everything in Single, plus</p>
           <ul class="card__list">
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Reserved front-row seating</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch with Rebecca Walser and Charles Payne</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
           </ul>
-          <a class="btn btn--gold btn--block" href="#">Select VIP</a>
+          <a class="btn btn--gold btn--block" href="#">Select single VIP</a>
+        </div>
+      </article>
+
+      <!-- COUPLE VIP -->
+      <article class="card card--vip">
+        <span class="card__flag">Best value</span>
+        <div class="card__top">
+          <p class="card__tier">Couple VIP</p>
+          <p class="card__seats">Two seats &middot; front row</p>
+          <p class="card__price"><span class="card__now">$147</span></p>
+          <span class="card__save">Save $47 vs 2 VIPs</span>
+        </div>
+        <div class="card__perf" aria-hidden="true"></div>
+        <div class="card__body">
+          <p class="card__inherit">Everything in Single VIP, for two</p>
+          <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two reserved front-row seats</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch for both with Rebecca and Charles</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+          </ul>
+          <a class="btn btn--gold btn--block" href="#">Select couple VIP</a>
         </div>
       </article>
 
     </div>
 
-    <p class="tix__foot">All ticket sales are final. Tickets are transferable — call the events team at (866) 929-3258 and we'll move your name.</p>
+    <p class="tix__foot">All ticket sales are final. Tickets are transferable &mdash; call the events team at (866) 929-3258 and we'll move your name.</p>
   </div>
 </section>
 
@@ -1531,12 +1554,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Can I bring my spouse or a guest?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, and we'd encourage it. The Couple ticket covers two seats together at a lower price than two singles. Every attendee needs their own registration.</p>
+        <p class="faq__a">Yes, and we'd encourage it. The Couple tickets cover two seats together for less than two singles <p class="faq__a">Yes, and we'd encourage it. The Couple ticket covers two seats together at a lower price than two singles. Every attendee needs their own registration.</p>mdash; &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
       </details>
 
       <details class="faq__item">
-        <summary class="faq__q">What's the difference between Single, Couple, and VIP?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Single is one seat. Couple is two seats together at a discount. VIP is two seats in the reserved front row, plus a private lunch with Rebecca Walser and Charles Payne, a photo with Charles, and a signed copy of Rebecca's book. Only 40 VIP seats are released.</p>
+        <summary class="faq__q">What's the difference between the four ticket types?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">There are four. <b>Single</b> ($47) is one general-admission seat. <b>Couple</b> ($67) is two seats together. <b>Single VIP</b> ($97) is one reserved front-row seat plus a private lunch with Rebecca Walser and Charles Payne, a photo with Charles, and a signed copy of Rebecca's book. <b>Couple VIP</b> ($147) is all of that for two. Only 40 VIP seats are released in total.</p>
       </details>
 
       <details class="faq__item">
