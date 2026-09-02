@@ -37,29 +37,34 @@
      ----------------------------------------------------------------
      SWAP LIST - everything still to be confirmed. Search these tags.
      ----------------------------------------------------------------
-     [[VENUE]]    "The Tampa Club" is still a placeholder.
-                  Appears in: hero, agenda band, who-it's-for,
-                  includes list, closing banner, FAQ #1.
+     [[VENUE]]    CONFIRMED: Sheraton Tampa Brandon Hotel,
+                  10221 Princess Palm Avenue, Tampa FL 33610.
      [[TIMES]]    CONFIRMED full-day agenda: doors 8:00, program 9:00,
-                  lunch 12:30-1:30, close 3:45 PM. Session TITLES are
-                  still unknown - the run-of-show reads "Session one",
-                  "Session two" etc. [[TOM]] needs a surname and credit.
-                  Open question: is lunch included for general admission,
-                  or is it VIP-only? The page currently promises lunch
-                  only to VIP and stays silent for GA.
+                  lunch 12:30-1:30 (included for EVERY attendee), close
+                  3:45 PM. Session TITLES are still unknown - the run of
+                  show reads "Session one", "Session two" etc.
+                  [[TOM]] still needs a surname and a one-line credit.
      [[PRICES]]   CONFIRMED from the ticketing system: Single $47,
                   Couple $67, Single VIP $97, Couple VIP $147. The two
                   "save vs" lines are computed from these, so they stay
                   true only while these prices hold.
-     [[SEATS]]    "250 seats" stat + "Only 40 VIP seats" scarcity line.
-     [[CHECKOUT]] Every ticket button has href="#" - drop in real
-                  checkout URLs.
+     [[CHECKOUT]] BLOCKING. All four ticket buttons are href="#".
+                  Need one URL per product from the ticketing system:
+                  Single Admission, Couple Admission, Single VIP,
+                  Couple VIP. A visible reviewer note sits under the
+                  ticket grid until these land - delete it then.
+                  Also unresolved: is this hosted at
+                  walserwealth.com/tamparetirementlive or ClickFunnels?
+                  That decides whether asset paths stay relative.
      [[PHONE]]    (866) 929-3258 used for the events line.
-     [[PHOTOS]]   Event, venue and audience shots are still placehold.co.
-                  The brand guide uses flat illustrated skylines rather
-                  than photography - worth matching when art arrives.
+     [[PHOTOS]]   See GRAPHICS-SPEC.md in the project root for the full
+                  list of artwork still needed, with pixel sizes.
+                  The two past-event photo strips were removed at the
+                  client's request - there is no library to draw on yet.
      [[GUEST]]    Charles Payne is booked; bio verified against Fox
                   Business. His session topic is NOT set.
+     [[SEATS]]    "250 seats" and "Only 40 VIP" are still unconfirmed
+                  guesses. Correct or remove them before launch.
 
      COMPLIANCE NOTES, review before publishing:
      - No client testimonials or performance claims appear anywhere on
@@ -164,7 +169,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%231A4364'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%23037182'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 /* navy vanishes on dark grounds, so those sections get a lighter first chevron */
-.hero .eyebrow::before, .qual .eyebrow::before, .guest .eyebrow::before,
+.hero .eyebrow::before, .qual .eyebrow::before, .guest .eyebrow::before, .run .eyebrow::before,
 .agenda .eyebrow::before, .built .eyebrow::before, .host .eyebrow::before,
 .perks .eyebrow::before, .foot .eyebrow::before{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%239AD1C9'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%23F4792A'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E");
@@ -496,18 +501,20 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 @media (max-width:420px){ .deck__facts{ grid-template-columns:1fr; } }
 
 /* ============================ STAT STRIP ============================ */
-.stats{ background:var(--ink); border-block:1px solid var(--hair-cool); position:relative; z-index:2; }
+.stats{ position:relative; z-index:2;
+  background:linear-gradient(104deg, var(--brick) 0%, #D4482E 46%, var(--red) 100%);
+  border-block:1px solid rgba(255,255,255,.16); }
 .stats__in{ display:grid; grid-template-columns:repeat(4,1fr); padding-block:38px; }
-.stats__cell{ text-align:center; padding-inline:12px; border-right:1px solid var(--hair-cool); }
+.stats__cell{ text-align:center; padding-inline:12px; border-right:1px solid rgba(255,255,255,.22); }
 .stats__cell:last-child{ border-right:none; }
 .stats__n{
   font-family:var(--font-display); font-weight:500;
-  font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1; color:var(--gold-lite);
+  font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1; color:#fff;
   letter-spacing:-.02em;
 }
 .stats__l{
   margin-top:9px; font-family:var(--font-display); font-size:10px;
-  letter-spacing:.18em; text-transform:uppercase; color:var(--muted-2); line-height:1.6;
+  letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.82); line-height:1.6;
 }
 @media (max-width:720px){
   .stats__in{ grid-template-columns:repeat(2,1fr); gap:30px 0; padding-block:32px; }
@@ -577,10 +584,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .qual__tick{
   flex:none; width:22px; height:22px; border-radius:6px; margin-top:1px;
   display:grid; place-items:center;
-  background:linear-gradient(180deg, rgba(200,162,75,.28), rgba(200,162,75,.1));
-  border:1px solid var(--hair);
+  background:linear-gradient(180deg, rgba(240,82,56,.34), rgba(240,82,56,.12));
+  border:1px solid rgba(240,82,56,.42);
 }
-.qual__tick svg{ width:12px; height:12px; stroke:var(--gold-lite); fill:none; stroke-width:2.4; }
+.qual__tick svg{ width:12px; height:12px; stroke:#FFB9A8; fill:none; stroke-width:2.4; }
 .qual__item p{ font-size:14.5px; line-height:1.6; color:var(--text); }
 .qual__foot{ text-align:center; margin-top:clamp(34px,4vw,50px); }
 .qual__foot > p{
@@ -593,7 +600,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .agenda__bg{ position:absolute; inset:0; z-index:0; }
 .agenda__bg img{ width:100%; height:100%; object-fit:cover; }
 .agenda__bg::after{ content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(5,15,31,.93), rgba(10,30,56,.78) 45%, rgba(5,15,31,.94)); }
+  background:linear-gradient(180deg, rgba(6,42,58,.95), rgba(3,113,130,.62) 46%, rgba(9,32,52,.95)); }
 .agenda__in{ position:relative; z-index:1; }
 .agenda__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 @media (max-width:940px){ .agenda__grid{ grid-template-columns:repeat(2,1fr); } }
@@ -609,9 +616,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   width:42px; height:42px; border-radius:11px; margin-bottom:18px;
   display:grid; place-items:center;
   border:1px solid var(--hair);
-  background:linear-gradient(150deg, rgba(200,162,75,.2), rgba(200,162,75,.04));
+  background:linear-gradient(150deg, rgba(244,121,42,.26), rgba(244,121,42,.06));
 }
-.topic__ico svg{ width:20px; height:20px; stroke:var(--gold-lite); fill:none; stroke-width:1.6; }
+.topic__ico svg{ width:20px; height:20px; stroke:#FFC08A; fill:none; stroke-width:1.6; }
 .topic h3{ font-family:var(--font-display); font-weight:500; font-size:1.24rem;
   letter-spacing:-.01em; margin-bottom:10px; }
 .topic p{ font-size:14.5px; line-height:1.7; color:var(--muted); }
@@ -656,24 +663,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .run__row{ grid-template-columns:1fr; gap:6px; padding:16px 0; }
   .run__time{ font-size:12.5px; }
 }
-/* ============================ PHOTO STRIPS ============================ */
-.strip{ background:var(--ivory); color:var(--ink-text); }
-.strip .h2{ color:var(--ink-text); }
-.strip__pair{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:900px; margin:0 auto; }
-@media (max-width:700px){ .strip__pair{ grid-template-columns:1fr; } }
-.strip__shot{
-  position:relative; border-radius:var(--r-md); overflow:hidden; aspect-ratio:16/10;
-  border:1px solid rgba(10,30,56,.14);
-  box-shadow:0 24px 50px -28px rgba(10,30,56,.5);
-}
-.strip__shot img{ width:100%; height:100%; object-fit:cover; }
-.strip__line{
-  text-align:center; max-width:52ch; margin:32px auto 0;
-  font-family:var(--font-display); font-size:clamp(1.05rem,2vw,1.3rem);
-  line-height:1.45; color:var(--ink-text);
-}
-.strip__cta{ text-align:center; margin-top:30px; }
-.strip .cta-note{ color:var(--ink-muted); }
 
 /* ============================ TICKETS ============================ */
 .tix{ background:var(--ivory-2); color:var(--ink-text); }
@@ -757,6 +746,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:linear-gradient(180deg,var(--gold-lite),var(--gold));
   padding:7px 15px; border-bottom-left-radius:10px;
 }
+.tix__pending{
+  text-align:center; max-width:56ch; margin:30px auto 0;
+  font-family:var(--font-display); font-weight:600; font-size:13px;
+  color:#8A3A22; background:rgba(240,82,56,.1);
+  border:1px dashed rgba(190,65,42,.45); border-radius:10px; padding:12px 18px;
+}
 .tix__foot{
   text-align:center; margin-top:34px; font-size:14px; color:var(--ink-muted);
   max-width:60ch; margin-inline:auto;
@@ -767,7 +762,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .built__bg{ position:absolute; inset:0; z-index:0; }
 .built__bg img{ width:100%; height:100%; object-fit:cover; }
 .built__bg::after{ content:""; position:absolute; inset:0;
-  background:linear-gradient(100deg, rgba(5,15,31,.97) 30%, rgba(10,30,56,.86)); }
+  background:linear-gradient(100deg, rgba(12,41,69,.96) 26%, rgba(120,44,36,.72) 78%, rgba(190,65,42,.55)); }
 .built__in{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1.1fr;
   gap:clamp(28px,4vw,60px); align-items:center; }
 @media (max-width:880px){ .built__in{ grid-template-columns:1fr; } }
@@ -824,7 +819,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .banner__bg{ position:absolute; inset:0; z-index:0; }
 .banner__bg img{ width:100%; height:100%; object-fit:cover; }
 .banner__bg::after{ content:""; position:absolute; inset:0;
-  background:radial-gradient(80% 100% at 50% 50%, rgba(10,30,56,.86), rgba(5,15,31,.97)); }
+  background:
+    radial-gradient(78% 88% at 84% 6%, rgba(240,82,56,.9), rgba(240,82,56,0) 62%),
+    radial-gradient(60% 60% at 6% 96%, rgba(154,209,201,.45), transparent 64%),
+    linear-gradient(196deg, var(--teal) 0%, #0A5570 34%, #0B3450 70%, var(--ink-abyss) 100%); }
 .banner__in{ position:relative; z-index:1; }
 .banner__year{
   font-family:var(--font-body); font-weight:600;
@@ -847,13 +845,18 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 
 /* ============================ PERKS ============================ */
-.perks{ background:var(--ink); border-block:1px solid var(--hair-cool); }
+.perks{ background:linear-gradient(168deg, var(--teal) 0%, #045F72 60%, #073F55 100%);
+  border-block:1px solid rgba(154,209,201,.28); }
 .perks__tag{ text-align:center; margin-bottom:34px; }
+.perks .eyebrow{ color:#fff; }
+.perks .eyebrow::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%23E3DAC6'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%239AD1C9'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E");
+}
 .perks__grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 @media (max-width:760px){ .perks__grid{ grid-template-columns:1fr; } }
 .perk{ display:flex; gap:14px; align-items:center;
-  border:1px solid var(--hair-cool); border-radius:var(--r-md);
-  background:rgba(255,255,255,.02); padding:18px 20px; font-size:15px; }
+  border:1px solid rgba(255,255,255,.2); border-radius:var(--r-md);
+  background:rgba(255,255,255,.07); padding:18px 20px; font-size:15px; }
 .perk svg{ width:18px; height:18px; flex:none; stroke:var(--gold-lite); fill:none; stroke-width:2; }
 
 /* ============================ INCLUDES ============================ */
@@ -1045,14 +1048,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <div class="draft" id="draftBar">
   <div class="draft__in">
     <p><b>Working draft. Not everything here is final.</b>
-      <b>Confirmed:</b> event name, logo and palette (brand standards), the Oct 17 2026 date,
-      all four ticket prices (ticketing system), and the full-day run of show.
-      <b>Still open:</b> the venue (The Tampa Club is a placeholder), individual session
-      titles, Tom's surname and credit, whether lunch is included for general admission,
-      and every event, venue and audience photo.
+      <b>Confirmed:</b> event name, logo and palette, Oct 17 2026, the Sheraton Tampa Brandon Hotel,
+      all four ticket prices, the full-day run of show, and lunch for every attendee.
+      <b>Still open:</b> checkout URLs for the four ticket buttons, individual session titles,
+      Tom's surname and credit, the 250-seat and 40-VIP numbers, and all event photography.
       Charles Payne's bio is verified against Fox Business; his session topic is not set.
-      Headline type is Archivo standing in for Transat, which is a licensed font.
-      Checkout buttons are not wired to a payment processor yet.</p>
+      Headline type is Archivo standing in for Transat, which is a licensed font.</p>
     <button class="draft__x" id="draftX" type="button" aria-label="Dismiss this notice">&times;</button>
   </div>
 </div>
@@ -1067,7 +1068,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <img class="nav__logo" src="Brand%20Assets/trl-logo-white.png" alt="Tampa Retirement Live" width="418" height="400" />
     </a>
     <div class="nav__right">
-      <p class="nav__meta"><b>Sat, October 17, 2026</b><br>The Tampa Club · Tampa, FL</p>
+      <p class="nav__meta"><b>Sat, October 17, 2026</b><br>Sheraton Tampa Brandon Hotel</p>
       <a class="btn" href="#tickets">Reserve your seat</a>
     </div>
   </div>
@@ -1107,7 +1108,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         </p>
         <p class="hero__when">
           <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
-          <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> The Tampa Club, Tampa</span>
+          <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Sheraton Tampa Brandon Hotel</span>
           <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 8:00 AM &ndash; 3:45 PM</span>
         </p>
 
@@ -1115,7 +1116,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <a class="btn btn--lg" href="#tickets">Reserve Your Seat</a>
           <p class="hero__host">
             <b>Rebecca Walser</b>
-            <span>Tax Attorney &amp; Founder, Walser Wealth</span>
+            <span>Founder, CEO &amp; Chief Investment Officer, Walser Wealth</span>
           </p>
         </div>
       </div>
@@ -1336,7 +1337,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">12:30 &ndash; 1:30</p>
-        <div class="run__what"><h3>Lunch</h3><p class="run__who">VIP: private lunch with the speakers</p></div>
+        <div class="run__what"><h3>Lunch</h3><p class="run__who">Included with every ticket</p></div>
       </div>
       <div class="run__row">
         <p class="run__time">1:30 &ndash; 2:30</p>
@@ -1348,27 +1349,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
     </div>
 
-    <p class="run__note">Schedule is subject to change. Registered attendees get the final run of show by email the week of the event.</p>
+    <p class="run__note">Schedule is subject to change.</p>
   </div>
 </section>
 
-<!-- ============================ PAST EVENTS STRIP ============================ -->
-<section class="sec strip">
-  <div class="wrap">
-    <div class="head" data-reveal>
-      <h2 class="display h2">From past Walser Wealth events</h2>
-    </div>
-    <div class="strip__pair" data-reveal>
-      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=Past+Event+1" alt="Attendees at a past Walser Wealth education event" width="900" height="560" loading="lazy" /></figure>
-      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=Past+Event+2" alt="Rebecca Walser presenting at a past education event" width="900" height="560" loading="lazy" /></figure>
-    </div>
-    <p class="strip__line">Spend one focused morning gaining direction on the financial decisions that shape your retirement.</p>
-    <div class="strip__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
-      <span class="cta-note">Seating is limited to 250</span>
-    </div>
-  </div>
-</section>
 
 <!-- ============================ TICKETS ============================ -->
 <section class="sec tix" id="tickets">
@@ -1376,7 +1360,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center" style="color:var(--gold-deep)">Registration</span>
       <h2 class="display h2">Choose your seat</h2>
-      <p>Four ways in. Every ticket includes the full-day program, breakfast, and the workbook.</p>
+      <p>Four ways in. Every ticket includes the full-day program and lunch.</p>
     </div>
 
     <div class="tix__grid" data-reveal>
@@ -1393,9 +1377,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__inherit">What's included</p>
           <ul class="card__list">
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program, 9:00 AM to 3:45 PM</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with the presenters</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch included</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Panel discussion with all three speakers</li>
           </ul>
           <a class="btn btn--block" href="#">Select single</a>
         </div>
@@ -1414,9 +1397,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__inherit">Everything in Single, for two</p>
           <ul class="card__list">
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two seats reserved side by side</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Breakfast for both attendees</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two printed workbooks</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Best value for spouses and partners</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch for both attendees</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> The easy pick for spouses and partners</li>
           </ul>
           <a class="btn btn--block" href="#">Select couple</a>
         </div>
@@ -1426,7 +1408,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <article class="card card--vip">
         <div class="card__top">
           <p class="card__tier">Single VIP</p>
-          <p class="card__seats">One seat &middot; front row</p>
+          <p class="card__seats">One seat &middot; VIP experience</p>
           <p class="card__price"><span class="card__now">$97</span></p>
           <span class="card__save">Only 40 VIP seats</span>
         </div>
@@ -1434,10 +1416,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="card__body">
           <p class="card__inherit">Everything in Single, plus</p>
           <ul class="card__list">
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Reserved front-row seating</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch with Rebecca Walser and Charles Payne</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> VIP experience after the program</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
           <a class="btn btn--gold btn--block" href="#">Select single VIP</a>
         </div>
@@ -1448,7 +1430,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <span class="card__flag">Best value</span>
         <div class="card__top">
           <p class="card__tier">Couple VIP</p>
-          <p class="card__seats">Two seats &middot; front row</p>
+          <p class="card__seats">Two seats &middot; VIP experience</p>
           <p class="card__price"><span class="card__now">$147</span></p>
           <span class="card__save">Save $47 vs 2 VIPs</span>
         </div>
@@ -1456,10 +1438,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="card__body">
           <p class="card__inherit">Everything in Single VIP, for two</p>
           <ul class="card__list">
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two reserved front-row seats</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch for both with Rebecca and Charles</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> VIP experience after the program</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
           <a class="btn btn--gold btn--block" href="#">Select couple VIP</a>
         </div>
@@ -1467,7 +1449,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     </div>
 
-    <p class="tix__foot">All ticket sales are final. Tickets are transferable. Call the events team at (866) 929-3258 and we'll move your name.</p>
+    <!-- [[CHECKOUT]] remove this reviewer note once the four buttons point at real URLs -->
+    <p class="tix__pending">Reviewer note: the four buttons above are not connected to checkout yet. Send the URLs for each product and they go live.</p>
+
+    <p class="tix__foot">All ticket sales are final. No refunds. Questions? Call the events team at (866) 929-3258.</p>
   </div>
 </section>
 
@@ -1534,21 +1519,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   </div>
 </section>
 
-<!-- ============================ ROOM STRIP ============================ -->
-<section class="sec strip">
-  <div class="wrap">
-    <div class="head" data-reveal>
-      <h2 class="display h2">A morning in the room</h2>
-    </div>
-    <div class="strip__pair" data-reveal>
-      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=In+The+Room+1" alt="Attendees during a session at a Walser Wealth event" width="900" height="560" loading="lazy" /></figure>
-      <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=In+The+Room+2" alt="Attendees speaking with the Walser Wealth team" width="900" height="560" loading="lazy" /></figure>
-    </div>
-    <div class="strip__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
-    </div>
-  </div>
-</section>
 
 <!-- ============================ CLOSING BANNER ============================ -->
 <section class="sec banner">
@@ -1560,7 +1530,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <p class="banner__word display foil">Bold Moves</p>
     <p class="banner__meta">
       <span>Saturday, October 17, 2026</span>
-      <span>The Tampa Club, Tampa</span>
+      <span>Sheraton Tampa Brandon Hotel</span>
       <span>Full day &middot; 8:00 AM to 3:45 PM</span>
     </p>
     <p class="banner__price">Tickets from $47</p>
@@ -1576,7 +1546,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="perks__grid" data-reveal>
       <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Doors 8:00 AM, closing remarks end 3:45 PM</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
-      <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Breakfast, workbook, and parking included</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Lunch included for every attendee</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Downtown Tampa, easy in and easy out</div>
     </div>
   </div>
@@ -1600,9 +1570,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div data-reveal>
       <h3>Every ticket includes</h3>
       <ul class="incl__list">
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program at The Tampa Club, 9:00 AM to 3:45 PM</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast on arrival</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook to take home</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program at the Sheraton Tampa Brandon Hotel, 9:00 AM to 3:45 PM</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch, 12:30 to 1:30 PM</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with Rebecca and the Walser Wealth team</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Complimentary parking</li>
       </ul>
@@ -1610,10 +1579,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <div class="incl__vip">
         <h4>VIP tickets also include</h4>
         <ul class="incl__list">
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Reserved front-row seating</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Private lunch with Rebecca Walser and Charles Payne</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Charles Payne</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Signed copy of Rebecca's book</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A VIP experience straight after the closing session</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
         </ul>
       </div>
     </div>
@@ -1628,7 +1597,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="faq__list">
       <details class="faq__item">
         <summary class="faq__q">When and where is the Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Saturday, October 17, 2026 at The Tampa Club in downtown Tampa. Registration opens at 8:00 AM, the program runs 9:00 AM to 3:45 PM, and lunch is 12:30 to 1:30 PM.</p>
+        <p class="faq__a">Saturday, October 17, 2026 at the Sheraton Tampa Brandon Hotel in downtown Tampa. Registration opens at 8:00 AM, the program runs 9:00 AM to 3:45 PM, and lunch is 12:30 to 1:30 PM.</p>
       </details>
 
       <details class="faq__item">
@@ -1658,12 +1627,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">What's the difference between the four ticket types?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">There are four. <b>Single</b> ($47) is one general-admission seat. <b>Couple</b> ($67) is two seats together. <b>Single VIP</b> ($97) is one reserved front-row seat plus a private lunch with Rebecca Walser and Charles Payne, a photo with Charles, and a signed copy of Rebecca's book. <b>Couple VIP</b> ($147) is all of that for two. Only 40 VIP seats are released in total.</p>
+        <p class="faq__a">There are four. <b>Single</b> (&#36;47) is one general-admission seat. <b>Couple</b> (&#36;67) is two seats together. Both include the full day and lunch. <b>Single VIP</b> (&#36;97) adds the VIP experience straight after the closing session: a photo with Rebecca Walser and Charles Payne, a copy of each of their books, and both authors on hand to sign them. <b>Couple VIP</b> (&#36;147) is all of that for two. Only 40 VIP places are released in total.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">VIP ticket holders do. VIP includes a private lunch with Charles and Rebecca after the program, plus a photo. General admission attendees will see him speak from the main stage and take part in the live Q&amp;A, but the lunch and photo are VIP only, which is the main reason those 40 seats go first.</p>
+        <p class="faq__a">Every attendee sees Charles speak from the main stage and takes part in the panel discussion. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why those 40 places go first.</p>
       </details>
 
       <details class="faq__item">
@@ -1673,7 +1642,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Is lunch included?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Coffee and a light breakfast are included with every ticket. Lunch is a VIP benefit: a private seated lunch with Rebecca Walser and Charles Payne after the program ends.</p>
+        <p class="faq__a">Yes. Lunch is included with every ticket, general admission and VIP alike, and runs from 12:30 to 1:30 PM.</p>
       </details>
 
       <details class="faq__item">
@@ -1693,7 +1662,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Can I transfer my ticket if something comes up?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes. All sales are final and refunds aren't offered, but tickets are fully transferable. Call (866) 929-3258 and we'll change the name on your registration.</p>
+        <p class="faq__a">All ticket sales are final and no refunds are offered. If something comes up, call the events team at (866) 929-3258 and they will help where they can.</p>
       </details>
 
       <details class="faq__item">
