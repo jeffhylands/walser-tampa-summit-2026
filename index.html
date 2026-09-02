@@ -950,6 +950,56 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 
 /* ======================================================================
+   LIGHT SECTIONS
+   The page was running eleven dark sections against three light ones, so
+   it read as a wall of navy. Guest, agenda and host flip to bone, giving
+   an alternating rhythm down the page:
+   hero dark / stats red / guest light / qual dark / agenda light /
+   run dark / tickets light / built dark / host light / banner dark /
+   perks teal / includes + faq light / footer dark.
+   ====================================================================== */
+
+/* shared: dark chevron + brick eyebrow wherever a section is bone */
+.guest .eyebrow, .agenda .eyebrow, .host .eyebrow{ color:var(--gold-deep); }
+.guest .eyebrow::before, .agenda .eyebrow::before, .host .eyebrow::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='8' viewBox='0 0 30 8'%3E%3Cpath d='M0 0l5 4-5 4z' fill='%231A4364'/%3E%3Cpath d='M9.5 0l5 4-5 4z' fill='%23037182'/%3E%3Cpath d='M19 0l5 4-5 4z' fill='%23F05238'/%3E%3C/svg%3E");
+}
+.guest .h2, .agenda .h2, .host .h2{ color:var(--ink-text); }
+.agenda .lede{ color:var(--ink-muted); }
+
+/* ---- guest: bone ground, the navy card becomes the focal object ---- */
+.guest{ background:var(--ivory); }
+.guest__card{ box-shadow:0 30px 60px -30px rgba(20,54,79,.45); }
+
+/* ---- agenda: bone ground, cards go white ---- */
+.agenda{ background:var(--ivory-2); }
+.agenda__bg{ display:none; }          /* placeholder photo added nothing but grey */
+.topic{
+  background:#fff; border-color:rgba(20,54,79,.12);
+  box-shadow:0 16px 34px -22px rgba(20,54,79,.32);
+}
+.topic:hover{ background:#fff; border-color:rgba(190,65,42,.42);
+  box-shadow:0 26px 48px -24px rgba(20,54,79,.4); }
+.topic h3{ color:var(--ink-text); }
+.topic p{ color:var(--ink-muted); }
+.topic__ico{
+  border-color:rgba(190,65,42,.34);
+  background:linear-gradient(150deg, rgba(244,121,42,.2), rgba(244,121,42,.05));
+}
+.topic__ico svg{ stroke:var(--brick); }
+.agenda__note{ color:var(--ink-muted); }
+
+/* ---- host: bone ground, portrait carries the dark ---- */
+.host{ background:var(--ivory); }
+.host__photo{ border-color:rgba(20,54,79,.18);
+  box-shadow:0 34px 70px -34px rgba(20,54,79,.55); }
+.host__body p{ color:var(--ink-muted); }
+.host__body p b{ color:var(--ink-text); }
+.host__creds{ border-top-color:rgba(20,54,79,.18); }
+.host__creds b{ color:var(--brick); }
+.host__creds span{ color:var(--ink-muted); }
+
+/* ======================================================================
    MOBILE REFINEMENTS
    Phone screens are held closer but read in worse conditions, so the
    decorative 9-11px label sizes that work on a desktop monitor get a
@@ -1506,9 +1556,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <div class="host__body" data-reveal>
         <p>Most advisors manage money. <b>Rebecca Walser is a licensed tax attorney</b> who built her firm around a single idea: the biggest threat to your retirement isn't the market. It's <b>the taxes you haven't planned for yet.</b></p>
         <p>She founded Walser Wealth Management in Tampa to bring one discipline to a problem that usually gets split across three professionals who never talk. Tax law, investment strategy, and estate planning under one roof, coordinated on purpose.</p>
-        <p>At the Tampa Retirement Live she'll walk through the same framework she uses with clients: what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
+        <p>At Tampa Retirement Live she'll walk through the same framework she uses with clients: what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
 
         <ul class="host__creds">
+          <li><b>Role</b><span>Founder, CEO and Chief Investment Officer, Walser Wealth Management</span></li>
           <li><b>Credentials</b><span>Juris Doctor, Master of Laws in Taxation, MBA</span></li>
           <li><b>Recognition</b><span>Named to the Investopedia Top 100 Financial Advisors four times, including Top 10 in 2023</span></li>
           <li><b>Firm</b><span>Walser Wealth Management. Registered Investment Advisor, Tampa, FL</span></li>
@@ -1596,7 +1647,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     <div class="faq__list">
       <details class="faq__item">
-        <summary class="faq__q">When and where is the Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <summary class="faq__q">When and where is Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">Saturday, October 17, 2026 at the Sheraton Tampa Brandon Hotel in downtown Tampa. Registration opens at 8:00 AM, the program runs 9:00 AM to 3:45 PM, and lunch is 12:30 to 1:30 PM.</p>
       </details>
 
