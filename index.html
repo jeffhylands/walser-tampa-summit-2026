@@ -91,19 +91,20 @@
 
   --gold:       #9AD1C9;   /* mint - eyebrows, icon strokes */
   --gold-lite:  #C9E7E2;   /* light mint - highlight text */
-  --gold-deep:  #BE412A;   /* brick - accents on light bg */
+  --gold-deep:  #A2331B;   /* brick, darkened to clear AA on cream */
 
   --orange:     #F05238;   /* CTA red */
   --orange-lo:  #BE412A;   /* CTA gradient bottom */
 
-  --ivory:      #E3DAC6;   /* bone */
-  --ivory-2:    #D8CDB4;   /* deeper bone */
+  --ivory:      #E9E1D0;   /* bone, lifted */
+  --ivory-2:    #EFE8DA;   /* mid bone */
+  --cream:      #F6F2E8;   /* brightest ground */
 
   --text:       #F4F1E9;
-  --muted:      #AEC9CF;
-  --muted-2:    #8CA8B1;
+  --muted:      #C6DBE0;
+  --muted-2:    #A5C0C8;
   --ink-text:   #14364F;
-  --ink-muted:  #4E6B7B;
+  --ink-muted:  #425D6C;
 
   /* Brand fonts are Transat (headline+body) and Dunbar (logo) - both licensed.
      They lead each stack so the page upgrades automatically once the
@@ -306,7 +307,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     radial-gradient(96% 74% at 92% -4%, var(--red) 0%, rgba(240,82,56,.8) 20%, rgba(190,65,42,.42) 40%, rgba(240,82,56,0) 68%),
     radial-gradient(62% 56% at 2% 100%, rgba(154,209,201,.62), rgba(154,209,201,0) 64%),
     radial-gradient(64% 46% at 88% 96%, rgba(244,121,42,.42), transparent 62%),
-    linear-gradient(198deg, var(--teal) 0%, #04697E 26%, #0A4A66 56%, #0B3350 78%, var(--ink-abyss) 100%); }
+    linear-gradient(198deg, #05879C 0%, #05748A 26%, #0F5674 56%, #16455F 78%, #143A57 100%); }
 
 /* The Tampa photo is duotoned into the brand ramp. Grayscale strips the
    original colour, then a gradient blended with `color` re-tints the whole
@@ -569,7 +570,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 @media (max-width:760px){ .guest__creds li{ display:block; } .guest__creds b{ display:block; margin-bottom:3px; } }
 
 /* ============================ QUALIFY CHECKLIST ============================ */
-.qual{ background:var(--ink-abyss); }
+.qual{ background:linear-gradient(178deg, #1A4364 0%, #14526B 100%); }
 .qual__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 @media (max-width:1020px){ .qual__grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:600px){ .qual__grid{ grid-template-columns:1fr; } }
@@ -630,7 +631,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 
 /* ============================ RUN OF SHOW ============================ */
-.run{ background:linear-gradient(180deg,var(--ink-abyss),#0A2137); }
+.run{ background:linear-gradient(178deg, #14526B 0%, #1A4364 100%); }
 .run__list{ max-width:840px; margin:0 auto; }
 .run__row{
   display:grid; grid-template-columns:132px 1fr; gap:clamp(16px,2.4vw,30px);
@@ -652,7 +653,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .run__who{
   font-family:var(--font-display); font-weight:600;
   font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--red);
+  color:#FFB3A0;   /* lifted off pure red so it clears AA on the teal ground */
 }
 .run__row--break .run__what h3{ font-weight:600; color:var(--muted); }
 .run__note{
@@ -665,7 +666,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 
 /* ============================ TICKETS ============================ */
-.tix{ background:var(--ivory-2); color:var(--ink-text); }
+.tix{ background:var(--cream); color:var(--ink-text); }
 .tix .h2{ color:var(--ink-text); }
 .tix .head p{ color:var(--ink-muted); }
 .tix__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:stretch; }
@@ -687,7 +688,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card__perf{ position:relative; height:0; }
 .card__perf::before, .card__perf::after{
   content:""; position:absolute; top:-13px; width:26px; height:26px; border-radius:50%;
-  background:var(--ivory-2);
+  background:var(--cream);
 }
 .card__perf::before{ left:-13px; }
 .card__perf::after{ right:-13px; }
@@ -738,7 +739,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card--vip .card__list li{ color:var(--text); }
 .card--vip .card__list svg{ stroke:var(--gold-lite); }
 .card--vip .card__inherit{ color:var(--muted-2); border-bottom-color:var(--hair-cool); }
-.card--vip .card__perf::before, .card--vip .card__perf::after{ background:var(--ivory-2); }
+.card--vip .card__perf::before, .card--vip .card__perf::after{ background:var(--cream); }
 .card__flag{
   position:absolute; top:0; right:0; z-index:2;
   font-family:var(--font-display); font-size:9.5px; letter-spacing:.2em;
@@ -762,7 +763,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .built__bg{ position:absolute; inset:0; z-index:0; }
 .built__bg img{ width:100%; height:100%; object-fit:cover; }
 .built__bg::after{ content:""; position:absolute; inset:0;
-  background:linear-gradient(100deg, rgba(12,41,69,.96) 26%, rgba(120,44,36,.72) 78%, rgba(190,65,42,.55)); }
+  background:linear-gradient(100deg, rgba(26,67,100,.94) 24%, rgba(150,56,40,.76) 76%, rgba(240,82,56,.62)); }
 .built__in{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1.1fr;
   gap:clamp(28px,4vw,60px); align-items:center; }
 @media (max-width:880px){ .built__in{ grid-template-columns:1fr; } }
@@ -822,7 +823,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:
     radial-gradient(78% 88% at 84% 6%, rgba(240,82,56,.9), rgba(240,82,56,0) 62%),
     radial-gradient(60% 60% at 6% 96%, rgba(154,209,201,.45), transparent 64%),
-    linear-gradient(196deg, var(--teal) 0%, #0A5570 34%, #0B3450 70%, var(--ink-abyss) 100%); }
+    linear-gradient(196deg, #0A8296 0%, #0A6C84 34%, #124A68 70%, #143A57 100%); }
 .banner__in{ position:relative; z-index:1; }
 .banner__year{
   font-family:var(--font-body); font-weight:600;
@@ -901,7 +902,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .faq .cta-note{ color:var(--ink-muted); }
 
 /* ============================ FOOTER ============================ */
-.foot{ position:relative; background:linear-gradient(180deg,#061229,var(--ink-abyss)); }
+.foot{ position:relative; background:linear-gradient(180deg,#15405E,#102F49); }
 .foot::before{ content:""; position:absolute; top:0; left:0; right:0; height:1px;
   background:linear-gradient(90deg,transparent,var(--hair),transparent); }
 .recog{ padding-block:clamp(56px,7vw,86px) 10px; text-align:center; }
@@ -968,11 +969,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .agenda .lede{ color:var(--ink-muted); }
 
 /* ---- guest: bone ground, the navy card becomes the focal object ---- */
-.guest{ background:var(--ivory); }
+.guest{ background:var(--cream); }
 .guest__card{ box-shadow:0 30px 60px -30px rgba(20,54,79,.45); }
 
 /* ---- agenda: bone ground, cards go white ---- */
-.agenda{ background:var(--ivory-2); }
+.agenda{ background:var(--ivory); }
 .agenda__bg{ display:none; }          /* placeholder photo added nothing but grey */
 .topic{
   background:#fff; border-color:rgba(20,54,79,.12);
@@ -990,7 +991,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .agenda__note{ color:var(--ink-muted); }
 
 /* ---- host: bone ground, portrait carries the dark ---- */
-.host{ background:var(--ivory); }
+.host{ background:var(--cream); }
 .host__photo{ border-color:rgba(20,54,79,.18);
   box-shadow:0 34px 70px -34px rgba(20,54,79,.55); }
 .host__body p{ color:var(--ink-muted); }
