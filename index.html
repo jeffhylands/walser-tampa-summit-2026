@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tampa Retirement Live 2026 — Presented by Walser Wealth Management</title>
-<meta name="description" content="Tampa Bay pre-retirees and retirees: spend one morning gaining real direction on taxes, income, and the decisions that shape your retirement. Saturday, October 17, 2026." />
+<meta name="description" content="Tampa Bay pre-retirees and retirees: a full day on taxes, income, and the decisions that shape your retirement. Keynote Rebecca Walser with Charles Payne of Fox Business. Saturday, October 17, 2026." />
 <meta property="og:title" content="Tampa Retirement Live 2026" />
-<meta property="og:description" content="One morning. Real direction on the financial decisions that shape your retirement. Hosted by Rebecca Walser, JD, LLM." />
+<meta property="og:description" content="One full day. Real direction on the financial decisions that shape your retirement. Keynote Rebecca Walser, MBA, JD, LLM." />
 <meta property="og:type" content="website" />
 <!-- PREVIEW ONLY — strip these two lines when the page goes live for real -->
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
@@ -40,8 +40,13 @@
      [[VENUE]]    "The Tampa Club" is still a placeholder.
                   Appears in: hero, agenda band, who-it's-for,
                   includes list, closing banner, FAQ #1.
-     [[TIMES]]    Registration 8:30 AM / Start 9:00 AM / End 12:00 PM
-                  / VIP lunch 12:15-1:30 PM.
+     [[TIMES]]    CONFIRMED full-day agenda: doors 8:00, program 9:00,
+                  lunch 12:30-1:30, close 3:45 PM. Session TITLES are
+                  still unknown - the run-of-show reads "Session one",
+                  "Session two" etc. [[TOM]] needs a surname and credit.
+                  Open question: is lunch included for general admission,
+                  or is it VIP-only? The page currently promises lunch
+                  only to VIP and stays silent for GA.
      [[PRICES]]   CONFIRMED from the ticketing system: Single $47,
                   Couple $67, Single VIP $97, Couple VIP $147. The two
                   "save vs" lines are computed from these, so they stay
@@ -616,6 +621,41 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   text-transform:uppercase; color:var(--muted-2);
 }
 
+
+/* ============================ RUN OF SHOW ============================ */
+.run{ background:linear-gradient(180deg,var(--ink-abyss),#0A2137); }
+.run__list{ max-width:840px; margin:0 auto; }
+.run__row{
+  display:grid; grid-template-columns:132px 1fr; gap:clamp(16px,2.4vw,30px);
+  padding:18px 0; border-top:1px solid var(--hair-cool);
+  align-items:baseline;
+}
+.run__row:last-child{ border-bottom:1px solid var(--hair-cool); }
+.run__row--break{ opacity:.72; }
+.run__time{
+  font-family:var(--font-display); font-weight:700;
+  font-size:13.5px; letter-spacing:.06em; color:var(--mint);
+  white-space:nowrap; font-variant-numeric:tabular-nums;
+}
+.run__what h3{
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(1.02rem,1.5vw,1.18rem); letter-spacing:-.01em;
+  color:var(--text); margin-bottom:5px;
+}
+.run__who{
+  font-family:var(--font-display); font-weight:600;
+  font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--red);
+}
+.run__row--break .run__what h3{ font-weight:600; color:var(--muted); }
+.run__note{
+  text-align:center; max-width:60ch; margin:clamp(28px,3.4vw,40px) auto 0;
+  font-size:14px; color:var(--muted-2);
+}
+@media (max-width:620px){
+  .run__row{ grid-template-columns:1fr; gap:6px; padding:16px 0; }
+  .run__time{ font-size:12.5px; }
+}
 /* ============================ PHOTO STRIPS ============================ */
 .strip{ background:var(--ivory); color:var(--ink-text); }
 .strip .h2{ color:var(--ink-text); }
@@ -1004,12 +1044,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <!-- ====================== DRAFT NOTICE — delete this block before launch ====================== -->
 <div class="draft" id="draftBar">
   <div class="draft__in">
-    <p><b>Working draft — nothing here is final.</b>
-      Confirmed from the brand standards: event name, logo, palette, Oct 17 2026 date.
-      Ticket prices are confirmed. Still placeholder: the venue (The Tampa Club),
-      all session times, and every event, venue and audience photo.
-      Charles Payne's bio is verified against Fox Business — his session topic is not set.
-      Headline font is Archivo standing in for Transat, which is a licensed font.
+    <p><b>Working draft — not everything here is final.</b>
+      <b>Confirmed:</b> event name, logo and palette (brand standards), the Oct 17 2026 date,
+      all four ticket prices (ticketing system), and the full-day run of show.
+      <b>Still open:</b> the venue (The Tampa Club is a placeholder), individual session
+      titles, Tom's surname and credit, whether lunch is included for general admission,
+      and every event, venue and audience photo.
+      Charles Payne's bio is verified against Fox Business; his session topic is not set.
+      Headline type is Archivo standing in for Transat, which is a licensed font.
       Checkout buttons are not wired to a payment processor yet.</p>
     <button class="draft__x" id="draftX" type="button" aria-label="Dismiss this notice">&times;</button>
   </div>
@@ -1060,12 +1102,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         </p>
 
         <p class="hero__sub">
-          <b>Tampa Bay Pre-Retirees And Retirees:</b> One morning to stop settling for
+          <b>Tampa Bay Pre-Retirees And Retirees:</b> One full day to stop settling for
           the retirement you were handed &mdash; and design the one you actually want.
         </p>
         <p class="hero__when">
           <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
           <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> The Tampa Club, Tampa</span>
+          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 8:00 AM &ndash; 3:45 PM</span>
         </p>
 
         <div class="hero__act">
@@ -1111,9 +1154,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="deck__rule" aria-hidden="true"></div>
 
         <div class="deck__facts">
-          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Registration: 8:30 AM</div>
-          <div><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 9h4"/></svg> VIP Lunch: 12:15–1:30 PM</div>
-          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> End Time: 12:00 PM</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Registration: 8:00 AM</div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 9h4"/></svg> Lunch: 12:30–1:30 PM</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Ends: 3:45 PM</div>
           <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Program Starts: 9:00 AM</div>
         </div>
 
@@ -1198,7 +1241,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </div>
 
     <div class="qual__foot" data-reveal>
-      <p>If you checked even one, this morning was built for you.</p>
+      <p>If you checked even one, this day was built for you.</p>
       <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
     </div>
   </div>
@@ -1212,7 +1255,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="wrap agenda__in">
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center">What's your move?</span>
-      <h2 class="display h2">Six topics, one morning</h2>
+      <h2 class="display h2">Six topics, one full day</h2>
       <p class="lede">Every session is education, not a sales pitch. You leave with questions worth asking and a clearer sense of where your plan has gaps.</p>
     </div>
 
@@ -1253,6 +1296,62 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   </div>
 </section>
 
+<!-- ============================ RUN OF SHOW ============================
+     [[AGENDA]] Times and speakers are confirmed. Session TITLES are not —
+     each one reads "Session N" until the real titles land. [[TOM]] needs
+     a surname and a one-line credit.
+     ============================================================ -->
+<section class="sec run">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">The run of show</span>
+      <h2 class="display h2">How the day runs</h2>
+      <p class="lede">Doors at eight, closing remarks done by quarter to four. Session titles are being finalized.</p>
+    </div>
+
+    <div class="run__list" data-reveal>
+      <div class="run__row">
+        <p class="run__time">8:00 &ndash; 9:00</p>
+        <div class="run__what"><h3>Registration and coffee</h3></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">9:00 &ndash; 9:20</p>
+        <div class="run__what"><h3>Welcome and opening remarks</h3><p class="run__who">Rebecca Walser</p></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">9:20 &ndash; 10:20</p>
+        <div class="run__what"><h3>Session one</h3><p class="run__who">Rebecca Walser</p></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">10:20 &ndash; 11:20</p>
+        <div class="run__what"><h3>Session two</h3><p class="run__who">Tom</p></div>
+      </div>
+      <div class="run__row run__row--break">
+        <p class="run__time">11:20 &ndash; 11:35</p>
+        <div class="run__what"><h3>Break</h3></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">11:35 &ndash; 12:30</p>
+        <div class="run__what"><h3>Session three &mdash; panel discussion</h3><p class="run__who">Rebecca Walser, Tom &amp; Charles Payne</p></div>
+      </div>
+      <div class="run__row run__row--break">
+        <p class="run__time">12:30 &ndash; 1:30</p>
+        <div class="run__what"><h3>Lunch</h3><p class="run__who">VIP: private lunch with the speakers</p></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">1:30 &ndash; 2:30</p>
+        <div class="run__what"><h3>Session four</h3><p class="run__who">Charles Payne</p></div>
+      </div>
+      <div class="run__row">
+        <p class="run__time">2:40 &ndash; 3:45</p>
+        <div class="run__what"><h3>Session five and closing</h3><p class="run__who">Rebecca Walser</p></div>
+      </div>
+    </div>
+
+    <p class="run__note">Schedule is subject to change. Registered attendees get the final run of show by email the week of the event.</p>
+  </div>
+</section>
+
 <!-- ============================ PAST EVENTS STRIP ============================ -->
 <section class="sec strip">
   <div class="wrap">
@@ -1277,7 +1376,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center" style="color:var(--gold-deep)">Registration</span>
       <h2 class="display h2">Choose your seat</h2>
-      <p>Four ways in. Every ticket includes the full morning program, breakfast, and the workbook.</p>
+      <p>Four ways in. Every ticket includes the full-day program, breakfast, and the workbook.</p>
     </div>
 
     <div class="tix__grid" data-reveal>
@@ -1293,7 +1392,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="card__body">
           <p class="card__inherit">What's included</p>
           <ul class="card__list">
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full half-day morning program</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program, 9:00 AM to 3:45 PM</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with the presenters</li>
@@ -1383,7 +1482,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </figure>
     <div data-reveal>
       <span class="eyebrow">Who's in charge?</span>
-      <h2 class="display h2" style="margin-top:18px">Who this morning is built for</h2>
+      <h2 class="display h2" style="margin-top:18px">Who this day is built for</h2>
       <ul class="built__list">
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and up</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees one to ten years from their last day of work</li>
@@ -1462,7 +1561,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <p class="banner__meta">
       <span>Saturday, October 17, 2026</span>
       <span>The Tampa Club, Tampa</span>
-      <span>Half-day morning event</span>
+      <span>Full day &middot; 8:00 AM to 3:45 PM</span>
     </p>
     <p class="banner__price">Tickets from $47</p>
     <a class="btn btn--lg" href="#tickets">Reserve your seat</a>
@@ -1475,7 +1574,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="wrap">
     <p class="perks__tag"><span class="eyebrow eyebrow--center">Bold looks good on you</span></p>
     <div class="perks__grid" data-reveal>
-      <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Half-day format — you're out by noon</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Doors 8:00 AM, closing remarks end 3:45 PM</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Breakfast, workbook, and parking included</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Downtown Tampa — easy in, easy out</div>
@@ -1501,7 +1600,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div data-reveal>
       <h3>Every ticket includes</h3>
       <ul class="incl__list">
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Half-day morning program at The Tampa Club</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program at The Tampa Club, 9:00 AM to 3:45 PM</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Coffee and light breakfast on arrival</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Printed retirement workbook to take home</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Live Q&amp;A with Rebecca and the Walser Wealth team</li>
@@ -1529,7 +1628,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="faq__list">
       <details class="faq__item">
         <summary class="faq__q">When and where is the Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Saturday, October 17, 2026 at The Tampa Club in downtown Tampa. Registration opens at 8:30 AM, the program runs 9:00 AM to 12:00 PM, and VIP lunch follows immediately after.</p>
+        <p class="faq__a">Saturday, October 17, 2026 at The Tampa Club in downtown Tampa. Registration opens at 8:00 AM, the program runs 9:00 AM to 3:45 PM, and lunch is 12:30 to 1:30 PM.</p>
       </details>
 
       <details class="faq__item">
@@ -1544,17 +1643,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">I'm already retired. Is this still relevant?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes. Planning doesn't stop the day you retire — distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the morning is aimed squarely at people already drawing income.</p>
+        <p class="faq__a">Yes. Planning doesn't stop the day you retire — distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the day is aimed squarely at people already drawing income.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Will I be sold something?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">No. The morning is education. If you want to talk further, the team will be available afterward — but nothing is pitched from the stage and no one will chase you.</p>
+        <p class="faq__a">No. The day is education. If you want to talk further, the team will be available afterward — but nothing is pitched from the stage and no one will chase you.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Can I bring my spouse or a guest?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, and we'd encourage it. The Couple tickets cover two seats together for less than two singles <p class="faq__a">Yes, and we'd encourage it. The Couple ticket covers two seats together at a lower price than two singles. Every attendee needs their own registration.</p>mdash; &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
+        <p class="faq__a">Yes, and we&rsquo;d encourage it. The Couple tickets cover two seats together for less than two singles &mdash; &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
       </details>
 
       <details class="faq__item">
