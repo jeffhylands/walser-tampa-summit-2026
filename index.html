@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tampa Retirement Live 2026 — Presented by Walser Wealth Management</title>
+<title>Tampa Retirement Live 2026 | Launched by Walser Wealth Management</title>
 <meta name="description" content="Tampa Bay pre-retirees and retirees: a full day on taxes, income, and the decisions that shape your retirement. Keynote Rebecca Walser with Charles Payne of Fox Business. Saturday, October 17, 2026." />
 <meta property="og:title" content="Tampa Retirement Live 2026" />
 <meta property="og:description" content="One full day. Real direction on the financial decisions that shape your retirement. Keynote Rebecca Walser, MBA, JD, LLM." />
 <meta property="og:type" content="website" />
-<!-- PREVIEW ONLY — strip these two lines when the page goes live for real -->
+<!-- PREVIEW ONLY: strip these two lines when the page goes live for real -->
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow" />
 
@@ -61,7 +61,7 @@
      [[GUEST]]    Charles Payne is booked; bio verified against Fox
                   Business. His session topic is NOT set.
 
-     COMPLIANCE NOTES — review before publishing:
+     COMPLIANCE NOTES, review before publishing:
      - No client testimonials or performance claims appear anywhere on
        this page. The SEC Marketing Rule applies to RIA testimonials;
        the "past events" photo strips carry no attributed claims.
@@ -148,7 +148,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .sec{ padding-block:clamp(72px,9vw,124px); }
 .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
-/* film grain — global material texture */
+/* film grain, global material texture */
 .grain{ position:fixed; inset:0; z-index:200; pointer-events:none; opacity:.04; mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
@@ -178,7 +178,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .h3{ font-size:clamp(1.35rem,2.2vw,1.75rem); }
 .lede{ color:var(--muted); font-size:clamp(1rem,1.5vw,1.15rem); line-height:1.62; }
 
-/* engraved gold foil — used on the event wordmark only */
+/* engraved gold foil, used on the event wordmark only */
 .foil{
   /* brand gradient: mint into red, the same ramp the logo uses */
   background:linear-gradient(170deg,var(--mint) 6%,#7FC4C2 26%,var(--burst) 62%,var(--red) 88%);
@@ -294,7 +294,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   padding-block:clamp(44px,5.5vw,72px) clamp(52px,6.5vw,86px); }
 
 /* Brand gradient plate. Red bloom top-right, mint glow bottom-left, teal
-   into navy underneath — the ramp off the standards sheet, arranged so the
+   into navy underneath. The ramp off the standards sheet, arranged so the
    deck and the CTA both keep their contrast. */
 .hero__wash{ position:absolute; inset:0; z-index:0;
   background:
@@ -305,7 +305,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* The Tampa photo is duotoned into the brand ramp. Grayscale strips the
    original colour, then a gradient blended with `color` re-tints the whole
-   thing teal-to-red — so the photo reinforces the palette instead of
+   thing teal-to-red, so the photo reinforces the palette instead of
    desaturating it the way a plain grey multiply would. */
 .hero__photo{ position:absolute; inset:0; z-index:0; isolation:isolate;
   opacity:.34; mix-blend-mode:multiply; }
@@ -348,7 +348,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   box-shadow:0 0 0 0 rgba(240,82,56,.6); animation:pulse 2.2s infinite; }
 @keyframes pulse{ 70%{ box-shadow:0 0 0 9px rgba(240,82,56,0);} 100%{ box-shadow:0 0 0 0 rgba(240,82,56,0);} }
 
-/* Event wordmark. Supplied artwork, not type — the LIVE glyphs are custom
+/* Event wordmark. Supplied artwork, not type. The LIVE glyphs are custom
    Dunbar with the sunburst built into the V, so it is placed as an image. */
 .lock{ margin:0 0 clamp(18px,2.2vw,26px); font-size:1rem; font-weight:400; }
 .lock__img{
@@ -433,7 +433,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
   background:var(--ink);
 }
-/* scrim only while the poster is showing — never dim the playing footage */
+/* scrim only while the poster is showing, never dim the playing footage */
 .deck__video::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   background:radial-gradient(70% 70% at 50% 50%, rgba(5,15,31,.14), rgba(5,15,31,.52));
@@ -734,7 +734,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   padding-bottom:12px; margin-bottom:4px; border-bottom:1px solid rgba(10,30,56,.1);
 }
 
-/* VIP — the one elevated card */
+/* VIP, the one elevated card */
 .card--vip{
   background:linear-gradient(168deg, var(--ink) 0%, #0C2645 55%, var(--raised) 100%);
   border-color:var(--gold);
@@ -997,7 +997,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
   /* --- breathing room in dense blocks --- */
   /* five badges wrap to a lopsided 4+1; a 2+2+1 grid stays symmetric.
-     Explicit px height on the img — a % max-height does not clamp
+     Explicit px height on the img. A % max-height does not clamp
      against a grid area here. */
   .recog__badges{ display:grid; grid-template-columns:1fr 1fr; gap:24px 18px;
     justify-items:center; align-items:center; }
@@ -1017,7 +1017,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .hero__photo img{ object-position:56% 42%; }
 }
 
-/* very small phones — keep the countdown on one line */
+/* very small phones, keep the countdown on one line */
 @media (max-width:380px){
   .deck__unit{ min-width:46px; }
   .deck__unit b{ font-size:1.72rem; }
@@ -1041,10 +1041,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <body id="top">
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ====================== DRAFT NOTICE — delete this block before launch ====================== -->
+<!-- ====================== DRAFT NOTICE: delete this block before launch ====================== -->
 <div class="draft" id="draftBar">
   <div class="draft__in">
-    <p><b>Working draft — not everything here is final.</b>
+    <p><b>Working draft. Not everything here is final.</b>
       <b>Confirmed:</b> event name, logo and palette (brand standards), the Oct 17 2026 date,
       all four ticket prices (ticketing system), and the full-day run of show.
       <b>Still open:</b> the venue (The Tampa Club is a placeholder), individual session
@@ -1063,7 +1063,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a href="#top" aria-label="Walser Wealth Management — home">
+    <a href="#top" aria-label="Walser Wealth Management home">
       <img class="nav__logo" src="Brand%20Assets/trl-logo-white.png" alt="Tampa Retirement Live" width="418" height="400" />
     </a>
     <div class="nav__right">
@@ -1103,7 +1103,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
         <p class="hero__sub">
           <b>Tampa Bay Pre-Retirees And Retirees:</b> One full day to stop settling for
-          the retirement you were handed &mdash; and design the one you actually want.
+          the retirement you were handed, and design the one you actually want.
         </p>
         <p class="hero__when">
           <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
@@ -1188,7 +1188,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     <div class="guest__card" data-reveal>
       <figure class="guest__photo">
-        <!-- Filename case matters once this is on a Linux host — keep it Charles-Payne.jpg -->
+        <!-- Filename case matters once this is on a Linux host. Keep it Charles-Payne.jpg -->
         <img src="Brand%20Assets/Charles-Payne.jpg"
              alt="Charles Payne, host of Making Money with Charles Payne on Fox Business Network"
              width="600" height="750"
@@ -1201,7 +1201,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <p class="guest__bio">
           Charles Payne has read markets from the inside for four decades. He enlisted in the
           Air Force at 17, took his first Wall Street job as an analyst at E.F. Hutton in 1985,
-          and built his own research firm — <b>Wall Street Strategies</b> — in 1991, where he is
+          and built his own research firm, <b>Wall Street Strategies</b>, in 1991, where he is
           still CEO and principal analyst.
         </p>
         <p class="guest__bio">
@@ -1212,7 +1212,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
         <ul class="guest__creds">
           <li><b>On air</b><span>Making Money with Charles Payne, weekdays 2&ndash;3 PM ET on Fox Business</span></li>
-          <li><b>Firm</b><span>Founder and CEO, Wall Street Strategies — independent equity research since 1991</span></li>
+          <li><b>Firm</b><span>Founder and CEO, Wall Street Strategies. Independent equity research since 1991</span></li>
           <li><b>Author</b><span><i>Be Smart, Act Fast, Get Rich</i> and <i>Unstoppable Prosperity</i></span></li>
           <li><b>Service</b><span>United States Air Force</span></li>
         </ul>
@@ -1242,7 +1242,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     <div class="qual__foot" data-reveal>
       <p>If you checked even one, this day was built for you.</p>
-      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
     </div>
   </div>
 </section>
@@ -1268,7 +1268,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <article class="topic">
         <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/><path d="M9 9h6M9 13h4"/></svg></span>
         <h3>Tax mitigation</h3>
-        <p>The quiet drag most plans never account for. How distributions, conversions, and timing change what you keep — and what a tax attorney looks at that a statement won't show you.</p>
+        <p>The quiet drag most plans never account for. How distributions, conversions, and timing change what you keep, and what a tax attorney looks at that a statement won't show you.</p>
       </article>
       <article class="topic">
         <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M21 3h-5m5 0v5"/></svg></span>
@@ -1278,7 +1278,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <article class="topic">
         <span class="topic__ico"><svg viewBox="0 0 24 24"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/><path d="M9 12.5 11 15l4-4.5"/></svg></span>
         <h3>Asset protection</h3>
-        <p>One lawsuit or health event can undo decades of building. What proper titling, entity structure, and coverage actually shield — and what they don't.</p>
+        <p>One lawsuit or health event can undo decades of building. What proper titling, entity structure, and coverage actually shield, and what they don't.</p>
       </article>
       <article class="topic">
         <span class="topic__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
@@ -1297,7 +1297,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 </section>
 
 <!-- ============================ RUN OF SHOW ============================
-     [[AGENDA]] Times and speakers are confirmed. Session TITLES are not —
+     [[AGENDA]] Times and speakers are confirmed. Session TITLES are not.
      each one reads "Session N" until the real titles land. [[TOM]] needs
      a surname and a one-line credit.
      ============================================================ -->
@@ -1332,7 +1332,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">11:35 &ndash; 12:30</p>
-        <div class="run__what"><h3>Session three &mdash; panel discussion</h3><p class="run__who">Rebecca Walser, Tom &amp; Charles Payne</p></div>
+        <div class="run__what"><h3>Session three: panel discussion</h3><p class="run__who">Rebecca Walser, Tom &amp; Charles Payne</p></div>
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">12:30 &ndash; 1:30</p>
@@ -1364,7 +1364,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </div>
     <p class="strip__line">Spend one focused morning gaining direction on the financial decisions that shape your retirement.</p>
     <div class="strip__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
       <span class="cta-note">Seating is limited to 250</span>
     </div>
   </div>
@@ -1467,7 +1467,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     </div>
 
-    <p class="tix__foot">All ticket sales are final. Tickets are transferable &mdash; call the events team at (866) 929-3258 and we'll move your name.</p>
+    <p class="tix__foot">All ticket sales are final. Tickets are transferable. Call the events team at (866) 929-3258 and we'll move your name.</p>
   </div>
 </section>
 
@@ -1493,7 +1493,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </ul>
       <p class="built__pull">This is not a get-rich-quick morning. It is three hours on the decisions that quietly determine what you keep.</p>
       <div class="built__cta">
-        <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+        <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
       </div>
     </div>
   </div>
@@ -1519,14 +1519,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </figure>
 
       <div class="host__body" data-reveal>
-        <p>Most advisors manage money. <b>Rebecca Walser is a licensed tax attorney</b> who built her firm around a single idea: the biggest threat to your retirement isn't the market — it's <b>the taxes you haven't planned for yet.</b></p>
+        <p>Most advisors manage money. <b>Rebecca Walser is a licensed tax attorney</b> who built her firm around a single idea: the biggest threat to your retirement isn't the market. It's <b>the taxes you haven't planned for yet.</b></p>
         <p>She founded Walser Wealth Management in Tampa to bring one discipline to a problem that usually gets split across three professionals who never talk. Tax law, investment strategy, and estate planning under one roof, coordinated on purpose.</p>
-        <p>At the Tampa Retirement Live she'll walk through the same framework she uses with clients — what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
+        <p>At the Tampa Retirement Live she'll walk through the same framework she uses with clients: what to look at first, what most plans miss, and the questions worth taking back to whoever manages your money today.</p>
 
         <ul class="host__creds">
           <li><b>Credentials</b><span>Juris Doctor, Master of Laws in Taxation, MBA</span></li>
           <li><b>Recognition</b><span>Named to the Investopedia Top 100 Financial Advisors four times, including Top 10 in 2023</span></li>
-          <li><b>Firm</b><span>Walser Wealth Management — Registered Investment Advisor, Tampa, FL</span></li>
+          <li><b>Firm</b><span>Walser Wealth Management. Registered Investment Advisor, Tampa, FL</span></li>
           <li><b>Media</b><span>Co-host of The Digital Street Podcast with Paul Barron</span></li>
         </ul>
       </div>
@@ -1545,7 +1545,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <figure class="strip__shot"><img src="https://placehold.co/900x560/0A1E38/C8A24B?text=In+The+Room+2" alt="Attendees speaking with the Walser Wealth team" width="900" height="560" loading="lazy" /></figure>
     </div>
     <div class="strip__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
     </div>
   </div>
 </section>
@@ -1577,7 +1577,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Doors 8:00 AM, closing remarks end 3:45 PM</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
       <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Breakfast, workbook, and parking included</div>
-      <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Downtown Tampa — easy in, easy out</div>
+      <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Downtown Tampa, easy in and easy out</div>
     </div>
   </div>
 </section>
@@ -1589,7 +1589,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <h3>You'll learn</h3>
       <ul class="incl__list">
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to turn savings and investments into income that lasts as long as you do</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS — and what to do about it</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS, and what to do about it</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How Social Security claiming age changes your lifetime total, and your spouse's</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What healthcare and long-term care actually cost, and how people pay for them</li>
         <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to protect assets from lawsuits, creditors, and unplanned events</li>
@@ -1633,7 +1633,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Who should attend?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Individuals and couples above age 50 who are serious about getting to a point where work becomes an option rather than an obligation — while minimizing taxes and protecting what they leave behind. This event is not for anyone looking to get rich quick.</p>
+        <p class="faq__a">Individuals and couples above age 50 who are serious about getting to a point where work becomes an option rather than an obligation, while minimizing taxes and protecting what they leave behind. This event is not for anyone looking to get rich quick.</p>
       </details>
 
       <details class="faq__item">
@@ -1643,17 +1643,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">I'm already retired. Is this still relevant?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes. Planning doesn't stop the day you retire — distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the day is aimed squarely at people already drawing income.</p>
+        <p class="faq__a">Yes. Planning doesn't stop the day you retire. Distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the day is aimed squarely at people already drawing income.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Will I be sold something?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">No. The day is education. If you want to talk further, the team will be available afterward — but nothing is pitched from the stage and no one will chase you.</p>
+        <p class="faq__a">No. The day is education. If you want to talk further, the team will be available afterward, but nothing is pitched from the stage and no one will chase you.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Can I bring my spouse or a guest?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, and we&rsquo;d encourage it. The Couple tickets cover two seats together for less than two singles &mdash; &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
+        <p class="faq__a">Yes, and we&rsquo;d encourage it. The Couple tickets cover two seats together for less than two singles: &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
       </details>
 
       <details class="faq__item">
@@ -1663,7 +1663,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">VIP ticket holders do. VIP includes a private lunch with Charles and Rebecca after the program, plus a photo. General admission attendees will see him speak from the main stage and take part in the live Q&amp;A, but the lunch and photo are VIP only — which is the main reason those 40 seats go first.</p>
+        <p class="faq__a">VIP ticket holders do. VIP includes a private lunch with Charles and Rebecca after the program, plus a photo. General admission attendees will see him speak from the main stage and take part in the live Q&amp;A, but the lunch and photo are VIP only, which is the main reason those 40 seats go first.</p>
       </details>
 
       <details class="faq__item">
@@ -1673,7 +1673,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Is lunch included?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Coffee and a light breakfast are included with every ticket. Lunch is a VIP benefit — a private seated lunch with Rebecca Walser and Charles Payne after the program ends.</p>
+        <p class="faq__a">Coffee and a light breakfast are included with every ticket. Lunch is a VIP benefit: a private seated lunch with Rebecca Walser and Charles Payne after the program ends.</p>
       </details>
 
       <details class="faq__item">
@@ -1698,7 +1698,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Is there a virtual option?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">No. The event is fully in person by design — the value is in the room, the questions, and the conversations afterward.</p>
+        <p class="faq__a">No. The event is fully in person by design. The value is in the room, the questions, and the conversations afterward.</p>
       </details>
 
       <details class="faq__item">
@@ -1708,7 +1708,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     </div>
 
     <div class="faq__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat — tickets from $47</a>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
       <span class="cta-note">Questions? Call (866) 929-3258</span>
     </div>
   </div>
@@ -1772,7 +1772,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 <script>
 (function(){
-  /* [[DATE]] single source of truth for the countdown — local Tampa time */
+  /* [[DATE]] single source of truth for the countdown, local Tampa time */
   var EVENT_DATE = new Date('2026-10-17T08:30:00-04:00');
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1865,7 +1865,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       var attempt = vid.play();
       if(attempt && attempt.then){
         attempt.then(function(){ soundBtn.hidden = false; })
-               .catch(function(){ /* browser blocked it — poster stays put */ });
+               .catch(function(){ /* browser blocked it, poster stays put */ });
       }
     }
 
