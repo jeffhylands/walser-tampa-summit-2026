@@ -324,12 +324,17 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .hero__photo{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .hero__photo img{
   position:absolute; left:50%; bottom:0; transform:translateX(-50%);
-  width:min(1600px, 118%); height:auto; opacity:.9;
+  width:min(1600px, 118%); height:auto; opacity:.74;
 }
-/* keeps the copy column readable where it crosses the towers */
+/* Dim pass over the skyline. Measured rather than guessed: white copy was
+   dropping to 3.5:1 where it crossed a sunlit tower. The vertical scrim
+   sets a floor everywhere, and the horizontal one weights extra dimming to
+   the left column where the copy sits, so the art stays vivid on the right. */
 .hero__photo::after{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(12,41,69,.5) 0%, rgba(12,41,69,.42) 46%, rgba(12,41,69,.58) 100%);
+  background:
+    linear-gradient(94deg, rgba(12,41,69,.42) 0%, rgba(12,41,69,.28) 46%, rgba(12,41,69,.1) 100%),
+    linear-gradient(180deg, rgba(12,41,69,.5) 0%, rgba(12,41,69,.46) 46%, rgba(12,41,69,.62) 100%);
 }
 /* fine grain, matching the printed pieces */
 .hero::after{
