@@ -8,6 +8,12 @@
 <meta property="og:title" content="Tampa Retirement Live 2026" />
 <meta property="og:description" content="One full day. Real direction on the financial decisions that shape your retirement. Keynote Rebecca Walser, MBA, JD, LLM." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="Brand%20Assets/Tampa%20Retirement%20Live%20Social%20Icon.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="Brand%20Assets/Tampa%20Retirement%20Live%20Social%20Icon.webp" />
+<link rel="icon" href="Brand%20Assets/favicon-32.png" sizes="32x32" />
+<link rel="icon" href="Brand%20Assets/favicon-512.png" sizes="512x512" />
+<link rel="apple-touch-icon" href="Brand%20Assets/apple-touch-icon.png" />
 <!-- PREVIEW ONLY: strip these two lines when the page goes live for real -->
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow" />
@@ -312,24 +318,18 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     radial-gradient(64% 46% at 88% 96%, rgba(244,121,42,.42), transparent 62%),
     linear-gradient(198deg, #05879C 0%, #05748A 26%, #0F5674 56%, #16455F 78%, #143A57 100%); }
 
-/* The Tampa photo is duotoned into the brand ramp. Grayscale strips the
-   original colour, then a gradient blended with `color` re-tints the whole
-   thing teal-to-red, so the photo reinforces the palette instead of
-   desaturating it the way a plain grey multiply would. */
-.hero__photo{ position:absolute; inset:0; z-index:0; isolation:isolate;
-  opacity:.34; mix-blend-mode:multiply; }
+/* Supplied illustrated skyline. Flat brand colour on transparency, so it
+   needs no treatment at all: it sits straight on the gradient, anchored to
+   the baseline the way the printed pieces use it. */
+.hero__photo{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .hero__photo img{
-  width:100%; height:100%; object-fit:cover; object-position:center 44%;
-  filter:grayscale(1) contrast(1.45) brightness(1.22);
+  position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+  width:min(1600px, 118%); height:auto; opacity:.9;
 }
-.hero__photo::before{
-  content:""; position:absolute; inset:0; z-index:1; mix-blend-mode:color;
-  background:linear-gradient(198deg, var(--teal) 0%, #0C5C74 34%, var(--brick) 76%, var(--red) 100%);
-}
-/* just enough floor under the copy column */
+/* keeps the copy column readable where it crosses the towers */
 .hero__photo::after{
-  content:""; position:absolute; inset:0; z-index:2;
-  background:linear-gradient(180deg, rgba(12,41,69,0) 42%, rgba(12,41,69,.3) 78%, rgba(12,41,69,.55));
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(12,41,69,.5) 0%, rgba(12,41,69,.42) 46%, rgba(12,41,69,.58) 100%);
 }
 /* fine grain, matching the printed pieces */
 .hero::after{
@@ -365,19 +365,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   filter:drop-shadow(0 8px 30px rgba(12,41,69,.5));
 }
 .lock__launched{
-  display:flex; align-items:center; justify-content:center; gap:12px;
+  display:flex; justify-content:center;
   margin:clamp(16px,2vw,22px) 0 clamp(20px,2.6vw,28px);
 }
-.lock__launched span{
-  font-family:var(--font-display); font-weight:700;
-  font-size:11px; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--text); opacity:.82; white-space:nowrap;
+.lock__launched img{
+  width:min(100%, 300px); height:auto;
+  filter:drop-shadow(0 2px 12px rgba(12,41,69,.9));
 }
-.lock__launched img{ height:34px; width:auto; }
-@media (max-width:520px){
-  .lock__launched{ flex-direction:column; gap:9px; }
-  .lock__launched img{ height:30px; }
-}
+@media (max-width:520px){ .lock__launched img{ width:min(100%, 240px); } }
 
 
 /* brand line, set the way the standards sheet sets it: caps, two colours */
@@ -822,11 +817,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .banner{ position:relative; overflow:hidden; text-align:center; }
 .banner__bg{ position:absolute; inset:0; z-index:0; }
 .banner__bg img{ width:100%; height:100%; object-fit:cover; }
+/* The supplied artwork already carries the brand gradient, so this is only
+   a legibility scrim now, not a second gradient stacked on top of it. */
 .banner__bg::after{ content:""; position:absolute; inset:0;
   background:
-    radial-gradient(78% 88% at 84% 6%, rgba(240,82,56,.9), rgba(240,82,56,0) 62%),
-    radial-gradient(60% 60% at 6% 96%, rgba(154,209,201,.45), transparent 64%),
-    linear-gradient(196deg, #0A8296 0%, #0A6C84 34%, #124A68 70%, #143A57 100%); }
+    radial-gradient(70% 80% at 84% 4%, rgba(240,82,56,.45), rgba(240,82,56,0) 64%),
+    linear-gradient(180deg, rgba(12,41,69,.62) 0%, rgba(12,41,69,.34) 46%, rgba(12,41,69,.66) 100%); }
 .banner__in{ position:relative; z-index:1; }
 .banner__year{
   font-family:var(--font-body); font-weight:600;
@@ -1133,8 +1129,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="hero__wash" aria-hidden="true"></div>
   <!-- If this file is ever missing, the navy wash above carries the hero alone. -->
   <div class="hero__photo" aria-hidden="true">
-    <img src="Brand%20Assets/Downtown%20Tampa.webp" alt=""
-         onerror="this.closest('.hero__photo').style.display='none'" />
+    <img src="Brand%20Assets/Hero%20Background%20Graphic.webp" alt="" width="2048" height="1377" />
   </div>
 
   <div class="wrap hero__in">
@@ -1152,8 +1147,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <p class="hero__tag"><em>Own</em> what&rsquo;s next.</p>
 
         <p class="lock__launched">
-          <span>Launched by</span>
-          <img src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" />
+          <img src="Brand%20Assets/Launched%20By%20White%20Logo.webp"
+               alt="Launched by Walser Wealth Management" width="2048" height="763" />
         </p>
 
         <p class="hero__sub">
@@ -1578,7 +1573,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <!-- ============================ CLOSING BANNER ============================ -->
 <section class="sec banner">
   <div class="banner__bg" aria-hidden="true">
-    <img src="https://placehold.co/1600x800/0A1E38/123057?text=Room" alt="" width="1600" height="800" loading="lazy" />
+    <img src="Brand%20Assets/Tampa%20Retirement%20Live%20Background%203.webp" alt="" width="2048" height="1203" loading="lazy" />
   </div>
   <div class="wrap banner__in" data-reveal>
     <p class="banner__year">Oct 17 &middot; 2026 &middot; Tampa</p>
