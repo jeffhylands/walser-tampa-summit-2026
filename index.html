@@ -360,13 +360,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 
 /* brand line, set the way the standards sheet sets it: caps, two colours */
-.hero__tag{
-  font-family:var(--font-display); font-weight:800;
-  font-size:clamp(1.05rem,2.3vw,1.7rem); letter-spacing:.01em;
-  text-transform:uppercase; line-height:1.15; color:#fff;
-  margin:0 0 clamp(16px,2vw,22px);
+/* Brand tagline as supplied artwork. The reversed variant is the one that
+   belongs on the dark hero; the navy variant is for light grounds. */
+.hero__tag{ display:flex; justify-content:center; margin:0 0 clamp(16px,2vw,22px); }
+.hero__tag img{
+  width:min(100%, 340px); height:auto;
+  filter:drop-shadow(0 2px 10px rgba(12,41,69,.7));
 }
-.hero__tag em{ font-style:normal; color:var(--mint); }
+@media (max-width:520px){ .hero__tag img{ width:min(100%, 270px); } }
 
 .hero__sub{
   font-size:clamp(1rem,1.55vw,1.2rem); line-height:1.52; color:var(--text);
@@ -1107,7 +1108,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
                alt="Tampa Retirement Live 2026" width="418" height="400" />
         </h1>
 
-        <p class="hero__tag"><em>Own</em> what&rsquo;s next.</p>
+        <p class="hero__tag">
+          <img src="Brand%20Assets/Own%20what%27s%20next%20main.webp"
+               alt="Own what&rsquo;s next." width="2048" height="166" />
+        </p>
 
         <p class="lock__launched">
           <img src="Brand%20Assets/Launched%20By%20White%20Logo.webp"
