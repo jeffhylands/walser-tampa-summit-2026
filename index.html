@@ -252,27 +252,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   text-transform:uppercase; color:var(--muted-2);
 }
 
-/* ====================== DRAFT NOTICE (remove before launch) ====================== */
-.draft{
-  position:relative; z-index:230;
-  background:#151006; border-bottom:1px solid rgba(228,199,126,.35);
-  color:#F0DFAE;
-}
-.draft__in{
-  max-width:1180px; margin:0 auto; padding:11px clamp(16px,4vw,28px);
-  display:flex; align-items:flex-start; gap:16px;
-  font-family:var(--font-display); font-size:11.5px; line-height:1.65;
-}
-.draft__in b{ color:#FFD97A; letter-spacing:.08em; text-transform:uppercase; }
-.draft__in p{ flex:1; }
-.draft__x{
-  flex:none; width:24px; height:24px; border-radius:6px; line-height:1;
-  font-size:17px; color:#F0DFAE; border:1px solid rgba(228,199,126,.3);
-  transition:background .2s var(--ease), color .2s var(--ease);
-}
-.draft__x:hover{ background:rgba(228,199,126,.18); color:#fff; }
-.draft[hidden]{ display:none; }
-
 /* ============================ ANNOUNCE BAR ============================ */
 .bar{
   position:relative; z-index:220;
@@ -750,12 +729,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:linear-gradient(180deg,var(--gold-lite),var(--gold));
   padding:7px 15px; border-bottom-left-radius:10px;
 }
-.tix__pending{
-  text-align:center; max-width:56ch; margin:30px auto 0;
-  font-family:var(--font-display); font-weight:600; font-size:13px;
-  color:#8A3A22; background:rgba(240,82,56,.1);
-  border:1px dashed rgba(190,65,42,.45); border-radius:10px; padding:12px 18px;
-}
 .tix__foot{
   text-align:center; margin-top:34px; font-size:14px; color:var(--ink-muted);
   max-width:60ch; margin-inline:auto;
@@ -1044,14 +1017,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .foot__legal{ font-size:14px; }
   .recog__method{ font-size:13px; }
   .hero__host span{ font-size:13px; }
-  .draft__in{ font-size:12px; }
 
   /* --- tap targets: 44px minimum --- */
   .nav__in > a{ display:inline-flex; align-items:center; min-height:44px; }
   .foot__links a{ padding:12px 15px; }
   .recog__method a{ display:inline-block; padding:12px 0; }
   .foot__legalwrap > a{ display:inline-block; padding:6px 0; }
-  .draft__x{ width:44px; height:44px; font-size:22px; }
 
   /* --- breathing room in dense blocks --- */
   /* five badges wrap to a lopsided 4+1; a 2+2+1 grid stays symmetric.
@@ -1099,19 +1070,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <body id="top">
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ====================== DRAFT NOTICE: delete this block before launch ====================== -->
-<div class="draft" id="draftBar">
-  <div class="draft__in">
-    <p><b>Working draft. Not everything here is final.</b>
-      <b>Confirmed:</b> event name, logo and palette, Oct 17 2026, the Sheraton Tampa Brandon Hotel,
-      all four ticket prices, the full-day run of show, and lunch for every attendee.
-      <b>Still open:</b> checkout URLs for the four ticket buttons, individual session titles,
-      Tom's surname and credit, the 250-seat and 40-VIP numbers, and all event photography.
-      Charles Payne's bio is verified against Fox Business; his session topic is not set.
-      Headline type is Archivo standing in for Transat, which is a licensed font.</p>
-    <button class="draft__x" id="draftX" type="button" aria-label="Dismiss this notice">&times;</button>
-  </div>
-</div>
 
 <!-- ============================ ANNOUNCE BAR ============================ -->
 <div class="bar">Space is limited</div>
@@ -1503,9 +1461,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     </div>
 
-    <!-- [[CHECKOUT]] remove this reviewer note once Square credentials are wired -->
-    <p class="tix__pending">Reviewer note: the four buttons now open the real registration page and the attendee form works end to end. Card payment is not switched on yet, so anyone who clicks through to pay will see a "not configured" notice rather than a payment screen.</p>
-
     <p class="tix__foot">All ticket sales are final. No refunds. Questions? Call the events team at (866) 929-3258.</p>
   </div>
 </section>
@@ -1862,14 +1817,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     });
   }, {threshold:.6});
   document.querySelectorAll('[data-count]').forEach(function(el){ counted.observe(el); });
-
-  /* ---- draft notice (remove with the banner before launch) ---- */
-  var draftX = document.getElementById('draftX');
-  if(draftX){
-    draftX.addEventListener('click', function(){
-      document.getElementById('draftBar').hidden = true;
-    });
-  }
 
   /* ---- hero news reel ---- */
   var vWrap    = document.getElementById('heroVideo');
