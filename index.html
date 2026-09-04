@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tampa Retirement Live 2026 | Launched by Walser Wealth Management</title>
-<meta name="description" content="Tampa Bay pre-retirees and retirees: a full day on taxes, income, and the decisions that shape your retirement. Keynote Rebecca Walser with Charles Payne of Fox Business. Saturday, October 17, 2026." />
+<meta name="description" content="One full day on taxes, income and the decisions that shape your retirement. Keynote Rebecca Walser with Charles Payne of Fox Business. Tampa, Oct 17." />
 <meta property="og:title" content="Tampa Retirement Live 2026" />
 <meta property="og:description" content="One full day. Real direction on the financial decisions that shape your retirement. Keynote Rebecca Walser, MBA, JD, LLM." />
 <meta property="og:type" content="website" />
@@ -169,6 +169,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
 .sec{ padding-block:clamp(72px,9vw,124px); }
 .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+/* keyboard users land here first; invisible until focused */
+.skip{
+  position:absolute; left:50%; top:-100px; transform:translateX(-50%); z-index:300;
+  background:var(--red); color:#fff; padding:12px 22px; border-radius:0 0 10px 10px;
+  font-weight:600; transition:top .2s var(--ease);
+}
+.skip:focus{ top:0; }
 
 /* film grain, global material texture */
 .grain{ position:fixed; inset:0; z-index:200; pointer-events:none; opacity:.04; mix-blend-mode:overlay;
@@ -310,7 +317,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .hero__photo{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .hero__photo img{
   position:absolute; left:50%; bottom:0; transform:translateX(-50%);
-  width:min(1600px, 118%); height:auto; opacity:.74;
+  /* max-width:none is required - the global img reset caps width at 100%
+     and would silently clamp this back to viewport width */
+  width:118%; max-width:none; height:auto; opacity:.74;
 }
 /* Dim pass over the skyline. Measured rather than guessed: white copy was
    dropping to 3.5:1 where it crossed a sunlit tower. The vertical scrim
@@ -1072,6 +1081,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 </head>
 
 <body id="top">
+<a class="skip" href="#tickets">Skip to tickets</a>
 <div class="grain" aria-hidden="true"></div>
 
 
