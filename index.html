@@ -118,8 +118,13 @@
   /* Brand fonts are Transat (headline+body) and Dunbar (logo) - both licensed.
      They lead each stack so the page upgrades automatically once the
      webfont files are installed; Archivo/Figtree carry it until then. */
-  --font-display: "Transat", "Archivo", system-ui, sans-serif;
-  --font-body:    "Transat", "Figtree", system-ui, sans-serif;
+  /* Adobe Fonts family names are lowercase, hence both spellings.
+     Display carries Transat; body carries Transat TEXT, which is the
+     companion cut drawn for long passages (taller x-height, more even
+     widths). Splitting them follows the "use display type sparingly"
+     advice and matters for a 50+ audience reading paragraphs. */
+  --font-display: transat, "Transat", "Archivo", system-ui, sans-serif;
+  --font-body:    "transat-text", "Transat Text", "Figtree", system-ui, sans-serif;
 
   --red:   #F05238;
   --brick: #BE412A;
