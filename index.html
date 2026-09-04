@@ -581,10 +581,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ============================ AGENDA ============================ */
 .agenda{ position:relative; overflow:hidden; }
-.agenda__bg{ position:absolute; inset:0; z-index:0; }
-.agenda__bg img{ width:100%; height:100%; object-fit:cover; }
-.agenda__bg::after{ content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(6,42,58,.95), rgba(3,113,130,.62) 46%, rgba(9,32,52,.95)); }
 .agenda__in{ position:relative; z-index:1; }
 .agenda__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 @media (max-width:940px){ .agenda__grid{ grid-template-columns:repeat(2,1fr); } }
@@ -952,7 +948,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ---- agenda: bone ground, cards go white ---- */
 .agenda{ background:var(--ivory); }
-.agenda__bg{ display:none; }          /* placeholder photo added nothing but grey */
 .topic{
   background:#fff; border-color:rgba(20,54,79,.12);
   box-shadow:0 16px 34px -22px rgba(20,54,79,.32);
@@ -1266,9 +1261,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 <!-- ============================ AGENDA ============================ -->
 <section class="sec agenda">
-  <div class="agenda__bg" aria-hidden="true">
-    <img src="https://placehold.co/1600x900/0A1E38/123057?text=Venue" alt="" width="1600" height="900" loading="lazy" />
-  </div>
   <div class="wrap agenda__in">
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center">What's your move?</span>
