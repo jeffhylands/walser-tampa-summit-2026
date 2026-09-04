@@ -36,10 +36,11 @@
      token block, so dropping in the real webfont files upgrades the
      page with no other change.
 
-     LOGO: trl-logo-white.png / trl-logo-navy.png were pulled out of the
-     brand PDF (page 4, the reversed lockup) via luminance-to-alpha, so
-     they carry clean transparency. If the agency sends true vector SVG,
-     swap it in - it will scale better than these 418px rasters.
+     LOGO: the hero and nav use "SVG White Logo.webp" from the agency
+     (2048px, reversed colourway). Despite the filename it is a WebP
+     raster, not vector - the DAM appears to export previews rather
+     than originals. Ample resolution at the sizes used here; ask for
+     a true .svg only if the logo ever needs to run much larger.
      ----------------------------------------------------------------
      SWAP LIST - everything still to be confirmed. Search these tags.
      ----------------------------------------------------------------
@@ -1080,7 +1081,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a href="#top" aria-label="Walser Wealth Management home">
-      <img class="nav__logo" src="Brand%20Assets/trl-logo-white.png" alt="Tampa Retirement Live" width="418" height="400" />
+      <img class="nav__logo" src="Brand%20Assets/SVG%20White%20Logo.webp" alt="Tampa Retirement Live" width="2048" height="1957" />
     </a>
     <div class="nav__right">
       <p class="nav__meta"><b>Sat, October 17, 2026</b><br>Sheraton Tampa Brandon Hotel</p>
@@ -1105,8 +1106,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <span class="hero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
 
         <h1 class="lock">
-          <img class="lock__img" src="Brand%20Assets/trl-logo-white.png"
-               alt="Tampa Retirement Live 2026" width="418" height="400" />
+          <img class="lock__img" src="Brand%20Assets/SVG%20White%20Logo.webp"
+               alt="Tampa Retirement Live 2026" width="2048" height="1957" />
         </h1>
 
         <p class="hero__tag">
