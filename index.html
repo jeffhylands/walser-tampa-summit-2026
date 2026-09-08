@@ -527,106 +527,133 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .head .eyebrow{ margin-bottom:20px; }
 .head p{ margin-top:18px; }
 
-/* ============================ SPEAKERS ============================ */
-/* Section keeps .guest so the light-section rules (cream ground, dark
-   chevron, ink headings) continue to apply. Internals are .spk__*. */
+/* ============================ SPEAKERS ============================
+   Editorial treatment: one navy feature panel, two light supporting
+   panels. Keeping the section on .guest so the light-section rules
+   (cream ground, dark chevron, ink headings) still apply. */
 .spk__sub{
   color:var(--ink-muted); font-size:clamp(1rem,1.5vw,1.12rem);
-  margin:16px auto 0;   /* uncapped so it holds one line on desktop */
+  margin:14px auto 0;
 }
 
-/* shared card shell */
-.spk__card{
-  position:relative; overflow:hidden; border-radius:var(--r-lg);
-  background:linear-gradient(152deg, #17517A 0%, var(--ink) 52%, #0F3352 100%);
-  border:1px solid rgba(154,209,201,.24);
-  box-shadow:0 24px 52px -30px rgba(20,54,79,.55);
-}
-.spk__figure{ position:relative; overflow:hidden; background:var(--raised-2); }
-.spk__figure img{ width:100%; height:100%; object-fit:cover; display:block; }
-.spk__body{ position:relative; z-index:2; display:flex; flex-direction:column; }
+/* ---------- shared ---------- */
+.spk__portrait{ position:relative; overflow:hidden; background:var(--raised-2); }
+.spk__portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+.spk__body{ position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; }
 
 .spk__pill{
   align-self:flex-start; display:inline-block;
   font-family:var(--font-display); font-weight:700;
   font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
   color:#0C2945; background:var(--mint);
-  border-radius:100px; padding:6px 14px; margin-bottom:16px;
+  border-radius:100px; padding:6px 14px; margin-bottom:14px;
 }
-.spk__name{
-  font-family:var(--font-display); font-weight:700; letter-spacing:-.02em;
-  color:#fff; line-height:1.05;
-}
+.spk__name{ font-family:var(--font-display); font-weight:700; letter-spacing:-.02em; line-height:1.04; }
 .spk__role{
   font-family:var(--font-display); font-weight:600;
-  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--mint); margin-top:10px; line-height:1.6;
+  font-size:11px; letter-spacing:.15em; text-transform:uppercase;
+  margin-top:9px; line-height:1.65;
 }
-.spk__bio{ color:#C6DBE0; line-height:1.62; }
+.spk__lede{ line-height:1.62; }
 
-/* proof points */
-.spk__facts{ display:grid; gap:14px 26px; border-top:1px solid rgba(154,209,201,.22); }
-.spk__fact{ display:flex; gap:10px; align-items:flex-start; }
-.spk__fact svg{ width:16px; height:16px; flex:none; margin-top:2px;
-  stroke:var(--mint); fill:none; stroke-width:1.7; }
-.spk__fact b{
-  display:block; font-family:var(--font-display); font-weight:700;
-  font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--mint); margin-bottom:3px;
+/* one hairline, then markers side by side - no per-row dividers */
+.spk__markers{ display:grid; margin-top:auto; }
+.spk__marker svg{ width:15px; height:15px; flex:none; fill:none; stroke-width:1.8; }
+.spk__marker b{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--font-display); font-weight:700;
+  font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:6px;
 }
-.spk__fact span{ display:block; font-size:13.5px; line-height:1.45; color:#DCEAEE; }
+.spk__marker span{ display:block; font-size:13.5px; line-height:1.5; }
 
-/* ---- featured card ---- */
+/* ---------- featured: navy ---------- */
 .spk__feature{
-  display:grid; grid-template-columns:minmax(0,38%) minmax(0,62%);
-  align-items:stretch; margin-bottom:22px;
+  position:relative; overflow:hidden; border-radius:var(--r-lg);
+  background:linear-gradient(104deg, #14456B 0%, var(--ink) 44%, #0E3352 100%);
+  border:1px solid rgba(154,209,201,.2);
+  box-shadow:0 24px 52px -32px rgba(20,54,79,.55);
+  display:grid; grid-template-columns:minmax(0,34%) minmax(0,66%);
+  align-items:stretch; margin-bottom:26px;
 }
-.spk__feature .spk__figure img{ object-position:center 14%; }
-.spk__feature .spk__body{ padding:clamp(28px,3.4vw,44px); justify-content:center; }
-.spk__feature .spk__name{ font-size:clamp(1.9rem,3.4vw,2.75rem); }
-.spk__feature .spk__bio{ font-size:clamp(1rem,1.4vw,1.1rem); margin:20px 0 26px; max-width:52ch; }
-.spk__feature .spk__facts{ grid-template-columns:1fr 1fr; padding-top:22px; }
-/* restrained skyline atmosphere, featured card only */
+.spk__feature .spk__portrait img{ object-position:center 16%; }
+.spk__feature .spk__body{ padding:clamp(30px,3.4vw,46px); }
+.spk__feature .spk__name{ color:#fff; font-size:clamp(1.95rem,3.2vw,2.7rem); }
+.spk__feature .spk__role{ color:var(--mint); }
+.spk__feature .spk__lede{ color:#C6DBE0; font-size:clamp(1rem,1.35vw,1.08rem); margin:18px 0 0; max-width:56ch; }
+.spk__feature .spk__markers{
+  grid-template-columns:repeat(3,1fr); gap:24px;
+  margin-top:28px; padding-top:24px; border-top:1px solid rgba(154,209,201,.2);
+}
+.spk__feature .spk__marker svg{ stroke:var(--mint); }
+.spk__feature .spk__marker b{ color:var(--mint); }
+.spk__feature .spk__marker span{ color:#DCEAEE; }
+/* skyline sits far right, clear of the copy column */
 .spk__atmos{
-  position:absolute; right:-4%; bottom:0; width:56%; max-width:430px;
-  z-index:1; opacity:.055; pointer-events:none; user-select:none;
+  position:absolute; right:-2%; bottom:0; width:34%; max-width:330px;
+  z-index:1; opacity:.07; pointer-events:none;
+}
+/* restrained coral detail */
+.spk__feature::after{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg, var(--red), rgba(240,82,56,0));
+  z-index:3;
 }
 
-/* ---- supporting pair ----
-   Portrait sits in a header row at a FIXED 3:4, matching the source files.
-   Letting it stretch to card height produced a 0.24 aspect at 375px, which
-   sliced faces into a vertical strip. */
-.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-.spk__card--sm{ padding:clamp(22px,2.4vw,30px); }
-.spk__head{ display:grid; grid-template-columns:132px minmax(0,1fr); gap:20px; align-items:center; }
-.spk__thumb{
-  aspect-ratio:3/4; border-radius:var(--r-md); overflow:hidden;
-  background:var(--raised-2); border:1px solid rgba(154,209,201,.2);
+/* ---------- supporting: light ---------- */
+.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+/* Portrait is a fixed 3:4 plate on the card surface rather than a
+   full-bleed column. Stretching it to card height gave a 0.38 aspect,
+   which slices faces; this crops nothing and reads less boxed. */
+.spk__card{
+  position:relative; border-radius:var(--r-lg);
+  background:#FCFAF4; border:1px solid rgba(20,54,79,.13);
+  box-shadow:0 14px 32px -24px rgba(20,54,79,.3);
+  display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(18px,1.8vw,26px); padding:clamp(22px,2.2vw,28px);
+  align-items:start;
 }
-.spk__thumb img{ width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block; }
-.spk__card--sm .spk__name{ font-size:clamp(1.25rem,1.9vw,1.55rem); }
-.spk__card--sm .spk__bio{ font-size:15px; margin:20px 0 20px; }
-.spk__card--sm .spk__facts{ grid-template-columns:1fr; padding-top:18px; gap:12px; }
+.spk__card .spk__portrait{
+  width:clamp(150px,15vw,196px); aspect-ratio:3/4; flex:none;
+  border-radius:var(--r-md); background:#E9E3D7;
+}
+.spk__card .spk__portrait img{ object-position:center 10%; }
+.spk__card .spk__body{ padding:0; }
+.spk__card .spk__name{ color:var(--ink-text); font-size:clamp(1.3rem,1.9vw,1.6rem); }
+.spk__card .spk__role{ color:var(--teal); }
+.spk__card .spk__lede{ color:var(--ink-muted); font-size:15px; margin:16px 0 0; }
+.spk__card .spk__markers{
+  grid-template-columns:1fr; gap:14px;
+  margin-top:20px; padding-top:18px; border-top:1px solid rgba(20,54,79,.13);
+}
+.spk__card .spk__marker svg{ stroke:var(--teal); }
+.spk__card .spk__marker b{ color:var(--teal); }
+.spk__card .spk__marker span{ color:var(--ink-text); }
 
-.spk__cta{ text-align:center; margin-top:clamp(34px,4vw,48px); }
+.spk__cta{ text-align:center; margin-top:clamp(40px,4.6vw,58px); }
 .spk__cta .cta-note{ color:var(--ink-muted); }
 
-/* ---- responsive ---- */
-@media (max-width:980px){
-  .spk__feature{ grid-template-columns:1fr; }
-  /* 16:9 cropped him at the chin; 4:3 keeps head and shoulders */
-  .spk__feature .spk__figure{ aspect-ratio:4/3; }
-  .spk__feature .spk__figure img{ object-position:center 14%; }
-  .spk__atmos{ display:none; }
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .spk__feature{ grid-template-columns:minmax(0,38%) minmax(0,62%); }
+  .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
 }
-@media (max-width:860px){
+@media (max-width:880px){
+  .spk__feature{ grid-template-columns:1fr; }
+  .spk__feature .spk__portrait{ aspect-ratio:5/4; }
+  .spk__feature .spk__portrait img{ object-position:center 14%; }
+  .spk__feature .spk__markers{ grid-template-columns:repeat(3,1fr); gap:22px; }
+  .spk__atmos{ display:none; }
   .spk__grid{ grid-template-columns:1fr; }
+  .spk__card{ grid-template-columns:minmax(0,32%) minmax(0,68%); }
 }
 @media (max-width:560px){
-  .spk__feature .spk__figure{ aspect-ratio:1/1; }
-  .spk__feature .spk__facts{ grid-template-columns:1fr; }
-  .spk__card--sm{ padding:20px 18px; }
-  .spk__head{ grid-template-columns:104px minmax(0,1fr); gap:16px; }
+  .spk__feature .spk__portrait{ aspect-ratio:1/1; }
+  .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
+  /* share a left edge with the copy rather than centring the plate */
+  .spk__card{ grid-template-columns:1fr; justify-items:start; }
+  .spk__card .spk__portrait{ width:min(62%,215px); aspect-ratio:3/4; }
+  .spk__card .spk__body{ width:100%; }
+}
 }
 /* ============================ QUALIFY CHECKLIST ============================ */
 .qual{ background:linear-gradient(178deg, #1A4364 0%, #14526B 100%); }
@@ -1037,8 +1064,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .card__inherit{ font-size:11px; }
   .card__flag{ font-size:11px; padding:8px 14px; }
   .spk__pill{ font-size:11px; }
-  .spk__fact b{ font-size:11px; letter-spacing:.14em; }
-  .spk__fact span{ font-size:14px; }
+  .spk__marker b{ font-size:11px; letter-spacing:.14em; }
+  .spk__marker span{ font-size:14px; }
   .deck__sound{ font-size:13px; padding:9px 13px; }
   .card__seats{ font-size:14.5px; }
   .eyebrow{ font-size:11.5px; letter-spacing:.26em; }
@@ -1225,21 +1252,23 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 </section>
 
 <!-- ============================ SPEAKERS ============================
-     Every fact here is verified against the client-supplied bios.
-     Deliberately omitted as unverified: any city for Charles or Tom
-     (his bio places him in Leawood, Kansas, not Tampa), and any quote.
+     Every fact verified against the client-supplied bios.
+     Deliberately not used: any city for Charles or Tom (his bio places
+     him in Leawood, Kansas), any quotation, and the concept's decorative
+     "Markets / People / Opportunity" and "Real insights" lines, which are
+     not brand language and appear nowhere in the project.
      ============================================================ -->
 <section class="sec guest" id="guest">
   <div class="wrap">
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center">On stage</span>
       <h2 class="display h2">Who you'll hear from</h2>
-      <p class="spk__sub">Three people who have spent their careers reading markets, in one room for a day.</p>
+      <p class="spk__sub">Three market voices. One room. One day of perspective.</p>
     </div>
 
-    <!-- ---------- featured: Charles Payne ---------- -->
-    <article class="spk__card spk__feature" data-reveal>
-      <figure class="spk__figure">
+    <!-- ---------- featured ---------- -->
+    <article class="spk__feature" data-reveal>
+      <figure class="spk__portrait">
         <img src="Brand%20Assets/charles-payne-keynote.jpg"
              alt="Charles Payne, host of Making Money with Charles Payne on Fox Business"
              width="900" height="1200" />
@@ -1250,100 +1279,96 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <p class="spk__pill">Featured guest</p>
         <h3 class="spk__name">Charles Payne</h3>
         <p class="spk__role">Host, Making Money with Charles Payne &middot; Fox Business</p>
-        <p class="spk__bio">
-          Four decades reading markets from the inside. He started Wall Street Strategies
-          out of his apartment in 1991 with under &#36;10,000; it now reaches subscribers in
-          more than 60 countries.
+        <p class="spk__lede">
+          Charles Payne has spent four decades reading markets from the inside. He founded
+          Wall Street Strategies in 1991 and has built a career translating market complexity
+          into practical perspective for everyday investors.
         </p>
-        <div class="spk__facts">
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>
-            <span><b>On air</b>Making Money, weekdays 2 PM ET on Fox Business</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>
-            <span><b>Experience</b>Four decades in markets</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>
-            <span><b>Firm</b>Founder &amp; CEO, Wall Street Strategies</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18l-7-4-7 4Z"/></svg>
-            <span><b>Author</b>Three books, most recently <i>Unbreakable Investor</i></span>
-          </p>
+        <div class="spk__markers">
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>On air</b>
+              <span>Making Money with Charles Payne<br>Weekdays, 2 PM ET on Fox Business</span>
+            </div>
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>Firm</b>
+              <span>Founder &amp; CEO<br>Wall Street Strategies</span>
+            </div>
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M19 16H6"/></svg>Author</b>
+              <span>Three books, most recently<br><i>Unbreakable Investor</i></span>
+            </div>
         </div>
       </div>
     </article>
 
-    <!-- ---------- supporting pair ---------- -->
+    <!-- ---------- supporting ---------- -->
     <div class="spk__grid">
 
-      <article class="spk__card spk__card--sm" data-reveal>
-        <div class="spk__head">
-          <figure class="spk__thumb">
-            <img src="Brand%20Assets/rebecca-keynote.jpg" alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1200" loading="lazy" />
-          </figure>
-          <div>
-            <p class="spk__pill">Keynote speaker</p>
-            <h3 class="spk__name">Rebecca Walser</h3>
-            <p class="spk__role">Founder, CEO &amp; CIO<br>Walser Wealth Management</p>
+      <article class="spk__card" data-reveal>
+        <figure class="spk__portrait">
+          <img src="Brand%20Assets/rebecca-keynote.jpg"
+               alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management"
+               width="900" height="1200" loading="lazy" />
+        </figure>
+        <div class="spk__body">
+          <p class="spk__pill">Keynote speaker</p>
+          <h3 class="spk__name">Rebecca Walser</h3>
+          <p class="spk__role">Founder, CEO &amp; CIO<br>Walser Wealth Management</p>
+          <p class="spk__lede">
+            A licensed tax attorney and wealth management leader focused on helping retirees
+            understand the tax exposure traditional retirement plans often overlook.
+          </p>
+          <div class="spk__markers">
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>Credential</b>
+              <span>Licensed tax attorney &middot; MBA, JD, LLM</span>
+            </div>
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Recognition</b>
+              <span>Investopedia Top 100 Financial Advisors, four-time honoree</span>
+            </div>
           </div>
-        </div>
-        <p class="spk__bio">A licensed tax attorney whose focus is the tax exposure most retirement plans never account for.</p>
-        <div class="spk__facts">
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>
-            <span><b>Credential</b>Licensed tax attorney &middot; MBA, JD, LLM</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>
-            <span><b>Recognition</b>Investopedia Top 100 Financial Advisors, four times</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>
-            <span><b>Firm</b>Walser Wealth Management, Tampa</span>
-          </p>
         </div>
       </article>
 
-      <article class="spk__card spk__card--sm" data-reveal>
-        <div class="spk__head">
-          <figure class="spk__thumb">
-            <img src="Brand%20Assets/tom-siomades-keynote.jpg" alt="Tom Siomades, Chief Market Economist at AE Wealth Management" width="900" height="1200" loading="lazy" />
-          </figure>
-          <div>
-            <p class="spk__pill">Guest speaker</p>
-            <h3 class="spk__name">Tom Siomades, CFA</h3>
-            <p class="spk__role">Chief Market Economist<br>AE Wealth Management</p>
+      <article class="spk__card" data-reveal>
+        <figure class="spk__portrait">
+          <img src="Brand%20Assets/tom-siomades-keynote.jpg"
+               alt="Tom Siomades, Chief Market Economist at AE Wealth Management"
+               width="900" height="1200" loading="lazy" />
+        </figure>
+        <div class="spk__body">
+          <p class="spk__pill">Guest speaker</p>
+          <h3 class="spk__name">Tom Siomades, CFA</h3>
+          <p class="spk__role">Chief Market Economist<br>AE Wealth Management</p>
+          <p class="spk__lede">
+            More than 35 years in markets, with a talent for translating complex economic
+            conditions into clear, practical perspective.
+          </p>
+          <div class="spk__markers">
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>Experience</b>
+              <span>More than 35 years in markets</span>
+            </div>
+            <div class="spk__marker">
+              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9L6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></svg>Service</b>
+              <span>West Point graduate &middot; U.S. Army infantry officer</span>
+            </div>
           </div>
-        </div>
-        <p class="spk__bio">Thirty-five years in markets, and a knack for turning complicated economics into everyday terms.</p>
-        <div class="spk__facts">
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>
-            <span><b>Experience</b>More than 35 years in markets</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>
-            <span><b>Credential</b>CFA charterholder</span>
-          </p>
-          <p class="spk__fact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
-            <span><b>Service</b>West Point graduate, US Army infantry officer</span>
-          </p>
         </div>
       </article>
 
     </div>
 
     <div class="spk__cta" data-reveal>
-      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47
+        <svg class="btn__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
       <span class="cta-note">Space is limited</span>
     </div>
   </div>
 </section>
-
 <!-- ============================ QUALIFY CHECKLIST ============================ -->
 <section class="sec qual">
   <div class="wrap">
