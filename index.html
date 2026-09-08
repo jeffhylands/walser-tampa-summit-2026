@@ -51,8 +51,8 @@
                   lunch 12:30-1:30 (included for EVERY attendee), close
                   3:45 PM. Session TITLES are still unknown - the run of
                   show reads "Session one", "Session two" etc.
-                  [[TOM]] is Tom Siomades. Headshot supplied; still
-                  needs a one-line credit and his session topic.
+                  [[TOM]] Tom Siomades, CFA is fully in: headshot, bio
+                  and credit. Session topic still unknown.
      [[PRICES]]   CONFIRMED from the ticketing system: Single $47,
                   Couple $67, Single VIP $97, Couple VIP $147. The two
                   "save vs" lines are computed from these, so they stay
@@ -529,6 +529,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ============================ GUEST SPEAKER ============================ */
 .guest{ background:linear-gradient(180deg,var(--ink-abyss),#071528); }
+.guest__card + .guest__card{ margin-top:24px; }
 .guest__card{
   max-width:880px; margin:0 auto;
   display:grid; grid-template-columns:300px 1fr; gap:clamp(24px,3.5vw,44px); align-items:stretch;
@@ -1214,12 +1215,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="wrap">
     <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center">On stage</span>
-      <h2 class="display h2">This year's featured guest</h2>
+      <h2 class="display h2">Who you'll hear from</h2>
     </div>
 
     <div class="guest__card" data-reveal>
       <figure class="guest__photo">
-        <!-- Filename case matters once this is on a Linux host. Keep it Charles-Payne.jpg -->
         <img src="Brand%20Assets/charles-payne-keynote.jpg"
              alt="Charles Payne, host of Making Money with Charles Payne on Fox Business"
              width="900" height="1200" />
@@ -1246,6 +1246,37 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <li><b>Author</b><span>Three books, most recently <i>Unbreakable Investor</i> (2023)</span></li>
           <li><b>Honors</b><span>CORE Man of the Year, 2009</span></li>
           <li><b>Service</b><span>United States Air Force, four years</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guest__card" data-reveal>
+      <figure class="guest__photo">
+        <img src="Brand%20Assets/tom-siomades-keynote.jpg"
+             alt="Tom Siomades, Chief Market Economist at AE Wealth Management"
+             width="900" height="1200" loading="lazy" />
+      </figure>
+      <div>
+        <span class="guest__tag">Guest speaker</span>
+        <h3 class="display guest__name">Tom Siomades, CFA</h3>
+        <p class="guest__role">Chief Market Economist &middot; AE Wealth Management</p>
+        <p class="guest__bio">
+          Tom Siomades has spent more than 35 years in markets. He graduated from West Point
+          and served as an infantry officer in the US Army before moving into finance, where
+          his work has run through portfolio management, manager selection and due diligence.
+        </p>
+        <p class="guest__bio">
+          He joined <b>AE Wealth Management</b> in 2019 as chief investment officer and is now
+          its chief market economist. His stated job is to translate a complicated market into
+          everyday terms, which is exactly what he is in Tampa to do.
+        </p>
+
+        <ul class="guest__creds">
+          <li><b>Role</b><span>Chief Market Economist, AE Wealth Management</span></li>
+          <li><b>Experience</b><span>More than 35 years in markets</span></li>
+          <li><b>Credential</b><span>CFA charterholder</span></li>
+          <li><b>Education</b><span>United States Military Academy at West Point; master's degree, Webster University</span></li>
+          <li><b>Service</b><span>United States Army, infantry officer</span></li>
         </ul>
       </div>
     </div>
@@ -1352,7 +1383,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">10:20 &ndash; 11:20</p>
-        <div class="run__what"><h3>Session two</h3><p class="run__who">Tom</p></div>
+        <div class="run__what"><h3>Session two</h3><p class="run__who">Tom Siomades</p></div>
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">11:20 &ndash; 11:35</p>
@@ -1360,7 +1391,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">11:35 &ndash; 12:30</p>
-        <div class="run__what"><h3>Session three: panel discussion</h3><p class="run__who">Rebecca Walser, Tom &amp; Charles Payne</p></div>
+        <div class="run__what"><h3>Session three: panel discussion</h3><p class="run__who">Rebecca Walser, Tom Siomades &amp; Charles Payne</p></div>
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">12:30 &ndash; 1:30</p>
@@ -1650,7 +1681,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom for the panel discussion mid-morning. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why those 40 places go first.</p>
+        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom Siomades for the panel discussion mid-morning. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why those 40 places go first.</p>
       </details>
 
       <details class="faq__item">
@@ -1742,9 +1773,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <p class="foot__disc">
       The Tampa Retirement Live 2026 is an educational event. Nothing presented constitutes personalized
       investment, tax, or legal advice, and attendance does not create an advisory relationship.
-      Charles Payne appears in his individual capacity as a guest speaker. FOX Business Network, FOX News Media,
-      and Wall Street Strategies are not sponsors of this event and do not endorse Walser Wealth Management or
-      any strategy discussed. Network names and marks are the property of their respective owners.
+      Charles Payne and Tom Siomades appear in their individual capacities as guest speakers. FOX Business Network,
+      FOX News Media, Wall Street Strategies and AE Wealth Management are not sponsors of this event and do not
+      endorse Walser Wealth Management or any strategy discussed. Network names and marks are the property of their respective owners.
       This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by
       Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
     </p>
