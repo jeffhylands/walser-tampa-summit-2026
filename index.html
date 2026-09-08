@@ -21,7 +21,7 @@
 <!-- ================================================================
      TAMPA RETIREMENT LIVE 2026
      Launched by Walser Wealth Management
-     Display + body: Transat (licensed) with Archivo / Figtree fallbacks
+     Headline: Transat Bold (Adobe) with Jost standing in. Body: Open Sans
      Brand navy + teal + mint; red (#F05238) reserved for CTAs
      Signature: brand gradient plate, triple chevron, ticket-stub perforation
 
@@ -30,11 +30,13 @@
      Tampa Retirement Live.pdf" (Brand Assets/). Palette, logo, event
      name, taglines and the Oct 17 2026 date all come from that guide.
 
-     FONTS: the guide specifies Transat (headline + body) and Dunbar /
-     Broadacre (logo). Both are licensed and not on Google Fonts, so
-     Archivo + Figtree stand in. Transat leads both font stacks in the
-     token block, so dropping in the real webfont files upgrades the
-     page with no other change.
+     FONTS: headline is Transat Bold, an Adobe font. Jost stands in and
+     leads nothing - Transat is first in the stack, so adding an Adobe
+     web project upgrades headlines with no other change. Body is Open
+     Sans, which IS the brand body font (the standards PDF said Transat
+     Bold; the design team confirmed that was a transcription error), so
+     body type is already exact. Dunbar is logo-only and the logo is
+     supplied artwork, so it is never needed as a webfont.
 
      LOGO: hero and nav use "White Orange SVG Logo.webp" (2048px).
      This is the dark-ground variant from page 4 of the standards:
@@ -89,7 +91,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ============================ TOKENS ============================ */
@@ -118,16 +120,15 @@
   --ink-text:   #14364F;
   --ink-muted:  #425D6C;
 
-  /* Brand fonts are Transat (headline+body) and Dunbar (logo) - both licensed.
-     They lead each stack so the page upgrades automatically once the
-     webfont files are installed; Archivo/Figtree carry it until then. */
-  /* Adobe Fonts family names are lowercase, hence both spellings.
-     Display carries Transat; body carries Transat TEXT, which is the
-     companion cut drawn for long passages (taller x-height, more even
-     widths). Splitting them follows the "use display type sparingly"
-     advice and matters for a 50+ audience reading paragraphs. */
-  --font-display: transat, "Transat", "Archivo", system-ui, sans-serif;
-  --font-body:    "transat-text", "Transat Text", "Figtree", system-ui, sans-serif;
+  /* Body is Open Sans - the brand standards PDF said Transat Bold, which
+     the design team confirmed was a transcription error. Open Sans is free
+     on Google Fonts, so body type is an exact brand match.
+     Headline is Transat Bold, an Adobe font. Jost stands in: geometric and
+     Art Deco-adjacent, so it echoes the logo far better than Archivo did.
+     Transat leads the stack, so an Adobe kit would upgrade it with no other
+     change. Adobe family names are lowercase, hence both spellings. */
+  --font-display: transat, "Transat", "Jost", system-ui, sans-serif;
+  --font-body:    "Open Sans", system-ui, sans-serif;
 
   --red:   #F05238;
   --brick: #BE412A;
