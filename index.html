@@ -776,14 +776,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card__top{ padding:24px 21px 20px; border-bottom:1px dashed rgba(20,54,79,.2); }
 .card__body{ display:flex; flex-direction:column; flex:1; }
 .card__body .btn{ margin-top:auto; }
-/* engraved ticket-stub perforation */
-.card__perf{ position:relative; height:0; }
-.card__perf::before, .card__perf::after{
-  content:""; position:absolute; top:-13px; width:26px; height:26px; border-radius:50%;
-  background:var(--cream);
-}
-.card__perf::before{ left:-13px; }
-.card__perf::after{ right:-13px; }
 .card__body{ padding:21px 21px 25px; }
 
 .card__tier{
@@ -831,7 +823,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .card--vip .card__list li{ color:var(--text); }
 .card--vip .card__list svg{ stroke:var(--gold-lite); }
 .card--vip .card__inherit{ color:var(--muted-2); border-bottom-color:var(--hair-cool); }
-.card--vip .card__perf::before, .card--vip .card__perf::after{ background:var(--cream); }
 .card__flag{
   position:absolute; top:0; right:0; z-index:2;
   font-family:var(--font-display); font-size:9.5px; letter-spacing:.2em;
@@ -1526,7 +1517,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__seats">One seat</p>
           <p class="card__price"><span class="card__now">$47</span></p>
         </div>
-        <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
           <p class="card__inherit">What's included</p>
           <ul class="card__list">
@@ -1546,7 +1536,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__price"><span class="card__now">$67</span></p>
           <span class="card__save">Save $27 vs 2 singles</span>
         </div>
-        <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
           <p class="card__inherit">Everything in Single, for two</p>
           <ul class="card__list">
@@ -1566,7 +1555,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__price"><span class="card__now">$97</span></p>
           <span class="card__save">Only 40 VIP seats</span>
         </div>
-        <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
           <p class="card__inherit">Everything in Single, plus</p>
           <ul class="card__list">
@@ -1588,7 +1576,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__price"><span class="card__now">$147</span></p>
           <span class="card__save">Save $47 vs 2 VIPs</span>
         </div>
-        <div class="card__perf" aria-hidden="true"></div>
         <div class="card__body">
           <p class="card__inherit">Everything in Single VIP, for two</p>
           <ul class="card__list">
