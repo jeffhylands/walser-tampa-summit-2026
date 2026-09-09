@@ -859,13 +859,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:linear-gradient(100deg, #1A4364 22%, #96382B 78%, var(--red) 100%); }
 .built__in{ position:relative; z-index:1; }
 
-/* two columns of short lines reads better than one long ladder */
+/* Two columns of short lines reads better than one long ladder. Every item is
+   written to sit on a single line: 1000px leaves the longest of them about 10%
+   of headroom in each column, and below the breakpoint the two columns get too
+   narrow to hold them, so it drops to one. */
 .built__list{
   list-style:none; display:grid; grid-template-columns:1fr 1fr;
   gap:16px clamp(26px,4vw,54px);
-  max-width:940px; margin:0 auto;
+  max-width:1000px; margin:0 auto;
 }
-@media (max-width:760px){ .built__list{ grid-template-columns:1fr; max-width:520px; } }
+@media (max-width:1000px){ .built__list{ grid-template-columns:1fr; max-width:560px; } }
 .built__list li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.6; }
 .built__list svg{ width:16px; height:16px; flex:none; margin-top:5px;
   stroke:var(--mint); fill:none; stroke-width:2.4; }
@@ -1622,9 +1625,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <ul class="built__list" data-reveal>
       <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and up</li>
       <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees one to ten years from their last day of work</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees who want a second opinion on a plan already in motion</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone with most of their savings in a tax-deferred account</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Couples who want to hear the same information at the same time</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees who want a second opinion on an existing plan</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone with savings mostly in tax-deferred accounts</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Couples who want to hear it all at the same time</li>
       <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Business owners planning an exit in the next few years</li>
     </ul>
     <div class="built__foot" data-reveal>
