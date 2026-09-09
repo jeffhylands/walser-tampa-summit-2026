@@ -18,24 +18,23 @@ actually display at, doubled for retina — supply at the "Supply at" size.
 
 ---
 
-## 1. Hero background — highest priority
+## 1. Hero background — DONE
 
-| | |
-|---|---|
-| **Supply at** | 2880 × 1700 px |
-| **Displays at** | full-bleed, roughly 1440 × 850 |
-| **Format** | JPG, or PNG if illustrated |
+Supplied as `Walser Wealth Management_design elements_Tampa Retirement Summit - WEB HEADER-rev.ai`.
+Page 3 of that file — the artboard with no baked-in text — is now the hero
+background, exported at 2880 × 1620 as `Brand Assets/Hero Background v2.webp`.
 
-Replaces the treated stock photo of downtown Tampa currently in place.
+**One thing to fix at source:** the `.svg` version of the same file is not usable
+on its own. Its gradient background is a **linked** image
+(`../backgrounds/Walser_design element_ TRL - full spectrum 8741303.jpg`) that was
+not included, so the sky renders as an empty hole. The `.ai` has it embedded, so
+that is what the export came from. If the SVG is meant to be the deliverable,
+it needs the background embedded rather than linked.
 
-The brand cover (page 1 of the standards) is the target: teal-to-red gradient
-with grain, skyline silhouetted into it. An illustrated Tampa skyline in the
-flat brand style — like pages 2 and 3 of the guide — would be ideal.
-
-**Critical:** the left half carries the logo and body copy, and the right half
-carries a dark video card. Keep detail and contrast in the **outer thirds and
-the bottom**; the centre needs to stay quiet enough for white type to sit on it.
-Assume a dark scrim will be laid over the whole thing.
+The other two artboards are on file and unused for now: page 1 is the full
+lockup (Tampa Retirement Live + OCT 17 + BOLD MOVES + OWN WHAT'S NEXT +
+LAUNCHED BY), page 2 is the same without the lockup. Page 1 is the obvious
+starting point for the social share card in section 7.
 
 ## 2. Speaker portraits
 
@@ -132,7 +131,7 @@ Both colourways are in use: white (reversed, for dark grounds) and navy.
    Changes how asset paths are written.
 3. **Session titles** for sessions one, two, four and five.
 4. **Tom's** surname and credit.
-5. **Seat counts** — the page says 250 seats and 40 VIP places. Both are
-   guesses and need confirming or removing.
+5. **Seat counts** — 200 total seats is confirmed (venue capacity). The
+   "Only 40 VIP places" figure is still a guess and needs confirming.
 6. **Transat and Dunbar webfont files**, if the licence covers web embedding.
    Archivo and Figtree are standing in.

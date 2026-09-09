@@ -75,10 +75,21 @@
                   list of artwork still needed, with pixel sizes.
                   The two past-event photo strips were removed at the
                   client's request - there is no library to draw on yet.
+     [[HERO ART]] DONE. The hero background is now the agency artwork,
+                  exported from "Walser Wealth Management_design elements_
+                  Tampa Retirement Summit - WEB HEADER-rev.ai" page 3 (the
+                  artboard with no baked-in text) as Hero Background v2.webp.
+                  The supplied .svg of the same file is NOT usable on its
+                  own: its gradient background is a LINKED image that was
+                  not sent, so the sky renders as a hole. Re-export from the
+                  .ai, not the .svg, if this ever needs regenerating.
+                  Hero Background Graphic.webp is still in use as the
+                  speaker-section watermark (.spk__atmos) - it is the
+                  transparent-ground skyline and suits that job. Keep it.
      [[GUEST]]    Charles Payne is booked; bio verified against Fox
                   Business. His session topic is NOT set.
-     [[SEATS]]    "250 seats" and "Only 40 VIP" are still unconfirmed
-                  guesses. Correct or remove them before launch.
+     [[SEATS]]    200 total seats is CONFIRMED (venue capacity, Sep 9 2026).
+                  "Only 40 VIP" is still an unconfirmed guess.
 
      COMPLIANCE NOTES, review before publishing:
      - No client testimonials or performance claims appear anywhere on
@@ -303,35 +314,43 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .hero{ position:relative; overflow:hidden;
   padding-block:clamp(44px,5.5vw,72px) clamp(52px,6.5vw,86px); }
 
-/* Brand gradient plate. Red bloom top-right, mint glow bottom-left, teal
-   into navy underneath. The ramp off the standards sheet, arranged so the
-   deck and the CTA both keep their contrast. */
+/* Sky extension. The supplied artwork is 16:9 and the hero is taller than
+   that, so this carries the band above it. The stops are sampled straight off
+   the top row of the art (teal at the left edge, brand navy from halfway
+   across) so the join is invisible; the vertical layer deepens the very top
+   the way the artwork does. */
 .hero__wash{ position:absolute; inset:0; z-index:0;
   background:
-    radial-gradient(96% 74% at 92% -4%, var(--red) 0%, rgba(240,82,56,.8) 20%, rgba(190,65,42,.42) 40%, rgba(240,82,56,0) 68%),
-    radial-gradient(62% 56% at 2% 100%, rgba(154,209,201,.62), rgba(154,209,201,0) 64%),
-    radial-gradient(64% 46% at 88% 96%, rgba(244,121,42,.42), transparent 62%),
-    linear-gradient(198deg, #05879C 0%, #05748A 26%, #0F5674 56%, #16455F 78%, #143A57 100%); }
+    linear-gradient(180deg, rgba(10,41,69,.55) 0%, rgba(10,41,69,0) 42%),
+    linear-gradient(90deg, #0F5871 0%, #144F6C 20%, #184465 40%, #1A4363 52%, #1A4363 100%); }
 
-/* Supplied illustrated skyline. Flat brand color on transparency, so it
-   needs no treatment at all: it sits straight on the gradient, anchored to
-   the baseline the way the printed pieces use it. */
+/* Supplied illustrated header artwork - the flat Tampa skyline over the brand
+   sunset gradient, exported from the agency Illustrator file. It carries its
+   own sky, so it runs at full opacity and full width, anchored to the baseline
+   the way the printed pieces use it. */
 .hero__photo{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .hero__photo img{
   position:absolute; left:50%; bottom:0; transform:translateX(-50%);
   /* max-width:none is required - the global img reset caps width at 100%
      and would silently clamp this back to viewport width */
-  width:118%; max-width:none; height:auto; opacity:.74;
+  width:100%; max-width:none; height:auto; opacity:1;
 }
-/* Dim pass over the skyline. Measured rather than guessed: white copy was
-   dropping to 3.5:1 where it crossed a sunlit tower. The vertical scrim
-   sets a floor everywhere, and the horizontal one weights extra dimming to
-   the left column where the copy sits, so the art stays vivid on the right. */
+/* The art is 16:9. As the hero grows taller and narrower the skyline shrinks
+   to a sliver at the foot of the page, so scale it up and let the outer towers
+   crop rather than letting it disappear. */
+@media (max-width:980px){ .hero__photo img{ width:152%; left:46%; } }
+@media (max-width:560px){ .hero__photo img{ width:196%; left:38%; } }
+/* Dim pass over the skyline. Measured rather than guessed: white copy dropped
+   to 3.66:1 where it crossed the pale tower behind the lede. The radial handles
+   that corner, the horizontal weights extra dimming to the left column where
+   the copy sits, and the vertical sets a floor. Worst case is now 5.8:1 or
+   better at every breakpoint from 390 to 1920. */
 .hero__photo::after{
   content:""; position:absolute; inset:0;
   background:
-    linear-gradient(94deg, rgba(12,41,69,.42) 0%, rgba(12,41,69,.28) 46%, rgba(12,41,69,.1) 100%),
-    linear-gradient(180deg, rgba(12,41,69,.5) 0%, rgba(12,41,69,.46) 46%, rgba(12,41,69,.62) 100%);
+    radial-gradient(78% 62% at 24% 92%, rgba(12,41,69,.72) 0%, rgba(12,41,69,.34) 46%, rgba(12,41,69,0) 74%),
+    linear-gradient(94deg, rgba(12,41,69,.5) 0%, rgba(12,41,69,.3) 46%, rgba(12,41,69,.12) 100%),
+    linear-gradient(180deg, rgba(12,41,69,.2) 0%, rgba(12,41,69,.26) 46%, rgba(12,41,69,.44) 100%);
 }
 /* fine grain, matching the printed pieces */
 .hero::after{
@@ -1101,8 +1120,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .faq__a{ font-size:15px; padding-bottom:22px; }
   .built__list li, .incl__list li{ font-size:15px; }
 
-  /* --- the skyline is 16:9; in a tall narrow hero, aim the crop at the towers --- */
-  .hero__photo img{ object-position:56% 42%; }
+  /* skyline scaling for narrow viewports sits with .hero__photo img above */
 }
 
 /* very small phones, keep the countdown on one line */
@@ -1152,7 +1170,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="hero__wash" aria-hidden="true"></div>
   <!-- If this file is ever missing, the navy wash above carries the hero alone. -->
   <div class="hero__photo" aria-hidden="true">
-    <img src="Brand%20Assets/Hero%20Background%20Graphic.webp" alt="" width="2048" height="1377" />
+    <img src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" />
   </div>
 
   <div class="wrap hero__in">
@@ -1248,7 +1266,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="stats__cell"><p class="stats__n"><span data-count="20">0</span>+</p><p class="stats__l">Years in tax<br>&amp; financial law</p></div>
     <div class="stats__cell"><p class="stats__n"><span data-count="4">0</span>×</p><p class="stats__l">Investopedia<br>Top 100 advisor</p></div>
     <div class="stats__cell"><p class="stats__n">1<sup style="font-size:.5em;top:-.6em;position:relative">st</sup></p><p class="stats__l">Annual Tampa<br>Retirement Live</p></div>
-    <div class="stats__cell"><p class="stats__n"><span data-count="250">0</span></p><p class="stats__l">Seats<br>available</p></div>
+    <div class="stats__cell"><p class="stats__n"><span data-count="200">0</span></p><p class="stats__l">Seats<br>available</p></div>
   </div>
 </section>
 
@@ -1832,7 +1850,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 <!-- ============================ STICKY MOBILE CTA ============================ -->
 <div class="dock" id="dock">
-  <p class="dock__meta"><b>Oct 17, 2026</b>From $47 · 250 seats</p>
+  <p class="dock__meta"><b>Oct 17, 2026</b>From $47 · 200 seats</p>
   <a class="btn" href="#tickets">Reserve seat</a>
 </div>
 
