@@ -544,6 +544,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ============================ SECTION HEADS ============================ */
 .head{ text-align:center; max-width:64ch; margin:0 auto clamp(38px,5vw,60px); }
+/* 64ch is a reading measure for a lede that runs to several lines. Where the
+   lede is a single caption line, that cap breaks it in two for no reason, so
+   this widens it to about 855px - enough to hold the longest of them at ~89%
+   with the type at its largest. */
+.head--wide{ max-width:88ch; }
 .head .eyebrow{ margin-bottom:20px; }
 .head p{ margin-top:18px; }
 
@@ -1470,7 +1475,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
      ============================================================ -->
 <section class="sec run">
   <div class="wrap">
-    <div class="head" data-reveal>
+    <div class="head head--wide" data-reveal>
       <span class="eyebrow eyebrow--center">The run of show</span>
       <h2 class="display h2">How the day runs</h2>
       <p class="lede">Doors at eight, closing remarks done by quarter to four. Session titles are being finalized.</p>
