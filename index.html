@@ -59,17 +59,17 @@
                   Couple $67, Single VIP $97, Couple VIP $147. The two
                   "save vs" lines are computed from these, so they stay
                   true only while these prices hold.
-     [[CHECKOUT]] DONE. All four buttons point at the registration app:
-                  .../checkout.html?ticket=single | couple |
-                  single-vip | couple-vip. Those four ids are the only
-                  values the checkout recognises.
+     [[CHECKOUT]] DONE. All four buttons point at the registration app on
+                  its production domain:
+                  https://tamparetire.walserwealth.com/tampa/register
+                  ?ticket=single | couple | single-vip | couple-vip.
+                  Those four ids are the only values the checkout
+                  recognises. Verified 11 Sep 2026: all four return 200
+                  and preselect the right tier with no JS errors.
                   STILL OPEN: Square credentials are not wired, so the
                   final pay step shows a "not configured" notice. A
                   reviewer note under the ticket grid says so - delete
                   it once payment is live.
-                  STILL OPEN: the checkout is on a *.vercel.app default
-                  domain. When a real domain is attached, these four
-                  links need updating.
      [[PHONE]]    (866) 929-3258 used for the events line.
      [[PHOTOS]]   See GRAPHICS-SPEC.md in the project root for the full
                   list of artwork still needed, with pixel sizes.
@@ -1550,7 +1550,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch included</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Panel discussion with all three speakers</li>
           </ul>
-          <a class="btn btn--block" href="https://tampa-retirement-live-registration.vercel.app/checkout.html?ticket=single">Select Single Admission</a>
+          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single">Select Single Admission</a>
         </div>
       </article>
 
@@ -1569,7 +1569,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch for both attendees</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> The easy pick for spouses and partners</li>
           </ul>
-          <a class="btn btn--block" href="https://tampa-retirement-live-registration.vercel.app/checkout.html?ticket=couple">Select Couple Admission</a>
+          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple">Select Couple Admission</a>
         </div>
       </article>
 
@@ -1589,7 +1589,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
           </ul>
-          <a class="btn btn--gold btn--block" href="https://tampa-retirement-live-registration.vercel.app/checkout.html?ticket=single-vip">Select Single VIP</a>
+          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single-vip">Select Single VIP</a>
         </div>
       </article>
 
@@ -1610,7 +1610,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
           </ul>
-          <a class="btn btn--gold btn--block" href="https://tampa-retirement-live-registration.vercel.app/checkout.html?ticket=couple-vip">Select Couple VIP</a>
+          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple-vip">Select Couple VIP</a>
         </div>
       </article>
 
