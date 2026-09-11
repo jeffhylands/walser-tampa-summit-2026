@@ -8,13 +8,24 @@
 <meta property="og:title" content="Tampa Retirement Live 2026" />
 <meta property="og:description" content="One full day. Real direction on the financial decisions that shape your retirement. Keynote Rebecca Walser, MBA, JD, LLM." />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="Brand%20Assets/Tampa%20Retirement%20Live%20Social%20Icon.webp" />
+<!-- og:image and twitter:image MUST be absolute - the spec requires it and
+     crawlers do not resolve relative paths. JPG rather than the WebP original
+     because not every crawler renders WebP. 1200x675, same artwork. -->
+<meta property="og:image" content="https://tamparetire.walserwealth.com/Brand%20Assets/social-card-1200.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:alt" content="Tampa Retirement Live 2026, launched by Walser Wealth Management" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="Brand%20Assets/Tampa%20Retirement%20Live%20Social%20Icon.webp" />
+<meta name="twitter:image" content="https://tamparetire.walserwealth.com/Brand%20Assets/social-card-1200.jpg" />
 <link rel="icon" href="Brand%20Assets/favicon-32.png" sizes="32x32" />
 <link rel="icon" href="Brand%20Assets/favicon-512.png" sizes="512x512" />
 <link rel="apple-touch-icon" href="Brand%20Assets/apple-touch-icon.png" />
-<!-- PREVIEW ONLY: strip these two lines when the page goes live for real -->
+<!-- PREVIEW ONLY: strip these two lines when the page goes live for real.
+     At the same time add the canonical, which is deliberately NOT here yet -
+     a canonical alongside noindex is a conflicting signal to crawlers:
+       <link rel="canonical" href="https://tamparetire.walserwealth.com/" />
+     Use the bare root. The page answers on /, /tampa and the GitHub Pages URL,
+     and whichever address goes in ads and print has to match this one. -->
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow" />
 
