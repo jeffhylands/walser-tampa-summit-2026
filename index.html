@@ -1880,6 +1880,25 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 <script>
 (function(){
+  /* ---- UTM forwarding ----
+     checkout.html reads utm_source / utm_medium / utm_campaign from its own
+     URL, but most visitors land here first. Copy whichever of those three are
+     on this page's URL onto the four checkout links, next to ?ticket=.
+     Rewriting the hrefs up front (not on click) means middle-click, long-press
+     and copied links carry them too. It runs first, inside a try, so nothing
+     else on the page failing can cost the attribution. */
+  try {
+    var here = new URLSearchParams(window.location.search);
+    var carry = ['utm_source', 'utm_medium', 'utm_campaign'].filter(function(k){ return here.get(k); });
+    if (carry.length) {
+      document.querySelectorAll('a[href*="/tampa/register"]').forEach(function(a){
+        var url = new URL(a.href);
+        carry.forEach(function(k){ url.searchParams.set(k, here.get(k)); });
+        a.href = url.toString();
+      });
+    }
+  } catch (e) {}
+
   /* [[DATE]] single source of truth for the countdown, local Tampa time */
   var EVENT_DATE = new Date('2026-10-17T08:00:00-04:00');
 
