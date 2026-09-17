@@ -319,7 +319,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .nav.is-stuck{ background:rgba(5,15,31,.97); border-bottom-color:var(--hair); }
 .nav__in{ display:flex; align-items:center; justify-content:space-between; gap:20px; height:74px; }
-.nav__logo{ height:46px; width:auto; }
+.nav__logo{ height:46px; width:auto; max-width:100%; object-fit:contain; }
 .nav__right{ display:flex; align-items:center; gap:22px; }
 .nav__meta{
   font-family:var(--font-display); font-size:11px; letter-spacing:.14em;
@@ -329,6 +329,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .nav .btn{ --pad-y:12px; --pad-x:22px; font-size:14px; border-radius:10px; }
 @media (max-width:860px){ .nav__meta{ display:none; } }
 @media (max-width:560px){ .nav__logo{ height:36px; } .nav__in{ height:64px; } }
+@media (max-width:400px){ .nav__logo{ height:31px; } }
 
 /* ============================ HERO ============================ */
 .hero{ position:relative; overflow:hidden;
@@ -1195,7 +1196,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a href="#top" aria-label="Walser Wealth Management home">
-      <img class="nav__logo" src="Brand%20Assets/White%20Orange%20SVG%20Logo.webp" alt="Tampa Retirement Live" width="2048" height="1957" />
+      <!-- Horizontal lockup here, stacked square lockup in the hero below.
+           At nav size the square one put "RETIREMENT" - ten characters - inside
+           34px on a phone, about 3px a letter. This is the same mark laid out
+           4.4:1 so the words keep their height. -->
+      <img class="nav__logo" src="Brand%20Assets/Horizontal%20Logo%20White.webp" alt="Tampa Retirement Live" width="2048" height="464" />
     </a>
     <div class="nav__right">
       <p class="nav__meta"><b>Sat, October 17, 2026</b><br>Sheraton Tampa Brandon Hotel</p>
