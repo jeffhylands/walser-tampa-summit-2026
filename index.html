@@ -564,11 +564,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* ============================ SECTION HEADS ============================ */
 .head{ text-align:center; max-width:64ch; margin:0 auto clamp(38px,5vw,60px); }
-/* 64ch is a reading measure for a lede that runs to several lines. Where the
-   lede is a single caption line, that cap breaks it in two for no reason, so
-   this widens it to about 855px - enough to hold the longest of them at ~89%
-   with the type at its largest. */
-.head--wide{ max-width:88ch; }
 .head .eyebrow{ margin-bottom:20px; }
 .head p{ margin-top:18px; }
 
@@ -1351,7 +1346,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="spk__markers">
             <div class="spk__marker">
               <b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>On air</b>
-              <ul class="spk__facts"><li>Weekdays, 2 PM ET</li><li>on Fox Business</li></ul>
+              <ul class="spk__facts"><li>Weekdays, 2 PM ET<br>on Fox Business</li></ul>
             </div>
             <div class="spk__marker">
               <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>Firm</b>
@@ -1359,7 +1354,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             </div>
             <div class="spk__marker">
               <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M19 16H6"/></svg>Author</b>
-              <ul class="spk__facts"><li>Four books, most recently <i>Undeniable Windfalls</i></li></ul>
+              <ul class="spk__facts"><li>Three books, most recently <i>Undeniable Windfalls</i></li></ul>
             </div>
         </div>
       </div>
@@ -1507,9 +1502,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 </section>
 
 <!-- ============================ RUN OF SHOW ============================
-     [[AGENDA]] Times and speakers are confirmed. Session TITLES are not.
-     each one reads "Session N" until the real titles land. [[TOM]] needs
-     a surname and a one-line credit.
+     [[AGENDA]] DONE. Times, speakers and session titles are all confirmed
+     (titles supplied by the client Sep 17 2026). [[TOM]] Tom Siomades,
+     CFA is fully in: headshot, bio and credit.
      ============================================================ -->
 <!-- id="agenda" is the target of Haley's evergreen print QR code
      (https://tamparetire.walserwealth.com/#agenda). It sits on the run of
@@ -1518,28 +1513,28 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
      telling the print team; the QR is already out in the world. -->
 <section class="sec run" id="agenda">
   <div class="wrap">
-    <div class="head head--wide" data-reveal>
+    <div class="head" data-reveal>
       <span class="eyebrow eyebrow--center">The run of show</span>
       <h2 class="display h2">How the day runs</h2>
-      <p class="lede">Doors at eight, closing remarks done by four o'clock. Session titles are being finalized.</p>
+      <p class="lede">Doors at eight, closing remarks done by four o'clock.</p>
     </div>
 
     <div class="run__list" data-reveal>
       <div class="run__row">
         <p class="run__time">8:00 &ndash; 9:00</p>
-        <div class="run__what"><h3>Registration</h3></div>
+        <div class="run__what"><h3>Registration and Welcome</h3></div>
       </div>
       <div class="run__row">
         <p class="run__time">9:00 &ndash; 9:20</p>
-        <div class="run__what"><h3>Welcome and opening remarks</h3><p class="run__who">Rebecca Walser</p></div>
+        <div class="run__what"><h3>Opening Remarks</h3><p class="run__who">Rebecca Walser</p></div>
       </div>
       <div class="run__row">
         <p class="run__time">9:20 &ndash; 10:20</p>
-        <div class="run__what"><h3>Session one</h3><p class="run__who">Rebecca Walser</p></div>
+        <div class="run__what"><h3>Session 1 &ndash; Retirement Gone Wrong: Case Files</h3><p class="run__who">Rebecca Walser</p></div>
       </div>
       <div class="run__row">
         <p class="run__time">10:20 &ndash; 11:20</p>
-        <div class="run__what"><h3>Session two</h3><p class="run__who">Tom Siomades</p></div>
+        <div class="run__what"><h3>Session 2 &ndash; State of the Markets</h3><p class="run__who">Tom Siomades</p></div>
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">11:20 &ndash; 11:35</p>
@@ -1547,7 +1542,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">11:35 &ndash; 12:30</p>
-        <div class="run__what"><h3>Session three: panel discussion</h3><p class="run__who">Rebecca Walser, Tom Siomades &amp; Charles Payne</p></div>
+        <div class="run__what"><h3>Session 3 &ndash; Ask the Experts (Panel)</h3><p class="run__who">Rebecca Walser, Tom Siomades &amp; Charles Payne</p></div>
       </div>
       <div class="run__row run__row--break">
         <p class="run__time">12:30 &ndash; 1:30</p>
@@ -1555,11 +1550,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">1:30 &ndash; 2:30</p>
-        <div class="run__what"><h3>Session four</h3><p class="run__who">Charles Payne</p></div>
+        <div class="run__what"><h3>Session 4 &ndash; Irrational Pessimism: Focus on AI, Markets, and Society</h3><p class="run__who">Charles Payne</p></div>
       </div>
       <div class="run__row">
         <p class="run__time">2:40 &ndash; 4:00</p>
-        <div class="run__what"><h3>Session five and closing</h3><p class="run__who">Rebecca Walser</p></div>
+        <div class="run__what"><h3>Session 5 &amp; Closing Remarks &ndash; Beyond Retirement: A Different Approach Built for Life</h3><p class="run__who">Rebecca Walser</p></div>
       </div>
     </div>
 

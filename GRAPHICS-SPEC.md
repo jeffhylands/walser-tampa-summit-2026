@@ -129,8 +129,9 @@ Both colourways are in use: white (reversed, for dark grounds) and navy.
    the buttons currently go nowhere.
 2. **Hosting decision**: `walserwealth.com/tamparetirementlive` or ClickFunnels.
    Changes how asset paths are written.
-3. **Session titles** for sessions one, two, four and five.
-4. **Tom's** surname and credit.
+3. ~~Session titles~~ — supplied by the client, 17 Sep 2026. All five are on
+   the page.
+4. ~~Tom's surname and credit~~ — done: Tom Siomades, CFA.
 5. **Seat counts** — 200 total seats is confirmed (venue capacity). The
    "Only 40 VIP places" figure is still a guess and needs confirming.
 6. **Transat and Dunbar webfont files**, if the licence covers web embedding.
