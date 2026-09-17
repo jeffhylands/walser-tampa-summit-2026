@@ -1129,14 +1129,15 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .foot__legalwrap > a{ display:inline-block; padding:6px 0; }
 
   /* --- breathing room in dense blocks --- */
-  /* five badges wrap to a lopsided 4+1; a 2+2+1 grid stays symmetric.
+  /* six badges in a 2-column grid come out even at 2+2+2, so no last-child
+     span here - that rule existed for the old five-badge row and would now
+     leave the sixth hanging alone across the full width.
      Explicit px height on the img. A % max-height does not clamp
      against a grid area here. */
   .recog__badges{ display:grid; grid-template-columns:1fr 1fr; gap:24px 18px;
     justify-items:center; align-items:center; }
   .medal{ display:flex; align-items:center; justify-content:center; }
   .medal img{ height:62px; width:auto; max-width:100%; object-fit:contain; }
-  .medal:last-child{ grid-column:1 / -1; }
 
   .qual__item{ padding:18px 16px; }
   .qual__item p{ font-size:15px; }
@@ -1833,6 +1834,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <span class="eyebrow eyebrow--center">Recognition</span>
       <h2 class="display recog__title">A track record the industry noticed.</h2>
       <div class="recog__badges">
+        <figure class="medal"><img src="Brand%20Assets/advisorhub-250-2025.png" alt="AdvisorHub 250 Advisors to Watch Under &#36;1B, 2025" loading="lazy" /></figure>
         <figure class="medal"><img src="Brand%20Assets/Investopedia%202023.jpg" alt="Investopedia Top 100 Financial Advisor, 2023" loading="lazy" /></figure>
         <figure class="medal"><img src="Brand%20Assets/Investopedia%202022.png" alt="Investopedia Top 100 Financial Advisor, 2022" loading="lazy" /></figure>
         <figure class="medal"><img src="Brand%20Assets/Investopedia%202019.jpg" alt="Investopedia Top 100 Financial Advisor, 2019" loading="lazy" /></figure>
