@@ -100,7 +100,10 @@
      [[GUEST]]    Charles Payne is booked; bio verified against Fox
                   Business. His session topic is NOT set.
      [[SEATS]]    200 total seats is CONFIRMED (venue capacity, Sep 9 2026).
-                  "Only 40 VIP" is still an unconfirmed guess.
+                  The unverified "40 VIP" figure is GONE at the client's
+                  request (Sep 17) - the badge reads "Limited seats" and the
+                  two FAQ answers say a limited number. Do not reintroduce a
+                  VIP count without a confirmed number.
 
      COMPLIANCE NOTES, review before publishing:
      - No client testimonials or performance claims appear anywhere on
@@ -783,8 +786,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   color:#FFB3A0;   /* lifted off pure red so it clears AA on the teal ground */
 }
 .run__row--break .run__what h3{ font-weight:600; color:var(--muted); }
-/* the asterisk tying the closing session to the VIP start time below it */
-.run__ast{ color:var(--gold); font-size:.85em; margin-right:2px; top:-.15em; position:relative; }
+/* The VIP window runs after the main schedule, so it sits below the list as a
+   lighter line rather than another row - it is not part of the general day. */
+.run__vip{ text-align:center; margin:22px auto 0; font-size:14.5px; color:var(--gold); }
+.run__vip b{ color:var(--text); font-weight:600; margin-right:6px; }
 .run__note{
   text-align:center; max-width:60ch; margin:clamp(28px,3.4vw,40px) auto 0;
   font-size:14px; color:var(--muted-2);
@@ -1504,7 +1509,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="run__list" data-reveal>
       <div class="run__row">
         <p class="run__time">8:00 &ndash; 9:00</p>
-        <div class="run__what"><h3>Registration and coffee</h3></div>
+        <div class="run__what"><h3>Registration</h3></div>
       </div>
       <div class="run__row">
         <p class="run__time">9:00 &ndash; 9:20</p>
@@ -1536,11 +1541,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       </div>
       <div class="run__row">
         <p class="run__time">2:40 &ndash; 4:00</p>
-        <div class="run__what"><h3>Session five and closing<sup class="run__ast">*</sup></h3><p class="run__who">Rebecca Walser</p></div>
+        <div class="run__what"><h3>Session five and closing</h3><p class="run__who">Rebecca Walser</p></div>
       </div>
     </div>
 
-    <p class="run__note"><span class="run__ast">*</span>VIP experience will begin at 4:15 PM. Schedule is subject to change.</p>
+    <p class="run__vip"><b>4:15 &ndash; 5:00</b> VIP Experience &middot; VIP ticket holders only</p>
+
+    <p class="run__note">Schedule is subject to change.</p>
   </div>
 </section>
 
@@ -1585,9 +1592,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="card__body">
           <p class="card__inherit">Everything in Single, for two</p>
           <ul class="card__list">
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Two seats reserved side by side</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch for both attendees</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> The easy pick for spouses and partners</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Cost savings - the easy pick for spouses and partners</li>
           </ul>
           <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple">Select Couple Admission</a>
         </div>
@@ -1599,15 +1604,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__tier">Single VIP</p>
           <p class="card__seats">One seat</p>
           <p class="card__price"><span class="card__now">$97</span></p>
-          <span class="card__save">Only 40 VIP seats</span>
+          <span class="card__save">Limited seats</span>
         </div>
         <div class="card__body">
           <p class="card__inherit">Everything in Single, plus</p>
           <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Priority seating in the exclusive VIP section</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> VIP experience after the program</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne.</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
           <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single-vip">Select Single VIP</a>
         </div>
@@ -1625,10 +1631,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="card__body">
           <p class="card__inherit">Everything in Single VIP, for two</p>
           <ul class="card__list">
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Priority seating in the exclusive VIP section</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> VIP experience after the program</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne.</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
           <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple-vip">Select Couple VIP</a>
         </div>
@@ -1636,7 +1643,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
     </div>
 
-    <p class="tix__foot">All ticket sales are final. No refunds. Questions? Call the events team at (866) 929-3258.</p>
+    <p class="tix__foot">All ticket sales are final and non-transferable. No refunds. Questions? Call the events team at (866) 929-3258.</p>
   </div>
 </section>
 
@@ -1648,15 +1655,15 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <h2 class="display h2">Who this day is built for</h2>
     </div>
     <ul class="built__list" data-reveal>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and up</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees one to ten years from their last day of work</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees who want a second opinion on an existing plan</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone with savings mostly in tax-deferred accounts</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Couples who want to hear it all at the same time</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Business owners planning an exit in the next few years</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and older who want to prepare for what's ahead</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees who are one to ten years from their last day of work</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees questioning whether their current strategy is built for today's rapidly changing world</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Investors who want to better understand AI, the markets, the Fed, and the economy</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone who wants a second opinion on how their wealth is positioned</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Individuals and couples who want every part of their retirement strategy working together</li>
     </ul>
     <div class="built__foot" data-reveal>
-      <p class="built__pull">This is not a get-rich-quick day. It is a full day on the decisions that quietly determine what you keep.</p>
+      <p class="built__pull">This isn't about chasing the next big thing. It's about making informed decisions today that can shape what you keep, how you live, and what you leave behind.</p>
       <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
     </div>
   </div>
@@ -1702,12 +1709,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div data-reveal>
       <h3>You'll learn</h3>
       <ul class="incl__list">
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to turn savings and investments into income that lasts as long as you do.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS, and what to do about it.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How Social Security claiming age changes your lifetime total, and your spouse's.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What healthcare and long-term care actually cost, and how people pay for them.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to protect assets from lawsuits, creditors, and unplanned events.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What being a Florida resident is worth in retirement, and how to keep it.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to separate the AI hype from the long-term opportunities that could shape the next generation of investing.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Which dollars should remain accessible, which should be protected, and which can be positioned for growth.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS, and what you may be able to do about it.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to create reliable retirement income without leaving your entire future exposed to market volatility.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why the enormous capital required to fund the AI revolution could affect interest rates, markets, and your portfolio.</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What healthcare and long-term care may actually cost, and how those expenses can affect the legacy you leave.</li>
       </ul>
     </div>
 
@@ -1722,7 +1729,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <div class="incl__vip">
         <h4>VIP tickets also include</h4>
         <ul class="incl__list">
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A VIP experience straight after the closing session, beginning at 4:15 PM.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Priority seating in the exclusive VIP section.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A VIP experience straight after the closing session, 4:15 to 5:00 PM.</li>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne.</li>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
@@ -1770,18 +1778,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">What's the difference between the four ticket types?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">There are four. <b>Single</b> (&#36;47) is one general-admission seat. <b>Couple</b> (&#36;67) is two seats together. Both include the full day and lunch. <b>Single VIP</b> (&#36;97) adds the VIP experience straight after the closing session: a photo with Rebecca Walser and Charles Payne, a copy of each of their books, and both authors on hand to sign them. <b>Couple VIP</b> (&#36;147) is all of that for two. Only 40 VIP places are released in total.</p>
+        <p class="faq__a">There are four. <b>Single</b> (&#36;47) is one general-admission seat. <b>Couple</b> (&#36;67) is two seats together. Both include the full day and lunch. <b>Single VIP</b> (&#36;97) adds the VIP experience straight after the closing session: a photo with Rebecca Walser and Charles Payne, a copy of each of their books, and both authors on hand to sign them. <b>Couple VIP</b> (&#36;147) is all of that for two. Only a limited number of VIP seats are released in total.</p>
       </details>
 
       <details class="faq__item">
         <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom Siomades for the panel discussion mid-morning. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why those 40 places go first.</p>
+        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom Siomades for the panel discussion mid-morning. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why the limited number of VIP seats go first.</p>
       </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">Can I upgrade to VIP after I've bought a ticket?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, while VIP seats remain. Call the events team at (866) 929-3258 and they'll handle the difference.</p>
-      </details>
 
       <details class="faq__item">
         <summary class="faq__q">Is lunch included?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
@@ -1790,7 +1794,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Where do I park?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Parking is complimentary. Full directions and parking instructions are emailed to every registered attendee the week of the event.</p>
+        <p class="faq__a">Parking is complimentary.</p>
       </details>
 
       <details class="faq__item">
@@ -1805,7 +1809,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <details class="faq__item">
         <summary class="faq__q">Can I transfer my ticket if something comes up?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">All ticket sales are final and no refunds are offered. If something comes up, call the events team at (866) 929-3258 and they will help where they can.</p>
+        <p class="faq__a">All ticket sales are final and non-transferable. No refunds are offered.</p>
       </details>
 
       <details class="faq__item">
@@ -1813,10 +1817,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <p class="faq__a">No. The event is fully in person by design. The value is in the room, the questions, and the conversations afterward.</p>
       </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">Are group rates available?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, for groups of ten or more. Call (866) 929-3258 and ask for the events team.</p>
-      </details>
     </div>
 
     <div class="faq__cta">
