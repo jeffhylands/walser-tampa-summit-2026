@@ -662,7 +662,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 
 /* ---------- supporting: light ---------- */
-.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+/* align-items:start so each card is only as tall as its own content. The
+   two speakers carry different amounts of copy, and stretching them to a shared
+   height dumped all the slack at the foot of the shorter one. Anchoring the
+   markers to the floor instead was tried and is worse - it moves the gap into
+   the middle of the card, between the bio and the divider. */
+.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
 /* Portrait is a fixed 3:4 plate on the card surface rather than a
    full-bleed column. Stretching it to card height gave a 0.38 aspect,
    which slices faces; this crops nothing and reads less boxed. */
