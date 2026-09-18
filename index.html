@@ -661,44 +661,78 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   z-index:3;
 }
 
-/* ---------- supporting: light ---------- */
-.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-/* Portrait is a fixed 3:4 plate on the card surface rather than a
-   full-bleed column. Stretching it to card height gave a 0.38 aspect,
-   which slices faces; this crops nothing and reads less boxed. */
+/* ---------- supporting: light ----------
+   Editorial profile card: portrait and copy on top, a hairline, then a compact
+   two-up credential grid. The heights match without any auto margins holding
+   the halves apart - the portrait is taller than either text block, so it sets
+   the top half on both cards, and four credentials each means two grid rows
+   each. Balance comes from the structure rather than from propping it up. */
+.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2vw,26px); }
 .spk__card{
-  position:relative; border-radius:var(--r-lg);
-  background:#FCFAF4; border:1px solid rgba(20,54,79,.13);
-  box-shadow:0 14px 32px -24px rgba(20,54,79,.3);
-  display:grid; grid-template-columns:auto minmax(0,1fr);
-  /* row 1 is portrait + text, row 2 is the full-width facts footer. The 1fr on
-     row 2 lets the taller card's extra height land as space above that footer
-     rather than as a dead gap under it. */
-  grid-template-rows:auto 1fr;
-  gap:clamp(18px,1.8vw,26px); padding:clamp(22px,2.2vw,28px);
-  align-items:start;
+  position:relative; border-radius:21px;
+  background:#FCFAF4; border:1px solid rgba(20,54,79,.10);
+  box-shadow:0 10px 28px -22px rgba(20,54,79,.32);
+  display:flex; flex-direction:column;
+  padding:clamp(20px,2vw,26px);
+  transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
 }
-.spk__card .spk__portrait{
-  width:clamp(150px,15vw,196px); aspect-ratio:3/4; flex:none;
-  border-radius:var(--r-md); background:#E9E3D7;
+@media (hover:hover){
+  .spk__card:hover{ transform:translateY(-2px); box-shadow:0 18px 38px -24px rgba(20,54,79,.4); }
 }
-.spk__card .spk__portrait img{ object-position:center 10%; }
-.spk__card .spk__body{ padding:0; }
-.spk__card .spk__name{ color:var(--ink-text); font-size:clamp(1.3rem,1.9vw,1.5rem); }
-.spk__card .spk__role{ color:var(--teal); }
-.spk__card .spk__lede{ color:var(--ink-muted); font-size:15px; margin:16px 0 0; }
-/* Full card width, not the text column. At ~470px none of the credential or
-   ranking lines wrap any more, which is most of why this card was so much
-   taller than the other one. align-self:end pins it to the card floor so both
-   cards' footers line up. */
-.spk__card .spk__markers{
-  grid-column:1 / -1; align-self:end;
-  grid-template-columns:1fr; gap:14px;
-  margin-top:4px; padding-top:18px; border-top:1px solid rgba(20,54,79,.13);
+
+/* -- top half: portrait beside the copy -- */
+.spk__top{
+  display:grid; grid-template-columns:42% minmax(0,1fr);
+  gap:clamp(15px,1.6vw,21px); align-items:start;
+  /* flex:1 so the top halves of the two cards always resolve to the same
+     height. Where the portrait is the tallest thing it drives both; where a
+     longer bio overtakes it, the shorter card grows to match instead of
+     leaving the difference stranded under its credentials. Either way the two
+     dividers land on the same line and neither card ends with dead space. */
+  flex:1;
 }
-.spk__card .spk__marker svg{ stroke:var(--teal); }
-.spk__card .spk__marker b{ color:var(--teal); }
-.spk__card .spk__marker span, .spk__card .spk__facts{ color:var(--ink-text); }
+.spk__card .spk__portrait{ aspect-ratio:3/4; border-radius:17px; background:#E9E3D7; margin:0; }
+.spk__card .spk__portrait img{ object-position:center 12%; }
+.spk__card .spk__body{ padding:0; justify-content:flex-start; }
+.spk__card .spk__pill{ font-size:10.5px; letter-spacing:.16em; padding:5px 12px; margin-bottom:12px; }
+/* the name is the loudest thing on the card; the pill deliberately is not */
+/* capped so "Tom Siomades, CFA(R)" - the longest name here - holds one line
+   in the text column; measured at 93% of the available width at 1440. */
+.spk__card .spk__name{ color:var(--ink-text); font-size:clamp(1.34rem,1.9vw,1.55rem); letter-spacing:-.025em; }
+.spk__card .spk__role{
+  color:var(--teal); font-weight:700; font-size:12.5px;
+  letter-spacing:.02em; text-transform:none; margin-top:10px; line-height:1.3;
+}
+.spk__org{
+  font-family:var(--font-display); font-weight:600; color:var(--ink-muted);
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  margin-top:5px; line-height:1.4;
+}
+.spk__card .spk__lede{ color:var(--ink-muted); font-size:14.5px; margin:14px 0 0; }
+
+/* -- hairline + credential grid -- */
+.spk__creds{
+  margin-top:clamp(17px,1.7vw,21px); padding-top:clamp(15px,1.5vw,19px);
+  border-top:1px solid rgba(20,54,79,.12);
+}
+.spk__creds > b{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--font-display); font-weight:700; color:var(--teal);
+  font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px;
+}
+.spk__creds > b svg{ width:15px; height:15px; flex:none; fill:none; stroke:var(--teal); stroke-width:1.8; }
+.spk__credList{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:14px clamp(10px,1.1vw,16px); }
+.spk__credList li{ display:flex; align-items:flex-start; gap:10px; }
+.spk__credIco{
+  flex:none; width:32px; height:32px; border-radius:50%;
+  background:rgba(3,113,130,.09);
+  display:flex; align-items:center; justify-content:center;
+}
+.spk__credIco svg{ width:16px; height:16px; fill:none; stroke:var(--teal); stroke-width:1.7; }
+.spk__credList b{ display:block; color:var(--ink-text); font-weight:600; font-size:13.5px; line-height:1.35; }
+/* b + span, not a bare span: a bare one also catches the icon wrapper */
+.spk__credList b + span{ display:block; color:var(--ink-muted); font-size:12.5px; line-height:1.35; margin-top:1px; }
+.spk__credList sup{ font-size:.62em; letter-spacing:0; vertical-align:baseline; position:relative; top:-.5em; }
 
 .spk__cta{ text-align:center; margin-top:clamp(40px,4.6vw,58px); }
 .spk__cta .cta-note{ color:var(--ink-muted); }
@@ -707,6 +741,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 @media (max-width:1024px){
   .spk__feature{ grid-template-columns:minmax(0,38%) minmax(0,62%); }
   .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
+  /* two cards still fit here, the portrait just gives back a little width */
+  .spk__top{ grid-template-columns:40% minmax(0,1fr); }
+  .spk__card .spk__lede{ font-size:14px; }
+  /* tighter icon and label so the longer credential lines stop wrapping in the
+     narrow two-up, which is what pulled the two dividers out of line here */
+  .spk__credIco{ width:28px; height:28px; }
+  .spk__credIco svg{ width:15px; height:15px; }
+  .spk__credList li{ gap:8px; }
+  .spk__credList b{ font-size:13px; }
+  .spk__credList span{ font-size:11.8px; }
 }
 @media (max-width:880px){
   .spk__feature{ grid-template-columns:1fr; }
@@ -715,16 +759,22 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .spk__feature .spk__markers{ grid-template-columns:repeat(3,1fr); gap:22px; }
   .spk__atmos{ display:none; }
   .spk__grid{ grid-template-columns:1fr; }
-  .spk__card{ grid-template-columns:minmax(0,32%) minmax(0,68%); }
+  /* one card per row now, so the portrait takes a smaller share of a much
+     wider card and the copy gets a comfortable measure */
+  .spk__top{ grid-template-columns:30% minmax(0,1fr); }
+  .spk__card .spk__lede{ font-size:15px; }
+}
+@media (max-width:620px){
+  /* portrait goes above the copy and runs wide rather than shrinking to a
+     thumbnail; the crop moves up so faces stay centred */
+  .spk__top{ grid-template-columns:1fr; gap:16px; }
+  .spk__card .spk__portrait{ aspect-ratio:3/2; }
+  .spk__card .spk__portrait img{ object-position:center 22%; }
 }
 @media (max-width:560px){
   .spk__feature .spk__portrait{ aspect-ratio:1/1; }
   .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
-  /* share a left edge with the copy rather than centring the plate */
-  .spk__card{ grid-template-columns:1fr; justify-items:start; }
-  .spk__card .spk__portrait{ width:min(62%,215px); aspect-ratio:3/4; }
-  .spk__card .spk__body{ width:100%; }
-}
+  .spk__credList{ grid-template-columns:1fr; gap:13px; }
 }
 /* ============================ QUALIFY CHECKLIST ============================ */
 .qual{ background:linear-gradient(178deg, #1A4364 0%, #14526B 100%); }
@@ -1133,6 +1183,11 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .card__inherit{ font-size:11px; }
   .card__flag{ font-size:11px; padding:8px 14px; }
   .spk__pill{ font-size:11px; }
+  /* same floor for the new speaker-card labels */
+  .spk__card .spk__pill{ font-size:11px; }
+  .spk__org{ font-size:11.5px; letter-spacing:.1em; }
+  .spk__creds > b{ font-size:11px; }
+  .spk__credList b + span{ font-size:13px; }
   .spk__marker b{ font-size:11px; letter-spacing:.14em; }
   .spk__marker span, .spk__facts{ font-size:14px; }
   .deck__sound{ font-size:13px; padding:9px 13px; }
@@ -1384,57 +1439,50 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <div class="spk__grid">
 
       <article class="spk__card" data-reveal>
-        <figure class="spk__portrait">
-          <img src="Brand%20Assets/rebecca-keynote.jpg"
-               alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management"
-               width="900" height="1200" loading="lazy" />
-        </figure>
-        <div class="spk__body">
-          <p class="spk__pill">Keynote speaker</p>
-          <h3 class="spk__name">Rebecca Walser</h3>
-          <p class="spk__role">Founder, CEO &amp; CIO<br>Walser Wealth Management</p>
-          <p class="spk__lede">
-            Licensed tax attorney and wealth strategist focused on helping investors,
-            pre-retirees and retirees understand the tax exposure traditional
-            retirement plans often overlook.
-          </p>
+        <div class="spk__top">
+          <figure class="spk__portrait">
+            <img src="Brand%20Assets/rebecca-keynote.jpg" alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1200" loading="lazy" />
+          </figure>
+          <div class="spk__body">
+            <p class="spk__pill">Keynote speaker</p>
+            <h3 class="spk__name">Rebecca Walser</h3>
+            <p class="spk__role">Founder, CEO &amp; CIO</p>
+            <p class="spk__org">Walser Wealth Management</p>
+            <p class="spk__lede">Licensed tax attorney and wealth strategist focused on helping investors, pre-retirees and retirees understand the tax exposure traditional retirement plans often overlook.</p>
+          </div>
         </div>
-        <div class="spk__markers">
-          <div class="spk__marker">
-            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>Credential</b>
-            <ul class="spk__facts"><li>Licensed tax attorney &middot; JD, LLM</li><li>Global MBA, London School of Economics</li><li>Wealth strategist</li></ul>
-          </div>
-          <div class="spk__marker">
-            <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Recognition</b>
-            <ul class="spk__facts"><li>#3 Investopedia Top 100 Financial Advisors in 2023, four-time honoree</li><li>#14 on the 250 Advisors to Watch Under &#36;1B in 2025</li></ul>
-          </div>
+        <div class="spk__creds">
+          <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Select credentials</b>
+          <ul class="spk__credList">
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M7.5 19.5h9M4.5 8.5h15"/><path d="M7 8.5 4 14.6a3 3 0 0 0 6 0Z"/><path d="M17 8.5l3 6.1a3 3 0 0 1-6 0Z"/></svg></span><span><b>Licensed tax attorney</b><span>JD, LLM</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 9.3 12 5l9.2 4.3L12 13.6Z"/><path d="M6.8 11.4V16c0 1.5 2.3 2.7 5.2 2.7s5.2-1.2 5.2-2.7v-4.6"/></svg></span><span><b>Global MBA</b><span>London School of Economics</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v4.6a4 4 0 0 1-8 0Z"/><path d="M8 5.6H5.4a2.6 2.6 0 0 0 2.7 4.1"/><path d="M16 5.6h2.6a2.6 2.6 0 0 1-2.7 4.1"/><path d="M10.4 12.6v2.8h3.2v-2.8"/><path d="M8.6 19.4h6.8"/></svg></span><span><b>#3 Investopedia Top 100</b><span>Financial Advisors (2023)</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4.4 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 10.1l5.4-.8Z"/></svg></span><span><b>Four-time honoree</b><span>Investopedia Top 100</span></span></li>
+          </ul>
         </div>
       </article>
 
       <article class="spk__card" data-reveal>
-        <figure class="spk__portrait">
-          <img src="Brand%20Assets/tom-siomades-keynote.jpg"
-               alt="Tom Siomades, Chief Market Economist at AE Wealth Management"
-               width="900" height="1200" loading="lazy" />
-        </figure>
-        <div class="spk__body">
-          <p class="spk__pill">Guest speaker</p>
-          <h3 class="spk__name">Tom Siomades, CFA<sup>&reg;</sup></h3>
-          <p class="spk__role">Chief Market Economist<br>AE Wealth Management</p>
-          <p class="spk__lede">
-            More than 35 years in markets, with a talent for translating complex economic
-            conditions into clear, practical perspective.
-          </p>
+        <div class="spk__top">
+          <figure class="spk__portrait">
+            <img src="Brand%20Assets/tom-siomades-keynote.jpg" alt="Tom Siomades, Chief Market Economist at AE Wealth Management" width="900" height="1200" loading="lazy" />
+          </figure>
+          <div class="spk__body">
+            <p class="spk__pill">Guest speaker</p>
+            <h3 class="spk__name">Tom Siomades, CFA<sup>&reg;</sup></h3>
+            <p class="spk__role">Chief Market Economist</p>
+            <p class="spk__org">AE Wealth Management</p>
+            <p class="spk__lede">More than 35 years in markets, with a talent for translating complex economic conditions into clear, practical perspective.</p>
+          </div>
         </div>
-        <div class="spk__markers">
-          <div class="spk__marker">
-            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>Experience</b>
-            <ul class="spk__facts"><li>More than 35 years in markets</li></ul>
-          </div>
-          <div class="spk__marker">
-            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9L6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></svg>Service</b>
-            <ul class="spk__facts"><li>West Point graduate</li><li>U.S. Army infantry officer</li></ul>
-          </div>
+        <div class="spk__creds">
+          <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Select credentials</b>
+          <ul class="spk__credList">
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5h16"/><path d="M7.5 19.5v-5.8M12 19.5V7.2M16.5 19.5v-8.6"/></svg></span><span><b>35+ years</b><span>in financial markets</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 9.3 12 5l9.2 4.3L12 13.6Z"/><path d="M6.8 11.4V16c0 1.5 2.3 2.7 5.2 2.7s5.2-1.2 5.2-2.7v-4.6"/></svg></span><span><b>West Point</b><span>graduate</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4.4 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 10.1l5.4-.8Z"/></svg></span><span><b>U.S. Army</b><span>infantry officer</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h6.3L18 8.2V18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"/><path d="M13.3 3.5v4.7H18"/><path d="M8.5 12.5h6M8.5 16h4"/></svg></span><span><b>CFA</b><span>charterholder</span></span></li>
+          </ul>
         </div>
       </article>
 
