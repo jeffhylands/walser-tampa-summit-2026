@@ -662,12 +662,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 
 /* ---------- supporting: light ---------- */
-/* align-items:start so each card is only as tall as its own content. The
-   two speakers carry different amounts of copy, and stretching them to a shared
-   height dumped all the slack at the foot of the shorter one. Anchoring the
-   markers to the floor instead was tried and is worse - it moves the gap into
-   the middle of the card, between the bio and the divider. */
-.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+.spk__grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
 /* Portrait is a fixed 3:4 plate on the card surface rather than a
    full-bleed column. Stretching it to card height gave a 0.38 aspect,
    which slices faces; this crops nothing and reads less boxed. */
@@ -676,6 +671,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   background:#FCFAF4; border:1px solid rgba(20,54,79,.13);
   box-shadow:0 14px 32px -24px rgba(20,54,79,.3);
   display:grid; grid-template-columns:auto minmax(0,1fr);
+  /* row 1 is portrait + text, row 2 is the full-width facts footer. The 1fr on
+     row 2 lets the taller card's extra height land as space above that footer
+     rather than as a dead gap under it. */
+  grid-template-rows:auto 1fr;
   gap:clamp(18px,1.8vw,26px); padding:clamp(22px,2.2vw,28px);
   align-items:start;
 }
@@ -688,9 +687,14 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .spk__card .spk__name{ color:var(--ink-text); font-size:clamp(1.3rem,1.9vw,1.5rem); }
 .spk__card .spk__role{ color:var(--teal); }
 .spk__card .spk__lede{ color:var(--ink-muted); font-size:15px; margin:16px 0 0; }
+/* Full card width, not the text column. At ~470px none of the credential or
+   ranking lines wrap any more, which is most of why this card was so much
+   taller than the other one. align-self:end pins it to the card floor so both
+   cards' footers line up. */
 .spk__card .spk__markers{
-  grid-template-columns:1fr; gap:19px;
-  margin-top:20px; padding-top:18px; border-top:1px solid rgba(20,54,79,.13);
+  grid-column:1 / -1; align-self:end;
+  grid-template-columns:1fr; gap:14px;
+  margin-top:4px; padding-top:18px; border-top:1px solid rgba(20,54,79,.13);
 }
 .spk__card .spk__marker svg{ stroke:var(--teal); }
 .spk__card .spk__marker b{ color:var(--teal); }
@@ -1394,15 +1398,15 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             pre-retirees and retirees understand the tax exposure traditional
             retirement plans often overlook.
           </p>
-          <div class="spk__markers">
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>Credential</b>
-              <ul class="spk__facts"><li>Licensed tax attorney &middot; JD, LLM</li><li>Global MBA, London School of Economics</li><li>Wealth strategist</li></ul>
-            </div>
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Recognition</b>
-              <ul class="spk__facts"><li>#3 Investopedia Top 100 Financial Advisors in 2023, four-time honoree</li><li>#14 on the 250 Advisors to Watch Under &#36;1B in 2025</li></ul>
-            </div>
+        </div>
+        <div class="spk__markers">
+          <div class="spk__marker">
+            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/></svg>Credential</b>
+            <ul class="spk__facts"><li>Licensed tax attorney &middot; JD, LLM</li><li>Global MBA, London School of Economics</li><li>Wealth strategist</li></ul>
+          </div>
+          <div class="spk__marker">
+            <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Recognition</b>
+            <ul class="spk__facts"><li>#3 Investopedia Top 100 Financial Advisors in 2023, four-time honoree</li><li>#14 on the 250 Advisors to Watch Under &#36;1B in 2025</li></ul>
           </div>
         </div>
       </article>
@@ -1421,15 +1425,15 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             More than 35 years in markets, with a talent for translating complex economic
             conditions into clear, practical perspective.
           </p>
-          <div class="spk__markers">
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>Experience</b>
-              <ul class="spk__facts"><li>More than 35 years in markets</li></ul>
-            </div>
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9L6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></svg>Service</b>
-              <ul class="spk__facts"><li>West Point graduate</li><li>U.S. Army infantry officer</li></ul>
-            </div>
+        </div>
+        <div class="spk__markers">
+          <div class="spk__marker">
+            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 20V9M12 20V4M18 20v-7"/></svg>Experience</b>
+            <ul class="spk__facts"><li>More than 35 years in markets</li></ul>
+          </div>
+          <div class="spk__marker">
+            <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9L6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></svg>Service</b>
+            <ul class="spk__facts"><li>West Point graduate</li><li>U.S. Army infantry officer</li></ul>
           </div>
         </div>
       </article>
