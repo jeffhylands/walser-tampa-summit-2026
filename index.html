@@ -598,26 +598,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .spk__lede{ line-height:1.62; }
 
-/* one hairline, then markers side by side - no per-row dividers */
-.spk__markers{ display:grid; margin-top:auto; }
-.spk__marker svg{ width:15px; height:15px; flex:none; fill:none; stroke-width:1.8; }
-.spk__marker b{
-  display:flex; align-items:center; gap:8px;
-  font-family:var(--font-display); font-weight:700;
-  font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:6px;
-}
-.spk__marker span{ display:block; font-size:13.5px; line-height:1.5; }
-/* Multi-part markers used to be one <br>-joined block, so an entry long enough
-   to wrap read as two separate entries - "Global MBA, London School of
-   Economics" looked like it ended at "London School of". Each part is its own
-   row now, marked with a short rule, and a wrapped line indents under its own
-   text instead of returning to the margin. */
-.spk__facts{ list-style:none; display:grid; gap:7px; font-size:13.5px; line-height:1.45; }
-.spk__facts li{ position:relative; padding-left:15px; }
-.spk__facts li::before{
-  content:""; position:absolute; left:0; top:.62em;
-  width:7px; height:1px; background:currentColor; opacity:.5;
-}
 
 /* ---------- featured: navy ---------- */
 .spk__feature{
@@ -633,13 +613,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .spk__feature .spk__name{ color:#fff; font-size:clamp(1.95rem,3.2vw,2.7rem); }
 .spk__feature .spk__role{ color:var(--mint); }
 .spk__feature .spk__lede{ color:#C6DBE0; font-size:clamp(1rem,1.35vw,1.08rem); margin:18px 0 0; max-width:56ch; }
-.spk__feature .spk__markers{
-  grid-template-columns:repeat(3,1fr); gap:24px;
-  margin-top:28px; padding-top:24px; border-top:1px solid rgba(154,209,201,.2);
-}
-.spk__feature .spk__marker svg{ stroke:var(--mint); }
-.spk__feature .spk__marker b{ color:var(--mint); }
-.spk__feature .spk__marker span, .spk__feature .spk__facts{ color:#DCEAEE; }
 /* Skyline as watermark, not a pasted rectangle. Desaturated so the
    orange illustration does not muddy the navy, then masked radially from
    the bottom-right so every edge dissolves into the card. */
@@ -710,6 +683,21 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .spk__card .spk__lede{ color:var(--ink-muted); font-size:14.5px; margin:14px 0 0; }
 
+/* Charles's card is the dark one, so the same credential system runs inverted:
+   mint instead of teal, and three across to suit his wider card. */
+.spk__feature .spk__creds{ border-top-color:rgba(154,209,201,.22); margin-top:26px; padding-top:22px; }
+.spk__feature .spk__creds > b{ color:var(--mint); }
+.spk__feature .spk__creds > b svg{ stroke:var(--mint); }
+/* auto-fit rather than fixed breakpoints: three across on the wide card,
+   folding to two then one as it narrows, with no step that leaves three
+   cramped columns in a 620px-wide card */
+.spk__feature .spk__credList{ grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+.spk__feature .spk__credIco{ background:rgba(154,209,201,.13); }
+.spk__feature .spk__credIco svg{ stroke:var(--mint); }
+.spk__feature .spk__credList b{ color:#fff; }
+.spk__feature .spk__credList b + span{ color:#C6DBE0; }
+.spk__feature .spk__credList i{ font-style:italic; }
+
 /* -- hairline + credential grid -- */
 .spk__creds{
   margin-top:clamp(17px,1.7vw,21px); padding-top:clamp(15px,1.5vw,19px);
@@ -740,7 +728,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 /* ---------- responsive ---------- */
 @media (max-width:1024px){
   .spk__feature{ grid-template-columns:minmax(0,38%) minmax(0,62%); }
-  .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
   /* two cards still fit here, the portrait just gives back a little width */
   .spk__top{ grid-template-columns:40% minmax(0,1fr); }
   .spk__card .spk__lede{ font-size:14px; }
@@ -756,7 +743,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .spk__feature{ grid-template-columns:1fr; }
   .spk__feature .spk__portrait{ aspect-ratio:5/4; }
   .spk__feature .spk__portrait img{ object-position:center 14%; }
-  .spk__feature .spk__markers{ grid-template-columns:repeat(3,1fr); gap:22px; }
   .spk__atmos{ display:none; }
   .spk__grid{ grid-template-columns:1fr; }
   /* one card per row now, so the portrait takes a smaller share of a much
@@ -773,7 +759,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 @media (max-width:560px){
   .spk__feature .spk__portrait{ aspect-ratio:1/1; }
-  .spk__feature .spk__markers{ grid-template-columns:1fr; gap:16px; }
   .spk__credList{ grid-template-columns:1fr; gap:13px; }
 }
 /* ============================ QUALIFY CHECKLIST ============================ */
@@ -1188,8 +1173,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .spk__org{ font-size:11.5px; letter-spacing:.1em; }
   .spk__creds > b{ font-size:11px; }
   .spk__credList b + span{ font-size:13px; }
-  .spk__marker b{ font-size:11px; letter-spacing:.14em; }
-  .spk__marker span, .spk__facts{ font-size:14px; }
   .deck__sound{ font-size:13px; padding:9px 13px; }
   .card__seats{ font-size:14.5px; }
   .eyebrow{ font-size:11.5px; letter-spacing:.26em; }
@@ -1418,19 +1401,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           Wall Street Strategies in 1991 and has built a career translating market complexity
           into practical perspective for everyday investors.
         </p>
-        <div class="spk__markers">
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>On air</b>
-              <ul class="spk__facts"><li>Weekdays, 2 PM ET<br>on Fox Business</li></ul>
-            </div>
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>Firm</b>
-              <ul class="spk__facts"><li>Founder &amp; CEO<br>Wall Street Strategies</li></ul>
-            </div>
-            <div class="spk__marker">
-              <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M19 16H6"/></svg>Author</b>
-              <ul class="spk__facts"><li>Three books, most recently <i>Undeniable Windfalls</i></li></ul>
-            </div>
+        <div class="spk__creds">
+          <b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Select credentials</b>
+          <ul class="spk__credList">
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg></span><span><b>Weekdays, 2 PM ET</b><span>on Fox Business</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg></span><span><b>Founder &amp; CEO</b><span>Wall Street Strategies</span></span></li>
+            <li><span class="spk__credIco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M19 16H6"/></svg></span><span><b>Three books</b><span>most recently <i>Undeniable Windfalls</i></span></span></li>
+          </ul>
         </div>
       </div>
     </article>
@@ -1621,7 +1598,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         <div class="run__what"><h3>Session 4 &ndash; Irrational Pessimism: Focus on AI, Markets, and Society</h3><p class="run__who">Charles Payne</p></div>
       </div>
       <div class="run__row">
-        <p class="run__time">2:40 &ndash; 4:00</p>
+        <p class="run__time">2:30 &ndash; 4:00</p>
         <div class="run__what"><h3>Session 5 &amp; Closing Remarks &ndash; Beyond Retirement: A Different Approach Built for Life</h3><p class="run__who">Rebecca Walser</p></div>
       </div>
     </div>
