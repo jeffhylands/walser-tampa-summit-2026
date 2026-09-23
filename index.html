@@ -518,6 +518,29 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .deck__play svg{ width:22px; height:22px; margin-left:3px; fill:#fff; }
 .deck__video.is-playing .deck__play{ opacity:0; pointer-events:none; }
 
+/* running time, so a 6.5 minute reel does not look like a 30 second one */
+.deck__dur{
+  position:absolute; right:10px; bottom:10px; z-index:2;
+  font-family:var(--font-display); font-weight:600; font-size:11.5px;
+  letter-spacing:.06em; color:var(--text);
+  background:rgba(6,18,36,.62); border:1px solid rgba(255,255,255,.14);
+  border-radius:6px; padding:3px 7px; backdrop-filter:blur(4px);
+  transition:opacity .3s var(--ease);
+}
+.deck__dur[hidden]{ display:none; }
+.deck__video.is-playing .deck__dur{ opacity:0; }
+
+/* only visible while the player is actually stalled waiting for data */
+.deck__spin{
+  position:absolute; left:50%; top:50%; z-index:3; margin:-15px 0 0 -15px;
+  width:30px; height:30px; border-radius:50%;
+  border:2px solid rgba(255,255,255,.28); border-top-color:#fff;
+  opacity:0; pointer-events:none; transition:opacity .2s var(--ease);
+}
+.deck__video.is-buffering .deck__spin{ opacity:1; animation:deckspin .7s linear infinite; }
+@keyframes deckspin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .deck__video.is-buffering .deck__spin{ animation:none; } }
+
 .deck__sound{
   position:absolute; left:14px; top:14px; z-index:3;
   display:inline-flex; align-items:center; gap:8px;
@@ -1344,6 +1367,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <button class="deck__sound" id="heroSound" type="button" hidden>
             <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg> Enable sound
           </button>
+          <span class="deck__dur" id="heroDur" hidden></span>
+          <span class="deck__spin" aria-hidden="true"></span>
           <button class="deck__play" id="heroPlay" type="button"
                   aria-label="Play the Walser Wealth news reel">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -2055,23 +2080,37 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   if(vWrap && vid){
     var playing = function(on){ vWrap.classList.toggle('is-playing', on); };
 
-    /* Autoplay muted on desktop only. The reel is 46 MB / 6.5 min, so phones and
-       anyone on Data Saver keep the poster until they ask for it. */
+    /* No autoplay anywhere. The reel is 46 MB / 6.5 min and this page takes paid
+       traffic - autoplaying it pulled ~90 MB per desktop visit before anyone had
+       read a word. Desktop now fetches the index only: the file is faststart, so
+       preload="metadata" costs about 0.3 MB, makes the first frame appear
+       promptly on click, and gives us the running time to display. */
     var wide = window.matchMedia('(min-width: 940px)').matches;
     var thrifty = navigator.connection && navigator.connection.saveData;
-    if(wide && !thrifty && !reduce){
-      vid.preload = 'auto';
-      var attempt = vid.play();
-      if(attempt && attempt.then){
-        attempt.then(function(){ soundBtn.hidden = false; })
-               .catch(function(){ /* browser blocked it, poster stays put */ });
-      }
-    }
+    if(wide && !thrifty && !reduce){ vid.preload = 'metadata'; }
+
+    /* spinner only while genuinely stalled, so a fast connection never sees it */
+    var buffering = function(on){ vWrap.classList.toggle('is-buffering', on); };
+    vid.addEventListener('waiting', function(){ buffering(true); });
+    vid.addEventListener('playing', function(){ buffering(false); });
+    vid.addEventListener('canplay', function(){ buffering(false); });
+
+    var durEl = document.getElementById('heroDur');
+    vid.addEventListener('loadedmetadata', function(){
+      if(!durEl || !isFinite(vid.duration)) return;
+      var m = Math.floor(vid.duration / 60), sec = Math.round(vid.duration % 60);
+      if(sec === 60){ m++; sec = 0; }
+      durEl.textContent = m + ':' + (sec < 10 ? '0' : '') + sec;
+      durEl.hidden = false;
+    });
 
     playBtn.addEventListener('click', function(){
       vid.muted = false;            // an explicit tap earns sound
       soundBtn.hidden = true;
-      vid.play();
+      if(vid.preload !== 'auto') vid.preload = 'auto';
+      buffering(true);              // cleared by canplay/playing
+      var go = vid.play();
+      if(go && go.catch) go.catch(function(){ buffering(false); });
     });
 
     soundBtn.addEventListener('click', function(){
