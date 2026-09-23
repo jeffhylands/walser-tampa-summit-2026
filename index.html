@@ -24,6 +24,23 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1349984440152545&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+<!-- Google tag (gtag.js)
+     Landing page only. checkout.html and registration-confirmed.html are in the
+     registration app and carry no GA4 tag, so the funnel stops here - adding the
+     same id there would join it up, same domain, no cross-domain config needed.
+     Note the GitHub Pages origin serves this same HTML, so hits from
+     jeffhylands.github.io report into this property too; filter on hostname if
+     the numbers ever look off. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RNTXP1YVM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1RNTXP1YVM');
+</script>
+<!-- End Google tag -->
 <title>Tampa Retirement Live 2026 | Launched by Walser Wealth Management</title>
 <meta name="description" content="One full day on taxes, income and the decisions that shape your retirement. Keynote Rebecca Walser with Charles Payne of Fox Business. Tampa, Oct 17." />
 <meta property="og:title" content="Tampa Retirement Live 2026" />
