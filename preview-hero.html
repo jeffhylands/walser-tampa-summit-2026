@@ -1254,222 +1254,254 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   [data-reveal]{ opacity:1; transform:none; }
 }
 /* ====================================================================
-   HERO v2 - conversion-led rebuild. The headline carries the page now,
-   the lockup drops to a supporting mark, and the offer, the proof and a
-   button all sit in the first screen. Built on the existing tokens; no
-   new palette, no new type family.
+   HERO v2 - conversion-led rebuild, tuned to the approved concept.
+   The headline carries the page, the lockup supports it, and the offer,
+   proof and a button all land in the first screen. Existing tokens and
+   type throughout; the warm accent is the brand orange ramp.
    ==================================================================== */
-.nav__links{ display:flex; align-items:center; gap:clamp(18px,2vw,30px); }
-.nav__links a{
-  font-family:var(--font-display); font-weight:600; font-size:13px;
-  letter-spacing:.03em; color:var(--muted); white-space:nowrap;
-  transition:color .25s var(--ease);
+
+/* ---- announce bar: hairlines either side, as in the concept ---- */
+.bar--v2{ display:flex; align-items:center; justify-content:center; gap:18px; }
+.bar--v2::before, .bar--v2::after{
+  content:""; width:clamp(22px,4.6vw,66px); height:1px; background:rgba(255,255,255,.6);
 }
-.nav__links a:hover{ color:#fff; }
+
+/* ---- nav ---- */
+.nav__links{ display:flex; align-items:center; gap:clamp(22px,3.1vw,48px); }
+.nav__links a{
+  font-family:var(--font-display); font-weight:500; font-size:14.5px;
+  color:#fff; opacity:.88; white-space:nowrap; transition:opacity .25s var(--ease);
+}
+.nav__links a:hover{ opacity:1; }
 @media (max-width:1060px){ .nav__links{ display:none; } }
 
-.nhero{ position:relative; overflow:hidden; padding-block:clamp(16px,2vw,34px) clamp(34px,4vw,54px); }
+/* ---- ground: a deeper, bluer night than the rest of the page, warming
+   to a sunset glow behind the card. The darker sky is what lets the
+   headline accent run vivid orange and still clear contrast. ---- */
+.nhero{ position:relative; overflow:hidden; isolation:isolate;
+  padding-block:clamp(20px,2.3vw,36px) clamp(34px,3.6vw,52px); }
+.nhero .hero__wash{
+  background:
+    radial-gradient(58% 55% at 86% 90%, rgba(247,128,44,.42) 0%, rgba(247,128,44,.14) 42%, transparent 70%),
+    linear-gradient(180deg, #081A33 0%, #0B2442 46%, #10304F 100%);
+}
+.nhero .hero__photo img{ opacity:1; }
+.nhero .hero__photo::after{
+  background:
+    linear-gradient(90deg, rgba(6,18,38,.84) 0%, rgba(6,18,38,.58) 36%, rgba(6,18,38,.14) 66%, rgba(6,18,38,0) 100%),
+    linear-gradient(180deg, rgba(8,22,46,.92) 0%, rgba(8,22,46,.64) 36%, rgba(8,22,46,.16) 72%, rgba(8,22,46,.42) 100%);
+}
+/* sunset light spilling over the skyline on the right */
+.nhero::before{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(44% 52% at 94% 94%, rgba(255,142,52,.3), transparent 70%);
+  mix-blend-mode:screen;
+}
 .nhero__in{ position:relative; z-index:2; }
 .nhero__grid{
-  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  gap:clamp(26px,3.4vw,52px);
-  /* start, not center: centring the copy against a taller card pushed the
-     button back under the fold on shorter laptops */
+  display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+  gap:clamp(26px,3.6vw,56px);
+  /* start, not center: centring the copy against the taller card pushed
+     the button back under the fold on shorter laptops */
   align-items:start;
 }
 @media (max-width:1000px){ .nhero__grid{ grid-template-columns:1fr; gap:34px; } }
 
 /* ---- left column ---- */
 .nhero__pill{
-  display:inline-flex; align-items:center; gap:9px; margin-bottom:13px;
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:14px;
   font-family:var(--font-display); font-weight:600;
-  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text);
-  border:1px solid var(--hair); border-radius:100px; padding:7px 16px;
-  background:rgba(12,41,69,.42); backdrop-filter:blur(6px);
+  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#fff;
+  border:1px solid rgba(255,255,255,.26); border-radius:100px; padding:7px 16px;
+  background:rgba(6,18,38,.5); backdrop-filter:blur(6px);
 }
 .nhero__pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--red);
   box-shadow:0 0 0 0 rgba(240,82,56,.6); animation:pulse 2.2s infinite; }
-.nhero__mark{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
-.nhero__mark img{ height:clamp(23px,2.4vw,31px); width:auto; max-width:none; }
-.nhero__mark span{ flex:1; height:1px; background:linear-gradient(90deg,var(--hair),transparent); }
+.nhero__mark{ display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+.nhero__mark img{ height:clamp(26px,2.7vw,36px); width:auto; max-width:none; }
+.nhero__mark span{ flex:1; max-width:320px; height:1px; background:linear-gradient(90deg,rgba(255,255,255,.4),transparent); }
 
 .nhero__h1{
-  font-family:var(--font-display); font-weight:700; color:#fff;
-  font-size:clamp(1.95rem,3.55vw,3.02rem); line-height:1.07; letter-spacing:-.022em;
-  margin-bottom:14px; text-wrap:balance;
+  font-family:var(--font-display); font-weight:800; color:#fff;
+  font-size:clamp(2.1rem,3.72vw,3.28rem); line-height:1.03; letter-spacing:-.03em;
+  margin-bottom:16px; text-wrap:balance;
 }
-/* color is set to the darkest stop of the ramp below: it is the fallback
-   where background-clip:text is unsupported, and it makes the contrast
-   measurement reflect the worst pixel actually painted */
-.nhero__h1 em{ font-style:normal; color:#F79A55;
-  /* lightened from the brand burst ramp: at 48px this is large text, and the
-     original ramp measured 2.84:1 on the hero ground against a 3:1 floor */
-  background:linear-gradient(92deg,#FFCB9E,#FBAA6E 52%,#F79A55);
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+/* color is the darkest stop of the ramp: it is the fallback where
+   background-clip:text is unsupported, and it is what the contrast
+   measurement checks - the worst pixel actually painted */
+.nhero__h1 em{
+  font-style:normal; color:#F2742A;
+  background:linear-gradient(95deg,#FFC44F 0%,#F9A235 46%,#F2742A 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){
-  .nhero__h1 em{ -webkit-text-fill-color:currentColor; color:#FBAA6E; }
+  .nhero__h1 em{ -webkit-text-fill-color:currentColor; }
 }
-.nhero__sub{ color:var(--muted); font-size:clamp(1rem,1.25vw,1.12rem); line-height:1.6; max-width:52ch; }
+.nhero__sub{ color:#E6EDF2; font-size:clamp(1.02rem,1.3vw,1.16rem); line-height:1.52; max-width:50ch; }
 
-.nhero__facts{
-  display:flex; flex-wrap:wrap; align-items:center; gap:8px clamp(16px,2vw,26px);
-  margin-top:clamp(13px,1.5vw,17px); padding-top:clamp(12px,1.4vw,15px);
-  border-top:1px solid var(--hair);
-}
-.nhero__fact{ display:flex; align-items:flex-start; gap:10px; }
-.nhero__fact svg{ width:17px; height:17px; flex:none; margin-top:2px;
-  stroke:var(--gold); fill:none; stroke-width:1.7; }
+.nhero__facts{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; margin-top:18px; }
+.nhero__fact{ display:flex; align-items:center; gap:10px; }
+.nhero__fact svg{ width:23px; height:23px; flex:none; stroke:#F7962B; fill:none; stroke-width:1.7; }
 .nhero__fact b{ display:block; font-family:var(--font-display); font-weight:700;
-  font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#fff; line-height:1.3; }
-.nhero__fact span{ display:block; font-size:12px; color:var(--muted-2); line-height:1.3; }
+  font-size:12.5px; letter-spacing:.045em; text-transform:uppercase; color:#fff; line-height:1.3; }
+.nhero__fact--plain b{ text-transform:none; letter-spacing:.005em; font-weight:600; font-size:14px; }
+.nhero__fact span span{ display:block; font-size:13px; color:#CBD8E0; line-height:1.35; }
+.nhero__vr{ width:1px; height:34px; background:rgba(255,255,255,.28); }
+/* the two-column layout at its narrowest wraps the facts onto two lines;
+   a divider with nothing beside it just looks broken */
+@media (min-width:1001px) and (max-width:1080px){ .nhero__vr{ display:none; } }
 
-.nhero__act{ margin-top:clamp(15px,1.7vw,21px); }
-.nhero__act .btn{ font-size:clamp(.98rem,1.15vw,1.06rem); padding:16px 28px; width:100%; max-width:430px; }
-.nhero__act .btn svg{ width:17px; height:17px; stroke:#fff; fill:none; stroke-width:2.4; margin-left:4px; }
-.nhero__note{ margin-top:9px; font-size:12.5px; color:#D6E6EA; }
-
-.nhero__tix{ display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
-.nhero__tix a{
-  display:inline-flex; align-items:center; gap:9px;
-  border:1px solid var(--hair); border-radius:10px; padding:12px 14px;
-  background:rgba(12,41,69,.38); transition:border-color .25s var(--ease), background .25s var(--ease);
+.nhero__act{ margin-top:20px; }
+.nhero__act .btn{
+  width:100%; max-width:470px; padding:17px 28px; border-radius:10px;
+  font-family:var(--font-display); font-weight:700; font-size:clamp(1rem,1.25vw,1.12rem);
 }
-.nhero__tix a:hover{ border-color:rgba(154,209,201,.45); background:rgba(12,41,69,.6); }
-.nhero__tix svg{ width:15px; height:15px; stroke:var(--gold); fill:none; stroke-width:1.7; }
-.nhero__tix i{ font-style:normal; font-family:var(--font-display); font-weight:600;
-  font-size:12.5px; letter-spacing:.04em; color:var(--muted); }
-.nhero__tix b{ font-family:var(--font-display); font-weight:700; font-size:14.5px; color:var(--gold-lite); }
+.nhero__act .btn svg, .ecard__cta .btn svg{ width:17px; height:17px; stroke:#fff; fill:none; stroke-width:2.6; }
+.nhero__note{ margin-top:10px; font-size:13.5px; color:#DCE6EC; }
 
-.nhero__by{ display:flex; align-items:center; gap:14px; margin-top:clamp(15px,1.8vw,22px); }
-.nhero__by img{ height:clamp(40px,4vw,50px); width:auto; }
+.nhero__tix{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+.nhero__tix a{
+  display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:6px 16px 6px 14px;
+  border-radius:10px; border:1px solid rgba(255,255,255,.24); background:rgba(6,18,38,.58);
+  transition:border-color .25s var(--ease), background .25s var(--ease);
+}
+.nhero__tix a:hover{ border-color:rgba(247,150,43,.6); background:rgba(6,18,38,.8); }
+.nhero__tix svg{ width:21px; height:21px; flex:none; fill:#fff; stroke:none; }
+.nhero__tix a:last-child svg{ fill:#F9A235; }
+.nhero__tix i{ font-style:normal; font-family:var(--font-display); font-weight:600;
+  font-size:13.5px; color:#fff; margin-right:4px; }
+.nhero__tix b{ font-family:var(--font-display); font-weight:800; font-size:19px; color:#F7962B; }
+
+.nhero__by{ display:flex; align-items:center; gap:16px; margin-top:20px; }
+.nhero__by span{ font-family:var(--font-display); font-weight:600; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase; color:#DCE6EC; }
+.nhero__by img{ height:clamp(34px,3.3vw,46px); width:auto; }
 
 /* ---- right column: event card ---- */
 .ecard{
-  border-radius:20px; overflow:hidden;
-  background:linear-gradient(168deg, rgba(20,69,107,.92), rgba(10,37,63,.96));
-  border:1px solid rgba(154,209,201,.22);
-  box-shadow:0 30px 70px -40px rgba(3,14,28,.9), 0 1px 0 rgba(255,255,255,.06) inset;
+  border-radius:18px; padding:14px;
+  background:linear-gradient(180deg, #0C1D35 0%, #081527 100%);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 34px 70px -30px rgba(0,0,0,.72), inset 0 1px 0 rgba(255,255,255,.06);
 }
-/* One shared scene rather than two photo tiles: both subjects were cut off
-   their studio backdrops so they stand together on the skyline, which is what
-   the concept does. Cutouts are trimmed to their own bounding box, so their
-   widths here are just their natural ratios at a common height. */
+/* One shared scene, inset in the card frame. Both speakers are matted off
+   their studio backdrops so they stand together; the names sit on the
+   image, over a fade that also covers where the figures are cropped. */
 .ecard__scene{
-  position:relative; overflow:hidden; aspect-ratio:1/.78;
-  background:linear-gradient(180deg,#123E63,#0A2540);
+  position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1.72/1;
+  background:linear-gradient(180deg,#0E2A4A,#123E63);
 }
-/* the skyline sits in the bottom third of this artwork, which is exactly where
-   the figures stand - so it is scaled up and pushed down until the building
-   tops land behind their shoulders rather than behind their knees */
 .ecard__sky{
-  position:absolute; left:50%; bottom:-7%; transform:translateX(-50%);
-  width:172%; height:auto; max-width:none; opacity:.8;
-  /* shallow depth of field: the backdrop should read as place, not as detail
-     competing with two faces in front of it */
-  filter:blur(2.2px) saturate(.88);
-}
-/* sky above, ground below: lifts the figures off the backdrop and hands the
-   card body a soft edge to start from */
-.ecard__scene::after{
-  content:""; position:absolute; inset:0; z-index:1;
-  background:linear-gradient(180deg, rgba(8,30,52,.34) 0%, rgba(8,30,52,.04) 30%, rgba(10,37,63,.86) 100%);
+  position:absolute; left:50%; bottom:-6%; transform:translateX(-50%);
+  width:152%; height:auto; max-width:none; opacity:.95;
+  filter:blur(1.4px) brightness(.92);
 }
 .ecard__cut{
-  position:absolute; bottom:0; z-index:2; height:90%; width:auto; max-width:none;
-  filter:drop-shadow(0 14px 24px rgba(4,16,30,.55));
+  position:absolute; top:5%; height:172%; width:auto; max-width:none;
+  filter:drop-shadow(0 12px 22px rgba(0,0,0,.5));
 }
-.ecard__cut--a{ left:-3%; }
-.ecard__cut--b{ right:-4%; }
-
+.ecard__cut--b{ right:-11%; z-index:1; }
+.ecard__cut--a{ left:-19%; z-index:2; }
+.ecard__scene::after{
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,20,40,.18) 0%, rgba(8,20,40,0) 26%,
+    rgba(6,16,32,.12) 52%, rgba(6,16,32,.93) 100%);
+}
 .ecard__names{
-  display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.2vw,16px);
-  padding:13px clamp(16px,1.7vw,20px) 0;
+  position:absolute; left:0; right:0; bottom:0; z-index:4;
+  display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 13px;
 }
 .ecard__names b{ display:block; font-family:var(--font-display); font-weight:700;
-  font-size:14px; letter-spacing:.02em; color:#fff; line-height:1.2; }
+  font-size:15.5px; letter-spacing:.03em; text-transform:uppercase; color:#fff; line-height:1.15; }
 .ecard__names span{ display:block; margin-top:4px; font-family:var(--font-display); font-weight:600;
-  font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--gold); line-height:1.45; }
+  font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:#CBD8E0; line-height:1.4; }
 
-.ecard__body{ padding:clamp(18px,1.9vw,24px); }
+.ecard__body{ padding:18px 8px 4px; }
 .ecard__list{ list-style:none; display:grid; gap:12px; }
-.ecard__list li{ display:flex; align-items:flex-start; gap:11px; }
-.ecard__list svg{ width:17px; height:17px; flex:none; margin-top:2px; stroke:var(--gold); fill:none; stroke-width:1.7; }
-.ecard__list b{ display:block; font-size:14.5px; font-weight:600; color:#fff; line-height:1.35; }
-.ecard__list span{ display:block; font-size:13px; color:var(--muted-2); line-height:1.4; margin-top:1px; }
+.ecard__list li{ display:flex; align-items:flex-start; gap:14px; }
+.ecard__list svg{ width:21px; height:21px; flex:none; margin-top:1px; stroke:#E6EDF2; fill:none; stroke-width:1.5; }
+.ecard__list b{ display:block; font-size:15.5px; font-weight:600; color:#fff; line-height:1.35; }
+.ecard__list span span{ display:block; font-size:13.5px; color:#B9C9D3; line-height:1.4; margin-top:1px; }
 
 .ecard__cdlabel{
-  margin:clamp(18px,2vw,22px) 0 11px; padding-top:clamp(16px,1.8vw,20px);
-  border-top:1px solid rgba(154,209,201,.2); text-align:center;
-  font-family:var(--font-display); font-weight:700; font-size:10px;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
+  margin:18px 0 12px; padding-top:16px; border-top:1px solid rgba(255,255,255,.14);
+  text-align:center; font-family:var(--font-display); font-weight:700;
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#E6EDF2;
 }
-.ecard__clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.ecard__clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
 .ecard__unit{
-  text-align:center; border:1px solid rgba(154,209,201,.2); border-radius:11px;
-  padding:10px 4px; background:rgba(6,24,44,.55);
+  text-align:center; border:1px solid rgba(255,255,255,.2); border-radius:10px;
+  padding:10px 4px 9px; background:rgba(4,12,26,.55);
 }
-.ecard__unit b{ display:block; font-family:var(--font-display); font-weight:700;
-  font-size:clamp(1.3rem,2vw,1.6rem); color:#fff; line-height:1; font-variant-numeric:tabular-nums; }
-.ecard__unit em{ display:block; margin-top:5px; font-style:normal;
-  font-family:var(--font-display); font-weight:600; font-size:9px;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); }
-.ecard__cta{ margin-top:clamp(16px,1.8vw,20px); }
-.ecard__cta .btn{ width:100%; padding:16px 24px; font-size:1rem; }
-.ecard__cta .btn svg{ width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2.4; margin-left:4px; }
+.ecard__unit b{ display:block; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.5rem,2.2vw,1.85rem); color:#fff; line-height:1; font-variant-numeric:tabular-nums; }
+.ecard__unit em{ display:block; margin-top:6px; font-style:normal; font-family:var(--font-display);
+  font-weight:600; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#CBD8E0; }
+.ecard__cta{ margin-top:16px; }
+.ecard__cta .btn{ width:100%; padding:16px 24px; border-radius:10px;
+  font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
 
 /* ---- what you'll walk away with ---- */
-.walk{ background:var(--cream); }
-.walk__head{ text-align:center; max-width:60ch; margin:0 auto clamp(30px,3.4vw,42px); }
-.walk__head h2{ font-family:var(--font-display); font-weight:700; color:var(--ink-text);
-  font-size:clamp(1.55rem,2.8vw,2.1rem); line-height:1.15; letter-spacing:-.02em; }
-.walk__rule{ display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:14px; }
-.walk__rule span{ width:clamp(30px,5vw,64px); height:1px; background:rgba(20,54,79,.22); }
-.walk__rule i{ font-style:normal; width:6px; height:6px; border-radius:50%; background:var(--orange); }
-.walk__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); }
-@media (max-width:900px){ .walk__grid{ grid-template-columns:1fr; max-width:560px; margin:0 auto; } }
+.walk{ background:#F2F5F8; padding-block:clamp(26px,3vw,40px) clamp(38px,4.2vw,58px); }
+.walk__head{ display:flex; align-items:center; justify-content:center; gap:clamp(14px,2vw,24px);
+  margin-bottom:clamp(18px,2vw,24px); }
+.walk__head::before, .walk__head::after{
+  content:""; width:clamp(34px,10vw,150px); height:2px;
+  background:linear-gradient(90deg, rgba(242,116,42,0), #F2742A);
+}
+.walk__head::after{ transform:scaleX(-1); }
+.walk__head h2{ font-family:var(--font-display); font-weight:700; color:#14364F;
+  font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.15; letter-spacing:-.015em; text-align:center; }
+.walk__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,22px); }
+@media (max-width:980px){ .walk__grid{ grid-template-columns:1fr; max-width:600px; margin:0 auto; } }
 .walk__card{
-  background:#fff; border:1px solid rgba(20,54,79,.10); border-radius:18px;
-  padding:clamp(22px,2.2vw,28px);
-  box-shadow:0 10px 28px -22px rgba(20,54,79,.32);
+  display:flex; align-items:flex-start; gap:clamp(16px,1.6vw,22px);
+  background:#fff; border:1px solid rgba(20,54,79,.08); border-radius:10px;
+  padding:clamp(18px,1.9vw,24px) clamp(18px,1.9vw,26px);
+  box-shadow:0 8px 24px -18px rgba(20,54,79,.4);
   transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
 }
-@media (hover:hover){ .walk__card:hover{ transform:translateY(-2px); box-shadow:0 18px 38px -24px rgba(20,54,79,.4); } }
-.walk__ico{
-  width:42px; height:42px; border-radius:12px; display:grid; place-items:center;
-  background:rgba(240,82,56,.09); margin-bottom:16px;
-}
-.walk__ico svg{ width:21px; height:21px; stroke:var(--orange-lo); fill:none; stroke-width:1.7; }
-.walk__card h3{ font-family:var(--font-display); font-weight:700; color:var(--ink-text);
-  font-size:1.06rem; line-height:1.28; letter-spacing:-.01em; margin-bottom:9px; }
-.walk__card p{ color:var(--ink-muted); font-size:14.5px; line-height:1.6; }
+@media (hover:hover){ .walk__card:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -22px rgba(20,54,79,.45); } }
+.walk__ico{ flex:none; }
+.walk__ico svg{ width:44px; height:44px; stroke:#F2742A; fill:none; stroke-width:1.8; }
+.walk__card h3{ font-family:var(--font-display); font-weight:700; color:#14364F;
+  font-size:1.07rem; line-height:1.25; letter-spacing:-.005em; margin-bottom:8px; }
+.walk__card p{ color:#51677A; font-size:14.5px; line-height:1.5; }
 
 /* Short laptop screens - 1366x768 and the like - are where the button was
-   still landing under the fold. The nav already carries the lockup a hundred
-   pixels above, so the supporting one is the thing to give up here rather than
-   the offer or the button. Keyed on height, so tall desktops keep it. */
+   landing under the fold. The nav already carries the lockup a hundred
+   pixels above, so the supporting one is the thing to give up here rather
+   than the offer or the button. Keyed on height, so tall desktops keep it. */
 @media (min-width:1001px) and (max-height:720px){
   .nhero{ padding-block:10px 28px; }
   .nhero__mark{ display:none; }
-  .nhero__h1{ font-size:clamp(1.85rem,3vw,2.62rem); margin-bottom:12px; }
+  .nhero__h1{ font-size:clamp(1.9rem,3.1vw,2.7rem); margin-bottom:12px; }
   .nhero__sub{ font-size:1rem; }
-  .nhero__facts{ margin-top:11px; padding-top:11px; }
-  .nhero__act{ margin-top:13px; }
+  .nhero__facts{ margin-top:12px; }
+  .nhero__act{ margin-top:14px; }
 }
 
 /* the page gives its decorative 9-11px labels a floor on phones; these join it */
 @media (max-width:600px){
-  .ecard__names span{ font-size:11px; letter-spacing:.09em; }
-  .ecard__cdlabel{ font-size:11px; }
+  .ecard__names span{ font-size:11px; letter-spacing:.08em; }
   .ecard__unit em{ font-size:11px; letter-spacing:.1em; }
 }
-
 @media (max-width:560px){
   .nhero__act .btn{ max-width:none; }
+  .nhero__vr{ display:none; }
   .nhero__tix a{ flex:1 1 calc(50% - 5px); justify-content:center; }
+  .ecard{ padding:10px; }
   .ecard__clock{ gap:6px; }
-  .ecard__unit{ padding:9px 2px; }
+  .ecard__unit{ padding:9px 2px 8px; }
+  .ecard__names{ padding:0 12px 11px; gap:8px; }
+  .ecard__names b{ font-size:13.5px; }
+  /* at phone width the names wrap to three lines and climb into the faces -
+     a deeper scene keeps the faces above the name band */
+  .ecard__scene{ aspect-ratio:1.12/1; }
+  .ecard__cut{ top:6%; height:132%; }
+  .ecard__cut--a{ left:-16%; }
+  .ecard__cut--b{ right:-10%; }
 }
-
 .draftbar{
   background:repeating-linear-gradient(135deg,#3B1B10,#3B1B10 10px,#4A2314 10px,#4A2314 20px);
   color:#FFD9BE; text-align:center; padding:8px 16px;
@@ -1487,7 +1519,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 
 <!-- ============================ ANNOUNCE BAR ============================ -->
-<div class="bar">Limited seating available</div>
+<div class="bar bar--v2">Limited seating available</div>
 
 <!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
@@ -1512,7 +1544,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <a href="#faq">FAQs</a>
     </nav>
     <div class="nav__right">
-      <a class="btn" href="#tickets">Reserve your seat</a>
+      <a class="btn" href="#tickets">Reserve Your Seat</a>
     </div>
   </div>
 </header>
@@ -1546,23 +1578,24 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           retirement education with Rebecca Walser and special guest Charles Payne.</p>
 
         <div class="nhero__facts">
-          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><b>Saturday, October 17, 2026</b><span>Doors 8:00 AM</span></span></span>
-          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>10221 Princess Palm Ave, Tampa, FL</span></span></span>
+          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b>Saturday, October 17, 2026</b><span>Doors open 8:00 AM</span></span></span>
+          <span class="nhero__vr" aria-hidden="true"></span>
+          <span class="nhero__fact nhero__fact--plain"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>Tampa, FL</span></span></span>
         </div>
 
         <div class="nhero__act">
-          <a class="btn btn--lg" href="#tickets">Reserve my seat &middot; tickets from &#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-          <p class="nhero__note">Single, Couple &amp; VIP tickets available &middot; limited seating</p>
+          <a class="btn btn--lg" href="#tickets">Reserve My Seat &middot; Tickets From &#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+          <p class="nhero__note">Single, Couple &amp; VIP tickets available &middot; Limited seating</p>
           <div class="nhero__tix">
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="8" r="4"/></svg><i>Single</i><b>&#36;47</b></a>
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-3-3.9M8 21v-2a4 4 0 0 1 3-3.9"/><circle cx="9" cy="8" r="3.2"/><circle cx="15.5" cy="8" r="3.2"/></svg><i>Couple</i><b>&#36;67</b></a>
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M4 18 3 8l5 3.5L12 5l4 6.5L21 8l-1 10Z"/></svg><i>VIP from</i><b>&#36;97</b></a>
+            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21a8 8 0 0 1 16 0Z"/></svg><i>Single</i><b>&#36;47</b></a>
+            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="3.3"/><circle cx="16" cy="8" r="3.3"/><path d="M1.5 20a7 7 0 0 1 14 0Z"/><path d="M13.2 13.6A7 7 0 0 1 22.5 20H17a8.8 8.8 0 0 0-3.8-6.4Z"/></svg><i>Couple</i><b>&#36;67</b></a>
+            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18l1-10-5.5 4L12 5l-4.5 7L2 8Z"/><rect x="3" y="19.2" width="18" height="2" rx="1"/></svg><i>VIP from</i><b>&#36;97</b></a>
           </div>
         </div>
 
         <p class="nhero__by">
-          <!-- the asset already carries the words LAUNCHED BY, so no separate label -->
-          <img src="Brand%20Assets/Launched%20By%20White%20Logo.webp" alt="Walser Wealth Management" width="900" height="225" loading="lazy" />
+          <span>Launched by</span>
+          <img src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" loading="lazy" />
         </p>
       </div>
 
@@ -1574,19 +1607,19 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
                alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1136" />
           <img class="ecard__cut ecard__cut--b" src="Brand%20Assets/cutout-charles.webp"
                alt="Charles Payne, host of Making Money with Charles Payne on Fox Business" width="798" height="1128" />
-        </div>
-        <div class="ecard__names">
-          <p><b>Rebecca Walser</b><span>Founder, CEO &amp; CIO<br>Walser Wealth Management</span></p>
-          <p><b>Charles Payne</b><span>Host, Making Money<br>Fox Business</span></p>
+          <div class="ecard__names">
+            <p><b>Rebecca Walser</b><span>Founder, CEO &amp; CIO<br>Walser Wealth Management</span></p>
+            <p><b>Charles Payne</b><span>Host, Making Money<br>Fox Business</span></p>
+          </div>
         </div>
 
         <div class="ecard__body">
           <ul class="ecard__list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><b>Saturday, October 17, 2026</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b>Saturday, October 17, 2026</b></span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>10221 Princess Palm Ave, Tampa, FL</span></span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Doors open 8:00 AM</b></span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span><b>Program 9:00 AM &ndash; 4:00 PM</b></span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.6 1.4-2.4 3-2.4 5.2 0 1.6.8 2.6 2.4 2.8V21"/></svg><span><b>Lunch 12:30 &ndash; 1:30 PM</b><span>Included with every ticket</span></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Doors Open: 8:00 AM</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span><b>Program: 9:00 AM &ndash; 4:00 PM</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.6 1.4-2.4 3-2.4 5.2 0 1.6.8 2.6 2.4 2.8V21"/></svg><span><b>Lunch: 12:30 &ndash; 1:30 PM (included)</b></span></li>
           </ul>
 
           <p class="ecard__cdlabel">Event begins in</p>
@@ -1598,7 +1631,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           </div>
 
           <div class="ecard__cta">
-            <a class="btn btn--lg" href="#tickets">Choose tickets <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--lg" href="#tickets">Choose Tickets <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
           </div>
         </div>
       </aside>
@@ -1608,27 +1641,24 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 </section>
 
 <!-- ============================ WHAT YOU'LL WALK AWAY WITH ============================ -->
-<section class="sec walk">
+<section class="walk">
   <div class="wrap">
-    <div class="walk__head" data-reveal>
-      <span class="walk__rule" aria-hidden="true"><span></span><i></i><span></span></span>
-      <h2>What you'll walk away with</h2>
-    </div>
+    <div class="walk__head" data-reveal><h2>What You'll Walk Away With</h2></div>
     <div class="walk__grid" data-reveal>
       <article class="walk__card">
-        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5h16"/><path d="M4 15.5 9.5 10l4 4 6.5-7"/><path d="M20 7h-4.5M20 7v4.5"/></svg></span>
-        <h3>Understand your retirement tax exposure</h3>
-        <p>Learn how today's tax decisions could impact your income, healthcare and legacy.</p>
+        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6 20.5v-5M10 20.5v-8M14 20.5v-6M18 20.5v-11"/><path d="M5 11.5 10.5 7l3 2.5L19.5 4"/><path d="M15.5 4h4v4"/></svg></span>
+        <div><h3>Understand Your Retirement Tax Exposure</h3>
+        <p>Learn how today's tax decisions could impact your income, healthcare and legacy.</p></div>
       </article>
       <article class="walk__card">
-        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/><path d="M9 12.5 11 15l4-4.5"/></svg></span>
-        <h3>Learn how to protect your income and assets</h3>
-        <p>Discover strategies to help reduce risk and keep more of what you've built.</p>
+        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/><path d="M8.8 12.3 11.1 14.6 15.4 9.8"/></svg></span>
+        <div><h3>Learn How to Protect Your Income and Assets</h3>
+        <p>Discover strategies to help reduce risk and keep more of what you've built.</p></div>
       </article>
       <article class="walk__card">
         <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 18h5M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5.9 1.1 1 1.7h5.2c.1-.6.4-1.2 1-1.7A6 6 0 0 0 12 3Z"/></svg></span>
-        <h3>Know the right questions to ask before you decide</h3>
-        <p>Get expert insights on the key questions that matter most, and what to consider.</p>
+        <div><h3>Know the Right Questions to Ask Before You Decide</h3>
+        <p>Get expert insights on the key questions that matter most, and what to consider.</p></div>
       </article>
     </div>
   </div>
