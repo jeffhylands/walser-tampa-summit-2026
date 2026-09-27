@@ -1272,7 +1272,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .nhero__in{ position:relative; z-index:2; }
 .nhero__grid{
   display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  gap:clamp(26px,3.4vw,52px); align-items:center;
+  gap:clamp(26px,3.4vw,52px);
+  /* start, not center: centring the copy against a taller card pushed the
+     button back under the fold on shorter laptops */
+  align-items:start;
 }
 @media (max-width:1000px){ .nhero__grid{ grid-template-columns:1fr; gap:34px; } }
 
@@ -1347,16 +1350,44 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   border:1px solid rgba(154,209,201,.22);
   box-shadow:0 30px 70px -40px rgba(3,14,28,.9), 0 1px 0 rgba(255,255,255,.06) inset;
 }
-.ecard__faces{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(154,209,201,.18); }
-.ecard__face{ position:relative; background:var(--ink-abyss); }
-/* height:auto is required - the global img rule sets no height, so the
-   HTML height attribute would otherwise win over aspect-ratio and render
-   these at their full 1200px */
-.ecard__face img{ width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 16%; display:block; }
-.ecard__plate{ padding:12px 14px 14px; background:linear-gradient(180deg, rgba(10,37,63,.2), rgba(10,37,63,.75)); }
-.ecard__plate b{ display:block; font-family:var(--font-display); font-weight:700;
+/* One shared scene rather than two photo tiles: both subjects were cut off
+   their studio backdrops so they stand together on the skyline, which is what
+   the concept does. Cutouts are trimmed to their own bounding box, so their
+   widths here are just their natural ratios at a common height. */
+.ecard__scene{
+  position:relative; overflow:hidden; aspect-ratio:1/.78;
+  background:linear-gradient(180deg,#123E63,#0A2540);
+}
+/* the skyline sits in the bottom third of this artwork, which is exactly where
+   the figures stand - so it is scaled up and pushed down until the building
+   tops land behind their shoulders rather than behind their knees */
+.ecard__sky{
+  position:absolute; left:50%; bottom:-7%; transform:translateX(-50%);
+  width:172%; height:auto; max-width:none; opacity:.8;
+  /* shallow depth of field: the backdrop should read as place, not as detail
+     competing with two faces in front of it */
+  filter:blur(2.2px) saturate(.88);
+}
+/* sky above, ground below: lifts the figures off the backdrop and hands the
+   card body a soft edge to start from */
+.ecard__scene::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(8,30,52,.34) 0%, rgba(8,30,52,.04) 30%, rgba(10,37,63,.86) 100%);
+}
+.ecard__cut{
+  position:absolute; bottom:0; z-index:2; height:90%; width:auto; max-width:none;
+  filter:drop-shadow(0 14px 24px rgba(4,16,30,.55));
+}
+.ecard__cut--a{ left:-3%; }
+.ecard__cut--b{ right:-4%; }
+
+.ecard__names{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.2vw,16px);
+  padding:13px clamp(16px,1.7vw,20px) 0;
+}
+.ecard__names b{ display:block; font-family:var(--font-display); font-weight:700;
   font-size:14px; letter-spacing:.02em; color:#fff; line-height:1.2; }
-.ecard__plate span{ display:block; margin-top:4px; font-family:var(--font-display); font-weight:600;
+.ecard__names span{ display:block; margin-top:4px; font-family:var(--font-display); font-weight:600;
   font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--gold); line-height:1.45; }
 
 .ecard__body{ padding:clamp(18px,1.9vw,24px); }
@@ -1427,7 +1458,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 /* the page gives its decorative 9-11px labels a floor on phones; these join it */
 @media (max-width:600px){
-  .ecard__plate span{ font-size:11px; letter-spacing:.09em; }
+  .ecard__names span{ font-size:11px; letter-spacing:.09em; }
   .ecard__cdlabel{ font-size:11px; }
   .ecard__unit em{ font-size:11px; letter-spacing:.1em; }
 }
@@ -1537,15 +1568,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
       <!-- ---------- event card ---------- -->
       <aside class="ecard">
-        <div class="ecard__faces">
-          <figure class="ecard__face">
-            <img src="Brand%20Assets/rebecca-keynote.jpg" alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1200" />
-            <figcaption class="ecard__plate"><b>Rebecca Walser</b><span>Founder, CEO &amp; CIO<br>Walser Wealth Management</span></figcaption>
-          </figure>
-          <figure class="ecard__face">
-            <img src="Brand%20Assets/charles-payne-keynote.jpg" alt="Charles Payne, host of Making Money with Charles Payne on Fox Business" width="900" height="1200" />
-            <figcaption class="ecard__plate"><b>Charles Payne</b><span>Host, Making Money<br>Fox Business</span></figcaption>
-          </figure>
+        <div class="ecard__scene">
+          <img class="ecard__sky" src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" aria-hidden="true" />
+          <img class="ecard__cut ecard__cut--a" src="Brand%20Assets/cutout-rebecca.webp"
+               alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1136" />
+          <img class="ecard__cut ecard__cut--b" src="Brand%20Assets/cutout-charles.webp"
+               alt="Charles Payne, host of Making Money with Charles Payne on Fox Business" width="798" height="1128" />
+        </div>
+        <div class="ecard__names">
+          <p><b>Rebecca Walser</b><span>Founder, CEO &amp; CIO<br>Walser Wealth Management</span></p>
+          <p><b>Charles Payne</b><span>Host, Making Money<br>Fox Business</span></p>
         </div>
 
         <div class="ecard__body">
