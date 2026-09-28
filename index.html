@@ -1418,6 +1418,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
    image, over a fade that also covers where the figures are cropped. */
 .ecard__scene{
   position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1.5/1;
+  /* iOS Safari will not clip drop-shadowed children to a rounded corner with
+     overflow:hidden alone - it left a dark notch at the bottom-left corner */
+  clip-path:inset(0 round 12px);
   background:linear-gradient(180deg,#0E2A4A,#123E63);
 }
 .ecard__sky{
@@ -1529,6 +1532,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   /* at phone width the names wrap to three lines and climb into the faces -
      a deeper scene keeps the faces above the name band */
   .ecard__scene{ aspect-ratio:1.12/1; }
+  /* the phone scene is taller (1.12:1), so the skyline needs more width to
+     reach the top - at 152% it stopped 24-44px short and left a flat band */
+  .ecard__sky{ width:220%; }
   /* same face-matched ratio as desktop (147:171), just smaller */
   .ecard__cut--a{ left:-11%; top:10%; height:122%; }
   .ecard__cut--b{ right:-10%; top:4%; height:142%; }
