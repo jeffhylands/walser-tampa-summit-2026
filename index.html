@@ -1536,8 +1536,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
      reach the top - at 152% it stopped 24-44px short and left a flat band */
   .ecard__sky{ width:220%; }
   /* same face-matched ratio as desktop (147:171), just smaller */
-  .ecard__cut--a{ left:-11%; top:10%; height:122%; }
-  .ecard__cut--b{ right:-10%; top:4%; height:142%; }
+  /* faces at roughly 30% and 72% across, so Rebecca's hair clears Charles
+     instead of covering his shoulder; heights keep the 147:171 face ratio */
+  .ecard__cut--a{ left:-20%; top:10%; height:112%; }
+  .ecard__cut--b{ right:-10%; top:4%; height:131%; }
 }
 /* ====================================================================
    LOWER PAGE v2 - the sales path below the fold.
