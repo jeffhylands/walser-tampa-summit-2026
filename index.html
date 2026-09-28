@@ -1287,6 +1287,453 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     transition-duration:.001ms !important; }
   [data-reveal]{ opacity:1; transform:none; }
 }
+/* ====================================================================
+   HERO v2 - conversion-led rebuild, tuned to the approved concept.
+   The headline carries the page, the lockup supports it, and the offer,
+   proof and a button all land in the first screen. Existing tokens and
+   type throughout; the warm accent is the brand orange ramp.
+   ==================================================================== */
+
+/* ---- announce bar: hairlines either side, as in the concept ---- */
+.bar--v2{ display:flex; align-items:center; justify-content:center; gap:18px; }
+.bar--v2::before, .bar--v2::after{
+  content:""; width:clamp(22px,4.6vw,66px); height:1px; background:rgba(255,255,255,.6);
+}
+
+/* ---- nav ---- */
+.nav__links{ display:flex; align-items:center; gap:clamp(22px,3.1vw,48px); }
+.nav__links a{
+  font-family:var(--font-display); font-weight:500; font-size:14.5px;
+  color:#fff; opacity:.88; white-space:nowrap; transition:opacity .25s var(--ease);
+}
+.nav__links a:hover{ opacity:1; }
+@media (max-width:1060px){ .nav__links{ display:none; } }
+
+/* ---- ground: a deeper, bluer night than the rest of the page, warming
+   to a sunset glow behind the card. The darker sky is what lets the
+   headline accent run vivid orange and still clear contrast. ---- */
+.nhero{ position:relative; overflow:hidden; isolation:isolate;
+  padding-block:clamp(20px,2.3vw,36px) clamp(34px,3.6vw,52px); }
+.nhero .hero__wash{
+  background:
+    radial-gradient(58% 55% at 86% 90%, rgba(247,128,44,.42) 0%, rgba(247,128,44,.14) 42%, transparent 70%),
+    linear-gradient(180deg, #081A33 0%, #0B2442 46%, #10304F 100%);
+}
+.nhero .hero__photo img{ opacity:1; }
+.nhero .hero__photo::after{
+  background:
+    linear-gradient(90deg, rgba(6,18,38,.84) 0%, rgba(6,18,38,.58) 36%, rgba(6,18,38,.14) 66%, rgba(6,18,38,0) 100%),
+    linear-gradient(180deg, rgba(8,22,46,.92) 0%, rgba(8,22,46,.64) 36%, rgba(8,22,46,.16) 72%, rgba(8,22,46,.42) 100%);
+}
+/* sunset light spilling over the skyline on the right */
+.nhero::before{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(44% 52% at 94% 94%, rgba(255,142,52,.3), transparent 70%);
+  mix-blend-mode:screen;
+}
+.nhero__in{ position:relative; z-index:2; }
+.nhero__grid{
+  display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+  gap:clamp(26px,3.6vw,56px);
+  /* start, not center: centring the copy against the taller card pushed
+     the button back under the fold on shorter laptops */
+  align-items:start;
+}
+@media (max-width:1000px){ .nhero__grid{ grid-template-columns:1fr; gap:34px; } }
+
+/* ---- left column ---- */
+.nhero__pill{
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:20px;
+  font-family:var(--font-display); font-weight:600;
+  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#fff;
+  border:1px solid rgba(255,255,255,.26); border-radius:100px; padding:7px 16px;
+  background:rgba(6,18,38,.5); backdrop-filter:blur(6px);
+}
+.nhero__pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--red);
+  box-shadow:0 0 0 0 rgba(240,82,56,.6); animation:pulse 2.2s infinite; }
+
+.nhero__h1{
+  font-family:var(--font-display); font-weight:800; color:#fff;
+  font-size:clamp(2.1rem,3.72vw,3.28rem); line-height:1.03; letter-spacing:-.03em;
+  margin-bottom:16px; text-wrap:balance;
+}
+/* color is the darkest stop of the ramp: it is the fallback where
+   background-clip:text is unsupported, and it is what the contrast
+   measurement checks - the worst pixel actually painted */
+.nhero__h1 em{
+  font-style:normal; color:#F2742A;
+  background:linear-gradient(95deg,#FFC44F 0%,#F9A235 46%,#F2742A 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .nhero__h1 em{ -webkit-text-fill-color:currentColor; }
+}
+.nhero__sub{ color:#E6EDF2; font-size:clamp(1.02rem,1.3vw,1.16rem); line-height:1.52; max-width:50ch; }
+
+.nhero__facts{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-top:22px; }
+.nhero__fact{ display:flex; align-items:center; gap:12px; }
+.nhero__fact svg{ width:27px; height:27px; flex:none; stroke:#F7962B; fill:none; stroke-width:1.7; }
+.nhero__fact b{ display:block; font-family:var(--font-display); font-weight:700;
+  /* title case, matching the venue beside it: the spaced capitals left this
+     row fitting with about 2px to spare, and it wrapped at wider screens */
+  font-size:15.5px; letter-spacing:0; color:#fff; line-height:1.3; }
+.nhero__fact--plain b{ font-weight:600; font-size:15.5px; }
+.nhero__fact span span{ display:block; margin-top:2px; font-size:14.5px; color:#CBD8E0; line-height:1.35; }
+.nhero__vr{ width:1px; height:40px; background:rgba(255,255,255,.28); }
+/* the two-column layout at its narrowest wraps the facts onto two lines;
+   a divider with nothing beside it just looks broken */
+@media (min-width:1001px) and (max-width:1140px){ .nhero__vr{ display:none; } }
+
+.nhero__act{ margin-top:20px; }
+.nhero__act .btn{
+  width:100%; max-width:470px; padding:17px 28px; border-radius:10px;
+  font-family:var(--font-display); font-weight:700; font-size:clamp(1rem,1.25vw,1.12rem);
+}
+.nhero__act .btn svg, .ecard__cta .btn svg{ width:17px; height:17px; stroke:#fff; fill:none; stroke-width:2.6; }
+.nhero__note{ margin-top:12px; font-size:15px; color:#DCE6EC; text-wrap:balance; }
+
+/* One strip instead of three boxes: the prices stay visible, but nothing
+   under the button competes with the button. Plain text, not links - the
+   CTA directly above already goes to the tickets. */
+.nhero__tix{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 0; margin-top:10px;
+  font-family:var(--font-display); font-weight:600; font-size:16px; color:#fff; }
+.nhero__tix span + span::before{ content:""; display:inline-block; width:4px; height:4px; border-radius:50%;
+  background:rgba(255,255,255,.45); margin:0 14px; vertical-align:middle; }
+.nhero__tix b{ font-weight:800; font-size:18px; color:#F7962B; margin-left:5px; }
+
+.nhero__by{ display:flex; align-items:center; gap:16px; margin-top:20px; }
+.nhero__by span{ font-family:var(--font-display); font-weight:600; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase; color:#DCE6EC; }
+.nhero__by img{ height:clamp(34px,3.3vw,46px); width:auto; }
+
+/* ---- right column: event card ---- */
+.ecard{
+  border-radius:18px; padding:14px;
+  background:linear-gradient(180deg, #0C1D35 0%, #081527 100%);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 34px 70px -30px rgba(0,0,0,.72), inset 0 1px 0 rgba(255,255,255,.06);
+}
+/* One shared scene, inset in the card frame. Both speakers are matted off
+   their studio backdrops so they stand together; the names sit on the
+   image, over a fade that also covers where the figures are cropped. */
+.ecard__scene{
+  position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1.5/1;
+  background:linear-gradient(180deg,#0E2A4A,#123E63);
+}
+.ecard__sky{
+  position:absolute; left:50%; bottom:-6%; transform:translateX(-50%);
+  width:152%; height:auto; max-width:none; opacity:.95;
+  filter:blur(1.4px) brightness(.92);
+}
+.ecard__cut{
+  position:absolute; width:auto; max-width:none;
+  filter:drop-shadow(0 12px 22px rgba(0,0,0,.5));
+}
+/* Rebecca's frame runs wider than Charles's (her arm), so equal offsets would
+   set her face further in. These put both faces a similar distance from
+   their edges, with a slim shared gap of skyline between them. */
+/* sized by face, not by frame: Rebecca's source is framed tighter, so at
+   one shared scale her face read noticeably larger than his */
+.ecard__cut--b{ right:-9%; z-index:1; top:4%; height:171%; }
+.ecard__cut--a{ left:-8%; z-index:2; top:10%; height:147%; }
+.ecard__scene::after{
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,20,40,.18) 0%, rgba(8,20,40,0) 26%,
+    rgba(6,16,32,.12) 52%, rgba(6,16,32,.93) 100%);
+}
+.ecard__names{
+  position:absolute; left:0; right:0; bottom:0; z-index:4;
+  display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 13px;
+}
+.ecard__names b{ display:block; font-family:var(--font-display); font-weight:700;
+  font-size:16.5px; letter-spacing:.03em; text-transform:uppercase; color:#fff; line-height:1.15; }
+.ecard__names span{ display:block; margin-top:5px; font-family:var(--font-display); font-weight:600;
+  font-size:11px; letter-spacing:.035em; text-transform:uppercase; color:#CBD8E0; line-height:1.4; }
+
+.ecard__body{ padding:18px 8px 4px; }
+.ecard__list{ list-style:none; display:grid; gap:12px; }
+.ecard__list li{ display:flex; align-items:flex-start; gap:14px; }
+.ecard__list svg{ width:21px; height:21px; flex:none; margin-top:1px; stroke:#E6EDF2; fill:none; stroke-width:1.5; }
+.ecard__list b{ display:block; font-size:16px; font-weight:600; color:#fff; line-height:1.35; }
+.ecard__list span span{ display:block; font-size:14.5px; color:#B9C9D3; line-height:1.4; margin-top:1px; }
+
+.ecard__cdlabel{
+  margin:18px 0 12px; padding-top:16px; border-top:1px solid rgba(255,255,255,.14);
+  text-align:center; font-family:var(--font-display); font-weight:700;
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#E6EDF2;
+}
+.ecard__clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.ecard__unit{
+  text-align:center; border:1px solid rgba(255,255,255,.11); border-radius:10px;
+  padding:9px 4px 8px; background:rgba(4,12,26,.38);
+}
+.ecard__unit b{ display:block; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.35rem,1.9vw,1.55rem); color:#F1F5F8; line-height:1; font-variant-numeric:tabular-nums; }
+.ecard__unit em{ display:block; margin-top:6px; font-style:normal; font-family:var(--font-display);
+  font-weight:600; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#B9C9D3; }
+.ecard__cta{ margin-top:16px; }
+.ecard__cta .btn{ width:100%; padding:16px 24px; border-radius:10px;
+  font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
+
+/* ---- what you'll walk away with ---- */
+.walk{ background:#F2F5F8; padding-block:clamp(26px,3vw,40px) clamp(38px,4.2vw,58px); }
+.walk__head{ display:flex; align-items:center; justify-content:center; gap:clamp(14px,2vw,24px);
+  margin-bottom:clamp(18px,2vw,24px); }
+.walk__head::before, .walk__head::after{
+  content:""; width:clamp(34px,10vw,150px); height:2px;
+  background:linear-gradient(90deg, rgba(242,116,42,0), #F2742A);
+}
+.walk__head::after{ transform:scaleX(-1); }
+.walk__head h2{ font-family:var(--font-display); font-weight:700; color:#14364F;
+  font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.15; letter-spacing:-.015em; text-align:center; }
+.walk__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,22px); }
+@media (max-width:980px){ .walk__grid{ grid-template-columns:1fr; max-width:600px; margin:0 auto; } }
+.walk__card{
+  display:flex; align-items:flex-start; gap:clamp(16px,1.6vw,22px);
+  background:#fff; border:1px solid rgba(20,54,79,.08); border-radius:10px;
+  padding:clamp(18px,1.9vw,24px) clamp(18px,1.9vw,26px);
+  box-shadow:0 8px 24px -18px rgba(20,54,79,.4);
+  transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+@media (hover:hover){ .walk__card:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -22px rgba(20,54,79,.45); } }
+.walk__ico{ flex:none; }
+.walk__ico svg{ width:44px; height:44px; stroke:#F2742A; fill:none; stroke-width:1.8; }
+.walk__card h3{ font-family:var(--font-display); font-weight:700; color:#14364F;
+  font-size:1.07rem; line-height:1.25; letter-spacing:-.005em; margin-bottom:8px; }
+.walk__card p{ color:#51677A; font-size:14.5px; line-height:1.5; }
+
+/* Short laptop screens - 1366x768 and the like - are where the button was
+   landing under the fold. Tighten the rhythm there rather than give up the
+   offer or the button. Keyed on height, so tall desktops keep full spacing. */
+@media (min-width:1001px) and (max-height:720px){
+  .nhero{ padding-block:10px 28px; }
+  .nhero__h1{ font-size:clamp(1.9rem,3.1vw,2.7rem); margin-bottom:12px; }
+  .nhero__sub{ font-size:1rem; }
+  .nhero__facts{ margin-top:12px; }
+  .nhero__act{ margin-top:14px; }
+}
+
+/* the page gives its decorative 9-11px labels a floor on phones; these join it */
+@media (max-width:600px){
+  .ecard__names span{ font-size:11px; letter-spacing:.08em; }
+  .ecard__unit em{ font-size:11px; letter-spacing:.1em; }
+}
+@media (max-width:560px){
+  .nhero__act .btn{ max-width:none; }
+  .nhero__vr{ display:none; }
+  .ecard{ padding:10px; }
+  .ecard__clock{ gap:6px; }
+  .ecard__unit{ padding:9px 2px 8px; }
+  .ecard__names{ padding:0 12px 11px; gap:8px; }
+  .ecard__names b{ font-size:13.5px; }
+  /* at phone width the names wrap to three lines and climb into the faces -
+     a deeper scene keeps the faces above the name band */
+  .ecard__scene{ aspect-ratio:1.12/1; }
+  /* same face-matched ratio as desktop (147:171), just smaller */
+  .ecard__cut--a{ left:-11%; top:10%; height:122%; }
+  .ecard__cut--b{ right:-10%; top:4%; height:142%; }
+}
+/* ====================================================================
+   LOWER PAGE v2 - the sales path below the fold.
+   Learn -> what every ticket includes + VIP -> couple callout -> mid CTA
+   -> why attend live -> tickets -> objection FAQ -> final CTA.
+   Existing tokens throughout. Body copy stays at 15.5px or larger: the
+   audience is 50+, and nothing here is decoration.
+   ==================================================================== */
+.sec-head{ text-align:center; max-width:62ch; margin:0 auto clamp(28px,3.2vw,40px); }
+.sec-head .eyebrow{ margin-bottom:12px; }
+.sec-head h2{ font-family:var(--font-display); font-weight:700; color:var(--ink-text);
+  font-size:clamp(1.6rem,2.7vw,2.25rem); line-height:1.12; letter-spacing:-.02em; text-wrap:balance; }
+/* mint eyebrows are for dark grounds; on cream and grey they drop below AA */
+.lrn .eyebrow, .why .eyebrow{ color:var(--gold-deep); }
+.sec-head p{ margin-top:12px; color:var(--ink-muted); font-size:clamp(1rem,1.2vw,1.1rem); line-height:1.6; }
+
+/* ---------- learn + what every ticket includes ---------- */
+.lrn{ background:var(--cream); padding-block:clamp(52px,6vw,84px) clamp(40px,4.6vw,64px); }
+.lrn__grid{
+  display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  grid-template-areas:"lh rh" "lb rb";
+  column-gap:clamp(34px,5vw,76px); max-width:1180px; margin:0 auto;
+}
+/* heads share a row and sit on its floor, so both lists start on one line */
+.lrn__lh{ grid-area:lh; align-self:end; }
+.lrn__rh{ grid-area:rh; align-self:end; }
+.lrn__lb{ grid-area:lb; }
+.lrn__rb{ grid-area:rb; }
+.lrn h2{ font-family:var(--font-display); font-weight:700; color:var(--ink-text);
+  font-size:clamp(1.55rem,2.5vw,2.1rem); line-height:1.14; letter-spacing:-.02em; text-wrap:balance; }
+.lrn__lede{ margin:10px 0 clamp(20px,2.2vw,26px); color:var(--ink-muted); font-size:1.02rem; line-height:1.6; max-width:48ch; }
+
+/* align-content:start - left alone, the grid stretches its rows to the
+   height of the taller right column and strands each item in white space */
+.lrn__list{ list-style:none; display:grid; gap:clamp(18px,1.9vw,23px); align-content:start; }
+.lrn__list li{ display:flex; align-items:flex-start; gap:14px; }
+.lrn__ck{ flex:none; width:26px; height:26px; margin-top:1px; border-radius:50%;
+  background:rgba(3,113,130,.1); display:grid; place-items:center; }
+.lrn__ck svg{ width:14px; height:14px; stroke:var(--teal); fill:none; stroke-width:2.6; }
+.lrn__list b{ display:block; font-family:var(--font-display); font-weight:700; color:var(--ink-text);
+  font-size:1.06rem; line-height:1.3; letter-spacing:-.005em; }
+.lrn__list p{ margin-top:4px; color:var(--ink-muted); font-size:15.5px; line-height:1.55; }
+
+.val{ list-style:none; display:grid; gap:10px; }
+.val li{
+  display:flex; align-items:center; gap:15px;
+  background:#fff; border:1px solid rgba(20,54,79,.09); border-radius:12px;
+  padding:15px 18px; box-shadow:0 8px 22px -18px rgba(20,54,79,.4);
+}
+.val__ico{ flex:none; width:42px; height:42px; border-radius:11px; display:grid; place-items:center;
+  background:rgba(242,116,42,.1); }
+.val__ico svg{ width:21px; height:21px; stroke:#D8601F; fill:none; stroke-width:1.8; }
+.val b{ display:block; font-family:var(--font-display); font-weight:700; color:var(--ink-text); font-size:1.04rem; line-height:1.3; }
+.val span span{ display:block; margin-top:2px; color:var(--ink-muted); font-size:15px; line-height:1.45; }
+
+/* VIP - attached to the value stack, darker so it reads as a step up */
+.vipc{
+  position:relative; overflow:hidden; margin-top:14px; border-radius:16px;
+  padding:clamp(20px,2.2vw,26px);
+  background:linear-gradient(160deg,#154A6E 0%,#0F3656 55%,#0A2845 100%);
+  border:1px solid rgba(154,209,201,.26);
+  box-shadow:0 22px 44px -28px rgba(8,30,52,.8);
+}
+.vipc::after{ content:""; position:absolute; right:-70px; top:-70px; width:210px; height:210px; border-radius:50%;
+  background:radial-gradient(circle, rgba(247,150,43,.2), transparent 70%); pointer-events:none; }
+.vipc__eb{ display:flex; align-items:center; gap:8px;
+  font-family:var(--font-display); font-weight:700; font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:#F9B36B; }
+.vipc__eb svg{ width:16px; height:16px; fill:#F9A235; stroke:none; }
+.vipc h3{ margin-top:8px; font-family:var(--font-display); font-weight:700; color:#fff;
+  font-size:clamp(1.35rem,2vw,1.6rem); letter-spacing:-.015em; }
+.vipc__lede{ margin-top:6px; color:#C6DBE0; font-size:15.5px; line-height:1.55; }
+.vipc ul{ list-style:none; display:grid; gap:9px; margin-top:16px; }
+.vipc li{ display:flex; align-items:flex-start; gap:11px; color:#F4F1E9; font-size:15.5px; line-height:1.45; }
+.vipc li svg{ flex:none; width:16px; height:16px; margin-top:3px; fill:var(--mint); stroke:none; }
+/* underline via text-decoration rather than a border, so the hit area can
+   grow to 44px tall without pushing the rule away from the words */
+.vipc__cta{ display:inline-flex; align-items:center; gap:8px; margin-top:8px; min-height:44px;
+  font-family:var(--font-display); font-weight:700; font-size:15.5px; color:#fff;
+  text-decoration:underline; text-decoration-color:rgba(249,162,53,.7);
+  text-decoration-thickness:1px; text-underline-offset:6px;
+  transition:gap .25s var(--ease), text-decoration-color .25s var(--ease); }
+.vipc__cta:hover{ gap:12px; text-decoration-color:#F9A235; }
+.vipc__cta svg{ width:15px; height:15px; stroke:#F9A235; fill:none; stroke-width:2.4; }
+
+/* couple callout - helpful, not a pop-up */
+.cpl{
+  display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
+  max-width:1180px; margin:clamp(32px,3.6vw,44px) auto 0;
+  padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px);
+  background:#EDF3F7; border:1px solid rgba(3,113,130,.22); border-radius:14px;
+}
+.cpl__l{ display:flex; align-items:center; gap:16px; }
+.cpl__ico{ flex:none; width:48px; height:48px; border-radius:50%; background:#fff; display:grid; place-items:center;
+  border:1px solid rgba(3,113,130,.2); }
+.cpl__ico svg{ width:24px; height:24px; fill:var(--teal); stroke:none; }
+.cpl b{ display:block; font-family:var(--font-display); font-weight:700; color:var(--ink-text); font-size:1.12rem; }
+.cpl__l span span{ display:block; margin-top:2px; color:var(--ink-muted); font-size:15.5px; }
+.cpl__r{ display:flex; align-items:center; gap:18px 22px; flex-wrap:wrap; }
+.cpl__px{ font-family:var(--font-display); font-weight:600; color:var(--ink-muted); font-size:15px; }
+.cpl__px strong{ color:var(--ink-text); font-weight:800; }
+.cpl .btn{ --pad-y:13px; --pad-x:22px; font-size:15px; border-radius:10px; }
+.cpl .btn svg, .mcta .btn svg, .fcta .btn svg{ width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2.6; }
+
+@media (max-width:900px){
+  .lrn__grid{ grid-template-columns:1fr; grid-template-areas:"lh" "lb" "rh" "rb"; }
+  .lrn__rh{ margin-top:clamp(40px,6vw,52px); }
+}
+@media (max-width:640px){
+  .cpl, .cpl__r{ flex-direction:column; align-items:stretch; }
+  .cpl .btn{ width:100%; }
+}
+
+/* ---------- mid-page CTA: a checkpoint, not a second hero ---------- */
+.mcta{
+  position:relative; overflow:hidden; text-align:center;
+  padding-block:clamp(48px,5.4vw,72px);
+  background:radial-gradient(70% 120% at 50% 120%, rgba(247,128,44,.22), transparent 62%),
+             linear-gradient(180deg,#0B2442,#081A33);
+}
+.mcta__in{ position:relative; max-width:720px; margin:0 auto; }
+.mcta .eyebrow{ color:#F9B36B; margin-bottom:12px; }
+.mcta h2{ font-family:var(--font-display); font-weight:800; color:#fff;
+  font-size:clamp(1.75rem,3.2vw,2.6rem); line-height:1.08; letter-spacing:-.025em; }
+.mcta p.mcta__body{ margin:14px auto 0; color:#D6E2EA; font-size:clamp(1rem,1.25vw,1.12rem); line-height:1.6; max-width:58ch; }
+.mcta .btn{ margin-top:24px; font-family:var(--font-display); font-weight:700; font-size:1.06rem;
+  padding:17px 30px; border-radius:10px; }
+.cta-sub{ margin-top:12px; color:#E6EDF2; font-size:15px; }
+.cta-sure{ margin-top:6px; display:inline-flex; align-items:center; gap:7px; color:#A9C0CC; font-size:14px; }
+.cta-sure svg{ width:15px; height:15px; stroke:#9AD1C9; fill:none; stroke-width:2.2; }
+
+/* ---------- why attend live ---------- */
+.why{ background:#F2F5F8; padding-block:clamp(52px,6vw,84px); }
+.why__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.8vw,22px); max-width:1180px; margin:0 auto; }
+@media (max-width:900px){ .why__grid{ grid-template-columns:1fr; max-width:600px; } }
+.why__card{
+  background:#fff; border:1px solid rgba(20,54,79,.08); border-radius:14px;
+  padding:clamp(22px,2.3vw,28px); box-shadow:0 10px 26px -20px rgba(20,54,79,.4);
+  transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s var(--ease);
+}
+@media (hover:hover){ .why__card:hover{ transform:translateY(-2px); border-color:rgba(3,113,130,.25);
+  box-shadow:0 18px 36px -24px rgba(20,54,79,.45); } }
+.why__ico{ width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
+  background:rgba(3,113,130,.09); margin-bottom:16px; }
+.why__ico svg{ width:23px; height:23px; stroke:var(--teal); fill:none; stroke-width:1.8; }
+.why__card h3{ font-family:var(--font-display); font-weight:700; color:var(--ink-text);
+  font-size:1.14rem; line-height:1.25; margin-bottom:8px; }
+.why__card p{ color:var(--ink-muted); font-size:15.5px; line-height:1.6; }
+
+/* ---------- tickets: the one badge, and room for it ---------- */
+.tix .card{ position:relative; }
+/* a tab above the card rather than a corner flag inside it: inside, it sat
+   on the tier label, and padding the label down would have knocked this
+   card's price out of line with the other three */
+.tix .card:has(.card__flag--couple){ overflow:visible; }
+.card__flag--couple{
+  top:-13px; left:50%; right:auto; transform:translateX(-50%);
+  border-radius:100px; padding:6px 15px; white-space:nowrap; font-weight:700;
+  background:linear-gradient(180deg,#FFD3A8,#F9A962); color:#3A1A04;
+  box-shadow:0 6px 14px -8px rgba(216,96,31,.7);
+}
+
+/* ---------- FAQ intro ---------- */
+.faq__intro{ text-align:center; margin:12px auto 0; max-width:56ch; color:var(--ink-muted);
+  font-size:clamp(1rem,1.2vw,1.1rem); line-height:1.6; }
+
+/* ---------- final CTA: the close, on the skyline ---------- */
+.fcta{ position:relative; overflow:hidden; isolation:isolate; text-align:center;
+  padding-block:clamp(60px,7vw,100px) clamp(66px,7.6vw,110px);
+  background:linear-gradient(180deg,#081A33,#0B2442); }
+/* -2, below the ::before scrim at -1. At equal z-index the art, coming later
+   in the markup, painted over the scrim and the text sat on bare buildings */
+.fcta__art{ position:absolute; inset:auto 0 0 0; z-index:-2; }
+.fcta__art img{ width:100%; height:auto; max-width:none; opacity:.9; display:block; }
+/* a dark pool behind the text column, so every line reads while the skyline
+   still shows at the edges - the facts and reassurance lines were sitting
+   straight on the brightest buildings */
+.fcta::before{ content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(46% 62% at 50% 54%, rgba(6,20,40,.9) 0%, rgba(6,20,40,.72) 55%, rgba(6,20,40,0) 100%),
+    linear-gradient(180deg, #081A33 0%, rgba(8,26,51,.9) 34%, rgba(8,26,51,.5) 74%, rgba(8,26,51,.7) 100%); }
+.fcta__in{ max-width:760px; margin:0 auto; }
+.fcta .eyebrow{ color:#F9B36B; margin-bottom:14px; }
+.fcta h2{ font-family:var(--font-display); font-weight:800; color:#fff;
+  font-size:clamp(1.95rem,3.8vw,3.05rem); line-height:1.06; letter-spacing:-.028em; text-wrap:balance; }
+.fcta__body{ margin:16px auto 0; color:#D6E2EA; font-size:clamp(1.02rem,1.3vw,1.14rem); line-height:1.6; max-width:58ch; }
+.fcta__facts{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 26px; margin-top:24px; }
+.fcta__facts span{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-size:15.5px; font-weight:600; }
+.fcta__facts svg{ width:19px; height:19px; stroke:#F7962B; fill:none; stroke-width:1.8; }
+.fcta .btn{ margin-top:28px; font-family:var(--font-display); font-weight:700; font-size:1.1rem;
+  padding:18px 34px; border-radius:10px; }
+
+@media (max-width:560px){
+  .mcta .btn, .fcta .btn{ width:100%; padding-inline:18px; }
+  .fcta__facts{ flex-direction:column; align-items:center; gap:10px; }
+}
+
+/* ---------- mobile dock: price + one button ---------- */
+.dock__meta b{ font-family:var(--font-display); font-weight:700; font-size:16px; letter-spacing:.01em;
+  text-transform:none; color:#fff; }
+.dock__meta{ letter-spacing:.1em; }
+
 </style>
 </head>
 
@@ -1296,7 +1743,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 
 <!-- ============================ ANNOUNCE BAR ============================ -->
-<div class="bar">Space is limited</div>
+<div class="bar bar--v2">Limited seating available</div>
 
 <!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
@@ -1313,107 +1760,123 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
            (18.6:1). -->
       <img class="nav__logo" src="Brand%20Assets/Orange%20Horz%20logo.webp" alt="Tampa Retirement Live" width="2048" height="464" />
     </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#guest">Speakers</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#venue">Venue</a>
+      <a href="#faq">FAQs</a>
+    </nav>
     <div class="nav__right">
-      <p class="nav__meta"><b>Sat, October 17, 2026</b><br>Sheraton Tampa Brandon Hotel</p>
-      <a class="btn" href="#tickets">Reserve your seat</a>
+      <a class="btn" href="#tickets">Reserve Your Seat</a>
     </div>
   </div>
 </header>
 
-<!-- ============================ HERO ============================ -->
-<section class="hero">
+<!-- ============================ HERO ============================
+     v2: the headline leads, the lockup supports. Every question a paid
+     visitor arrives with - what, why, who, when, where, how much, what
+     next - is answered inside the first screen.
+     ============================================================ -->
+<section class="hero nhero">
   <div class="hero__wash" aria-hidden="true"></div>
-  <!-- If this file is ever missing, the navy wash above carries the hero alone. -->
   <div class="hero__photo" aria-hidden="true">
     <img src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" />
   </div>
 
-  <div class="wrap hero__in">
-    <div class="hero__grid2">
+  <div class="wrap nhero__in">
+    <div class="nhero__grid">
 
-      <!-- ---------- left: wordmark + promise ---------- -->
-      <div class="hero__left">
-        <span class="hero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
+      <!-- ---------- offer ---------- -->
+      <div class="nhero__left">
+        <span class="nhero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
 
-        <h1 class="lock">
-          <img class="lock__img" src="Brand%20Assets/White%20Orange%20SVG%20Logo.webp"
-               alt="Tampa Retirement Live 2026" width="2048" height="1957" />
-        </h1>
+        <h1 class="nhero__h1">Get Clear on the Investment and Retirement Decisions That Could Shape <em>Your Next 20+ Years.</em></h1>
 
-        <p class="hero__tag">
-          <img src="Brand%20Assets/Own%20what%27s%20next%20main.webp"
-               alt="Own what's next." width="2048" height="166" />
-        </p>
+        <p class="nhero__sub">Join Tampa Bay investors, pre-retirees and retirees for one focused day of
+          investment and retirement education with Rebecca Walser and special guest Charles Payne.</p>
 
-        <p class="lock__launched">
-          <img src="Brand%20Assets/Launched%20By%20White%20Logo.webp"
-               alt="Launched by Walser Wealth Management" width="2048" height="763" />
-        </p>
+        <div class="nhero__facts">
+          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b>Saturday, October 17, 2026</b><span>Doors open 8:00 AM</span></span></span>
+          <span class="nhero__vr" aria-hidden="true"></span>
+          <span class="nhero__fact nhero__fact--plain"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>Tampa, FL</span></span></span>
+        </div>
 
-        <p class="hero__sub">
-          <b>Tampa Bay Investors, Pre-Retirees, and Retirees:</b> One full day to stop
-          settling for the retirement you were handed, design the one you actually
-          want, and prepare for what's to come.
-        </p>
-        <p class="hero__when">
-          <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Saturday, October 17, 2026</span>
-          <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Sheraton Tampa Brandon Hotel</span>
-          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 8:00 AM &ndash; 4:00 PM</span>
-        </p>
-
-        <div class="hero__act">
-          <a class="btn btn--lg" href="#tickets">Reserve Your Seat</a>
-          <p class="hero__host">
-            <b>Rebecca Walser</b>
-            <span>Founder, CEO &amp; Chief Investment Officer, Walser Wealth</span>
+        <div class="nhero__act">
+          <a class="btn btn--lg" href="#tickets">Reserve My Seat &middot; Tickets&nbsp;From&nbsp;&#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+          <p class="nhero__tix">
+            <span>Single<b>&#36;47</b></span><span>Couple<b>&#36;67</b></span><span>VIP from<b>&#36;97</b></span>
           </p>
+          <p class="nhero__note">Single, Couple &amp; VIP tickets available &middot; Limited seating</p>
         </div>
+
+        <p class="nhero__by">
+          <span>Launched by</span>
+          <img src="Brand%20Assets/wasler-logo-white.png" alt="Walser Wealth Management" width="672" height="168" loading="lazy" />
+        </p>
       </div>
 
-      <!-- ---------- right: video, countdown, schedule ---------- -->
-      <div class="deck" data-reveal>
-
-        <!-- News reel. Poster frame was pulled from the 32s mark of the reel itself.
-             Desktop autoplays it muted; mobile holds on the poster until tapped, so
-             a 46 MB file never lands on someone's cellular plan uninvited. -->
-        <div class="deck__video" id="heroVideo">
-          <video id="heroVideoEl" poster="Brand%20Assets/news-reel-poster.jpg"
-                 muted playsinline preload="none" width="1920" height="1080">
-            <source src="Brand%20Assets/UPDATED_News-Reel_V3.mp4" type="video/mp4" />
-          </video>
-          <button class="deck__sound" id="heroSound" type="button" hidden>
-            <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg> Enable sound
-          </button>
-          <span class="deck__dur" id="heroDur" hidden></span>
-          <span class="deck__spin" aria-hidden="true"></span>
-          <button class="deck__play" id="heroPlay" type="button"
-                  aria-label="Play the Walser Wealth news reel">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
+      <!-- ---------- event card ---------- -->
+      <aside class="ecard">
+        <div class="ecard__scene">
+          <img class="ecard__sky" src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" aria-hidden="true" />
+          <img class="ecard__cut ecard__cut--a" src="Brand%20Assets/cutout-rebecca.webp"
+               alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1136" />
+          <img class="ecard__cut ecard__cut--b" src="Brand%20Assets/cutout-charles.webp"
+               alt="Charles Payne, host of Making Money with Charles Payne on Fox Business" width="798" height="1128" />
+          <div class="ecard__names">
+            <p><b>Rebecca Walser</b><span>Founder, CEO &amp; CIO<br>Walser Wealth Management</span></p>
+            <p><b>Charles Payne</b><span>Host, Making Money<br>Fox Business</span></p>
+          </div>
         </div>
 
-        <p class="deck__label">Doors open in</p>
-        <div class="deck__clock" role="timer" aria-live="off">
-          <span class="deck__unit"><b id="cd-d">--</b><em>Days</em></span>
-          <span class="deck__sep" aria-hidden="true">:</span>
-          <span class="deck__unit"><b id="cd-h">--</b><em>Hours</em></span>
-          <span class="deck__sep" aria-hidden="true">:</span>
-          <span class="deck__unit"><b id="cd-m">--</b><em>Minutes</em></span>
-          <span class="deck__sep" aria-hidden="true">:</span>
-          <span class="deck__unit"><b id="cd-s">--</b><em>Seconds</em></span>
+        <div class="ecard__body">
+          <ul class="ecard__list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b>Saturday, October 17, 2026</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>10221 Princess Palm Ave, Tampa, FL</span></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Doors Open: 8:00 AM</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span><b>Program: 9:00 AM &ndash; 4:00 PM</b></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.6 1.4-2.4 3-2.4 5.2 0 1.6.8 2.6 2.4 2.8V21"/></svg><span><b>Lunch: 12:30 &ndash; 1:30 PM (included)</b></span></li>
+          </ul>
+
+          <p class="ecard__cdlabel">Event begins in</p>
+          <div class="ecard__clock" role="timer" aria-live="off">
+            <span class="ecard__unit"><b id="cd-d">--</b><em>Days</em></span>
+            <span class="ecard__unit"><b id="cd-h">--</b><em>Hours</em></span>
+            <span class="ecard__unit"><b id="cd-m">--</b><em>Minutes</em></span>
+            <span class="ecard__unit"><b id="cd-s">--</b><em>Seconds</em></span>
+          </div>
+
+          <div class="ecard__cta">
+            <a class="btn btn--lg" href="#tickets">Choose Tickets <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+          </div>
         </div>
+      </aside>
 
-        <div class="deck__rule" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
 
-        <div class="deck__facts">
-          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Registration: 8:00 AM</div>
-          <div><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 9h4"/></svg> Lunch: 12:30–1:30 PM</div>
-          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Ends: 4:00 PM</div>
-          <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Program Starts: 9:00 AM</div>
-        </div>
-
-      </div>
-
+<!-- ============================ WHAT YOU'LL WALK AWAY WITH ============================ -->
+<section class="walk">
+  <div class="wrap">
+    <div class="walk__head" data-reveal><h2>What You'll Walk Away With</h2></div>
+    <div class="walk__grid" data-reveal>
+      <article class="walk__card">
+        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6 20.5v-5M10 20.5v-8M14 20.5v-6M18 20.5v-11"/><path d="M5 11.5 10.5 7l3 2.5L19.5 4"/><path d="M15.5 4h4v4"/></svg></span>
+        <div><h3>Understand Your Retirement Tax Exposure</h3>
+        <p>Learn how today's tax decisions could impact your income, healthcare and legacy.</p></div>
+      </article>
+      <article class="walk__card">
+        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6.5V12c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6.5Z"/><path d="M8.8 12.3 11.1 14.6 15.4 9.8"/></svg></span>
+        <div><h3>Learn How to Protect Your Income and Assets</h3>
+        <p>Discover strategies to help reduce risk and keep more of what you've built.</p></div>
+      </article>
+      <article class="walk__card">
+        <span class="walk__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 18h5M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5.9 1.1 1 1.7h5.2c.1-.6.4-1.2 1-1.7A6 6 0 0 0 12 3Z"/></svg></span>
+        <div><h3>Know the Right Questions to Ask Before You Decide</h3>
+        <p>Get expert insights on the key questions that matter most, and what to consider.</p></div>
+      </article>
     </div>
   </div>
 </section>
@@ -1669,6 +2132,122 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   </div>
 </section>
 
+<!-- ============================ WHO IT IS FOR ============================ -->
+<section class="sec built" id="about">
+  <div class="wrap built__in">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--center">Who's in charge?</span>
+      <h2 class="display h2">Who this day is built for</h2>
+    </div>
+    <ul class="built__list" data-reveal>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and older who want to prepare for what's ahead</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees who are one to ten years from their last day of work</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees questioning whether their current strategy is built for today's rapidly changing world</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Investors who want to better understand AI, the markets, the Fed, and the economy</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone who wants a second opinion on how their wealth is positioned</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Individuals and couples who want every part of their retirement strategy working together</li>
+    </ul>
+    <div class="built__foot" data-reveal>
+      <p class="built__pull">This isn't about chasing the next big thing. It's about making informed decisions today that can shape what you keep, how you live, and what you leave behind.</p>
+      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LEARN + WHAT EVERY TICKET INCLUDES ============================ -->
+<section class="lrn" id="learn">
+  <div class="wrap">
+    <div class="lrn__grid">
+      <div class="lrn__lh" data-reveal>
+        <span class="eyebrow">The day</span>
+        <h2>What You'll Learn</h2>
+        <p class="lrn__lede">A full day focused on the financial decisions that can shape your retirement, income and legacy.</p>
+      </div>
+      <ul class="lrn__list lrn__lb" data-reveal>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>Separate AI hype from long-term opportunity</b><p>Understand which developments may have lasting investment implications and which may simply be noise.</p></div></li>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>Understand where your retirement dollars should live</b><p>Explore which dollars may need to remain accessible, which may need protection and which may be positioned for growth.</p></div></li>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>See what taxes could take from your 401(k) or IRA</b><p>Understand why tax-deferred retirement money may create future tax exposure and what questions to consider now.</p></div></li>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>Create retirement income without exposing everything to market volatility</b><p>Explore approaches to producing reliable income while thinking carefully about market risk.</p></div></li>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>Understand the capital behind the AI boom</b><p>See why the enormous investment required to build the AI economy could affect interest rates, markets and portfolios.</p></div></li>
+        <li><span class="lrn__ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg></span><div><b>Plan for healthcare and long-term care costs</b><p>Understand what these expenses may look like and how they can affect retirement income and legacy planning.</p></div></li>
+      </ul>
+
+      <div class="lrn__rh" data-reveal>
+        <span class="eyebrow">Your ticket</span>
+        <h2>Your Ticket Includes the Full Tampa Retirement Live Experience</h2>
+        <p class="lrn__lede">Everything you need for a focused day of retirement education in Tampa.</p>
+      </div>
+      <div class="lrn__rb" data-reveal>
+        <ul class="val">
+          <li><span class="val__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 14h3M8 17.5h6"/></svg></span><span><b>Full-Day Live Program</b><span>9:00 AM &ndash; 4:00 PM at the Sheraton Tampa Brandon Hotel</span></span></li>
+          <li><span class="val__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.6 1.4-2.4 3-2.4 5.2 0 1.6.8 2.6 2.4 2.8V21"/></svg></span><span><b>Lunch Included</b><span>Lunch served from 12:30 &ndash; 1:30 PM</span></span></li>
+          <li><span class="val__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9.5 17V7.5h3.2a2.8 2.8 0 0 1 0 5.6H9.5"/></svg></span><span><b>Complimentary Parking</b><span>Parking is included for Tampa Retirement Live attendees</span></span></li>
+        </ul>
+
+        <aside class="vipc" aria-labelledby="vip-h">
+          <p class="vipc__eb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18l1-10-5.5 4L12 5l-4.5 7L2 8Z"/><rect x="3" y="19.2" width="18" height="2" rx="1"/></svg> VIP ticket experience</p>
+          <h3 id="vip-h">Upgrade to VIP</h3>
+          <p class="vipc__lede">Get more access, preferred seating and a more personal experience after the main program ends.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>Priority seating in the exclusive VIP section</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>VIP experience immediately after the closing session, approximately 4:15 &ndash; 5:00 PM</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>Photo opportunity with Rebecca Walser and Charles Payne</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>A copy of Rebecca's book</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>A copy of Charles Payne's book</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>Both authors available to sign the books</span></li>
+          </ul>
+          <a class="vipc__cta" href="#tickets">View VIP Tickets <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </aside>
+      </div>
+    </div>
+
+    <div class="cpl" data-reveal>
+      <div class="cpl__l">
+        <span class="cpl__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="3.3"/><circle cx="16" cy="8" r="3.3"/><path d="M1.5 20a7 7 0 0 1 14 0Z"/><path d="M13.2 13.6A7 7 0 0 1 22.5 20H17a8.8 8.8 0 0 0-3.8-6.4Z"/></svg></span>
+        <span><b>Planning retirement together?</b><span>Bring your spouse or partner for just &#36;20 more.</span></span>
+      </div>
+      <div class="cpl__r">
+        <p class="cpl__px">Single Ticket <strong>&#36;47</strong> &middot; Couple Ticket <strong>&#36;67</strong></p>
+        <a class="btn" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple">Choose Couple Tickets <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MID-PAGE CTA ============================ -->
+<section class="mcta">
+  <div class="wrap mcta__in" data-reveal>
+    <span class="eyebrow eyebrow--center">Saturday, October 17</span>
+    <h2>Ready to Get Clearer About What Comes Next?</h2>
+    <p class="mcta__body">Spend one focused day with Rebecca Walser, Charles Payne and Tampa Bay investors,
+      pre-retirees and retirees exploring the decisions that can shape the years ahead.</p>
+    <a class="btn btn--lg" href="#tickets">Reserve My Seat &middot; Tickets&nbsp;From&nbsp;&#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="cta-sub">Single &#36;47 &middot; Couple &#36;67 &middot; VIP options available</p>
+    <p class="cta-sure"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg> Lunch and complimentary parking included</p>
+  </div>
+</section>
+
+<!-- ============================ WHY ATTEND LIVE ============================ -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow eyebrow--center">More than another online presentation</span>
+      <h2>Why Spend the Day With Us in Person?</h2>
+      <p>Retirement decisions are easier to think through when you set aside the distractions and spend focused time asking better questions.</p>
+    </div>
+    <div class="why__grid" data-reveal>
+      <article class="why__card"><span class="why__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span>
+        <h3>One Focused Day</h3>
+        <p>Step away from the noise and spend the day focused on retirement, taxes, investing, income and the questions that matter most.</p></article>
+      <article class="why__card"><span class="why__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <h3>Hear Directly From the Speakers</h3>
+        <p>Experience Rebecca Walser and Charles Payne live, rather than through another saved video, article or webinar.</p></article>
+      <article class="why__card"><span class="why__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <h3>Leave With Better Questions</h3>
+        <p>Walk away with ideas and questions you can bring back to your own retirement planning conversations.</p></article>
+    </div>
+  </div>
+</section>
 
 <!-- ============================ TICKETS ============================ -->
 <section class="sec tix" id="tickets">
@@ -1695,12 +2274,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch included</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Panel discussion with all three speakers</li>
           </ul>
-          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single">Select Single Admission</a>
+          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single">Choose Single</a>
         </div>
       </article>
 
       <!-- COUPLE ADMISSION -->
       <article class="card">
+        <span class="card__flag card__flag--couple">Best value for couples</span>
         <div class="card__top">
           <p class="card__tier">Couple Admission</p>
           <p class="card__seats">Two seats</p>
@@ -1712,7 +2292,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <ul class="card__list">
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Cost savings - the easy pick for spouses and partners</li>
           </ul>
-          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple">Select Couple Admission</a>
+          <a class="btn btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple">Choose Couple</a>
         </div>
       </article>
 
@@ -1733,13 +2313,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
-          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single-vip">Select Single VIP</a>
+          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=single-vip">Choose VIP</a>
         </div>
       </article>
 
       <!-- COUPLE VIP -->
       <article class="card card--vip">
-        <span class="card__flag">Best value</span>
         <div class="card__top">
           <p class="card__tier">Couple VIP</p>
           <p class="card__seats">Two seats</p>
@@ -1755,7 +2334,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book</li>
             <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them</li>
           </ul>
-          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple-vip">Select Couple VIP</a>
+          <a class="btn btn--gold btn--block" href="https://tamparetire.walserwealth.com/tampa/register?ticket=couple-vip">Choose Couple VIP</a>
         </div>
       </article>
 
@@ -1765,186 +2344,105 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   </div>
 </section>
 
-<!-- ============================ BUILT FOR ============================ -->
-<section class="sec built">
-  <div class="wrap built__in">
-    <div class="head" data-reveal>
-      <span class="eyebrow eyebrow--center">Who's in charge?</span>
-      <h2 class="display h2">Who this day is built for</h2>
-    </div>
-    <ul class="built__list" data-reveal>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Tampa Bay residents age 50 and older who want to prepare for what's ahead</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Pre-retirees who are one to ten years from their last day of work</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Retirees questioning whether their current strategy is built for today's rapidly changing world</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Investors who want to better understand AI, the markets, the Fed, and the economy</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Anyone who wants a second opinion on how their wealth is positioned</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Individuals and couples who want every part of their retirement strategy working together</li>
-    </ul>
-    <div class="built__foot" data-reveal>
-      <p class="built__pull">This isn't about chasing the next big thing. It's about making informed decisions today that can shape what you keep, how you live, and what you leave behind.</p>
-      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ============================ CLOSING BANNER ============================ -->
-<section class="sec banner">
-  <div class="banner__bg" aria-hidden="true">
-    <img src="Brand%20Assets/Tampa%20Retirement%20Live%20Background%203.webp" alt="" width="2048" height="1203" loading="lazy" />
-  </div>
-  <div class="wrap banner__in" data-reveal>
-    <p class="banner__year">Oct 17 &middot; 2026 &middot; Tampa</p>
-    <p class="banner__word display foil">Bold Moves</p>
-    <p class="banner__meta">
-      <span>Saturday, October 17, 2026</span>
-      <span>Sheraton Tampa Brandon Hotel</span>
-      <span>Full day &middot; 8:00 AM to 4:00 PM</span>
-    </p>
-    <p class="banner__price">Tickets from $47</p>
-    <a class="btn btn--lg" href="#tickets">Reserve your seat</a>
-    <span class="cta-note">Launched by Walser Wealth Management</span>
-  </div>
-</section>
-
-<!-- ============================ PERKS ============================ -->
-<section class="sec perks" id="perks">
+<!-- ============================ FAQ ============================
+     Ordered around purchase objections: who it is for, whether it is a
+     sales pitch, value, couples, what is included, then logistics.
+     The refund/transfer, dress code, accessibility and virtual answers are
+     the approved ones and are unchanged.
+     ============================================================ -->
+<section class="sec faq" id="faq">
   <div class="wrap">
-    <p class="perks__tag"><span class="eyebrow eyebrow--center">Bold looks good on you</span></p>
-    <div class="perks__grid" data-reveal>
-      <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Doors 8:00 AM, closing remarks end 4:00 PM</div>
-      <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4Z"/></svg> Taught by a tax attorney, not a salesperson</div>
-      <div class="perk"><svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M10 8h4M10 12h4"/></svg> Lunch included for every attendee</div>
-      <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Just off the highway, easy in and easy out</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ INCLUDES ============================ -->
-<section class="sec incl">
-  <div class="wrap incl__grid">
-    <div data-reveal>
-      <h3>You'll learn</h3>
-      <ul class="incl__list">
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to separate the AI hype from the long-term opportunities that could shape the next generation of investing.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Which dollars should remain accessible, which should be protected, and which can be positioned for growth.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why every dollar in a 401(k) or IRA is a dollar you share with the IRS, and what you may be able to do about it.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> How to create reliable retirement income without leaving your entire future exposed to market volatility.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Why the enormous capital required to fund the AI revolution could affect interest rates, markets, and your portfolio.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> What healthcare and long-term care may actually cost, and how those expenses can affect the legacy you leave.</li>
-      </ul>
-    </div>
-
-    <div data-reveal>
-      <h3>Every ticket includes</h3>
-      <ul class="incl__list">
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Full-day program at the Sheraton Tampa Brandon Hotel, 9:00 AM to 4:00 PM.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Lunch, 12:30 to 1:30 PM.</li>
-        <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Complimentary parking.</li>
-      </ul>
-
-      <div class="incl__vip">
-        <h4>VIP tickets also include</h4>
-        <ul class="incl__list">
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Priority seating in the exclusive VIP section.</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A VIP experience straight after the closing session, 4:15 to 5:00 PM.</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Photo with Rebecca Walser and Charles Payne.</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> A copy of Rebecca's book and Charles's book.</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Both authors on hand to sign them.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ FAQ ============================ -->
-<section class="sec faq">
-  <div class="wrap">
-    <h2 class="display h2">Frequently asked questions</h2>
+    <h2 class="display h2">Frequently Asked Questions</h2>
+    <p class="faq__intro">Everything you may want to know before reserving your seat.</p>
 
     <div class="faq__list">
       <details class="faq__item">
-        <summary class="faq__q">When and where is Tampa Retirement Live 2026?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Saturday, October 17, 2026 at the Sheraton Tampa Brandon Hotel, just off the highway. Registration opens at 8:00 AM, the program runs 9:00 AM to 4:00 PM, and lunch is 12:30 to 1:30 PM.</p>
+        <summary class="faq__q">Who is Tampa Retirement Live for?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Tampa Retirement Live is designed for investors, pre-retirees and retirees who want to better understand the financial decisions that can shape retirement income, taxes, investments, healthcare and legacy planning. It is not for anyone looking to get rich quick.</p>
       </details>
-
-      <details class="faq__item">
-        <summary class="faq__q">Who should attend?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Individuals and couples above age 50 who are serious about getting to a point where work becomes an option rather than an obligation, while minimizing taxes and protecting what they leave behind. This event is not for anyone looking to get rich quick.</p>
-      </details>
-
-      <details class="faq__item">
-        <summary class="faq__q">I already have a financial advisor. Why would I come?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">The event is built to help you ask better questions. Most attendees leave with two or three specific things to raise with the advisor they already have. A second opinion costs you one Saturday.</p>
-      </details>
-
-      <details class="faq__item">
-        <summary class="faq__q">I'm already retired. Is this still relevant?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes. Planning doesn't stop the day you retire. Distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the day is aimed squarely at people already drawing income.</p>
-      </details>
-
       <details class="faq__item">
         <summary class="faq__q">Will I be sold something?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">No. The day is education. If you want to talk further, the team will be available afterward, but nothing is pitched from the stage and no one will chase you.</p>
       </details>
-
       <details class="faq__item">
-        <summary class="faq__q">Can I bring my spouse or a guest?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes, and we'd encourage it. The Couple tickets cover two seats together for less than two singles: &#36;67 instead of &#36;94 for general admission, or &#36;147 instead of &#36;194 for VIP. Every attendee needs their own registration.</p>
+        <summary class="faq__q">I already have a financial advisor. Why would I come?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">The day is built to help you ask better questions. You can expect to leave with specific things to raise with the advisor you already have. A second opinion costs you one Saturday.</p>
       </details>
-
       <details class="faq__item">
-        <summary class="faq__q">What's the difference between the four ticket types?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">There are four. <b>Single</b> (&#36;47) is one general-admission seat. <b>Couple</b> (&#36;67) is two seats together. Both include the full day and lunch. <b>Single VIP</b> (&#36;97) adds the VIP experience straight after the closing session: a photo with Rebecca Walser and Charles Payne, a copy of each of their books, and both authors on hand to sign them. <b>Couple VIP</b> (&#36;147) is all of that for two. Only a limited number of VIP seats are released in total.</p>
+        <summary class="faq__q">I'm already retired. Is this still relevant?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes. Planning doesn't stop the day you retire. Distribution order, tax brackets, required minimum distributions, and estate documents all keep moving. Much of the day is aimed squarely at people already drawing income.</p>
       </details>
-
+      <details class="faq__item">
+        <summary class="faq__q">Should my spouse or partner attend with me?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">If retirement decisions affect both of you, we strongly encourage attending together. Couple tickets are &#36;67, only &#36;20 more than a single ticket, and Couple VIP is &#36;147. Every attendee needs their own registration.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">What is included with my ticket?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Every ticket includes access to the full Tampa Retirement Live program from 9:00 AM to 4:00 PM, lunch and complimentary parking at the Sheraton Tampa Brandon Hotel.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">What does the VIP ticket include?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">VIP guests receive priority seating, access to the post-event VIP experience from approximately 4:15 to 5:00 PM, a photo opportunity with Rebecca Walser and Charles Payne, copies of both speakers' books and the opportunity to have them signed. Only a limited number of VIP seats are released.</p>
+      </details>
       <details class="faq__item">
         <summary class="faq__q">Will I get to meet Charles Payne?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom Siomades for the panel discussion mid-morning. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why the limited number of VIP seats go first.</p>
+        <p class="faq__a">Every attendee sees Charles speak from the main stage, and he joins Rebecca and Tom Siomades for the late-morning panel. VIP ticket holders also join the VIP experience straight after the closing session, where they get a photo with Charles and Rebecca and have both authors sign their books. That is VIP only, which is why the limited number of VIP seats go first.</p>
       </details>
-
-
+      <details class="faq__item" id="venue">
+        <summary class="faq__q">Where is the event?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Sheraton Tampa Brandon Hotel<br>10221 Princess Palm Avenue<br>Tampa, FL 33610<br>It sits just off the highway, easy in and easy out.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">What time should I arrive?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Registration and doors open at 8:00 AM. The program begins at 9:00 AM and concludes at 4:00 PM.</p>
+      </details>
       <details class="faq__item">
         <summary class="faq__q">Is lunch included?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Yes. Lunch is included with every ticket, general admission and VIP alike, and runs from 12:30 to 1:30 PM.</p>
+        <p class="faq__a">Yes. Lunch is included with every ticket, general admission and VIP alike, and is scheduled from approximately 12:30 to 1:30 PM.</p>
       </details>
-
       <details class="faq__item">
-        <summary class="faq__q">Where do I park?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p class="faq__a">Parking is complimentary.</p>
+        <summary class="faq__q">Is parking available?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="faq__a">Yes. Complimentary parking is included for Tampa Retirement Live attendees.</p>
       </details>
-
       <details class="faq__item">
         <summary class="faq__q">What's the dress code?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">Business casual or smart casual. Come comfortable.</p>
       </details>
-
       <details class="faq__item">
         <summary class="faq__q">Is the venue accessible?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">Yes, the venue is wheelchair accessible. Call ahead at (866) 929-3258 for any other accommodation and the team will arrange it.</p>
       </details>
-
       <details class="faq__item">
         <summary class="faq__q">Can I transfer my ticket if something comes up?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">All ticket sales are final and non-transferable. No refunds are offered.</p>
       </details>
-
       <details class="faq__item">
         <summary class="faq__q">Is there a virtual option?<svg class="faq__ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
         <p class="faq__a">No. The event is fully in person by design. The value is in the room, the questions, and the conversations afterward.</p>
       </details>
-
-    </div>
-
-    <div class="faq__cta">
-      <a class="btn btn--lg" href="#tickets">Reserve your seat, from $47</a>
-      <span class="cta-note">Questions? Call (866) 929-3258</span>
     </div>
   </div>
 </section>
 
-<!-- ============================ FOOTER ============================ -->
+<!-- ============================ FINAL CTA ============================ -->
+<section class="fcta">
+  <div class="fcta__art" aria-hidden="true"><img src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" loading="lazy" /></div>
+  <div class="wrap fcta__in" data-reveal>
+    <span class="eyebrow eyebrow--center">Tampa Retirement Live</span>
+    <h2>One Saturday. A Clearer View of What Comes Next.</h2>
+    <p class="fcta__body">Join Rebecca Walser, Charles Payne and Tampa Bay investors, pre-retirees and retirees
+      for a full day focused on the decisions that can shape your retirement.</p>
+    <div class="fcta__facts">
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Saturday, October 17, 2026</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg> Sheraton Tampa Brandon Hotel</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Doors Open 8:00 AM &middot; Program 9:00 AM &ndash; 4:00 PM</span>
+    </div>
+    <a class="btn btn--lg" href="#tickets">Reserve My Seat &middot; Tickets&nbsp;From&nbsp;&#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="cta-sub">Single &#36;47 &middot; Couple &#36;67 &middot; VIP options available</p>
+    <p class="cta-sure"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 7"/></svg> Lunch and complimentary parking included</p>
+  </div>
+</section>
+
 <footer class="foot">
   <section class="recog">
     <div class="wrap" data-reveal>
@@ -1996,8 +2494,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 <!-- ============================ STICKY MOBILE CTA ============================ -->
 <div class="dock" id="dock">
-  <p class="dock__meta"><b>Oct 17, 2026</b>From $47 · 200 seats</p>
-  <a class="btn" href="#tickets">Reserve seat</a>
+  <p class="dock__meta"><b>Tickets from &#36;47</b>Sat, Oct 17 &middot; Tampa</p>
+  <a class="btn" href="#tickets">Reserve My Seat</a>
 </div>
 
 <script>
@@ -2029,9 +2527,25 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   /* ---- nav shadow on scroll + sticky dock ---- */
   var nav  = document.getElementById('nav');
   var dock = document.getElementById('dock');
+  /* The dock appears once the hero has scrolled away, and steps aside while
+     the ticket cards or the closing CTA are on screen - both already carry
+     their own buttons, and the dock would sit on top of them. */
+  var heroEl  = document.querySelector('.hero');
+  var tixEl   = document.getElementById('tickets');
+  var closeEl = document.querySelector('.fcta');
+  var dockBtn = dock ? dock.querySelector('a') : null;
+  function inView(el){
+    if(!el) return false;
+    var r = el.getBoundingClientRect(), vh = window.innerHeight;
+    return r.top < vh * 0.85 && r.bottom > vh * 0.15;
+  }
   function onScroll(){
     nav.classList.toggle('is-stuck', window.scrollY > 20);
-    dock.classList.toggle('is-on', window.scrollY > 620);
+    var past = heroEl ? heroEl.getBoundingClientRect().bottom < 0 : window.scrollY > 620;
+    var on = past && !inView(tixEl) && !inView(closeEl);
+    dock.classList.toggle('is-on', on);
+    dock.setAttribute('aria-hidden', on ? 'false' : 'true');
+    if(dockBtn) dockBtn.tabIndex = on ? 0 : -1;
   }
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
