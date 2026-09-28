@@ -1336,17 +1336,19 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .nhero__sub{ color:#E6EDF2; font-size:clamp(1.02rem,1.3vw,1.16rem); line-height:1.52; max-width:50ch; }
 
-.nhero__facts{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; margin-top:18px; }
-.nhero__fact{ display:flex; align-items:center; gap:10px; }
-.nhero__fact svg{ width:23px; height:23px; flex:none; stroke:#F7962B; fill:none; stroke-width:1.7; }
+.nhero__facts{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-top:22px; }
+.nhero__fact{ display:flex; align-items:center; gap:12px; }
+.nhero__fact svg{ width:27px; height:27px; flex:none; stroke:#F7962B; fill:none; stroke-width:1.7; }
 .nhero__fact b{ display:block; font-family:var(--font-display); font-weight:700;
-  font-size:12.5px; letter-spacing:.045em; text-transform:uppercase; color:#fff; line-height:1.3; }
-.nhero__fact--plain b{ text-transform:none; letter-spacing:.005em; font-weight:600; font-size:14px; }
-.nhero__fact span span{ display:block; font-size:13px; color:#CBD8E0; line-height:1.35; }
-.nhero__vr{ width:1px; height:34px; background:rgba(255,255,255,.28); }
+  /* title case, matching the venue beside it: the spaced capitals left this
+     row fitting with about 2px to spare, and it wrapped at wider screens */
+  font-size:15.5px; letter-spacing:0; color:#fff; line-height:1.3; }
+.nhero__fact--plain b{ font-weight:600; font-size:15.5px; }
+.nhero__fact span span{ display:block; margin-top:2px; font-size:14.5px; color:#CBD8E0; line-height:1.35; }
+.nhero__vr{ width:1px; height:40px; background:rgba(255,255,255,.28); }
 /* the two-column layout at its narrowest wraps the facts onto two lines;
    a divider with nothing beside it just looks broken */
-@media (min-width:1001px) and (max-width:1080px){ .nhero__vr{ display:none; } }
+@media (min-width:1001px) and (max-width:1140px){ .nhero__vr{ display:none; } }
 
 .nhero__act{ margin-top:20px; }
 .nhero__act .btn{
@@ -1354,20 +1356,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   font-family:var(--font-display); font-weight:700; font-size:clamp(1rem,1.25vw,1.12rem);
 }
 .nhero__act .btn svg, .ecard__cta .btn svg{ width:17px; height:17px; stroke:#fff; fill:none; stroke-width:2.6; }
-.nhero__note{ margin-top:10px; font-size:13.5px; color:#DCE6EC; }
+.nhero__note{ margin-top:12px; font-size:15px; color:#DCE6EC; }
 
-.nhero__tix{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
-.nhero__tix a{
-  display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:6px 16px 6px 14px;
-  border-radius:10px; border:1px solid rgba(255,255,255,.24); background:rgba(6,18,38,.58);
-  transition:border-color .25s var(--ease), background .25s var(--ease);
-}
-.nhero__tix a:hover{ border-color:rgba(247,150,43,.6); background:rgba(6,18,38,.8); }
-.nhero__tix svg{ width:21px; height:21px; flex:none; fill:#fff; stroke:none; }
-.nhero__tix a:last-child svg{ fill:#F9A235; }
-.nhero__tix i{ font-style:normal; font-family:var(--font-display); font-weight:600;
-  font-size:13.5px; color:#fff; margin-right:4px; }
-.nhero__tix b{ font-family:var(--font-display); font-weight:800; font-size:19px; color:#F7962B; }
+/* One strip instead of three boxes: the prices stay visible, but nothing
+   under the button competes with the button. Plain text, not links - the
+   CTA directly above already goes to the tickets. */
+.nhero__tix{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 0; margin-top:10px;
+  font-family:var(--font-display); font-weight:600; font-size:16px; color:#fff; }
+.nhero__tix span + span::before{ content:""; display:inline-block; width:4px; height:4px; border-radius:50%;
+  background:rgba(255,255,255,.45); margin:0 14px; vertical-align:middle; }
+.nhero__tix b{ font-weight:800; font-size:18px; color:#F7962B; margin-left:5px; }
 
 .nhero__by{ display:flex; align-items:center; gap:16px; margin-top:20px; }
 .nhero__by span{ font-family:var(--font-display); font-weight:600; font-size:11px;
@@ -1385,7 +1383,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
    their studio backdrops so they stand together; the names sit on the
    image, over a fade that also covers where the figures are cropped. */
 .ecard__scene{
-  position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1.72/1;
+  position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1.5/1;
   background:linear-gradient(180deg,#0E2A4A,#123E63);
 }
 .ecard__sky{
@@ -1394,11 +1392,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   filter:blur(1.4px) brightness(.92);
 }
 .ecard__cut{
-  position:absolute; top:5%; height:172%; width:auto; max-width:none;
+  position:absolute; width:auto; max-width:none;
   filter:drop-shadow(0 12px 22px rgba(0,0,0,.5));
 }
-.ecard__cut--b{ right:-11%; z-index:1; }
-.ecard__cut--a{ left:-19%; z-index:2; }
+/* Rebecca's frame runs wider than Charles's (her arm), so equal offsets would
+   set her face further in. These put both faces a similar distance from
+   their edges, with a slim shared gap of skyline between them. */
+/* sized by face, not by frame: Rebecca's source is framed tighter, so at
+   one shared scale her face read noticeably larger than his */
+.ecard__cut--b{ right:-9%; z-index:1; top:4%; height:171%; }
+.ecard__cut--a{ left:-8%; z-index:2; top:10%; height:147%; }
 .ecard__scene::after{
   content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
   background:linear-gradient(180deg, rgba(8,20,40,.18) 0%, rgba(8,20,40,0) 26%,
@@ -1409,16 +1412,16 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 13px;
 }
 .ecard__names b{ display:block; font-family:var(--font-display); font-weight:700;
-  font-size:15.5px; letter-spacing:.03em; text-transform:uppercase; color:#fff; line-height:1.15; }
-.ecard__names span{ display:block; margin-top:4px; font-family:var(--font-display); font-weight:600;
-  font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:#CBD8E0; line-height:1.4; }
+  font-size:16.5px; letter-spacing:.03em; text-transform:uppercase; color:#fff; line-height:1.15; }
+.ecard__names span{ display:block; margin-top:5px; font-family:var(--font-display); font-weight:600;
+  font-size:11px; letter-spacing:.035em; text-transform:uppercase; color:#CBD8E0; line-height:1.4; }
 
 .ecard__body{ padding:18px 8px 4px; }
 .ecard__list{ list-style:none; display:grid; gap:12px; }
 .ecard__list li{ display:flex; align-items:flex-start; gap:14px; }
 .ecard__list svg{ width:21px; height:21px; flex:none; margin-top:1px; stroke:#E6EDF2; fill:none; stroke-width:1.5; }
-.ecard__list b{ display:block; font-size:15.5px; font-weight:600; color:#fff; line-height:1.35; }
-.ecard__list span span{ display:block; font-size:13.5px; color:#B9C9D3; line-height:1.4; margin-top:1px; }
+.ecard__list b{ display:block; font-size:16px; font-weight:600; color:#fff; line-height:1.35; }
+.ecard__list span span{ display:block; font-size:14.5px; color:#B9C9D3; line-height:1.4; margin-top:1px; }
 
 .ecard__cdlabel{
   margin:18px 0 12px; padding-top:16px; border-top:1px solid rgba(255,255,255,.14);
@@ -1427,13 +1430,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 }
 .ecard__clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
 .ecard__unit{
-  text-align:center; border:1px solid rgba(255,255,255,.2); border-radius:10px;
-  padding:10px 4px 9px; background:rgba(4,12,26,.55);
+  text-align:center; border:1px solid rgba(255,255,255,.11); border-radius:10px;
+  padding:9px 4px 8px; background:rgba(4,12,26,.38);
 }
 .ecard__unit b{ display:block; font-family:var(--font-display); font-weight:600;
-  font-size:clamp(1.5rem,2.2vw,1.85rem); color:#fff; line-height:1; font-variant-numeric:tabular-nums; }
+  font-size:clamp(1.35rem,1.9vw,1.55rem); color:#F1F5F8; line-height:1; font-variant-numeric:tabular-nums; }
 .ecard__unit em{ display:block; margin-top:6px; font-style:normal; font-family:var(--font-display);
-  font-weight:600; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#CBD8E0; }
+  font-weight:600; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#B9C9D3; }
 .ecard__cta{ margin-top:16px; }
 .ecard__cta .btn{ width:100%; padding:16px 24px; border-radius:10px;
   font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
@@ -1484,7 +1487,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 @media (max-width:560px){
   .nhero__act .btn{ max-width:none; }
   .nhero__vr{ display:none; }
-  .nhero__tix a{ flex:1 1 calc(50% - 5px); justify-content:center; }
   .ecard{ padding:10px; }
   .ecard__clock{ gap:6px; }
   .ecard__unit{ padding:9px 2px 8px; }
@@ -1493,9 +1495,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   /* at phone width the names wrap to three lines and climb into the faces -
      a deeper scene keeps the faces above the name band */
   .ecard__scene{ aspect-ratio:1.12/1; }
-  .ecard__cut{ top:6%; height:132%; }
-  .ecard__cut--a{ left:-16%; }
-  .ecard__cut--b{ right:-10%; }
+  /* same face-matched ratio as desktop (147:171), just smaller */
+  .ecard__cut--a{ left:-11%; top:10%; height:122%; }
+  .ecard__cut--b{ right:-10%; top:4%; height:142%; }
 }
 /* ====================================================================
    LOWER PAGE v2 - the sales path below the fold.
@@ -1776,12 +1778,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
         <div class="nhero__act">
           <a class="btn btn--lg" href="#tickets">Reserve My Seat &middot; Tickets From &#36;47 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+          <p class="nhero__tix">
+            <span>Single<b>&#36;47</b></span><span>Couple<b>&#36;67</b></span><span>VIP from<b>&#36;97</b></span>
+          </p>
           <p class="nhero__note">Single, Couple &amp; VIP tickets available &middot; Limited seating</p>
-          <div class="nhero__tix">
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21a8 8 0 0 1 16 0Z"/></svg><i>Single</i><b>&#36;47</b></a>
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="3.3"/><circle cx="16" cy="8" r="3.3"/><path d="M1.5 20a7 7 0 0 1 14 0Z"/><path d="M13.2 13.6A7 7 0 0 1 22.5 20H17a8.8 8.8 0 0 0-3.8-6.4Z"/></svg><i>Couple</i><b>&#36;67</b></a>
-            <a href="#tickets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18l1-10-5.5 4L12 5l-4.5 7L2 8Z"/><rect x="3" y="19.2" width="18" height="2" rx="1"/></svg><i>VIP from</i><b>&#36;97</b></a>
-          </div>
         </div>
 
         <p class="nhero__by">
