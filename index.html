@@ -1742,6 +1742,126 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   text-transform:none; color:#fff; }
 .dock__meta{ letter-spacing:.1em; }
 
+/* ====================================================================
+   MOBILE v3 - one composed first screen instead of desktop parts stacked.
+   Phones only (560px and down); nothing here reaches tablet or desktop.
+   Order: pill, headline, lede, button, three facts, speaker panel with a
+   one-line countdown, then the "launched by" mark. The full schedule and
+   street address stay lower on the page (agenda, venue), so dropping them
+   from the card loses nothing.
+   ==================================================================== */
+.m-only{ display:none !important; }
+.nhero__fact--m, .ecard__eyebrow{ display:none; }
+
+@media (max-width:560px){
+  .d-only{ display:none !important; }
+  .m-only{ display:inline !important; }
+  b.m-only, p.m-only{ display:block !important; }
+  .bar{ display:none; }
+
+  /* ---- ground: the skyline art sits behind the headline, dimmed, and
+     fades into the navy before the button ---- */
+  .nhero{ padding-block:22px 34px; }
+  .nhero .hero__photo img{
+    top:0; bottom:auto; left:-92%; transform:none;
+    width:290%; height:auto;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,transparent 72%);
+            mask-image:linear-gradient(180deg,#000 0%,#000 38%,transparent 72%);
+  }
+  .nhero .hero__photo::after{
+    background:
+      linear-gradient(90deg, rgba(7,19,40,.9) 0%, rgba(7,19,40,.8) 46%, rgba(7,19,40,.64) 100%),
+      linear-gradient(180deg, rgba(7,19,40,.45) 0%, rgba(7,19,40,0) 30%);
+  }
+  .nhero::before{ display:none; }
+
+  /* ---- one column, re-ordered ---- */
+  .nhero__grid{ gap:0; }
+  .nhero__left{ display:contents; }
+  .nhero__pill{ order:1; justify-self:start; margin-bottom:18px;
+    font-size:11px; letter-spacing:.075em; padding:7px 13px; gap:8px; }
+  /* header button and pill on one line down to 360 */
+  .nav .btn{ --pad-x:16px; font-size:14px; white-space:nowrap; }
+  .nhero__h1{ order:2; font-size:clamp(1.9rem,8.95vw,2.45rem); line-height:1.02; margin-bottom:14px; }
+  .nhero__hl{ display:block; color:#F2742A;
+    background:linear-gradient(95deg,#FFC44F 0%,#F9A235 46%,#F2742A 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .nhero__sub{ order:3; font-size:17px; line-height:1.5; color:#D5E0E8; }
+
+  .nhero__act{ order:4; margin-top:22px; }
+  .nhero__act .btn{ min-height:60px; border-radius:14px; padding:14px 18px;
+    font-size:clamp(15.5px,4.3vw,17.5px); letter-spacing:-.005em;
+    box-shadow:0 14px 30px -12px rgba(240,82,56,.65), inset 0 1px 0 rgba(255,255,255,.18); }
+  .nhero__tix, .nhero__note{ display:none; }
+
+  /* three short facts, icon over text, hairlines between */
+  .nhero__facts{ order:5; display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0; align-items:start; margin-top:24px; }
+  .nhero__fact, .nhero__fact--m{ display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+    padding:0 10px; border-left:1px solid rgba(255,255,255,.16); }
+  .nhero__fact:first-child{ padding-left:0; border-left:0; }
+  .nhero__fact svg{ width:24px; height:24px; }
+  .nhero__fact b, .nhero__fact--plain b{ font-size:15px; line-height:1.25; font-weight:700; }
+  .nhero__fact span span{ font-size:14px; margin-top:3px; }
+
+  /* ---- speaker panel ---- */
+  .ecard{ order:6; margin-top:30px; padding:0; border-radius:18px; overflow:hidden; }
+  .ecard__scene{ aspect-ratio:1/1.02; border-radius:0; clip-path:none; }
+  .ecard__sky{ width:250%; bottom:0; filter:blur(2px) brightness(.62) saturate(.9); }
+  .ecard__eyebrow{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    position:absolute; top:16px; left:0; right:0; z-index:4; margin:0;
+    font-family:var(--font-display); font-weight:700; font-size:11.5px;
+    letter-spacing:.22em; text-transform:uppercase; color:#fff;
+  }
+  .ecard__eyebrow::before, .ecard__eyebrow::after{ content:""; width:30px; height:2px;
+    background:linear-gradient(90deg, rgba(242,116,42,0), #F2742A); }
+  .ecard__eyebrow::after{ transform:scaleX(-1); }
+  /* each speaker gets a half: the cut-outs are clipped at the centre line,
+     with a fine divider between them */
+  .ecard__cut--a{ left:-29%; top:15%; height:104%; clip-path:inset(0 6% 0 0); }
+  .ecard__cut--b{ right:-15%; top:11%; height:120%; clip-path:inset(0 0 0 25%); }
+  .ecard__scene::before{ content:""; position:absolute; left:50%; top:16%; bottom:6%; width:1px; z-index:3;
+    background:linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.28) 30%, rgba(255,255,255,.28) 70%, rgba(255,255,255,0)); }
+  .ecard__scene::after{ background:linear-gradient(180deg, rgba(8,20,40,.55) 0%, rgba(8,20,40,0) 22%,
+    rgba(6,16,32,0) 50%, rgba(6,16,32,.96) 88%); }
+  .ecard__names{ gap:10px; padding:0 10px 16px; text-align:center; }
+  .ecard__names b{ font-size:15px; }
+  .ecard__names span{ font-size:11px; letter-spacing:.07em; }
+
+  /* countdown as one compact strip under the portraits */
+  .ecard__body{ padding:12px 14px 14px; border-top:1px solid rgba(255,255,255,.1); }
+  .ecard__list, .ecard__cta{ display:none; }
+  .ecard__cdlabel{ margin:0 0 8px; padding:0; border:0; font-size:11px; letter-spacing:.18em; color:#B9C9D3; }
+  .ecard__clock{ gap:4px; }
+  .ecard__unit{ border:0; border-radius:0; background:none; padding:0; }
+  .ecard__unit + .ecard__unit{ border-left:1px solid rgba(255,255,255,.12); }
+  .ecard__unit b{ font-size:22px; }
+  .ecard__unit em{ margin-top:4px; font-size:11px; }
+
+  .nhero__by{ order:7; justify-content:center; margin-top:24px; }
+
+  /* ---- what you'll walk away with: compact rows ---- */
+  .walk{ padding-block:44px 48px; }
+  /* one line on a phone; the side rules only squeezed it onto two */
+  .walk__head::before, .walk__head::after{ display:none; }
+  .walk__head h2{ font-size:clamp(1.35rem,6vw,1.65rem); text-wrap:balance; }
+  .walk__grid{ gap:12px; }
+  .walk__card{ align-items:center; gap:16px; padding:16px 18px; border-radius:16px; }
+  .walk__ico{ width:54px; height:54px; border-radius:50%; display:grid; place-items:center;
+    background:rgba(242,116,42,.1); }
+  .walk__ico svg{ width:28px; height:28px; }
+  .walk__card h3{ font-size:1.06rem; margin-bottom:4px; }
+  .walk__card p{ font-size:15px; line-height:1.45; }
+}
+/* the narrowest phones: facts as rows, so nothing is squeezed to one word a line */
+@media (max-width:389px){ .nhero__pill{ letter-spacing:.03em; padding-inline:12px; } }
+@media (max-width:359px){
+  .nav .btn{ --pad-x:13px; font-size:13.5px; }
+  .nav__logo{ height:27px; }
+  .nhero__facts{ grid-template-columns:1fr; gap:14px; }
+  .nhero__fact, .nhero__fact--m{ flex-direction:row; align-items:center; gap:12px; padding:0; border-left:0; }
+}
 </style>
 </head>
 
@@ -1799,15 +1919,19 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <div class="nhero__left">
         <span class="nhero__pill"><span class="dot" aria-hidden="true"></span> Featuring Charles Payne of Fox Business</span>
 
-        <h1 class="nhero__h1">Get Clear on the Investment and Retirement Decisions That Could Shape <em>Your Next 20+ Years.</em></h1>
+        <h1 class="nhero__h1">Get Clear on the Investment and Retirement Decisions <span class="nhero__hl">That Could Shape</span> <em>Your Next 20+ Years.</em></h1>
 
-        <p class="nhero__sub">Join Tampa Bay investors, pre-retirees and retirees for one focused day of
+        <p class="nhero__sub d-only">Join Tampa Bay investors, pre-retirees and retirees for one focused day of
           investment and retirement education with Rebecca Walser and special guest Charles Payne.</p>
+        <p class="nhero__sub m-only">Join Tampa Bay investors, pre-retirees and retirees for a focused day of
+          education with Rebecca Walser and special guest Charles Payne.</p>
 
         <div class="nhero__facts">
-          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b>Saturday, October 17, 2026</b><span>Doors open 8:00 AM</span></span></span>
+          <span class="nhero__fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg><span><b class="d-only">Saturday, October 17, 2026</b><b class="m-only">Saturday, Oct&nbsp;17</b><span>Doors open 8:00 AM</span></span></span>
           <span class="nhero__vr" aria-hidden="true"></span>
-          <span class="nhero__fact nhero__fact--plain"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b>Sheraton Tampa Brandon Hotel</b><span>Tampa, FL</span></span></span>
+          <span class="nhero__fact nhero__fact--plain"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><b class="d-only">Sheraton Tampa Brandon Hotel</b><b class="m-only">Sheraton Tampa Brandon</b><span>Tampa, FL</span></span></span>
+          <!-- phones only: on desktop the price strip under the button carries this -->
+          <span class="nhero__fact nhero__fact--m"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.6 1.4-2.4 3-2.4 5.2 0 1.6.8 2.6 2.4 2.8V21"/></svg><span><b>Lunch Included</b><span>Single &#36;47<br>Couple &#36;67</span></span></span>
         </div>
 
         <div class="nhero__act">
@@ -1827,6 +1951,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <!-- ---------- event card ---------- -->
       <aside class="ecard">
         <div class="ecard__scene">
+          <p class="ecard__eyebrow" aria-hidden="true">You'll hear from</p>
           <img class="ecard__sky" src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" aria-hidden="true" />
           <img class="ecard__cut ecard__cut--a" src="Brand%20Assets/cutout-rebecca.webp"
                alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1136" />
@@ -2535,7 +2660,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   /* The dock appears once the hero has scrolled away, and steps aside while
      the ticket cards or the closing CTA are on screen - both already carry
      their own buttons, and the dock would sit on top of them. */
-  var heroEl  = document.querySelector('.hero');
+  /* keyed to the hero's own button: once that has scrolled off, the dock
+     takes over, rather than waiting for the whole hero to leave */
+  var heroEl  = document.querySelector('.nhero__act .btn') || document.querySelector('.hero');
   var tixEl   = document.getElementById('tickets');
   var closeEl = document.querySelector('.fcta');
   var dockBtn = dock ? dock.querySelector('a') : null;
