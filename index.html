@@ -604,7 +604,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 .stats{ position:relative; z-index:2;
   background:linear-gradient(104deg, var(--brick) 0%, #D4482E 46%, var(--red) 100%);
   border-block:1px solid rgba(255,255,255,.16); }
-.stats__in{ display:grid; grid-template-columns:repeat(4,1fr); padding-block:38px; }
+.stats__in{ display:grid; grid-template-columns:repeat(3,1fr); padding-block:38px; }
 .stats__cell{ text-align:center; padding-inline:12px; border-right:1px solid rgba(255,255,255,.22); }
 .stats__cell:last-child{ border-right:none; }
 .stats__n{
@@ -617,8 +617,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.82); line-height:1.6;
 }
 @media (max-width:720px){
-  .stats__in{ grid-template-columns:repeat(2,1fr); gap:30px 0; padding-block:32px; }
-  .stats__cell:nth-child(2n){ border-right:none; }
+  /* three across on phones too - a 2 + 1 grid would leave one stranded */
+  .stats__in{ padding-block:28px; }
+  .stats__cell{ padding-inline:6px; }
 }
 
 /* ============================ SECTION HEADS ============================ */
@@ -2110,7 +2111,6 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <div class="wrap stats__in">
     <div class="stats__cell"><p class="stats__n"><span data-count="30">0</span>+</p><p class="stats__l">Years in tax<br>law &amp; finance</p></div>
     <div class="stats__cell"><p class="stats__n"><span data-count="4">0</span>×</p><p class="stats__l">Investopedia<br>Top 100 advisor</p></div>
-    <div class="stats__cell"><p class="stats__n">1<sup style="font-size:.5em;top:-.6em;position:relative">st</sup></p><p class="stats__l">Annual Tampa<br>Retirement Live</p></div>
     <div class="stats__cell"><p class="stats__n"><span data-count="200">0</span></p><p class="stats__l">Seats<br>available</p></div>
   </div>
 </section>
