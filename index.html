@@ -1763,8 +1763,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
      fades into the navy before the button ---- */
   .nhero{ padding-block:22px 34px; }
   .nhero .hero__photo img{
-    top:0; bottom:auto; left:-92%; transform:none;
-    width:290%; height:auto;
+    top:0; bottom:auto; left:-10.8%; transform:none;
+    width:127.6%; height:auto;
     -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,transparent 72%);
             mask-image:linear-gradient(180deg,#000 0%,#000 38%,transparent 72%);
   }
@@ -1807,7 +1807,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   /* ---- speaker panel ---- */
   .ecard{ order:6; margin-top:30px; padding:0; border-radius:18px; overflow:hidden; }
   .ecard__scene{ aspect-ratio:1/1.02; border-radius:0; clip-path:none; }
-  .ecard__sky{ width:250%; bottom:0; filter:blur(2px) brightness(.62) saturate(.9); }
+  .ecard__sky{ width:110%; bottom:0; filter:blur(2px) brightness(.62) saturate(.9); }
   .ecard__eyebrow{
     display:flex; align-items:center; justify-content:center; gap:12px;
     position:absolute; top:16px; left:0; right:0; z-index:4; margin:0;
@@ -1898,6 +1898,58 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .spk__card .spk__pill{ justify-self:start; margin-bottom:8px; }
   .spk__card .spk__lede{ grid-column:1 / -1; margin-top:14px; }
 }
+/* ====================================================================
+   MOBILE v4 - phones only (560px and down).
+   Tickets: four compact rows, the whole row is the button (its own link
+   stretched over the card), price on the right. The standard perks are in
+   the section intro and the VIP perks in the Upgrade card just above, so
+   the per-card lists are hidden here rather than said a second time.
+   Footer awards: three across, smaller. Methodology links stay.
+   ==================================================================== */
+@media (max-width:560px){
+  .tix .head{ margin-bottom:26px; }
+  .tix__grid{ gap:12px; }
+  .tix .card{ display:grid; grid-template-columns:minmax(0,1fr) auto 34px; align-items:center; column-gap:12px;
+    padding:16px 14px 16px 18px; border-radius:16px; box-shadow:0 10px 24px -18px rgba(10,30,56,.4); }
+  .tix .card:hover{ transform:none; }
+  .tix .card:has(.card__flag--couple){ margin-top:10px; }
+  .card__top{ display:contents; }
+  .card__tier{ grid-column:1; grid-row:1; margin:0; font-size:12px; letter-spacing:.14em; font-weight:600; color:var(--ink-text); }
+  .card__seats{ grid-column:1; grid-row:2; margin:2px 0 0; font-size:14px; }
+  .card__save{ grid-column:1; grid-row:3; justify-self:start; margin-top:7px; padding:3px 9px; font-size:10.5px; letter-spacing:.1em; }
+  .card__price{ grid-column:2; grid-row:1 / span 3; }
+  .card__now{ font-size:1.95rem; font-weight:600; }
+  .card__body{ display:contents; }
+  .card__inherit, .card__list{ display:none; }
+  /* the card's own Choose link covers the whole row, so any tap on it goes
+     to checkout; the arrow circle is drawn inside the link, in the third column's spot */
+  .tix .card .btn{ position:absolute; inset:0; z-index:2; width:auto; height:auto; min-height:0; padding:0;
+    border-radius:16px; font-size:0; background:transparent; box-shadow:none; overflow:visible; transform:none; }
+  .tix .card .btn::before{ display:none; }
+  .tix .card .btn::after{ content:""; position:absolute; right:14px; top:50%; width:34px; height:34px; margin-top:-17px; border-radius:50%;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E") center / 16px 16px no-repeat,
+      linear-gradient(180deg, var(--orange), var(--orange-lo));
+    box-shadow:0 6px 14px -6px rgba(240,82,56,.6); }
+  .tix .card .btn--gold::after{ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230C2945' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E") center / 16px 16px no-repeat,
+      linear-gradient(180deg, #B5E0D9, var(--gold)); box-shadow:none; }
+  .tix .card .btn:hover{ transform:none; box-shadow:none; }
+  .tix .card .btn:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+  .card__flag--couple{ top:-11px; font-size:10px; padding:5px 12px; }
+  .tix__foot{ margin-top:22px; }
+
+  /* speaker credentials: one column reads cleaner than two cramped ones */
+  .spk__credList{ grid-template-columns:1fr; gap:10px; }
+
+  /* footer: awards three across, tighter spacing; every link and disclaimer stays */
+  .recog{ padding-block:44px 6px; }
+  .recog__title{ margin:14px 0 24px; }
+  .recog__badges{ grid-template-columns:repeat(3,1fr); gap:16px 12px; }
+  .medal img{ height:50px; }
+  .recog__method{ margin-top:20px; }
+  .foot__legalwrap{ padding-block:34px 30px; }
+  .foot__logo{ height:44px; margin-bottom:22px; }
+  .foot__rule{ margin-bottom:22px; }
+}
 </style>
 </head>
 
@@ -1945,7 +1997,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <section class="hero nhero">
   <div class="hero__wash" aria-hidden="true"></div>
   <div class="hero__photo" aria-hidden="true">
-    <img src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" />
+    <picture>
+      <source media="(max-width:560px)" srcset="Brand%20Assets/Hero%20Background%20v2%20mobile.webp" />
+      <img src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" fetchpriority="high" />
+    </picture>
   </div>
 
   <div class="wrap nhero__in">
@@ -1988,7 +2043,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       <aside class="ecard">
         <div class="ecard__scene">
           <p class="ecard__eyebrow" aria-hidden="true">You'll hear from</p>
-          <img class="ecard__sky" src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" aria-hidden="true" />
+          <picture><source media="(max-width:560px)" srcset="Brand%20Assets/Hero%20Background%20v2%20mobile.webp" /><img class="ecard__sky" src="Brand%20Assets/Hero%20Background%20v2.webp" alt="" width="2880" height="1620" aria-hidden="true" /></picture>
           <img class="ecard__cut ecard__cut--a" src="Brand%20Assets/cutout-rebecca.webp"
                alt="Rebecca Walser, Founder, CEO and Chief Investment Officer of Walser Wealth Management" width="900" height="1136" />
           <img class="ecard__cut ecard__cut--b" src="Brand%20Assets/cutout-charles.webp?v=2"
@@ -2078,7 +2133,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
     <!-- ---------- featured ---------- -->
     <article class="spk__feature" data-reveal>
       <figure class="spk__portrait">
-        <img src="Brand%20Assets/charles-payne-keynote.jpg"
+        <img loading="lazy" src="Brand%20Assets/charles-payne-keynote.jpg"
              alt="Charles Payne, host of Making Money with Charles Payne on Fox Business"
              width="900" height="1200" />
       </figure>
@@ -2305,7 +2360,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 <section class="sec built" id="about">
   <div class="wrap built__in">
     <div class="head" data-reveal>
-      <span class="eyebrow eyebrow--center">Who's in charge?</span>
+      <span class="eyebrow eyebrow--center">Is this for you?</span>
       <h2 class="display h2">Who this day is built for</h2>
     </div>
     <ul class="built__list" data-reveal>
