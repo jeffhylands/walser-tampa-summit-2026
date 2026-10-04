@@ -1862,6 +1862,42 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .nhero__facts{ grid-template-columns:1fr; gap:14px; }
   .nhero__fact, .nhero__fact--m{ flex-direction:row; align-items:center; gap:12px; padding:0; border-left:0; }
 }
+/* ====================================================================
+   MOBILE v3, LOWER PAGE - phones only (560px and down). The page told the
+   same story four times (walk-away, checklist, session topics, what you'll
+   learn) and "who it's for" three times. On a phone each idea now appears
+   once; nothing is deleted, and desktop/tablet show every section as before.
+   Kept on purpose: speaker bios, the schedule, ticket inclusions + VIP +
+   couple callout, tickets, the FAQ and every disclosure.
+   ==================================================================== */
+@media (max-width:560px){
+  /* repeated sections - the sticky dock covers the mid-page button */
+  .agenda, .built, .mcta, .why, .lrn__lh, .lrn__lb, .spk__cta{ display:none; }
+  .lrn__rh{ margin-top:0; }
+
+  /* checklist: the five that land hardest; AI, estate documents and
+     healthcare are each covered elsewhere on the page */
+  .qual__item:nth-child(2), .qual__item:nth-child(6), .qual__item:nth-child(7){ display:none; }
+
+  /* speakers: smaller portraits, the two strongest credentials each */
+  .spk__feature .spk__portrait{ aspect-ratio:4/3; }
+  .spk__feature .spk__portrait img{ object-position:center 18%; }
+  .spk__feature .spk__credList li:nth-child(3){ display:none; }
+  .spk__grid .spk__card:nth-child(1) .spk__credList li:nth-child(2),
+  .spk__grid .spk__card:nth-child(1) .spk__credList li:nth-child(4),
+  .spk__grid .spk__card:nth-child(2) .spk__credList li:nth-child(2),
+  .spk__grid .spk__card:nth-child(2) .spk__credList li:nth-child(3){ display:none; }
+  .spk__credList{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+
+  /* supporting cards: portrait beside the name, bio full width below */
+  .spk__top{ grid-template-columns:96px minmax(0,1fr); column-gap:16px; row-gap:0; align-items:start; }
+  .spk__card .spk__portrait{ aspect-ratio:3/4; border-radius:14px; grid-row:1 / span 4; }
+  .spk__card .spk__portrait img{ object-position:center 14%; }
+  .spk__card .spk__body{ display:contents; }
+  .spk__card .spk__body > *{ grid-column:2; }
+  .spk__card .spk__pill{ justify-self:start; margin-bottom:8px; }
+  .spk__card .spk__lede{ grid-column:1 / -1; margin-top:14px; }
+}
 </style>
 </head>
 
