@@ -1951,6 +1951,19 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .foot__logo{ height:44px; margin-bottom:22px; }
   .foot__rule{ margin-bottom:22px; }
 }
+/* ---- link offer (retargeting): banner + struck list prices ---- */
+.offerbar{ position:relative; z-index:221; text-align:center; padding:9px 16px;
+  background:linear-gradient(90deg,#F9B04A,#F7962B 50%,#F9B04A); color:#1C1205;
+  font-family:var(--font-display); font-weight:600; font-size:14px; line-height:1.4; }
+.offerbar b{ font-weight:800; }
+.has-offer .bar{ display:none; }
+.has-offer .card__price{ align-items:baseline; }
+@media (max-width:560px){
+  .offerbar{ font-size:13.5px; padding:8px 14px; }
+  .has-offer .tix .card__price{ flex-direction:column; align-items:flex-end; gap:0; }
+  .has-offer .tix .card__was{ font-size:14px; }
+  .has-offer .tix .card__now{ font-size:1.6rem; }
+}
 </style>
 </head>
 
@@ -2737,6 +2750,43 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         carry.forEach(function(k){ url.searchParams.set(k, here.get(k)); });
         a.href = url.toString();
       });
+    }
+  } catch (e) {}
+
+  /* ---- link offer ----
+     A retargeting link (tamparetire.com/save) lands here with ?offer=save20.
+     While it's live: a slim banner, the discounted prices wherever a price is
+     shown, and the code carried onto the checkout links. Remembered on this
+     browser until it expires, so someone who leaves and comes back still sees
+     it. Display only - the server re-checks the code and sets the price
+     (server/config/tickets.js OFFERS; keep the date and percent in sync). */
+  try {
+    var OFFERS = { save20: { code: 'save20', until: Date.parse('2026-10-11T03:59:59.999Z'),
+      prices: { 47: '37.60', 67: '53.60', 97: '77.60', 147: '117.60', 27: '21.60', 20: '16' },
+      bar: '<b>20% off every ticket</b> &middot; reserve by Fri, Oct 10 &middot; applied automatically at checkout' } };
+    var q = (new URLSearchParams(window.location.search).get('offer') || '').toLowerCase();
+    if (!OFFERS[q]) { try { q = (localStorage.getItem('trl_offer') || '').toLowerCase(); } catch (e) { q = ''; } }
+    var offer = OFFERS[q];
+    if (offer && Date.now() <= offer.until) {
+      try { localStorage.setItem('trl_offer', offer.code); } catch (e) {}
+      document.documentElement.classList.add('has-offer');
+      document.querySelectorAll('a[href*="/tampa/register"]').forEach(function(a){
+        var u = new URL(a.href); u.searchParams.set('offer', offer.code); a.href = u.toString();
+      });
+      /* only these elements quote prices or savings; every $ figure in them
+         is one of the keys above (the $27 / $47 savings and the "$20 more") */
+      var swap = function(el){
+        var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+        while ((n = w.nextNode())) n.nodeValue = n.nodeValue.replace(/\$(\d+)(?![\d]|[.,]\d)/g, function(m, d){ return offer.prices[d] ? '$' + offer.prices[d] : m; });
+      };
+      document.querySelectorAll('.nhero__act .btn, .nhero__fact--m, .nhero__tix, .spk__cta .btn, .qual__foot .btn, .built .btn, .cpl__l, .cpl__px, .mcta .btn, .mcta .cta-sub, .fcta .btn, .fcta .cta-sub, #dock .dock__meta, .card__save, .faq__a').forEach(swap);
+      /* ticket cards keep the list price visible, struck through */
+      document.querySelectorAll('.tix .card__now').forEach(function(now){
+        var was = document.createElement('span'); was.className = 'card__was'; was.textContent = now.textContent;
+        now.parentNode.insertBefore(was, now); swap(now);
+      });
+      var bar = document.createElement('div'); bar.className = 'offerbar'; bar.innerHTML = offer.bar;
+      document.body.insertBefore(bar, document.body.firstChild);
     }
   } catch (e) {}
 
