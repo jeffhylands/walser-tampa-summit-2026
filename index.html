@@ -1964,6 +1964,36 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .has-offer .tix .card__was{ font-size:14px; }
   .has-offer .tix .card__now{ font-size:1.6rem; }
 }
+/* ---- privacy notice: a small card, not a full-width bar ---- */
+.privacy{
+  position:fixed; z-index:195; left:20px; bottom:20px; max-width:420px;
+  display:flex; align-items:center; gap:14px; padding:12px 12px 12px 18px;
+  background:rgba(6,18,36,.95); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.14); border-radius:14px;
+  box-shadow:0 18px 44px -18px rgba(0,0,0,.65);
+  color:#DCE6EC; font-size:13.5px; line-height:1.45;
+  opacity:0; transform:translateY(14px); pointer-events:none;
+  transition:opacity .3s var(--ease-out), transform .3s var(--ease-out), bottom .45s var(--ease-out);
+}
+.privacy[hidden]{ display:none; }
+.privacy.is-on{ opacity:1; transform:none; pointer-events:auto; }
+.privacy p{ margin:0; }
+.privacy a{ color:#fff; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+.privacy__ok{
+  flex:none; min-height:44px; padding:0 18px; border-radius:10px;
+  background:#fff; color:#0C2945; font-family:var(--font-display); font-weight:700; font-size:14px;
+  transition:background .2s var(--ease);
+}
+.privacy__ok:hover{ background:#E8EEF2; }
+.privacy__ok:focus-visible, .privacy a:focus-visible{ outline:2px solid var(--gold-lite); outline-offset:3px; }
+/* phones/tablets: full width with a gutter, and riding above the sticky
+   ticket bar whenever that bar is showing, so it never covers the button */
+@media (max-width:760px){
+  .privacy{ left:12px; right:12px; max-width:none; bottom:calc(12px + env(safe-area-inset-bottom));
+    padding:11px 10px 11px 14px; font-size:13px; gap:12px; }
+  .dock.is-on ~ .privacy{ bottom:calc(84px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion:reduce){ .privacy{ transition:none; } }
 </style>
 </head>
 
@@ -2732,6 +2762,13 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <a class="btn" href="#tickets">Reserve My Seat</a>
 </div>
 
+<!-- Privacy notice: informational, dismissible, remembered on this browser.
+     Placed after the dock so CSS can lift it above the dock when that shows. -->
+<div class="privacy" id="privacy" role="region" aria-label="Privacy notice" hidden>
+  <p>We use cookies to understand site traffic and improve our advertising. <a href="https://walserwealth.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></p>
+  <button type="button" class="privacy__ok">Got it</button>
+</div>
+
 <script>
 (function(){
   /* ---- UTM forwarding ----
@@ -2787,6 +2824,22 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
       });
       var bar = document.createElement('div'); bar.className = 'offerbar'; bar.innerHTML = offer.bar;
       document.body.insertBefore(bar, document.body.firstChild);
+    }
+  } catch (e) {}
+
+  /* ---- privacy notice: shown shortly after load (not competing with the
+     hero), until dismissed; dismissal is remembered on this browser ---- */
+  try {
+    var pv = document.getElementById('privacy');
+    var seen = false; try { seen = localStorage.getItem('trl_privacy_ok') === '1'; } catch (e) {}
+    if (pv && !seen) {
+      pv.hidden = false;
+      setTimeout(function(){ pv.classList.add('is-on'); }, 1200);
+      pv.querySelector('.privacy__ok').addEventListener('click', function(){
+        try { localStorage.setItem('trl_privacy_ok', '1'); } catch (e) {}
+        pv.classList.remove('is-on');
+        setTimeout(function(){ pv.hidden = true; }, 300);
+      });
     }
   } catch (e) {}
 
