@@ -1994,6 +1994,26 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .dock.is-on ~ .privacy{ bottom:calc(84px + env(safe-area-inset-bottom)); }
 }
 @media (prefers-reduced-motion:reduce){ .privacy{ transition:none; } }
+/* ---- sold-out tickets (set live from /api/capacity) ---- */
+.tix .card.is-soldout{ opacity:.55; filter:saturate(.6); }
+.tix .card.is-soldout:hover{ transform:none; }
+.tix .card.is-soldout .btn{ background:transparent; box-shadow:none; pointer-events:none; cursor:default;
+  color:#fff; border:1px solid rgba(255,255,255,.55); opacity:1; }
+.tix .card.is-soldout .btn::before{ display:none; }
+.card__soldtag{ position:absolute; top:14px; right:14px; z-index:3; font-family:var(--font-display); font-weight:700;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:100px;
+  background:#fff; color:#8A2A18; box-shadow:0 4px 12px -6px rgba(0,0,0,.4); }
+.tix .card.is-soldout .card__now{ text-decoration:line-through; text-decoration-thickness:2px; }
+.vipc__sold{ margin-left:6px; padding:3px 9px; border-radius:100px; background:#fff; color:#8A2A18;
+  font-size:10px; letter-spacing:.14em; }
+.vipc__soldnote{ margin-top:12px; color:#E6EDF2; font-size:15px; line-height:1.5; }
+@media (max-width:560px){
+  /* phone rows: the arrow circle goes, the tag sits where it was */
+  .tix .card.is-soldout .btn{ border:0; }
+  .tix .card.is-soldout .btn::after{ display:none; }
+  .card__soldtag{ top:50%; right:14px; transform:translateY(-50%); }
+  .tix .card.is-soldout .card__price{ visibility:hidden; }
+}
 </style>
 </head>
 
@@ -2841,6 +2861,41 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         setTimeout(function(){ pv.hidden = true; }, 300);
       });
     }
+  } catch (e) {}
+
+  /* ---- live availability ----
+     Asks the same capacity endpoint the checkout uses. A ticket whose seats
+     (1 or 2) no longer fit shows as Sold Out here too, so nobody clicks
+     through to a dead end; if VIP is fully gone, the page stops offering it
+     everywhere else as well. Reverses itself if seats free up or the cap is
+     raised. If the request fails, the page simply stays as it is. */
+  try {
+    fetch('/api/capacity', { cache: 'no-store' }).then(function(r){ return r.json(); }).then(function(c){
+      if (typeof c.remaining !== 'number' || typeof c.vipRemaining !== 'number') return;
+      var seatsFor = { 'single': [1, false], 'couple': [2, false], 'single-vip': [1, true], 'couple-vip': [2, true] };
+      document.querySelectorAll('.tix .card').forEach(function(card){
+        var a = card.querySelector('a[href*="ticket="]'); if (!a) return;
+        var t = new URL(a.href).searchParams.get('ticket'), need = seatsFor[t]; if (!need) return;
+        if (need[0] <= c.remaining && (!need[1] || need[0] <= c.vipRemaining)) return;
+        card.classList.add('is-soldout');
+        a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.textContent = 'Sold Out';
+        var tag = document.createElement('span'); tag.className = 'card__soldtag'; tag.textContent = 'Sold out';
+        card.appendChild(tag);
+      });
+      if (c.vipRemaining < 1) {
+        document.documentElement.classList.add('vip-soldout');
+        var tix = document.querySelector('.nhero__tix');
+        if (tix) [].forEach.call(tix.children, function(sp){ if (/VIP/.test(sp.textContent)) sp.remove(); });
+        var note = document.querySelector('.nhero__note');
+        if (note) note.innerHTML = 'Single &amp; Couple tickets available &middot; VIP sold out';
+        document.querySelectorAll('.cta-sub').forEach(function(el){ el.innerHTML = el.innerHTML.replace('VIP options available', 'VIP sold out'); });
+        var v = document.querySelector('.vipc');
+        if (v) {
+          var eb = v.querySelector('.vipc__eb'); if (eb) eb.insertAdjacentHTML('beforeend', ' <span class="vipc__sold">Sold out</span>');
+          var cta = v.querySelector('.vipc__cta'); if (cta) { cta.outerHTML = '<p class="vipc__soldnote">VIP is sold out. Single and Couple tickets include the full program and lunch.</p>'; }
+        }
+      }
+    }).catch(function(){});
   } catch (e) {}
 
   /* [[DATE]] single source of truth for the countdown, local Tampa time */
