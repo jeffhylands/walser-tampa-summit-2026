@@ -2014,6 +2014,12 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   .card__soldtag{ top:50%; right:14px; transform:translateY(-50%); }
   .tix .card.is-soldout .card__price{ visibility:hidden; }
 }
+/* ---- VIP reopened (Oct 13) ---- */
+.vipc__demand{ margin-left:6px; padding:3px 10px; border-radius:100px; font-size:10px; letter-spacing:.14em;
+  background:linear-gradient(180deg,#FFD08A,#F9A235); color:#2A1F05; white-space:nowrap; }
+.vipc__reopen{ margin-top:10px; padding:10px 14px; border-radius:10px; font-size:15px; line-height:1.5;
+  color:#FFE3BF; background:rgba(249,162,53,.12); border:1px solid rgba(249,162,53,.35); }
+@media (max-width:560px){ .vipc__eb{ flex-wrap:wrap; row-gap:6px; } .vipc__demand{ margin-left:0; } }
 </style>
 </head>
 
@@ -2472,9 +2478,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         </ul>
 
         <aside class="vipc" aria-labelledby="vip-h">
-          <p class="vipc__eb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18l1-10-5.5 4L12 5l-4.5 7L2 8Z"/><rect x="3" y="19.2" width="18" height="2" rx="1"/></svg> VIP ticket experience</p>
+          <p class="vipc__eb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18l1-10-5.5 4L12 5l-4.5 7L2 8Z"/><rect x="3" y="19.2" width="18" height="2" rx="1"/></svg> VIP ticket experience <span class="vipc__demand">Back by popular demand</span></p>
           <h3 id="vip-h">Upgrade to VIP</h3>
           <p class="vipc__lede">Get more access, preferred seating and a more personal experience after the main program ends.</p>
+          <p class="vipc__reopen">VIP sold out once already. Due to overwhelming demand, Rebecca Walser and Charles Payne have reopened it.</p>
           <ul>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>Priority seating in the exclusive VIP section</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9Z"/></svg><span>VIP experience immediately after the closing session, approximately 4:15 &ndash; 5:00 PM</span></li>
@@ -2588,7 +2595,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
           <p class="card__tier">Single VIP</p>
           <p class="card__seats">One seat</p>
           <p class="card__price"><span class="card__now">$97</span></p>
-          <span class="card__save">Limited seats</span>
+          <span class="card__save">Reopened by demand</span>
         </div>
         <div class="card__body">
           <p class="card__inherit">Everything in Single, plus</p>
@@ -2891,7 +2898,8 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
         document.querySelectorAll('.cta-sub').forEach(function(el){ el.innerHTML = el.innerHTML.replace('VIP options available', 'VIP sold out'); });
         var v = document.querySelector('.vipc');
         if (v) {
-          var eb = v.querySelector('.vipc__eb'); if (eb) eb.insertAdjacentHTML('beforeend', ' <span class="vipc__sold">Sold out</span>');
+          var eb = v.querySelector('.vipc__eb'); if (eb) { var dm = eb.querySelector('.vipc__demand'); if (dm) dm.remove(); eb.insertAdjacentHTML('beforeend', ' <span class="vipc__sold">Sold out</span>'); }
+          var ro = v.querySelector('.vipc__reopen'); if (ro) ro.remove();
           var cta = v.querySelector('.vipc__cta'); if (cta) { cta.outerHTML = '<p class="vipc__soldnote">VIP is sold out. Single and Couple tickets include the full program and lunch.</p>'; }
         }
       }
