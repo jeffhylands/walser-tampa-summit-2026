@@ -2825,9 +2825,9 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
      it. Display only - the server re-checks the code and sets the price
      (server/config/tickets.js OFFERS; keep the date and percent in sync). */
   try {
-    var OFFERS = { save20: { code: 'save20', until: Date.parse('2026-10-11T03:59:59.999Z'),
+    var OFFERS = { save20: { code: 'save20', until: Date.parse('2026-10-17T12:00:00.000Z'),
       prices: { 47: '37.60', 67: '53.60', 97: '77.60', 147: '117.60', 27: '21.60', 20: '16' },
-      bar: '<b>20% off every ticket</b> &middot; reserve by Fri, Oct 10 &middot; applied automatically at checkout' } };
+      bar: '<b>20% off every ticket</b> &middot; through Sat, Oct 17 &middot; applied automatically at checkout' } };
     var q = (new URLSearchParams(window.location.search).get('offer') || '').toLowerCase();
     if (!OFFERS[q]) { try { q = (localStorage.getItem('trl_offer') || '').toLowerCase(); } catch (e) { q = ''; } }
     var offer = OFFERS[q];
